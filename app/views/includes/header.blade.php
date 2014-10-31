@@ -1,5 +1,5 @@
+<title>ZimmerFrei | Explore the world.</title>
 
-</header>
 <div class="navbar">
 	<div class="navbar-inner">
 		<a id="logo" href="/">This will be logo</a>
