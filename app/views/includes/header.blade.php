@@ -9,7 +9,7 @@
 			<li><a href="/near">Near me</a></li>
 			<li><a href="/about">About</a></li>
 			<li><a href="/login">Login</a></li>
-			<li><a href="/register">Register</a></li>
+			<li><a href="/signup">Sign up</a></li>
 		</ul>
 	</div>
 </div>

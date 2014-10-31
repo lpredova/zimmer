@@ -23,7 +23,10 @@ class CreateUsersTable extends Migration {
             $table->string('email');
             $table->string('phone');
             $table->string('avatar');
-            $table->string('roles_id');
+            $table->string('token');
+
+            $table->integer('role_id')->unsigned();
+            $table->foreign('role_id')->references('id')->on('users');
 
 			$table->timestamps();
 		});

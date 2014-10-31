@@ -5,8 +5,10 @@
 	"license": "MIT",
 	"require": {
 		"laravel/framework": "4.2.*",
-		"way/generators": "3"
-	},
+		"way/generators": "3",
+        "laravelbook/ardent": "dev-master"
+
+    },
 	"autoload": {
 		"classmap": [
 			"app/commands",

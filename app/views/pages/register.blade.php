@@ -2,7 +2,7 @@
 
   @section('content')
     <h2>This will be registration</h2>
-    {{Form::open(array('url'=>'login','method'=>'POST'))}}
+    {{Form::open(array('url'=>'signup','method'=>'POST'))}}
                     {{ Form::label('name', 'Name') }}
                     {{Form::text('name')}}
                     
