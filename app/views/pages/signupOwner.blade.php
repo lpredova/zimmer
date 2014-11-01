@@ -25,6 +25,9 @@
                     {{ Form::label('confirm_password', 'Confirm Password') }}
                     {{Form::password('confirm_password')}}
 
+                    {{ Form::label('phone', 'Phone') }}
+                    {{Form::password('phone')}}
+
 
                     {{Form::submit('Register me')}}
             {{ Form::close() }}

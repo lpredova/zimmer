@@ -20,6 +20,7 @@ Route::get('/signup','RegistrationController@createUser');
 Route::get('/signup/owner','RegistrationController@createOwner');
 Route::post('/register/user','RegistrationController@storeUser');
 Route::post('/register/owner','RegistrationController@storeOwner');
+Route::post('/login','RegistrationController@loginUser');
 /**
  * ====================================================================
  */
