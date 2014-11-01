@@ -5,7 +5,7 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class User extends Ardent/*Eloquent*/ implements UserInterface, RemindableInterface {
+class User extends Eloquent implements UserInterface, RemindableInterface {
 
 	use UserTrait, RemindableTrait;
 	protected $table = 'users';
@@ -21,15 +21,6 @@ class User extends Ardent/*Eloquent*/ implements UserInterface, RemindableInterf
 
     //removing redundant data
     public $autoPurgeRedundantAttributes = true;
-
-    public static $rules = array(
-        'name' => 'required|min:3|max:80',
-        'surname' => 'required|min:3|max:80',
-        'username' => 'required|between:4,16',
-        'email' => 'required|email',
-        'password' => 'required|alpha_num|min:8|confirmed',
-        'password_confirmation' => 'required|alpha_num|min:8',
-    );
 
 
     public function getAuthIdentifier()
@@ -47,6 +38,9 @@ class User extends Ardent/*Eloquent*/ implements UserInterface, RemindableInterf
         return $this->email;
     }
 
-
+    public function user()
+    {
+        return $this->belongs_to('roles');
+    }
 
 }
