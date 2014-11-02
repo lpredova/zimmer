@@ -1,6 +1,7 @@
-  @extends('master')
+@extends('admin.index')
+@section('adminContent')
 
-  @section('content')
+
     <h2>This is showing {{$role->name}} role</h2>
     <a href="/admin/roles/edit/{{$role->id}}">Edit</a>
 

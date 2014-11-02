@@ -1,5 +1,5 @@
-@extends('admin.admin_index')
-@section('content')
+@extends('admin.index')
+@section('adminContent')
 
 <h1>Roles</h1>
 <a href="/admin/roles/new">New role</a>

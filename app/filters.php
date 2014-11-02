@@ -88,3 +88,26 @@ Route::filter('csrf', function()
 		throw new Illuminate\Session\TokenMismatchException;
 	}
 });
+
+
+Route::filter('admin', function()
+{
+    if (Auth::user()->role_id != 1)
+    {
+        return Redirect::to('/restricted');
+    }
+});
+Route::filter('owner', function()
+{
+    if (Auth::user()->role_id != 2)
+    {
+        return Redirect::to('/restricted');
+    }
+});
+Route::filter('user', function()
+{
+    if (Auth::user()->role_id != 3)
+    {
+        return Redirect::to('/restricted');
+    }
+});

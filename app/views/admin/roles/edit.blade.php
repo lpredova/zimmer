@@ -1,6 +1,5 @@
-  @extends('master')
-
-  @section('content')
+@extends('admin.index')
+@section('adminContent')
     <h2>This is editing {{$role->name}} role</h2>
 
     {{Form::open(array('url'=>'admin/roles/update/'.($role->id),'method'=>'PUT'))}}

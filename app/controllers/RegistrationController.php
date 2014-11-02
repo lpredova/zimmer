@@ -3,6 +3,9 @@
 class RegistrationController extends \BaseController
 {
 
+    public function __construct() {
+        $this->beforeFilter('csrf', array('on'=>'post'));
+    }
 
     /**
      * Function that checks user login and redirects it to it's user panel
@@ -10,24 +13,57 @@ class RegistrationController extends \BaseController
      */
     public function loginUser()
     {
-        /*if (Hash::check('secret', $hashedPassword))
-        {
-            // The passwords match...
-        }*/
+        $rules = array(
+            'username'    => 'required',
+            'password' => 'required|min:5'
+        );
 
-        try{
-            $user = User::where('username',Input::get('username'))->firstOrFail();
-            $user = User::where('email',Input::get('username'))->firstOrFail();
-            return Redirect::to('/discover');
-        }
-        catch(Exception $e){
+        $validator = Validator::make(Input::all(), $rules);
 
-            return Redirect::to('/login');
+        if ($validator->fails()) {
+            return Redirect::to('/login')
+                ->withErrors($validator)
+                ->withInput(Input::except('password'));}
+        else{
+            $userdata = array(
+                'username' 	=> Input::get('username'),
+                'password' 	=> Input::get('password')
+            );
+
+            if (Auth::attempt($userdata)) {
+
+                switch(Auth::user()->role_id){
+                    case 1:
+                        return Redirect::to('/admin');
+                        break;
+                    case 2:
+                        return Redirect::to('/owner');
+                        break;
+                    case 3:
+                        return Redirect::to('/user');
+                        break;
+                }
+
+            } else {
+                return Redirect::to('/login');
+            }
         }
     }
 
+    /**
+     * Basic logout for all types of users
+     * @return mixed
+     */
+    public function logoutUser(){
+        Auth::logout();
+        return Redirect::to('/login')->with('message', 'Your are now logged out!');
+    }
 
 
+    /**
+     * Showing forms for login and registration
+     * @return mixed
+     */
     public function createUser()
     {
         return View::make('pages.signupUser');
@@ -38,13 +74,19 @@ class RegistrationController extends \BaseController
         return View::make('pages.signupOwner');
     }
 
+
+    /**
+     * Saving registered user
+     * @return mixed
+     */
     public function storeUser()
     {
-        $rules = array( 'name' =>       'required|alpha',
-                        'surname'=>     'required|alpha',
-                        'username'=>    'required|alpha|unique:users',
-                        'email'=>       'required|email|unique:users',
-                        'password'=>    'required|min:5'
+        $rules = array(
+            'name' => 'required|alpha',
+            'surname' => 'required|alpha',
+            'username' => 'required|alpha|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:5'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -56,13 +98,12 @@ class RegistrationController extends \BaseController
             $user->name = Input::get('name');
             $user->surname = Input::get('surname');
             $user->username = Input::get('username');
-            $user->password =Hash::make(Input::get('password'));
+            $user->password = Hash::make(Input::get('password'));
             $user->email = Input::get('email');
             $user->phone = '0';
             $user->avatar = 'none';
             $user->activated = 0;
             $user->activation_token = Hash::make(Input::get('password'));
-            $user->user_token = Hash::make(Input::get('username'));;
             $user->role_id = 3;
             $user->save();
 
@@ -71,15 +112,19 @@ class RegistrationController extends \BaseController
         }
     }
 
-
+    /**
+     * Saving registered owner
+     * @return mixed
+     */
     public function storeOwner()
     {
-        $rules = array( 'name' =>       'required|alpha',
-            'surname'=>     'required|alpha',
-            'username'=>    'required|alpha|unique:users',
-            'email'=>       'required|email|unique:users',
-            'password'=>    'required|min:5',
-            'phone' =>      'required|numeric|min:6'
+        $rules = array(
+            'name' => 'required|alpha',
+            'surname' => 'required|alpha',
+            'username' => 'required|alpha|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:5',
+            'phone' => 'required|numeric|min:6'
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -91,14 +136,13 @@ class RegistrationController extends \BaseController
             $user->name = Input::get('name');
             $user->surname = Input::get('surname');
             $user->username = Input::get('username');
-            $user->password =Hash::make(Input::get('password'));
+            $user->password = Hash::make(Input::get('password'));
             $user->email = Input::get('email');
             $user->phone = Input::get('phone');
             $user->avatar = 'none';
             $user->activated = 0;
             $user->activation_token = Hash::make(Input::get('password'));
-            $user->user_token = Hash::make(Input::get('username'));;
-            $user->role_id = 3;
+            $user->role_id = 2;
             $user->save();
 
             Session::flash('message', 'Successfully updated role!');

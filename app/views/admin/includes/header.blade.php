@@ -7,6 +7,7 @@
 			<li><a href="/admin/">Main admin panel</a></li>
 			<li><a href="/admin/roles">Roles</a></li>
 			<li><a href="/admin/users">Users</a></li>
+			<li><a href="/logout">Logout</a></li>
 		</ul>
 	</div>
 </div>

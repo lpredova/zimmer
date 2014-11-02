@@ -4,29 +4,20 @@ class AdminController extends \BaseController {
 
 
     /**
+     * Protecting admin panel from idiots
+     */
+    public function __construct() {
+        $this->beforeFilter('csrf', array('on'=>'post'));
+        $this->beforeFilter('auth', array('only'=>array('getDashboard')));
+    }
+
+    /**
      * Admin panel index page
      */
     public function indexAdmin()
     {
-        return View::make('admin.admin_index');
+        return View::make('admin.index');
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 	/**
 	 * Display a listing of the resource.

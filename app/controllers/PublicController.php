@@ -36,5 +36,10 @@ class PublicController extends \BaseController
         return View::make('pages.register');
     }
 
+    public function indexRestricted()
+    {
+        return View::make('pages.restricted');
+    }
+
 
 }

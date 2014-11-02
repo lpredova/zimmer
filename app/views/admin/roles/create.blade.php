@@ -1,6 +1,6 @@
-  @extends('admin.admin_index')
+@extends('admin.index')
+@section('adminContent')
 
-  @section('content')
     <h2>This is new role adding</h2>
     {{Form::open(array('url'=>'admin/roles/store','method'=>'POST'))}}
                     {{ Form::label('name', 'Name') }}
