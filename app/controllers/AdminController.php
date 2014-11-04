@@ -291,25 +291,67 @@ class AdminController extends \BaseController {
 
     public function indexApType()
     {
-
+        $apartment_types = ApartmentType::all();
+        return View::make('admin.apartmentType.index',compact('apartment_types'));
     }
+
     public function createApType()
     {
+        return View::make('admin.apartmentType.create');
     }
+
     public function storeApType()
     {
+        $rules = array('name' => 'required|alpha|unique:apartment_types');
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/apartment_types/new')->withErrors($validator);
+        }
+        else{
+            $country = new ApartmentType();
+            $country->name = Input::get('name');
+            $country->save();
+
+            Session::flash('message', 'Successfully added apartment type !');
+            return Redirect::to('/admin/apartment_types');
+        }
     }
+
     public function showApType($id)
     {
+        $apartment_types = ApartmentType::find($id);
+        return View::make('admin.apartmentType.show',compact('apartment_types'));
     }
     public function editApType($id)
     {
+        $apartment_types = ApartmentType::find($id);
+        return View::make('admin.apartmentType.edit',compact('apartment_types'));
     }
     public function updateApType($id)
     {
+        $rules = array('name' => 'required|alpha|unique:apartment_types');
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/apartment_types/new')->withErrors($validator);
+        }
+        else{
+            $country = ApartmentType::find($id);
+            $country->name = Input::get('name');
+            $country->save();
+
+            Session::flash('message', 'Successfully added apartment type !');
+            return Redirect::to('/admin/apartment_types');
+        }
     }
     public function destroyApType($id)
     {
+        $country = ApartmentType::find($id);
+        $country->delete();
+
+        Session::flash('message', 'Successfully deleted the role!');
+        return Redirect::to('/admin/apartment_types');
     }
     /**
      * Apartments CRUD
@@ -323,21 +365,117 @@ class AdminController extends \BaseController {
     }
     public function createApartment()
     {
+        $owners = User::lists('username','id');
+        $countries = Country::lists('name','id');
+        $types = ApartmentType::lists('name','id');
+
+        return View::make('admin.apartment.create',compact('owners','countries','types'));
     }
     public function storeApartment()
     {
+        $rules = array(
+            'name' => 'required|regex:/^[A-Za-zŠĐČĆŽšđčćž ]+$/',
+            'description' => 'required|regex:/^[A-Za-zŠĐČĆŽšđčćž ]+$/',
+            'capacity' => 'numeric',
+            'address' => 'required|regex:/^[A-Za-zŠĐČĆŽšđčćž0-9 ]+$/',
+            'email' => 'required|email',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+            'phone_2' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+            'lat' => 'required|regex:/^[+-]?\d+\.\d+$/',
+            'lng' => 'required|regex:/^^[+-]?\d+\.\d+$/'
+        );
+
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/apartments/new')->withErrors($validator);
+        }
+        else{
+            $apartment = new Apartment();
+
+            $apartment->name = Input::get('name');
+            $apartment->description = Input::get('description');
+            $apartment->capacity = Input::get('capacity');
+            $apartment->address = Input::get('address');
+            $apartment->email = Input::get('email');
+            $apartment->phone = Input::get('phone');
+            $apartment->phone_2 = Input::get('phone_2');
+            $apartment->rating = 0;
+            $apartment->lng = Input::get('lng');
+            $apartment->lat = Input::get('lat');
+            $apartment->owner_id = Input::get('owner');
+            $apartment->type_id = Input::get('type');
+            $apartment->country_id = Input::get('country');
+
+            $apartment->save();
+            Session::flash('message', 'Successfully added apartment type !');
+            return Redirect::to('/admin/apartments');
+        }
     }
+
     public function showApartment($id)
     {
+        $apartment = Apartment::find($id);
+        return View::make('admin.apartment.show',compact('apartment'));
     }
+
     public function editApartment($id)
     {
+        $owners = User::lists('username','id');
+        $countries = Country::lists('name','id');
+        $types = ApartmentType::lists('name','id');
+        $apartment = Apartment::find($id);
+        return View::make('admin.apartment.edit',compact('apartment','owners','countries','types'));
     }
     public function updateApartment($id)
     {
+        $rules = array(
+            'name' => 'required|regex:/^[A-Za-zŠĐČĆŽšđčćž ]+$/',
+            'description' => 'required|regex:/^[A-Za-zŠĐČĆŽšđčćž ]+$/',
+            'capacity' => 'numeric',
+            'address' => 'required|regex:/^[A-Za-zŠĐČĆŽšđčćž0-9 ]+$/',
+            'email' => 'required|email',
+            'phone' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+            'phone_2' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/',
+            'lat' => 'required|regex:/^[+-]?\d+\.\d+$/',
+            'lng' => 'required|regex:/^^[+-]?\d+\.\d+$/'
+        );
+
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/apartments/new')->withErrors($validator);
+        }
+        else{
+            $apartment = Apartment::find($id);
+            $apartment->name = Input::get('name');
+            $apartment->description = Input::get('description');
+            $apartment->capacity = Input::get('capacity');
+            $apartment->address = Input::get('address');
+            $apartment->email = Input::get('email');
+            $apartment->phone = Input::get('phone');
+            $apartment->phone_2 = Input::get('phone_2');
+            $apartment->rating = 0;
+            $apartment->lng = Input::get('lng');
+            $apartment->lat = Input::get('lat');
+            $apartment->owner_id = Input::get('owner');
+            $apartment->type_id = Input::get('type');
+            $apartment->country_id = Input::get('country');
+
+            $apartment->save();
+            Session::flash('message', 'Successfully added apartment type !');
+            return Redirect::to('/admin/apartments');
+        }
     }
     public function destroyApartment($id)
     {
+        $apartment = Apartment::find($id);
+        $apartment->delete();
+
+        Session::flash('message', 'Successfully deleted the role!');
+        return Redirect::to('/admin/apartments');
     }
     /**
      * Pictures CRUD
@@ -346,6 +484,8 @@ class AdminController extends \BaseController {
 
     public function indexPicture()
     {
+        $pictures = Picture::all();
+        return View::make('admin.picture.index',compact('pictures'));
     }
     public function createPicture()
     {

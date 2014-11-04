@@ -1,41 +1,58 @@
 @extends('admin.index')
 @section('adminContent')
-    <h2>Editing {{$user->name}}{{$user->surname}} </h2>
+    <h2>Editing {{$apartment->name}} </h2>
 
-    {{Form::open(array('url'=>'admin/users/update/'.($user->id),'method'=>'PUT'))}}
+    {{Form::open(array('url'=>'admin/apartments/update/'.($apartment->id),'method'=>'PUT'))}}
+
+                    {{ Form::label('owner', 'Owner') }}
+                    {{Form::select('owner',$owners, $apartment->owner_id, array('class' => 'name'));}}
+
+                    {{ Form::label('type', 'Type') }}
+                    {{Form::select('type',$types, $apartment->type_id, array('class' => 'name'));}}
+
+                    {{Form::label('country', 'Conutry') }}
+                    {{Form::select('country',$countries, $apartment->country_id, array('class' => 'name'));}}
 
                     {{ Form::label('name', 'Name') }}
-                    {{Form::text('name',($user->name))}}
-                    {{ $errors->first('name') }}
+                    {{Form::text('name',($apartment->name))}}
+                    {{$errors->first('name')}}
 
-                    {{ Form::label('surname', 'Surname') }}
-                    {{Form::text('surname',($user->surname))}}
-                    {{ $errors->first('surname') }}
+                    {{Form::label('description', 'Description') }}
+                    {{Form::text('description',($apartment->description))}}
+                    {{ $errors->first('description') }}
+
+                    {{Form::label('address', 'address') }}
+                    {{Form::text('address',($apartment->address))}}
+                    {{ $errors->first('address') }}
+
+                    {{Form::label('capacity', 'Capacity') }}
+                    {{Form::text('capacity',($apartment->capacity))}}
+                    {{ $errors->first('capacity') }}
 
                     {{ Form::label('email', 'Email') }}
-                    {{Form::text('email',($user->email))}}
-                    {{ $errors->first('email') }}
-
-                    {{Form::label('username', 'Username') }}
-                    {{Form::text('username',($user->username))}}
-                    {{ $errors->first('username') }}
-
-                    {{ Form::label('password', 'Password') }}
-                    {{Form::password('password')}}
-                    {{ $errors->first('password')}}
+                    {{Form::text('email',($apartment->email))}}
+                    {{$errors->first('email') }}
 
                     {{ Form::label('phone', 'Phone') }}
-                    {{Form::text('phone',($user->phone))}}
-                    {{ $errors->first('phone') }}
+                    {{Form::text('phone',($apartment->phone))}}
+                    {{ $errors->first('phone')}}
 
+                    {{ Form::label('phone_2', 'Phone') }}
+                    {{Form::text('phone_2',($apartment->phone_2))}}
+                    {{ $errors->first('phone_2')}}
 
-                    {{ Form::label('role', 'Role') }}
-                    {{Form::select('role',$roles,($user->role_id), array('class' => 'name'));}}
+                    {{Form::label('lat', 'Lat') }}
+                    {{Form::text('lat',($apartment->lat))}}
+                    {{ $errors->first('lat') }}
+
+                    {{Form::label('lng', 'Lng') }}
+                    {{Form::text('lng',($apartment->lng))}}
+                    {{ $errors->first('lng') }}
 
                     {{Form::submit('Update user')}}
     {{ Form::close() }}
 
- {{Form::open(array('url'=>'admin/users/destroy/'.($user->id),'method'=>'DELETE'))}}
+ {{Form::open(array('url'=>'admin/apartments/destroy/'.($apartment->id),'method'=>'DELETE'))}}
                     {{Form::submit('Delete')}}
     {{ Form::close() }}
 

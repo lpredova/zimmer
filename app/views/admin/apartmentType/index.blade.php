@@ -2,18 +2,13 @@
 @section('adminContent')
 
 <h1>Users</h1>
-<a href="/admin/users/new">New user</a>
+<a href="/admin/apartment_types/new">New type</a>
  <ul>
      <table>
-     @foreach($users as $user)
+     @foreach($apartment_types as $type)
          <tr>
-            <td>{{$user->name}}</td>
-            <td>{{$user->surname}}</td>
-            <td>{{$user->username}}</td>
-            <td>{{$user->email}}</td>
-            <td>{{$user->role_id}}</td>
-            <td><img src='{{$user->avatar}}' alt="user_avatar"></td>
-            <td><a href="/admin/users/show/{{$user->id}}">Edit</a></td>
+            <td>{{$type->name}}</td>
+            <td><a href="/admin/apartment_types/show/{{$type->id}}">Edit</a></td>
          </tr>
      @endforeach
      </table>

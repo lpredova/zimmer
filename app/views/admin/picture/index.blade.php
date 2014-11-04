@@ -1,18 +1,14 @@
 @extends('admin.index')
 @section('adminContent')
 
-<h1>Users</h1>
-<a href="/admin/users/new">New user</a>
+<h1>Pictures</h1>
+<a href="/admin/users/new">New picture</a>
  <ul>
      <table>
-     @foreach($users as $user)
+     @foreach($pictures as $picture)
          <tr>
-            <td>{{$user->name}}</td>
-            <td>{{$user->surname}}</td>
-            <td>{{$user->username}}</td>
-            <td>{{$user->email}}</td>
-            <td>{{$user->role_id}}</td>
-            <td><img src='{{$user->avatar}}' alt="user_avatar"></td>
+            <td>{{$picture->title}}</td>
+            <td><img src='{{$user->url}}' alt="apartment_picture"></td>
             <td><a href="/admin/users/show/{{$user->id}}">Edit</a></td>
          </tr>
      @endforeach

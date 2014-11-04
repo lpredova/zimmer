@@ -1,42 +1,56 @@
 @extends('admin.index')
 @section('adminContent')
 
-
-
-
-    <h2>This is creating new user</h2>
-    {{Form::open(array('url'=>'admin/users/store','method'=>'POST'))}}
+    <h2>Adding new apartment</h2>
+    {{Form::open(array('url'=>'admin/apartments/store','method'=>'POST'))}}
+    
+                     {{ Form::label('owner', 'Owner') }}
+                     {{Form::select('owner',$owners, 'key', array('class' => 'name'));}}
+                     
+                     {{ Form::label('type', 'Type') }}
+                     {{Form::select('type',$types, 'key', array('class' => 'name'));}}
+                     
+                     {{Form::label('country', 'Conutry') }}
+                     {{Form::select('country',$countries, 'key', array('class' => 'name'));}}
+    
                      {{ Form::label('name', 'Name') }}
                      {{Form::text('name')}}
-                      {{ $errors->first('name') }}
+                     {{$errors->first('name')}}
 
-                     {{ Form::label('surname', 'Surname') }}
-                     {{Form::text('surname')}}
-                      {{ $errors->first('surname') }}
+                     {{Form::label('description', 'Description') }}
+                     {{Form::text('description')}}
+                     {{ $errors->first('description') }}
+
+                     {{Form::label('address', 'address') }}
+                     {{Form::text('address')}}
+                     {{ $errors->first('address') }}
+
+                      {{Form::label('capacity', 'Capacity') }}
+                      {{Form::text('capacity')}}
+                      {{ $errors->first('capacity') }}
 
                      {{ Form::label('email', 'Email') }}
                      {{Form::text('email')}}
-                      {{ $errors->first('email') }}
+                     {{$errors->first('email') }}
 
-                     {{Form::label('username', 'Username') }}
-                     {{Form::text('username')}}
-                      {{ $errors->first('username') }}
-
-                    {{ Form::label('password', 'Password') }}
-                    {{Form::password('password')}}
-                     {{ $errors->first('password')}}
-
-                    {{Form::label('confirm_password', 'Confirm Password') }}
-                    {{Form::password('confirm_password')}}
 
                     {{ Form::label('phone', 'Phone') }}
                     {{Form::text('phone')}}
-                    {{ $errors->first('phone') }}
+                     {{ $errors->first('phone')}}
+                     
+                    {{ Form::label('phone_2', 'Phone') }}
+                    {{Form::text('phone_2')}}
+                     {{ $errors->first('phone_2')}}
+
+                    {{ Form::label('lat', 'Lat') }}
+                    {{Form::text('lat')}}
+                    {{ $errors->first('lat') }}
+                    
+                    {{ Form::label('lng', 'Lng') }}
+                    {{Form::text('lng')}}
+                    {{ $errors->first('lng') }}
 
 
-                    {{ Form::label('role', 'Role') }}
-                    {{Form::select('role',$roles, 'key', array('class' => 'name'));}}
-
-                    {{Form::submit('Create new user')}}
+                    {{Form::submit('Create apartment')}}
             {{ Form::close() }}
   @stop

@@ -1,0 +1,21 @@
+<title>Hello Admin | Explore the world.</title>
+{{ HTML::style('css/bootstrap.min.css') }}
+{{ HTML::style('css/stlish-portfolio.css') }}
+
+{{ HTML::style('font-awesome-4.1.0/css/font-awesome.min.css') }}
+{{ HTML::style('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic') }}
+
+
+
+<div class="navbar">
+	<div class="navbar-inner">
+		<ul class="nav">
+			<li><h1>owner HEADER</h1></li>
+			<li><a href="/owner">Main page</a></li>
+			<li><a href="/owner/apartments">My apartments</a></li>
+			<li><a href="/owner/favorites">Favorites</a></li>
+			<li><a href="/owner/profile">My Profile</a></li>
+			<li><a href="/logout">Logout</a></li>
+		</ul>
+	</div>
+</div>
