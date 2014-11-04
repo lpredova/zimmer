@@ -43,7 +43,57 @@ Route::group(array('before' => 'auth|admin'), function () {
     Route::get('/admin/users/edit/{id}', 'AdminController@editUser');
     Route::put('/admin/users/update/{id}', 'AdminController@updateUser');
     Route::delete('/admin/users/destroy/{id}', 'AdminController@destroyUser');
-
+    /**
+     * Apartments CRUD
+     */
+    Route::get('/admin/apartments', 'AdminController@indexApartment');
+    Route::get('/admin/apartments/new', 'AdminController@createApartment');
+    Route::post('/admin/apartments/store', 'AdminController@storeApartment');
+    Route::get('/admin/apartments/show/{id}', 'AdminController@showApartment');
+    Route::get('/admin/apartments/edit/{id}', 'AdminController@editApartment');
+    Route::put('/admin/apartments/update/{id}', 'AdminController@updateApartment');
+    Route::delete('/admin/apartments/destroy/{id}', 'AdminController@destroyApartment');
+    /**
+     * Apartment types CRUD
+     */
+    Route::get('/admin/apartment_types', 'AdminController@indexApType');
+    Route::get('/admin/apartment_types/new', 'AdminController@createApType');
+    Route::post('/admin/apartment_types/store', 'AdminController@storeApType');
+    Route::get('/admin/apartment_types/show/{id}', 'AdminController@showApType');
+    Route::get('/admin/apartment_types/edit/{id}', 'AdminController@editApType');
+    Route::put('/admin/apartment_types/update/{id}', 'AdminController@updateApType');
+    Route::delete('/admin/apartment_types/destroy/{id}', 'AdminController@destroyApType');
+    
+    /**
+     * Countries CRUD
+     */
+    Route::get('/admin/countries', 'AdminController@indexCountry');
+    Route::get('/admin/countries/new', 'AdminController@createCountry');
+    Route::post('/admin/countries/store', 'AdminController@storeCountry');
+    Route::get('/admin/countries/show/{id}', 'AdminController@showCountry');
+    Route::get('/admin/countries/edit/{id}', 'AdminController@editCountry');
+    Route::put('/admin/countries/update/{id}', 'AdminController@updateCountry');
+    Route::delete('/admin/countries/destroy/{id}', 'AdminController@destroyCountry');
+    /**
+     * Cities CRUD
+     */
+    Route::get('/admin/cities', 'AdminController@indexCity');
+    Route::get('/admin/cities/new', 'AdminController@createCity');
+    Route::post('/admin/cities/store', 'AdminController@storeCity');
+    Route::get('/admin/cities/show/{id}', 'AdminController@showCity');
+    Route::get('/admin/cities/edit/{id}', 'AdminController@editCity');
+    Route::put('/admin/cities/update/{id}', 'AdminController@updateCity');
+    Route::delete('/admin/cities/destroy/{id}', 'AdminController@destroyCity');
+    /**
+     * Pictures CRUD
+     */
+    Route::get('/admin/pictures', 'AdminController@indexPicture');
+    Route::get('/admin/pictures/new', 'AdminController@createPicture');
+    Route::post('/admin/pictures/store', 'AdminController@storePicture');
+    Route::get('/admin/pictures/show/{id}', 'AdminController@showPicture');
+    Route::get('/admin/pictures/edit/{id}', 'AdminController@editPicture');
+    Route::put('/admin/pictures/update/{id}', 'AdminController@updatePicture');
+    Route::delete('/admin/pictures/destroy/{id}', 'AdminController@destroyPicture');
 
     /**
      * Roles CRUD

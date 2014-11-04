@@ -141,12 +141,11 @@ class AdminController extends \BaseController {
     }
 	public function storeRole()
 	{
-
         $rules = array('name' => 'required|alpha');
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('/admin/roles/new');
+            return Redirect::to('/admin/roles/new')->withErrors($validator);
         }
         else{
             $role = new Role();
@@ -189,6 +188,184 @@ class AdminController extends \BaseController {
         Session::flash('message', 'Successfully deleted the role!');
         return Redirect::to('/admin/roles/');
 	}
+    
+    /**
+     * Countries CRUD
+     * ====================================================================
+     */
+
+    public function indexCountry()
+    {
+        $countries = Country::all();
+        return View::make('admin.country.index',compact('countries'));
+    }
+    public function createCountry()
+    {
+        return View::make('admin.country.create');
+
+    }
+    public function storeCountry()
+    {
+        $rules = array('name' => 'required|alpha|unique:country');
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/countries/new')->withErrors($validator);
+        }
+        else{
+            $country = new Country();
+            $country->name = Input::get('name');
+            $country->save();
+
+            Session::flash('message', 'Successfully added country !');
+            return Redirect::to('/admin/countries');
+        }
+    }
+    public function showCountry($id)
+    {
+        $country = Country::find($id);
+        return View::make('admin.country.show',compact('country'));
+
+    }
+    public function editCountry($id)
+    {
+        $country = Country::find($id);
+        return View::make('admin.country.edit',compact('country'));
+    }
+    public function updateCountry($id)
+    {
+        $rules = array('name' => 'required|alpha|unique:country');
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/countries/new')->withErrors($validator);
+        }
+        else{
+            $country = Country::find($id);
+            $country->name = Input::get('name');
+            $country->save();
+
+            Session::flash('message', 'Successfully added country !');
+            return Redirect::to('/admin/countries');
+        }
+    }
+
+    public function destroyCountry($id)
+    {
+        $country = Country::find($id);
+        $country->delete();
+
+        Session::flash('message', 'Successfully deleted the role!');
+        return Redirect::to('/admin/countries/');
+    }
+    /**
+     * Cities CRUD
+     * ====================================================================
+     */
+
+    public function indexCity()
+    {
+    }
+    public function createCity()
+    {
+    }
+    public function storeCity()
+    {
+    }
+    public function showCity($id)
+    {
+    }
+    public function editCity($id)
+    {
+    }
+    public function updateCity($id)
+    {
+    }
+    public function destroyCity($id)
+    {
+    }
+    /**
+     * Apartment types CRUD
+     * ====================================================================
+     */
+
+    public function indexApType()
+    {
+
+    }
+    public function createApType()
+    {
+    }
+    public function storeApType()
+    {
+    }
+    public function showApType($id)
+    {
+    }
+    public function editApType($id)
+    {
+    }
+    public function updateApType($id)
+    {
+    }
+    public function destroyApType($id)
+    {
+    }
+    /**
+     * Apartments CRUD
+     * ====================================================================
+     */
+
+    public function indexApartment()
+    {
+        $apartments = Apartment::all();
+        return View::make('admin.apartment.index',compact('apartments'));
+    }
+    public function createApartment()
+    {
+    }
+    public function storeApartment()
+    {
+    }
+    public function showApartment($id)
+    {
+    }
+    public function editApartment($id)
+    {
+    }
+    public function updateApartment($id)
+    {
+    }
+    public function destroyApartment($id)
+    {
+    }
+    /**
+     * Pictures CRUD
+     * ====================================================================
+     */
+
+    public function indexPicture()
+    {
+    }
+    public function createPicture()
+    {
+    }
+    public function storePicture()
+    {
+    }
+    public function showPicture($id)
+    {
+    }
+    public function editPicture($id)
+    {
+    }
+    public function updatePicture($id)
+    {
+    }
+    public function destroyPicture($id)
+    {
+    }
+
 
 
 }

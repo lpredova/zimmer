@@ -5,7 +5,7 @@
 
 
         {{Form::open(array('url'=>'/login','method'=>'POST'))}}
-                {{ Form::text('username',Input::old('username'),array('placeholder' => 'username or password')) }}
+                {{ Form::text('username',Input::old('username'),array('placeholder' => 'username or email')) }}
                  {{ $errors->first('username') }}
 
                 {{ Form::password('password')}}
