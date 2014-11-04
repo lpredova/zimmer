@@ -34,6 +34,18 @@ Route::group(array('before' => 'auth|admin'), function () {
 
     Route::get('/admin/', 'AdminController@indexAdmin');
     /**
+     * Users CRUD
+     */
+    Route::get('/admin/users', 'AdminController@indexUser');
+    Route::get('/admin/users/new', 'AdminController@createUser');
+    Route::post('/admin/users/store', 'AdminController@storeUser');
+    Route::get('/admin/users/show/{id}', 'AdminController@showUser');
+    Route::get('/admin/users/edit/{id}', 'AdminController@editUser');
+    Route::put('/admin/users/update/{id}', 'AdminController@updateUser');
+    Route::delete('/admin/users/destroy/{id}', 'AdminController@destroyUser');
+
+
+    /**
      * Roles CRUD
      */
     Route::get('/admin/roles', 'AdminController@indexRole');

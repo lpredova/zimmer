@@ -1,5 +1,5 @@
 <title>Hello Admin | Explore the world.</title>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
 <div class="navbar">
 	<div class="navbar-inner">
 		<ul class="nav">

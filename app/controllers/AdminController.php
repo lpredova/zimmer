@@ -18,78 +18,155 @@ class AdminController extends \BaseController {
     {
         return View::make('admin.index');
     }
+    /**
+     * ====================================================================
+     */
+    /**
+     * Users CRUD
+     */
+    public function indexUser()
+    {
+        $users = User::all();
+        return View::make('admin.users.index',compact('users'));
+    }
+    public function createUser()
+    {
+        $roles = Role::lists('name','id');
+        return View::make('admin.users.create',compact('roles'));
+    }
+    public function storeUser()
+    {
+        $rules = array(
+            'name' => 'required|alpha',
+            'surname' => 'required|alpha',
+            'username' => 'required|alpha|unique:users',
+            'email' => 'required|email|unique:users',
+            'password' => 'required|min:5'
+        );
 
-	/**
-	 * Display a listing of the resource.
-	 *
-	 * @return Response
-	 */
-	public function indexRole()
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/users/new')->withErrors($validator);
+        } else {
+            $user = new User();
+            $user->name = Input::get('name');
+            $user->surname = Input::get('surname');
+            $user->username = Input::get('username');
+            $user->password = Hash::make(Input::get('password'));
+            $user->email = Input::get('email');
+            $user->phone = '0';
+            $user->avatar = 'none';
+            $user->activated = 0;
+            $user->activation_token = Hash::make(Input::get('password'));
+            $user->role_id = Input::get('role');;
+            $user->save();
+
+            Session::flash('message', 'Successfully updated role!');
+            return Redirect::to('/admin/users/');
+        }
+    }
+
+
+    public function showUser($id)
+    {
+        $user = User::find($id);
+        return View::make('admin.users.show',compact('user'));
+    }
+
+    public function editUser($id)
+    {
+        $user = User::find($id);
+        $roles = Role::lists('name','id');
+
+
+        return View::make('admin.users.edit',compact('user'),compact('roles'));
+    }
+    public function updateUser($id)
+    {
+        $rules = array(
+            'name' => 'required|alpha',
+            'surname' => 'required|alpha',
+            'username' => 'required|alpha',
+            'email' => 'required|email',
+            'password' => 'required|min:5'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/users/')->withErrors($validator);
+        } else {
+            $user = User::find($id);
+            $user->name = Input::get('name');
+            $user->surname = Input::get('surname');
+            $user->username = Input::get('username');
+            $user->password = Hash::make(Input::get('password'));
+            $user->email = Input::get('email');
+            $user->phone = Input::get('phone');
+            $user->avatar = 'none';
+            $user->role_id = Input::get('role');;
+            $user->save();
+
+            Session::flash('message', 'Successfully updated user!');
+            return Redirect::to('/admin/users/');
+        }
+    }
+
+    public function destroyUser($id)
+    {
+        $user = User::find($id);
+        $user->delete();
+
+        Session::flash('message', 'Successfully deleted the role!');
+        return Redirect::to('/admin/users/');
+    }
+
+
+    /**
+     * ====================================================================
+     */
+    /**
+     * Roles CRUD
+     */
+
+    public function indexRole()
 	{
 		$roles = Role::all();
         return View::make('admin.roles.index',compact('roles'));
 	}
-
-	/**
-	 * Show the form for creating a new resource.
-	 *
-	 * @return Response
-	 */
 	public function createRole()
 	{
         return View::make('admin.roles.create');
     }
-
-	/**
-	 * Store a newly created resource in storage.
-	 *
-	 * @return Response
-	 */
 	public function storeRole()
 	{
-		$role = new Role();
-        $role->name = Input::get('name');
-        $role->save();
 
-        return Redirect::to('/admin/roles/');
+        $rules = array('name' => 'required|alpha');
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/roles/new');
+        }
+        else{
+            $role = new Role();
+            $role->name = Input::get('name');
+            $role->save();
+        }
 	}
-
-
-	/**
-	 * Display the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function showRole($id)
 	{
         $role = Role::find($id);
         return View::make('admin.roles.show',compact('role'));
     }
-
-
-	/**
-	 * Show the form for editing the specified resource.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function editRole($id)
 	{
         $role = Role::find($id);
         return View::make('admin.roles.edit',compact('role'));
 	}
-
-
-	/**
-	 * Update the specified resource in storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function updateRole($id)
 	{
-        $rules = array('name' => 'required');
+        $rules = array('name' => 'required|alpha');
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
@@ -104,20 +181,11 @@ class AdminController extends \BaseController {
             return Redirect::to('/admin/roles/show/'.$id);
         }
 	}
-
-	/**
-	 * Remove the specified resource from storage.
-	 *
-	 * @param  int  $id
-	 * @return Response
-	 */
 	public function destroyRole($id)
 	{
-        // delete
         $role = Role::find($id);
         $role->delete();
 
-        // redirect
         Session::flash('message', 'Successfully deleted the role!');
         return Redirect::to('/admin/roles/');
 	}

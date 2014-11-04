@@ -1,5 +1,6 @@
  <html>
  <head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css">
  	@include('includes.head')
  </head>
  <body>
