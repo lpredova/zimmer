@@ -7,14 +7,10 @@
                                                 <source type="video/ogg;" src="video/9999.oggtheora.ogg"></source>
             </video>-->
         	<div class="slide story" id="slide-1" data-slide="1">
-        		<div class="container">
         			<div id="home-row-1" class="row clearfix">
-        				<div class="col-12">
         					<h1 class="font-semibold">ZIMMER<span class="font-thin">FREI</span></h1>
         					<h4 class="font-thin">Explore  <span class="font-semibold">the WORLD</span>.Be curious.</h4>
-        			    </div><!-- /row -->
         			</div>
-        		</div><!-- /container -->
         	</div><!-- /slide1 -->
 
          @stop

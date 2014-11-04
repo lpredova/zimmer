@@ -196,6 +196,14 @@ jQuery(document).ready(function ($) {
 * = Arrows click  *
 ******************/
 jQuery(document).ready(function ($) {
+
+    new GMaps({
+        div: '#map',
+        lat: 44.11972 ,
+        lng: 15.24222
+    });
+
+
 	//Cache some variables
 	var arrows = $('#arrows div');
 

@@ -1,5 +1,13 @@
 <?php
+/**
+ * API routes
+ */
+Route::get('/api/v1/getLocations', 'ApiController@Method1');
 
+
+/**
+ * ====================================================================
+ */
 /**
  * Routes for public pages
  */

@@ -1,7 +1,8 @@
   @extends('master')
 
   @section('content')
-    <h2>This is near me page</h2>
+       <div id='map'></div>
+
 
 
   @stop
