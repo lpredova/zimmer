@@ -3,8 +3,8 @@
 
 
     <h2>Details {{$apartment->name}}</h2>
-       <a href="/admin/apartments/edit/{{$apartment->id}}">Edit</a>
-       <a href="/admin/pictures/new/">Add pictures</a>
+       <a href="/zimmer-frei/public/admin/apartments/edit/{{$apartment->id}}">Edit</a>
+       <a href="/zimmer-frei/public/admin/pictures/new/">Add pictures</a>
 
        <h4>Name    :{{($apartment->name)}}</h4>
        <h4>Description :{{($apartment->description)}}</h4>

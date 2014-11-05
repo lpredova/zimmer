@@ -2,13 +2,13 @@
 @section('adminContent')
 
 <h1>Countries avaliable</h1>
-<a href="/admin/countries/new">New country</a>
+<a href="/zimmer-frei/public/admin/countries/new">New country</a>
  <ul>
      <table>
      @foreach($countries as $country)
          <tr>
             <td>{{$country->name}}</td>
-            <td><a href="/admin/users/show/{{$country->id}}">Edit</a></td>
+            <td><a href="/zimmer-frei/public/admin/countries/show/{{$country->id}}">Edit</a></td>
          </tr>
      @endforeach
      </table>

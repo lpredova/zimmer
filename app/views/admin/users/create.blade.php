@@ -5,7 +5,7 @@
 
 
     <h2>This is creating new user</h2>
-    {{Form::open(array('url'=>'admin/users/store','method'=>'POST'))}}
+    {{Form::open(array('url'=>'/admin/users/store','method'=>'POST'))}}
                      {{ Form::label('name', 'Name') }}
                      {{Form::text('name')}}
                       {{ $errors->first('name') }}

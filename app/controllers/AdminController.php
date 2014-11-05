@@ -55,7 +55,7 @@ class AdminController extends \BaseController {
             $user->username = Input::get('username');
             $user->password = Hash::make(Input::get('password'));
             $user->email = Input::get('email');
-            $user->phone = '0';
+            $user->phone = Input::get('phone');
             $user->avatar = 'none';
             $user->activated = 0;
             $user->activation_token = Hash::make(Input::get('password'));
@@ -151,6 +151,8 @@ class AdminController extends \BaseController {
             $role = new Role();
             $role->name = Input::get('name');
             $role->save();
+
+            return Redirect::to('/admin/roles/');
         }
 	}
 	public function showRole($id)

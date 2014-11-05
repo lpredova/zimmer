@@ -2,14 +2,14 @@
 @section('adminContent')
 
 <h1>Pictures</h1>
-<a href="/admin/users/new">New picture</a>
+<a href="/zimmer-frei/public/admin/pictures/new">New picture</a>
  <ul>
      <table>
      @foreach($pictures as $picture)
          <tr>
             <td>{{$picture->title}}</td>
             <td><img src='{{$user->url}}' alt="apartment_picture"></td>
-            <td><a href="/admin/users/show/{{$user->id}}">Edit</a></td>
+            <td><a href="/zimmer-frei/public/admin/pictures/show/{{$user->id}}">Edit</a></td>
          </tr>
      @endforeach
      </table>

@@ -2,7 +2,7 @@
 @section('adminContent')
     <h2>Editing {{$user->name}}{{$user->surname}} </h2>
 
-    {{Form::open(array('url'=>'admin/users/update/'.($user->id),'method'=>'PUT'))}}
+    {{Form::open(array('url'=>'/admin/users/update/'.($user->id),'method'=>'PUT'))}}
 
                     {{ Form::label('name', 'Name') }}
                     {{Form::text('name',($user->name))}}
@@ -35,7 +35,7 @@
                     {{Form::submit('Update user')}}
     {{ Form::close() }}
 
- {{Form::open(array('url'=>'admin/users/destroy/'.($user->id),'method'=>'DELETE'))}}
+ {{Form::open(array('url'=>'/admin/users/destroy/'.($user->id),'method'=>'DELETE'))}}
                     {{Form::submit('Delete')}}
     {{ Form::close() }}
 

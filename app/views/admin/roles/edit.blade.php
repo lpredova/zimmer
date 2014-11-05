@@ -15,5 +15,4 @@
                     {{Form::submit('Delete')}}
     {{ Form::close() }}
 
-    <a href="/admin/roles/delete/{{$role->id}}">Delete</a>
   @stop
