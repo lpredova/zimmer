@@ -11,13 +11,13 @@
 	<div class="navbar-inner">
 		<ul class="nav">
 			<li><h1>ADMIN HEADER</h1></li>
-			<li><a href="/admin/">Main admin panel</a></li>
-			<li><a href="/admin/roles">Roles</a></li>
-			<li><a href="/admin/users">Users</a></li>
-			<li><a href="/admin/apartments">Apartments</a></li>
-			<li><a href="/admin/countries">Regions</a></li>
-			<li><a href="/admin/pictures">Pictures</a></li>
-			<li><a href="/logout">Logout</a></li>
+			<li><a href="/zimmer-frei/public/admin/">Main admin panel</a></li>
+			<li><a href="/zimmer-frei/public/admin/roles">Roles</a></li>
+			<li><a href="/zimmer-frei/public/admin/users">Users</a></li>
+			<li><a href="/zimmer-frei/public/admin/apartments">Apartments</a></li>
+			<li><a href="/zimmer-frei/public/admin/countries">Regions</a></li>
+			<li><a href="/zimmer-frei/public/admin/pictures">Pictures</a></li>
+			<li><a href="/zimmer-frei/public/logout">Logout</a></li>
 		</ul>
 	</div>
 </div>

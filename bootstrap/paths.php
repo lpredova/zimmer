@@ -13,6 +13,7 @@ return array(
 	|
 	*/
 
+	//'app' => __DIR__.'/../app',
 	'app' => __DIR__.'/../app',
 
 	/*
@@ -26,6 +27,7 @@ return array(
 	|
 	*/
 
+	//'public' => __DIR__.'/../public',
 	'public' => __DIR__.'/../public',
 
 	/*
@@ -39,6 +41,7 @@ return array(
 	|
 	*/
 
+	//'base' => __DIR__.'/..',
 	'base' => __DIR__.'/..',
 
 	/*
@@ -52,6 +55,7 @@ return array(
 	|
 	*/
 
+	//'storage' => __DIR__.'/../app/storage',
 	'storage' => __DIR__.'/../app/storage',
 
 );

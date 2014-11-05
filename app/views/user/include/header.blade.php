@@ -10,10 +10,10 @@
 <div class="navbar">
 	<div class="navbar-inner">
 		<ul class="nav">
-			<li><a href="/user">Main page</a></li>
-			<li><a href="/user/apartments">My apartments</a></li>
-			<li><a href="/user/favorites">Favorites</a></li>
-			<li><a href="/user/profile">My Profile</a></li>
+			<li><a href="/zimmer-frei/public/user">Main page</a></li>
+			<li><a href="/zimmer-frei/public/user/apartments">My apartments</a></li>
+			<li><a href="/zimmer-frei/public/user/favorites">Favorites</a></li>
+			<li><a href="/zimmer-frei/public/user/profile">My Profile</a></li>
 			<li><a href="/logout">Logout</a></li>
 		</ul>
 	</div>

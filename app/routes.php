@@ -13,7 +13,7 @@ Route::get('/api/v1/getLocations', 'ApiController@Method1');
  */
 Route::get('/', 'PublicController@getMainPage');
 Route::get('/discover', 'PublicController@getDiscoverPage');
-Route::get('/near', 'PublicController@getNearMe');
+Route::get('//near', 'PublicController@getNearMe');
 Route::get('/about', 'PublicController@getAbout');
 Route::get('/login', 'PublicController@getLogin');
 Route::get('/signup', 'PublicController@getRegister');
@@ -71,7 +71,7 @@ Route::group(array('before' => 'auth|admin'), function () {
     Route::get('/admin/apartment_types/edit/{id}', 'AdminController@editApType');
     Route::put('/admin/apartment_types/update/{id}', 'AdminController@updateApType');
     Route::delete('/admin/apartment_types/destroy/{id}', 'AdminController@destroyApType');
-    
+
     /**
      * Countries CRUD
      */

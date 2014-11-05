@@ -11,11 +11,11 @@
 	<div class="navbar-inner">
 		<ul class="nav">
 			<li><h1>owner HEADER</h1></li>
-			<li><a href="/owner">Main page</a></li>
-			<li><a href="/owner/apartments">My apartments</a></li>
-			<li><a href="/owner/favorites">Favorites</a></li>
-			<li><a href="/owner/profile">My Profile</a></li>
-			<li><a href="/logout">Logout</a></li>
+			<li><a href="/zimmer-frei/public/owner">Main page</a></li>
+			<li><a href="/zimmer-frei/public/owner/apartments">My apartments</a></li>
+			<li><a href="/zimmer-frei/public/owner/favorites">Favorites</a></li>
+			<li><a href="/zimmer-frei/public/owner/profile">My Profile</a></li>
+			<li><a href="/zimmer-frei/public/logout">Logout</a></li>
 		</ul>
 	</div>
 </div>
