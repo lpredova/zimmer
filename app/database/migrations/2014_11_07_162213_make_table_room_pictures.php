@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePicturesTable extends Migration {
+class MakeTableRoomPictures extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,15 +12,15 @@ class CreatePicturesTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('pictures', function(Blueprint $table)
+		Schema::create('room_pictures', function(Blueprint $table)
 		{
             $table->increments('id');
 
             $table->string('title');
             $table->text('url');
 
-            $table->integer('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('apartments');
+            $table->integer('room_id')->unsigned();
+            $table->foreign('room_id')->references('id')->on('apartments');
 
             $table->timestamps();
 
@@ -34,7 +34,7 @@ class CreatePicturesTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('pictures');
+        Schema::drop('room_pictures');
 
     }
 

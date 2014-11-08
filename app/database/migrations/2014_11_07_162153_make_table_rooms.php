@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCityTable extends Migration {
+class MakeTableRooms extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -12,17 +12,21 @@ class CreateCityTable extends Migration {
 	 */
 	public function up()
 	{
-		Schema::create('city', function(Blueprint $table)
+		Schema::create('rooms', function(Blueprint $table)
 		{
             $table->increments('id');
+
             $table->string('name');
-            $table->float('lat');
-            $table->float('lng');
+            $table->integer('capacity');
+            $table->integer('stars');
+            $table->text('description');
 
             $table->integer('apartment_id')->unsigned();
-            $table->foreign('apartment_id')->references('id')->on('country');
+            $table->foreign('apartment_id')->references('id')->on('apartments');
+
             $table->timestamps();
-		});
+
+        });
 	}
 
 	/**
@@ -32,7 +36,8 @@ class CreateCityTable extends Migration {
 	 */
 	public function down()
 	{
-        Schema::drop('city');
-	}
+        Schema::drop('rooms');
+
+    }
 
 }

@@ -19,6 +19,7 @@ class CreateApartmentsTable extends Migration {
             $table->string('name');
             $table->string('description');
             $table->integer('capacity');
+            $table->integer('stars');
             $table->text('address');
             $table->string('email');
             $table->string('phone');
@@ -37,8 +38,8 @@ class CreateApartmentsTable extends Migration {
             $table->foreign('type_id')->references('id')->on('apartment_types');
 
             //country foreign key
-            $table->integer('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('country');
+            $table->integer('city_id')->unsigned();
+            $table->foreign('city_id')->references('id')->on('city');
 
             $table->timestamps();
 		});
