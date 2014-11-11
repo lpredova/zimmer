@@ -9,7 +9,8 @@ class ApiController extends \BaseController {
 	 */
 	public function index()
 	{
-		//
+        $apartments = Apartment::all();
+        return compact('apartments');
 	}
 
 
