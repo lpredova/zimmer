@@ -16,7 +16,11 @@ This project started in October 2014 within class "Analiza i Razvoj programskih 
 
 ##Contributors
 Currently working ond this project :
+
 Luka Klancir - project manager
+
 Andro Krezić - Android developer
+
 Petar Vrbek - Mobile and Web designer and UX designer
+
 Lovro Predovan - Backend and frontend web developer
