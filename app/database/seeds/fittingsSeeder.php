@@ -1,7 +1,20 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: lovro
- * Date: 08/11/14
- * Time: 12:36
- */ 
+
+class FittingsSeeder extends DatabaseSeeder
+{
+    public function run()
+    {
+        $faker = Faker\Factory::create();
+
+        for ($i = 0; $i < 40; $i++)
+        {
+            Fitting::create(array(
+
+                "name" => $faker->text(5),
+                "description" => $faker->text(400),
+                "icon"    => $faker->imageUrl($width = 10, $height = 10),
+            ));
+        }
+    }
+
+}

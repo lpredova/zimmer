@@ -19,7 +19,10 @@ class MakeTableRoomHasFitting extends Migration {
 
             $table->integer('fitting_id')->unsigned();
             $table->foreign('fitting_id')->references('id')->on('fittings');
-		});
+
+            $table->timestamps();
+
+        });
 	}
 
 	/**

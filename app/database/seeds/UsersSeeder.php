@@ -53,8 +53,8 @@ class UsersSeeder extends DatabaseSeeder
         for ($i = 0; $i < 100; $i++)
         {
                 User::create(array(
-                "name" => $faker->name,
-                "surname" => $faker->lastname,
+                "name" => $faker->firstName($gender ='male'|'female'),
+                "surname" => $faker-> lastname,
                 "username"    => $faker->userName,
                 "password"    => Hash::make("user123"),
                 "phone"    => $faker->phoneNumber,

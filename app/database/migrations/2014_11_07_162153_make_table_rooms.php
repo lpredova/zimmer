@@ -20,6 +20,7 @@ class MakeTableRooms extends Migration {
             $table->integer('capacity');
             $table->integer('stars');
             $table->text('description');
+            $table->text('price');
 
             $table->integer('apartment_id')->unsigned();
             $table->foreign('apartment_id')->references('id')->on('apartments');

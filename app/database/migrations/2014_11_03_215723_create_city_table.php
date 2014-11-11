@@ -19,8 +19,8 @@ class CreateCityTable extends Migration {
             $table->float('lat');
             $table->float('lng');
 
-            $table->integer('apartment_id')->unsigned();
-            $table->foreign('apartment_id')->references('id')->on('country');
+            $table->integer('country_id')->unsigned();
+            $table->foreign('country_id')->references('id')->on('country');
             $table->timestamps();
 		});
 	}

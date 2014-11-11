@@ -19,8 +19,8 @@ class CreatePicturesTable extends Migration {
             $table->string('title');
             $table->text('url');
 
-            $table->integer('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('apartments');
+            $table->integer('apartment_id')->unsigned();
+            $table->foreign('apartment_id')->references('id')->on('apartments');
 
             $table->timestamps();
 

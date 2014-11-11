@@ -1,7 +1,34 @@
+
 <?php
-/**
- * Created by PhpStorm.
- * User: lovro
- * Date: 08/11/14
- * Time: 12:34
- */ 
+
+class TypesSeeder extends DatabaseSeeder
+{
+
+    public function run()
+    {
+        //basic users
+        $users = [
+            [
+                "name" => "Hotel",
+            ],
+            [
+                "name" => "Motel",
+            ],
+            [
+                "name" => "Pansion",
+            ],
+            [
+                "name" => "Apartment",
+            ],
+            [
+                "name" => "room",
+            ]
+        ];
+        foreach ($users as $user)
+        {
+            ApartmentType::create($user);
+        }
+
+    }
+
+}

@@ -5,9 +5,8 @@ use Illuminate\Auth\UserInterface;
 use Illuminate\Auth\Reminders\RemindableTrait;
 use Illuminate\Auth\Reminders\RemindableInterface;
 
-class Role extends Eloquent implements UserInterface, RemindableInterface {
+class Role extends Eloquent{
 
-    use UserTrait, RemindableTrait;
     protected $table = 'roles';
 
 
