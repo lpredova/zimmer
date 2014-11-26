@@ -2,26 +2,19 @@
 @section('adminContent')
 
 <h1>Users</h1>
-<a href="/admin/users/new">New user</a>
+<a href="/zimmer-frei/public/admin/city/new">New city</a>
  <ul>
      <table>
-     @foreach($users as $user)
+     @foreach($city as $c)
          <tr>
-            <td>{{$user->name}}</td>
-            <td>{{$user->surname}}</td>
-            <td>{{$user->username}}</td>
-            <td>{{$user->email}}</td>
-            <td>{{$user->role_id}}</td>
-            <td><img src='{{$user->avatar}}' alt="user_avatar"></td>
-            <td><a href="/admin/users/show/{{$user->id}}">Edit</a></td>
+            <td>{{$c->name}}</td>
+            <td>{{$c->lat}}</td>
+            <td>{{$c->lng}}</td>
+            <td>{{$c->country->name}}</td>
+            <td><a href="/zimmer-frei/public/admin/city/show/{{$c->id}}">Edit city</a></td>
          </tr>
      @endforeach
      </table>
  </ul>
-@if(Session::has('success'))
-    <div class="alert-box success">
-        <h2>{{ Session::get('success') }}</h2>
-    </div>
-@endif
 
 @stop

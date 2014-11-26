@@ -2,7 +2,9 @@
 @section('adminContent')
 
 <h1>Countries avaliable</h1>
-<a href="/zimmer-frei/public/admin/countries/new">New country</a>
+<a href="/zimmer-frei/public/admin/countries/new">Add country</a>
+<a href="/zimmer-frei/public/admin/city">Cities</a>
+
  <ul>
      <table>
      @foreach($countries as $country)

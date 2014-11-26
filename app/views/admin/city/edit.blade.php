@@ -1,42 +1,33 @@
 @extends('admin.index')
 @section('adminContent')
-    <h2>Editing {{$user->name}}{{$user->surname}} </h2>
 
-    {{Form::open(array('url'=>'admin/users/update/'.($user->id),'method'=>'PUT'))}}
+     @foreach($city as $c)
+
+    <h2>Editing {{$c->name}}{{$c->surname}} </h2>
+
+    {{Form::open(array('url'=>'admin/city/update/'.($c->id),'method'=>'PUT'))}}
 
                     {{ Form::label('name', 'Name') }}
-                    {{Form::text('name',($user->name))}}
+                    {{Form::text('name',($c->name))}}
                     {{ $errors->first('name') }}
 
-                    {{ Form::label('surname', 'Surname') }}
-                    {{Form::text('surname',($user->surname))}}
-                    {{ $errors->first('surname') }}
+                    {{ Form::label('lat', 'Latitude') }}
+                    {{Form::text('lat',($c->lat))}}
+                    {{ $errors->first('lat') }}
 
-                    {{ Form::label('email', 'Email') }}
-                    {{Form::text('email',($user->email))}}
-                    {{ $errors->first('email') }}
+                    {{ Form::label('lng', 'Longitude') }}
+                    {{Form::text('lng',($c->lng))}}
+                    {{ $errors->first('lng') }}
 
-                    {{Form::label('username', 'Username') }}
-                    {{Form::text('username',($user->username))}}
-                    {{ $errors->first('username') }}
+                    {{ Form::label('country', 'County') }}
+                    {{Form::select('country',$country,($c->county_id), array('class' => 'name'));}}
 
-                    {{ Form::label('password', 'Password') }}
-                    {{Form::password('password')}}
-                    {{ $errors->first('password')}}
-
-                    {{ Form::label('phone', 'Phone') }}
-                    {{Form::text('phone',($user->phone))}}
-                    {{ $errors->first('phone') }}
-
-
-                    {{ Form::label('role', 'Role') }}
-                    {{Form::select('role',$roles,($user->role_id), array('class' => 'name'));}}
-
-                    {{Form::submit('Update user')}}
+                    {{Form::submit('Update city')}}
     {{ Form::close() }}
 
- {{Form::open(array('url'=>'admin/users/destroy/'.($user->id),'method'=>'DELETE'))}}
+ {{Form::open(array('url'=>'admin/city/destroy/'.($c->id),'method'=>'DELETE'))}}
                     {{Form::submit('Delete')}}
     {{ Form::close() }}
+    @endforeach
 
   @stop

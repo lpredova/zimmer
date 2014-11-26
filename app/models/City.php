@@ -11,4 +11,9 @@ class City extends Eloquent {
     protected $guarded = array('id');
 
 
+    public function country(){
+        return $this->belongsTo('Country');
+    }
+
+
 }

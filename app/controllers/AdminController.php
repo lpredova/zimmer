@@ -281,30 +281,92 @@ class AdminController extends \BaseController
 
     public function indexCity()
     {
+        $city = City::with('country')->get();
+        return View::make('admin.city.index', compact('city'));
     }
 
     public function createCity()
     {
+        $country = Country::lists('name', 'id');
+        return View::make('admin.city.create', compact('country'));
     }
 
     public function storeCity()
     {
+        $rules = array(
+            'name' => 'required|alpha',
+            'lat' => 'required|regex:/^[+-]?\d+\.\d+$/',
+            'lng' => 'required|regex:/^^[+-]?\d+\.\d+$/',
+            'country' => 'required|numeric',
+        );
+
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/city/new')->withErrors($validator);
+        } else {
+            $city = new City();
+
+            $city->name = Input::get('name');
+            $city->lng = Input::get('lng');
+            $city->lat = Input::get('lat');
+            $city->country_id = Input::get('country');
+
+            $city->save();
+            Session::flash('message', 'Successfully added city!');
+            return Redirect::to('/admin/city');
+        }
     }
 
     public function showCity($id)
     {
+        $city = City::with('country')->where('id','=',$id)->get();
+        return View::make('admin.city.show', compact('city'));
     }
 
     public function editCity($id)
     {
+        $country = Country::lists('name', 'id');
+        $city = City::with('country')->where('id','=',$id)->get();
+        return View::make('admin.city.edit', compact('city','country'));
     }
 
     public function updateCity($id)
     {
+        $rules = array(
+            'name' => 'required|alpha',
+            'lat' => 'required|regex:/^[+-]?\d+\.\d+$/',
+            'lng' => 'required|regex:/^^[+-]?\d+\.\d+$/',
+            'country' => 'required|numeric',
+        );
+
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/city/edit/'.$id)->withErrors($validator);
+        } else {
+            $city = City::find($id);
+            $city->name = Input::get('name');
+            $city->lng = Input::get('lng');
+            $city->lat = Input::get('lat');
+            $city->country_id = Input::get('country');
+
+            $city->save();
+            Session::flash('message', 'Successfully added city!');
+            return Redirect::to('/admin/city');
+        }
+
     }
 
     public function destroyCity($id)
     {
+        $city = City::find($id);
+        $city->delete();
+
+        Session::flash('message', 'Successfully deleted the role!');
+        return Redirect::to('/admin/city');
     }
 
     /**
@@ -552,13 +614,13 @@ class AdminController extends \BaseController
     public function indexRoom()
     {
         $rooms = Room::with('apartment')->get();
-        return View::make('admin.room.index',compact('rooms'));
+        return View::make('admin.room.index', compact('rooms'));
     }
 
     public function createRoom()
     {
         $apartments = Apartment::lists('name', 'id');
-        return View::make('admin.room.create',compact('apartments'));
+        return View::make('admin.room.create', compact('apartments'));
     }
 
     public function storeRoom()
@@ -595,15 +657,15 @@ class AdminController extends \BaseController
 
     public function showRoom($id)
     {
-        $room = Room::where('id','=',$id)->with('apartment')->get();
-        return View::make('admin.room.show',compact('room'));
+        $room = Room::where('id', '=', $id)->with('apartment')->get();
+        return View::make('admin.room.show', compact('room'));
     }
 
     public function editRoom($id)
     {
         $apartments = Apartment::lists('name', 'id');
-        $room = Room::where('id','=',$id)->with('apartment')->get();
-        return View::make('admin.room.edit',compact('apartments','room'));
+        $room = Room::where('id', '=', $id)->with('apartment')->get();
+        return View::make('admin.room.edit', compact('apartments', 'room'));
     }
 
     public function updateRoom($id)
@@ -637,7 +699,6 @@ class AdminController extends \BaseController
             return Redirect::to('/admin/rooms');
         }
     }
-
 
 
     public function destroyRoom($id)

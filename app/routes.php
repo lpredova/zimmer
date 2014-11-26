@@ -80,13 +80,13 @@ Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
     /**
      * Cities CRUD
      */
-    Route::get('/cities', 'AdminController@indexCity');
-    Route::get('/cities/new', 'AdminController@createCity');
-    Route::post('/cities/store', 'AdminController@storeCity');
-    Route::get('/cities/show/{id}', 'AdminController@showCity');
-    Route::get('/cities/edit/{id}', 'AdminController@editCity');
-    Route::put('/cities/update/{id}', 'AdminController@updateCity');
-    Route::delete('/cities/destroy/{id}', 'AdminController@destroyCity');
+    Route::get('/city', 'AdminController@indexCity');
+    Route::get('/city/new', 'AdminController@createCity');
+    Route::post('/city/store', 'AdminController@storeCity');
+    Route::get('/city/show/{id}', 'AdminController@showCity');
+    Route::get('/city/edit/{id}', 'AdminController@editCity');
+    Route::put('/city/update/{id}', 'AdminController@updateCity');
+    Route::delete('/city/destroy/{id}', 'AdminController@destroyCity');
     /**
      * Pictures CRUD
      */
