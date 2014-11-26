@@ -15,6 +15,11 @@ class Apartment extends Eloquent {
         return $this->hasMany('Picture');
     }
 
+    public function room()
+    {
+        return $this->hasMany('Room');
+    }
+
     public function user()
     {
         return $this->belongsTo('User','owner_id');

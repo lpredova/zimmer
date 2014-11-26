@@ -10,4 +10,10 @@ class Room extends Eloquent {
     //columns that can't be updated after assignment
     protected $guarded = array('id');
 
+
+    public function apartment()
+    {
+        return $this->belongsTo('Apartment');
+    }
+
 }

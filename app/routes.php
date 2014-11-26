@@ -1,16 +1,4 @@
 <?php
-/**
- * API routes
- */
-Route::group(array('prefix' => 'api/v1'), function()
-{
-    /**
-     * API route for apartments in specific range
-     */
-    Route::get('/', 'ApiController@index');
-    Route::get('/locations', 'ApiController@getLocationsLatLng');
-    Route::get('/place', 'ApiController@getLocationsPlace');
-});
 
 /**
  * ====================================================================
@@ -120,9 +108,28 @@ Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
     Route::get('/roles/edit/{id}', 'AdminController@editRole');
     Route::put('/roles/update/{id}', 'AdminController@updateRole');
     Route::delete('/roles/destroy/{id}', 'AdminController@destroyRole');
+
+    /**
+     * Rooms CRUD
+     */
+    Route::get('/rooms', 'AdminController@indexRoom');
+    Route::get('/rooms/new', 'AdminController@createRoom');
+    Route::post('/rooms/store', 'AdminController@storeRoom');
+    Route::get('/rooms/show/{id}', 'AdminController@showRoom');
+    Route::get('/rooms/edit/{id}', 'AdminController@editRoom');
+    Route::put('/rooms/update/{id}', 'AdminController@updateRoom');
+    Route::delete('/rooms/destroy/{id}', 'AdminController@destroyRoom');
+
+
     /**
      * ====================================================================
      */
+
+    /**
+     * Push notifications managment
+     */
+    Route::get('/push', 'AdminController@pushNotification');
+
 });
 
 
@@ -149,3 +156,17 @@ Route::group(array('before' => 'auth|user','prefix' => 'user/'), function () {
 /**
  * ====================================================================
  */
+
+
+/**
+ * API routes
+ */
+Route::group(array('prefix' => 'api/v1'), function()
+{
+    /**
+     * API route for apartments in specific range
+     */
+    Route::get('/', 'ApiController@index');
+    Route::get('/locations', 'ApiController@getLocationsLatLng');
+    Route::get('/place', 'ApiController@getLocationsPlace');
+});

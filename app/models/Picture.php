@@ -10,5 +10,10 @@ class Picture extends Eloquent {
     //columns that can't be updated after assignment
     protected $guarded = array('id','apartment_id');
 
+    public function apartment()
+    {
+        return $this->belongsTo('Apartment');
+    }
+
 
 }

@@ -1,14 +1,16 @@
 <?php
 
-class AdminController extends \BaseController {
+class AdminController extends \BaseController
+{
 
 
     /**
      * Protecting admin panel from idiots
      */
-    public function __construct() {
-        $this->beforeFilter('csrf', array('on'=>'post'));
-        $this->beforeFilter('auth', array('only'=>array('getDashboard')));
+    public function __construct()
+    {
+        $this->beforeFilter('csrf', array('on' => 'post'));
+        $this->beforeFilter('auth', array('only' => array('getDashboard')));
     }
 
     /**
@@ -27,13 +29,15 @@ class AdminController extends \BaseController {
     public function indexUser()
     {
         $users = User::with('role')->get();
-        return View::make('admin.users.index',compact('users'));
+        return View::make('admin.users.index', compact('users'));
     }
+
     public function createUser()
     {
-        $roles = Role::lists('name','id');
-        return View::make('admin.users.create',compact('roles'));
+        $roles = Role::lists('name', 'id');
+        return View::make('admin.users.create', compact('roles'));
     }
+
     public function storeUser()
     {
         $rules = array(
@@ -70,19 +74,20 @@ class AdminController extends \BaseController {
 
     public function showUser($id)
     {
-        $user = User::where('id','=',$id)->with('role')->get();
+        $user = User::where('id', '=', $id)->with('role')->get();
 
-        return View::make('admin.users.show',compact('user'));
+        return View::make('admin.users.show', compact('user'));
     }
 
     public function editUser($id)
     {
         $user = User::find($id);
-        $roles = Role::lists('name','id');
+        $roles = Role::lists('name', 'id');
 
 
-        return View::make('admin.users.edit',compact('user'),compact('roles'));
+        return View::make('admin.users.edit', compact('user'), compact('roles'));
     }
+
     public function updateUser($id)
     {
         $rules = array(
@@ -132,66 +137,70 @@ class AdminController extends \BaseController {
      */
 
     public function indexRole()
-	{
-		$roles = Role::all();
-        return View::make('admin.roles.index',compact('roles'));
-	}
-	public function createRole()
-	{
+    {
+        $roles = Role::all();
+        return View::make('admin.roles.index', compact('roles'));
+    }
+
+    public function createRole()
+    {
         return View::make('admin.roles.create');
     }
-	public function storeRole()
-	{
+
+    public function storeRole()
+    {
         $rules = array('name' => 'required|alpha');
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
             return Redirect::to('/admin/roles/new')->withErrors($validator);
-        }
-        else{
+        } else {
             $role = new Role();
             $role->name = Input::get('name');
             $role->save();
 
             return Redirect::to('/admin/roles/');
         }
-	}
-	public function showRole($id)
-	{
-        $role = Role::find($id);
-        return View::make('admin.roles.show',compact('role'));
     }
-	public function editRole($id)
-	{
+
+    public function showRole($id)
+    {
         $role = Role::find($id);
-        return View::make('admin.roles.edit',compact('role'));
-	}
-	public function updateRole($id)
-	{
+        return View::make('admin.roles.show', compact('role'));
+    }
+
+    public function editRole($id)
+    {
+        $role = Role::find($id);
+        return View::make('admin.roles.edit', compact('role'));
+    }
+
+    public function updateRole($id)
+    {
         $rules = array('name' => 'required|alpha');
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('/admin/roles/show/'.$id)->withErrors($validator);
-        }
-        else {
+            return Redirect::to('/admin/roles/show/' . $id)->withErrors($validator);
+        } else {
             $role = Role::find($id);
             $role->name = Input::get('name');
             $role->save();
 
             Session::flash('message', 'Successfully updated role!');
-            return Redirect::to('/admin/roles/show/'.$id);
+            return Redirect::to('/admin/roles/show/' . $id);
         }
-	}
-	public function destroyRole($id)
-	{
+    }
+
+    public function destroyRole($id)
+    {
         $role = Role::find($id);
         $role->delete();
 
         Session::flash('message', 'Successfully deleted the role!');
         return Redirect::to('/admin/roles/');
-	}
-    
+    }
+
     /**
      * Countries CRUD
      * ====================================================================
@@ -200,13 +209,15 @@ class AdminController extends \BaseController {
     public function indexCountry()
     {
         $countries = Country::all();
-        return View::make('admin.country.index',compact('countries'));
+        return View::make('admin.country.index', compact('countries'));
     }
+
     public function createCountry()
     {
         return View::make('admin.country.create');
 
     }
+
     public function storeCountry()
     {
         $rules = array('name' => 'required|alpha|unique:country');
@@ -214,8 +225,7 @@ class AdminController extends \BaseController {
 
         if ($validator->fails()) {
             return Redirect::to('/admin/countries/new')->withErrors($validator);
-        }
-        else{
+        } else {
             $country = new Country();
             $country->name = Input::get('name');
             $country->save();
@@ -224,17 +234,20 @@ class AdminController extends \BaseController {
             return Redirect::to('/admin/countries');
         }
     }
+
     public function showCountry($id)
     {
         $country = Country::find($id);
-        return View::make('admin.country.show',compact('country'));
+        return View::make('admin.country.show', compact('country'));
 
     }
+
     public function editCountry($id)
     {
         $country = Country::find($id);
-        return View::make('admin.country.edit',compact('country'));
+        return View::make('admin.country.edit', compact('country'));
     }
+
     public function updateCountry($id)
     {
         $rules = array('name' => 'required|alpha|unique:country');
@@ -242,8 +255,7 @@ class AdminController extends \BaseController {
 
         if ($validator->fails()) {
             return Redirect::to('/admin/countries/new')->withErrors($validator);
-        }
-        else{
+        } else {
             $country = Country::find($id);
             $country->name = Input::get('name');
             $country->save();
@@ -261,6 +273,7 @@ class AdminController extends \BaseController {
         Session::flash('message', 'Successfully deleted the role!');
         return Redirect::to('/admin/countries/');
     }
+
     /**
      * Cities CRUD
      * ====================================================================
@@ -269,24 +282,31 @@ class AdminController extends \BaseController {
     public function indexCity()
     {
     }
+
     public function createCity()
     {
     }
+
     public function storeCity()
     {
     }
+
     public function showCity($id)
     {
     }
+
     public function editCity($id)
     {
     }
+
     public function updateCity($id)
     {
     }
+
     public function destroyCity($id)
     {
     }
+
     /**
      * Apartment types CRUD
      * ====================================================================
@@ -295,7 +315,7 @@ class AdminController extends \BaseController {
     public function indexApType()
     {
         $apartment_types = ApartmentType::all();
-        return View::make('admin.apartmentType.index',compact('apartment_types'));
+        return View::make('admin.apartmentType.index', compact('apartment_types'));
     }
 
     public function createApType()
@@ -310,8 +330,7 @@ class AdminController extends \BaseController {
 
         if ($validator->fails()) {
             return Redirect::to('/admin/apartment_types/new')->withErrors($validator);
-        }
-        else{
+        } else {
             $country = new ApartmentType();
             $country->name = Input::get('name');
             $country->save();
@@ -324,13 +343,15 @@ class AdminController extends \BaseController {
     public function showApType($id)
     {
         $apartment_types = ApartmentType::find($id);
-        return View::make('admin.apartmentType.show',compact('apartment_types'));
+        return View::make('admin.apartmentType.show', compact('apartment_types'));
     }
+
     public function editApType($id)
     {
         $apartment_types = ApartmentType::find($id);
-        return View::make('admin.apartmentType.edit',compact('apartment_types'));
+        return View::make('admin.apartmentType.edit', compact('apartment_types'));
     }
+
     public function updateApType($id)
     {
         $rules = array('name' => 'required|alpha|unique:apartment_types');
@@ -338,8 +359,7 @@ class AdminController extends \BaseController {
 
         if ($validator->fails()) {
             return Redirect::to('/admin/apartment_types/new')->withErrors($validator);
-        }
-        else{
+        } else {
             $country = ApartmentType::find($id);
             $country->name = Input::get('name');
             $country->save();
@@ -348,6 +368,7 @@ class AdminController extends \BaseController {
             return Redirect::to('/admin/apartment_types');
         }
     }
+
     public function destroyApType($id)
     {
         $country = ApartmentType::find($id);
@@ -356,6 +377,7 @@ class AdminController extends \BaseController {
         Session::flash('message', 'Successfully deleted the role!');
         return Redirect::to('/admin/apartment_types');
     }
+
     /**
      * Apartments CRUD
      * ====================================================================
@@ -364,16 +386,18 @@ class AdminController extends \BaseController {
     public function indexApartment()
     {
         $apartments = Apartment::with('user')->get();
-        return View::make('admin.apartment.index',compact('apartments'));
+        return View::make('admin.apartment.index', compact('apartments'));
     }
+
     public function createApartment()
     {
-        $owners = User::lists('username','id');
-        $countries = Country::lists('name','id');
-        $types = ApartmentType::lists('name','id');
+        $owners = User::lists('username', 'id');
+        $countries = Country::lists('name', 'id');
+        $types = ApartmentType::lists('name', 'id');
 
-        return View::make('admin.apartment.create',compact('owners','countries','types'));
+        return View::make('admin.apartment.create', compact('owners', 'countries', 'types'));
     }
+
     public function storeApartment()
     {
         $rules = array(
@@ -393,8 +417,7 @@ class AdminController extends \BaseController {
 
         if ($validator->fails()) {
             return Redirect::to('/admin/apartments/new')->withErrors($validator);
-        }
-        else{
+        } else {
             $apartment = new Apartment();
 
             $apartment->name = Input::get('name');
@@ -419,18 +442,19 @@ class AdminController extends \BaseController {
 
     public function showApartment($id)
     {
-        $apartment = Apartment::with('user','city')->where('id','=',$id)->get();
-        return View::make('admin.apartment.show',compact('apartment'));
+        $apartment = Apartment::with('user', 'city')->where('id', '=', $id)->get();
+        return View::make('admin.apartment.show', compact('apartment'));
     }
 
     public function editApartment($id)
     {
-        $owners = User::lists('username','id');
-        $countries = Country::lists('name','id');
-        $types = ApartmentType::lists('name','id');
+        $owners = User::lists('username', 'id');
+        $countries = Country::lists('name', 'id');
+        $types = ApartmentType::lists('name', 'id');
         $apartment = Apartment::find($id);
-        return View::make('admin.apartment.edit',compact('apartment','owners','countries','types'));
+        return View::make('admin.apartment.edit', compact('apartment', 'owners', 'countries', 'types'));
     }
+
     public function updateApartment($id)
     {
         $rules = array(
@@ -450,8 +474,7 @@ class AdminController extends \BaseController {
 
         if ($validator->fails()) {
             return Redirect::to('/admin/apartments/new')->withErrors($validator);
-        }
-        else{
+        } else {
             $apartment = Apartment::find($id);
             $apartment->name = Input::get('name');
             $apartment->description = Input::get('description');
@@ -472,6 +495,7 @@ class AdminController extends \BaseController {
             return Redirect::to('/admin/apartments');
         }
     }
+
     public function destroyApartment($id)
     {
         $apartment = Apartment::find($id);
@@ -480,6 +504,7 @@ class AdminController extends \BaseController {
         Session::flash('message', 'Successfully deleted the role!');
         return Redirect::to('/admin/apartments');
     }
+
     /**
      * Pictures CRUD
      * ====================================================================
@@ -488,27 +513,83 @@ class AdminController extends \BaseController {
     public function indexPicture()
     {
         $pictures = Picture::all();
-        return View::make('admin.picture.index',compact('pictures'));
+        return View::make('admin.picture.index', compact('pictures'));
     }
+
     public function createPicture()
     {
+        $apartments = Apartment::lists('name', 'id');
+        return View::make('admin.picture.create', compact('apartments'));
     }
+
     public function storePicture()
     {
     }
+
     public function showPicture($id)
     {
+        $pictures = Picture::with('apartment')->where('id', '=', $id)->get();
+        return View::make('admin.picture.show', compact('pictures'));
     }
+
     public function editPicture($id)
     {
+
     }
+
     public function updatePicture($id)
     {
     }
+
     public function destroyPicture($id)
     {
     }
 
+    /**
+     * Rooms CRUD
+     * ====================================================================
+     */
+    public function indexRoom()
+    {
+        $rooms = Room::with('apartment')->get();
+        return View::make('admin.room.index',compact('rooms'));
+    }
+
+    public function createRoom()
+    {
+    }
+
+    public function storeRoom()
+    {
+    }
+
+    public function showRoom($id)
+    {
+    }
+
+    public function editRoom($id)
+    {
+
+    }
+
+    public function updateRoom($id)
+    {
+    }
+
+    public function destroyRoom($id)
+    {
+    }
+
+    /**
+     * Pictures CRUD
+     * ====================================================================
+     */
+
+    public function pushNotification()
+    {
+        return View::make('admin.pushNotifications.show');
+
+    }
 
 
 }

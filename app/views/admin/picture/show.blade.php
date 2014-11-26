@@ -2,14 +2,12 @@
 @section('adminContent')
 
 
-    <h2>Details {{$user->name}} {{$user->surname}}</h2>
-       <a href="/admin/users/edit/{{$user->id}}">Edit</a>
+        @foreach($pictures as $picture)
 
-       <h4>Name    :{{($user->name)}}</h4>
-       <h4>Surname :{{($user->surname)}}</h4>
-       <h4>Username :{{($user->username)}}</h4>
-       <h4>Email   :{{($user->email)}}</h4>
-       <h4>Phone   :{{($user->phone)}}</h4>
-       <h4>Role   :{{($user->role_id)}}</h4>
+                Title : {{$picture->title}}
+                Image: <img src='{{$picture->url}}' alt="apartment_picture">
+                <a href="/zimmer-frei/public//admin/pictures/edit/{{$picture->id}}">Edit</a>
 
+
+         @endforeach
   @stop

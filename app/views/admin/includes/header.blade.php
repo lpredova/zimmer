@@ -17,6 +17,8 @@
 			<li><a href="/zimmer-frei/public/admin/apartments">Apartments</a></li>
 			<li><a href="/zimmer-frei/public/admin/countries">Regions</a></li>
 			<li><a href="/zimmer-frei/public/admin/pictures">Pictures</a></li>
+			<li><a href="/zimmer-frei/public/admin/rooms">Rooms</a></li>
+			<li><a href="/zimmer-frei/public/admin/push">Push notifications</a></li>
 			<li><a href="/zimmer-frei/public/logout">Logout</a></li>
 		</ul>
 	</div>
