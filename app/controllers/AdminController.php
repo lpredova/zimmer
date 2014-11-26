@@ -26,7 +26,7 @@ class AdminController extends \BaseController {
      */
     public function indexUser()
     {
-        $users = User::all();
+        $users = User::with('role')->get();
         return View::make('admin.users.index',compact('users'));
     }
     public function createUser()
@@ -363,7 +363,7 @@ class AdminController extends \BaseController {
 
     public function indexApartment()
     {
-        $apartments = Apartment::all();
+        $apartments = Apartment::with('user')->get();
         return View::make('admin.apartment.index',compact('apartments'));
     }
     public function createApartment()
@@ -419,7 +419,7 @@ class AdminController extends \BaseController {
 
     public function showApartment($id)
     {
-        $apartment = Apartment::find($id);
+        $apartment = Apartment::with('user','city')->where('id','=',$id)->get();
         return View::make('admin.apartment.show',compact('apartment'));
     }
 

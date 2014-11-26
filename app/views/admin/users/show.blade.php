@@ -6,7 +6,7 @@
        <h2>Details {{$u->name}} {{$u->surname}}</h2>
                   <a href="/zimmer-frei/public/admin/users/edit/{{$u->id}}">Edit</a>
 
-                  <h4>Name    :</h4>
+                  <h4>Name    :{{$u->name}}</h4>
                   <h4>Surname :{{($u->surname)}}</h4>
                   <h4>Username :{{($u->username)}}</h4>
                   <h4>Email   :{{($u->email)}}</h4>

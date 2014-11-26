@@ -11,7 +11,7 @@
             <td>{{$user->surname}}</td>
             <td>{{$user->username}}</td>
             <td>{{$user->email}}</td>
-            <td>{{$user->role_id}}</td>
+            <td>{{$user->role->name}}</td>
             <td><img src='{{$user->avatar}}' alt="user_avatar"></td>
             <td><a href="/zimmer-frei/public/admin/users/show/{{$user->id}}">Edit</a></td>
          </tr>
