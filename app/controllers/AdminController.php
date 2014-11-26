@@ -557,27 +557,96 @@ class AdminController extends \BaseController
 
     public function createRoom()
     {
+        $apartments = Apartment::lists('name', 'id');
+        return View::make('admin.room.create',compact('apartments'));
     }
 
     public function storeRoom()
     {
+        $rules = array(
+            'apartment' => 'required|numeric',
+            'name' => 'required',
+            'capacity' => 'numeric',
+            'stars' => 'numeric',
+            'price' => 'required|numeric',
+            'description' => 'required|regex:/^[A-Za-zŠĐČĆŽšđčćž ]+$/',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/rooms/new')->withErrors($validator);
+        } else {
+            $room = new Room();
+
+            $room->apartment_id = Input::get('apartment');
+            $room->name = Input::get('name');
+            $room->capacity = Input::get('capacity');
+            $room->stars = Input::get('stars');
+            $room->price = Input::get('stars');
+            $room->description = Input::get('description');
+
+            $room->save();
+
+            Session::flash('message', 'Successfully added room !');
+            return Redirect::to('/admin/rooms');
+        }
     }
 
     public function showRoom($id)
     {
+        $room = Room::where('id','=',$id)->with('apartment')->get();
+        return View::make('admin.room.show',compact('room'));
     }
 
     public function editRoom($id)
     {
-
+        $apartments = Apartment::lists('name', 'id');
+        $room = Room::where('id','=',$id)->with('apartment')->get();
+        return View::make('admin.room.edit',compact('apartments','room'));
     }
 
     public function updateRoom($id)
     {
+        $rules = array(
+            'apartment' => 'required|numeric',
+            'name' => 'required',
+            'capacity' => 'numeric',
+            'stars' => 'numeric',
+            'price' => 'required|numeric',
+            'description' => 'required|regex:/^[A-Za-zŠĐČĆŽšđčćž ]+$/',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/rooms/new')->withErrors($validator);
+        } else {
+            $room = Room::find($id);
+
+            $room->apartment_id = Input::get('apartment');
+            $room->name = Input::get('name');
+            $room->capacity = Input::get('capacity');
+            $room->stars = Input::get('stars');
+            $room->price = Input::get('stars');
+            $room->description = Input::get('description');
+
+            $room->save();
+
+            Session::flash('message', 'Successfully added room !');
+            return Redirect::to('/admin/rooms');
+        }
     }
+
+
 
     public function destroyRoom($id)
     {
+        $room = Room::find($id);
+        $room->delete();
+
+        Session::flash('message', 'Successfully deleted room!');
+        return Redirect::to('/admin/rooms');
     }
 
     /**
