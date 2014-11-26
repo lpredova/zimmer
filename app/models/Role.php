@@ -16,9 +16,12 @@ class Role extends Eloquent{
     //columns that can't be updated after assignment
     protected $guarded = array('id');
 
-    public function getRole()
+
+    public function users()
     {
-        return $this->name;
+        return $this->hasMany('User');
     }
+
+
 
 }

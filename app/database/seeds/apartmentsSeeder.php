@@ -27,6 +27,7 @@ class ApartmentsSeeder extends DatabaseSeeder
                 "rating"    => $faker->numberBetween($min = 0, $max = 5),
                 "lat"    => $faker->randomFloat($nbMaxDecimals = NULL, $min = 46.2, $max = 46.5) ,
                 "lng"    => $faker->randomFloat($nbMaxDecimals = NULL, $min = 16.0, $max = 16.5) ,
+                "city"    => $faker->numberBetween($min = 1, $max = 1)
             ));
         }
     }

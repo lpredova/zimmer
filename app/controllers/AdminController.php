@@ -59,7 +59,7 @@ class AdminController extends \BaseController {
             $user->avatar = 'none';
             $user->activated = 0;
             $user->activation_token = Hash::make(Input::get('password'));
-            $user->role_id = Input::get('role');;
+            $user->role_id = Input::get('role');
             $user->save();
 
             Session::flash('message', 'Successfully updated role!');
@@ -70,7 +70,8 @@ class AdminController extends \BaseController {
 
     public function showUser($id)
     {
-        $user = User::find($id);
+        $user = User::where('id','=',$id)->with('role')->get();
+
         return View::make('admin.users.show',compact('user'));
     }
 

@@ -1,15 +1,19 @@
 @extends('admin.index')
 @section('adminContent')
 
+    @foreach($user as $u)
 
-    <h2>Details {{$user->name}} {{$user->surname}}</h2>
-       <a href="/zimmer-frei/public/admin/users/edit/{{$user->id}}">Edit</a>
+       <h2>Details {{$u->name}} {{$u->surname}}</h2>
+                  <a href="/zimmer-frei/public/admin/users/edit/{{$u->id}}">Edit</a>
 
-       <h4>Name    :{{($user->name)}}</h4>
-       <h4>Surname :{{($user->surname)}}</h4>
-       <h4>Username :{{($user->username)}}</h4>
-       <h4>Email   :{{($user->email)}}</h4>
-       <h4>Phone   :{{($user->phone)}}</h4>
-       <h4>Role   :{{($user->role_id)}}</h4>
+                  <h4>Name    :</h4>
+                  <h4>Surname :{{($u->surname)}}</h4>
+                  <h4>Username :{{($u->username)}}</h4>
+                  <h4>Email   :{{($u->email)}}</h4>
+                  <h4>Phone   :{{($u->phone)}}</h4>
+                  <h4>Role   :{{$u->role->name}}</h4>
+    @endforeach
+
+
 
   @stop

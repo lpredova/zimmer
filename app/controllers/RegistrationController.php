@@ -34,7 +34,7 @@ class RegistrationController extends \BaseController
 
                 switch(Auth::user()->role_id){
                     case 1:
-                        return Redirect::to('/admin');
+                        return Redirect::to('/admin/main');
                         break;
                     case 2:
                         return Redirect::to('/owner');

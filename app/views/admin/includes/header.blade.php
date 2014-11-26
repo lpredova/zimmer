@@ -10,8 +10,8 @@
 <div class="navbar">
 	<div class="navbar-inner">
 		<ul class="nav">
-			<li><h1>ADMIN HEADER</h1></li>
-			<li><a href="/zimmer-frei/public/admin/">Main admin panel</a></li>
+			<li><h1>ADMIN HEADERER</h1></li>
+			<li><a href="/zimmer-frei/public/admin/main">Main admin panel</a></li>
 			<li><a href="/zimmer-frei/public/admin/roles">Roles</a></li>
 			<li><a href="/zimmer-frei/public/admin/users">Users</a></li>
 			<li><a href="/zimmer-frei/public/admin/apartments">Apartments</a></li>

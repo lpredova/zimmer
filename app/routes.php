@@ -4,7 +4,12 @@
  */
 Route::group(array('prefix' => 'api/v1'), function()
 {
+    /**
+     * API route for apartments in specific range
+     */
     Route::get('/', 'ApiController@index');
+    Route::get('/locations', 'ApiController@getLocationsLatLng');
+    Route::get('/place', 'ApiController@getLocationsPlace');
 });
 
 /**
@@ -42,7 +47,7 @@ Route::get('/logout', 'RegistrationController@logoutUser');
  */
 Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
 
-    Route::get('/', 'AdminController@indexAdmin');
+    Route::get('/main', 'AdminController@indexAdmin');
     /**
      * Users CRUD
      */

@@ -12,4 +12,7 @@ class ApartmentType extends Eloquent {
     protected $guarded = array('id');
 
 
+    public function apartment(){
+        return $this->hasMany('Apartment');
+    }
 }

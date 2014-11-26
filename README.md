@@ -15,7 +15,7 @@ It's suited for tourists,explorers and anyone that feels like it.
 This project started in October 2014 within class "Analiza i Razvoj programskih proizvoda" on Faculty of Organization and Informatics in Varaždin,UNIZG.
 
 ##Contributors
-Currently working ond this project :
+Currently working on this project :
 
 Luka Klancir - project manager
 
