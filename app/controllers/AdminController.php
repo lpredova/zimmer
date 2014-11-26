@@ -454,10 +454,10 @@ class AdminController extends \BaseController
     public function createApartment()
     {
         $owners = User::lists('username', 'id');
-        $countries = Country::lists('name', 'id');
+        $cities= City::lists('name', 'id');
         $types = ApartmentType::lists('name', 'id');
 
-        return View::make('admin.apartment.create', compact('owners', 'countries', 'types'));
+        return View::make('admin.apartment.create', compact('owners', 'cities', 'types'));
     }
 
     public function storeApartment()
@@ -494,7 +494,7 @@ class AdminController extends \BaseController
             $apartment->lat = Input::get('lat');
             $apartment->owner_id = Input::get('owner');
             $apartment->type_id = Input::get('type');
-            $apartment->country_id = Input::get('country');
+            $apartment->city_id = Input::get('city');
 
             $apartment->save();
             Session::flash('message', 'Successfully added apartment type !');
@@ -568,7 +568,7 @@ class AdminController extends \BaseController
     }
 
     /**
-     * Pictures CRUD
+     * Pictures CRUD ToDo
      * ====================================================================
      */
 
@@ -711,15 +711,23 @@ class AdminController extends \BaseController
     }
 
     /**
-     * Pictures CRUD
+     * Other functionalities ToDo
      * ====================================================================
      */
 
     public function pushNotification()
     {
         return View::make('admin.pushNotifications.show');
-
     }
 
+    public function getUserProfile()
+    {
+        return View::make('admin.profile.index');
+    }
+
+    public function getStatistics()
+    {
+        return View::make('admin.statistics.index');
+    }
 
 }

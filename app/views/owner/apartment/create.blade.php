@@ -10,8 +10,8 @@
                      {{ Form::label('type', 'Type') }}
                      {{Form::select('type',$types, 'key', array('class' => 'name'));}}
                      
-                     {{Form::label('city', 'City') }}
-                     {{Form::select('city',$cities, 'key', array('class' => 'name'));}}
+                     {{Form::label('country', 'Conutry') }}
+                     {{Form::select('country',$countries, 'key', array('class' => 'name'));}}
     
                      {{ Form::label('name', 'Name') }}
                      {{Form::text('name')}}

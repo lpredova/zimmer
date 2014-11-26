@@ -130,6 +130,16 @@ Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
      */
     Route::get('/push', 'AdminController@pushNotification');
 
+    /**
+     * User personal profile managment
+     */
+    Route::get('/profile', 'AdminController@getUserProfile');
+
+    /**
+     * System stats owerview
+     */
+    Route::get('/stats', 'AdminController@getStatistics');
+
 });
 
 
@@ -139,6 +149,31 @@ Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
 Route::group(array('before' => 'auth|owner','prefix' => 'owner/'), function () {
 
     Route::get('/', 'OwnerController@indexOwner');
+
+    /**
+     * Apartments
+     */
+    Route::get('/apartments', 'OwnerController@indexApartments');
+
+    /**
+     * Rooms
+     */
+    Route::get('/rooms', 'OwnerController@indexRooms');
+
+    /**
+     * Stats
+     */
+    Route::get('/stats', 'OwnerController@getStatistics');
+
+    /**
+     * Favs
+     */
+    Route::get('/favorites', 'OwnerController@getFavorites');
+
+    /**
+     * Profile
+     */
+    Route::get('/profile', 'OwnerController@getUserProfile');
 });
 /**
  * ====================================================================
