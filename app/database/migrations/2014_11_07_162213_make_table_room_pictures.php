@@ -20,7 +20,7 @@ class MakeTableRoomPictures extends Migration {
             $table->text('url');
 
             $table->integer('room_id')->unsigned();
-            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
 
             $table->timestamps();
 

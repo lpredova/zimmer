@@ -15,10 +15,10 @@ class MakeTableRoomHasFitting extends Migration {
 		Schema::create('room_has_fitting', function(Blueprint $table)
 		{
             $table->integer('room_id')->unsigned();
-            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
 
             $table->integer('fitting_id')->unsigned();
-            $table->foreign('fitting_id')->references('id')->on('fittings');
+            $table->foreign('fitting_id')->references('id')->on('fittings')->onDelete('cascade');
 
             $table->timestamps();
 

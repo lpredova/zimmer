@@ -4,7 +4,7 @@
     <h2>Registration form owner</h2>
 
 
-    <h3><a href="/signup">Looking for palce to stay ?</a></h3>
+    <h3><a href="/zimmer-frei/public/signup">Looking for palce to stay ?</a></h3>
 
     {{Form::open(array('url'=>'/register/owner','method'=>'POST'))}}
                     {{ Form::label('name', 'Name') }}

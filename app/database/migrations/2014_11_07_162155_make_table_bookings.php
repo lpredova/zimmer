@@ -18,10 +18,10 @@ class MakeTableBookings extends Migration {
             $table->increments('id');
 
             $table->integer('apartment_id')->unsigned();
-            $table->foreign('apartment_id')->references('id')->on('apartments');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 
             $table->integer('room_id')->unsigned();
-            $table->foreign('room_id')->references('id')->on('rooms');
+            $table->foreign('room_id')->references('id')->on('rooms')->onDelete('cascade');
 
             $table->timestamp('booking_start');
             $table->timestamp('booking_end');

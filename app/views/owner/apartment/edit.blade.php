@@ -1,8 +1,8 @@
-@extends('admin.index')
-@section('adminContent')
+@extends('owner.index')
+@section('ownerContent')
     <h2>Editing {{$apartment->name}} </h2>
 
-    {{Form::open(array('url'=>'admin/apartments/update/'.($apartment->id),'method'=>'PUT'))}}
+    {{Form::open(array('url'=>'owner/apartments/update/'.($apartment->id),'method'=>'PUT'))}}
 
                     {{ Form::label('owner', 'Owner') }}
                     {{Form::select('owner',$owners, $apartment->owner_id, array('class' => 'name'));}}
@@ -10,8 +10,8 @@
                     {{ Form::label('type', 'Type') }}
                     {{Form::select('type',$types, $apartment->type_id, array('class' => 'name'));}}
 
-                    {{Form::label('country', 'Conutry') }}
-                    {{Form::select('country',$countries, $apartment->country_id, array('class' => 'name'));}}
+                    {{Form::label('city', 'City') }}
+                    {{Form::select('city',$cities, $apartment->city_id, array('class' => 'name'));}}
 
                     {{ Form::label('name', 'Name') }}
                     {{Form::text('name',($apartment->name))}}
@@ -52,7 +52,7 @@
                     {{Form::submit('Update user')}}
     {{ Form::close() }}
 
- {{Form::open(array('url'=>'admin/apartments/destroy/'.($apartment->id),'method'=>'DELETE'))}}
+ {{Form::open(array('url'=>'owner/apartments/destroy/'.($apartment->id),'method'=>'DELETE'))}}
                     {{Form::submit('Delete')}}
     {{ Form::close() }}
 

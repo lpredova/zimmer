@@ -1,14 +1,14 @@
-@extends('admin.index')
-@section('adminContent')
+@extends('owner.index')
+@section('ownerContent')
 
 
 Show details
 
         @foreach($apartment as $a)
             <h2>Details {{$a->name}}</h2>
-               <a href="/zimmer-frei/public/admin/apartments/edit/{{$a->id}}">Edit</a>
-               <a href="/zimmer-frei/public/admin/pictures/new">Add pictures</a>
-               <a href="/zimmer-frei/public/admin/rooms/new">Add rooms</a>
+               <a href="/zimmer-frei/public/owner/apartments/edit/{{$a->id}}">Edit</a>
+               <a href="/zimmer-frei/public/owner/pictures/new">Add pictures</a>
+               <a href="/zimmer-frei/public/owner/room/new">Add rooms</a>
 
                <h4>Name    :{{($a->name)}}</h4>
                <h4>Description :{{($a->description)}}</h4>

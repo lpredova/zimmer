@@ -23,7 +23,7 @@ class MakeTableRooms extends Migration {
             $table->text('price');
 
             $table->integer('apartment_id')->unsigned();
-            $table->foreign('apartment_id')->references('id')->on('apartments');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 
             $table->timestamps();
 

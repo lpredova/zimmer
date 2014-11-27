@@ -20,7 +20,7 @@ class CreatePicturesTable extends Migration {
             $table->text('url');
 
             $table->integer('apartment_id')->unsigned();
-            $table->foreign('apartment_id')->references('id')->on('apartments');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 
             $table->timestamps();
 

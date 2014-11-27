@@ -1,7 +1,7 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: lovro
- * Date: 26/11/14
- * Time: 17:19
- */ 
+@extends('owner.index')
+@section('ownerContent')
+<br>
+<h2>Favorites list</h2>
+
+
+@stop

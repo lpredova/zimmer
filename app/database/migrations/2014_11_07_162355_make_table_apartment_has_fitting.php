@@ -16,10 +16,10 @@ class MakeTableApartmentHasFitting extends Migration {
 		{
 
             $table->integer('apartment_id')->unsigned();
-            $table->foreign('apartment_id')->references('id')->on('apartments');
+            $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 
             $table->integer('fitting_id')->unsigned();
-            $table->foreign('fitting_id')->references('id')->on('fittings');
+            $table->foreign('fitting_id')->references('id')->on('fittings')->onDelete('cascade');
 
             $table->timestamps();
 

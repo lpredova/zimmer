@@ -12,7 +12,7 @@
 		<ul class="nav">
 			<li><a href="/zimmer-frei/public/owner">Main page</a></li>
 			<li><a href="/zimmer-frei/public/owner/apartments">My apartments</a></li>
-			<li><a href="/zimmer-frei/public/owner/rooms">My rooms</a></li>
+			<li><a href="/zimmer-frei/public/owner/room">My rooms</a></li>
 			<li><a href="/zimmer-frei/public/owner/stats">Statistics</a></li>
 			<li><a href="/zimmer-frei/public/owner/favorites">Favorites</a></li>
 			<li><a href="/zimmer-frei/public/owner/profile">My Profile</a></li>

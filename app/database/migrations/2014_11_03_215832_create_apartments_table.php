@@ -31,15 +31,15 @@ class CreateApartmentsTable extends Migration {
 
             //owners foreign key
             $table->integer('owner_id')->unsigned();
-            $table->foreign('owner_id')->references('id')->on('users');
+            $table->foreign('owner_id')->references('id')->on('users')->onDelete('cascade');
 
             //type foreign key
             $table->integer('type_id')->unsigned();
-            $table->foreign('type_id')->references('id')->on('apartment_types');
+            $table->foreign('type_id')->references('id')->on('apartment_types')->onDelete('cascade');
 
             //country foreign key
             $table->integer('city_id')->unsigned();
-            $table->foreign('city_id')->references('id')->on('city');
+            $table->foreign('city_id')->references('id')->on('city')->onDelete('cascade');
 
             $table->timestamps();
 		});

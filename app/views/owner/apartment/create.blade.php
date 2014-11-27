@@ -1,17 +1,14 @@
-@extends('admin.index')
-@section('adminContent')
+@extends('owner.index')
+@section('ownerContent')
 
     <h2>Adding new apartment</h2>
-    {{Form::open(array('url'=>'admin/apartments/store','method'=>'POST'))}}
+    {{Form::open(array('url'=>'owner/apartments/store','method'=>'POST'))}}
     
-                     {{ Form::label('owner', 'Owner') }}
-                     {{Form::select('owner',$owners, 'key', array('class' => 'name'));}}
-                     
                      {{ Form::label('type', 'Type') }}
                      {{Form::select('type',$types, 'key', array('class' => 'name'));}}
                      
-                     {{Form::label('country', 'Conutry') }}
-                     {{Form::select('country',$countries, 'key', array('class' => 'name'));}}
+                     {{Form::label('city', 'City') }}
+                     {{Form::select('city',$cities, 'key', array('class' => 'name'));}}
     
                      {{ Form::label('name', 'Name') }}
                      {{Form::text('name')}}
@@ -32,7 +29,6 @@
                      {{ Form::label('email', 'Email') }}
                      {{Form::text('email')}}
                      {{$errors->first('email') }}
-
 
                     {{ Form::label('phone', 'Phone') }}
                     {{Form::text('phone')}}

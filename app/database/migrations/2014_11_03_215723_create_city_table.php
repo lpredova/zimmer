@@ -20,7 +20,7 @@ class CreateCityTable extends Migration {
             $table->float('lng');
 
             $table->integer('country_id')->unsigned();
-            $table->foreign('country_id')->references('id')->on('country');
+            $table->foreign('country_id')->references('id')->on('country')->onDelete('cascade');
             $table->timestamps();
 		});
 	}

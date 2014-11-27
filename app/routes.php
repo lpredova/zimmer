@@ -154,11 +154,23 @@ Route::group(array('before' => 'auth|owner','prefix' => 'owner/'), function () {
      * Apartments
      */
     Route::get('/apartments', 'OwnerController@indexApartments');
+    Route::get('/apartments/new', 'OwnerController@createApartment');
+    Route::post('/apartments/store', 'OwnerController@storeApartment');
+    Route::get('/apartments/show/{id}', 'OwnerController@showApartment');
+    Route::get('/apartments/edit/{id}', 'OwnerController@editApartment');
+    Route::put('/apartments/update/{id}', 'OwnerController@updateApartment');
+    Route::delete('/apartments/destroy/{id}', 'OwnerController@destroyApartment');
 
     /**
      * Rooms
      */
-    Route::get('/rooms', 'OwnerController@indexRooms');
+    Route::get('/room', 'OwnerController@indexRooms');
+    Route::get('/room/new', 'OwnerController@createRoom');
+    Route::post('/room/store', 'OwnerController@storeRoom');
+    Route::get('/room/show/{id}', 'OwnerController@showRoom');
+    Route::get('/room/edit/{id}', 'OwnerController@editRoom');
+    Route::put('/room/update/{id}', 'OwnerController@updateRoom');
+    Route::delete('/room/destroy/{id}', 'OwnerController@destroyRoom');
 
     /**
      * Stats
@@ -174,6 +186,8 @@ Route::group(array('before' => 'auth|owner','prefix' => 'owner/'), function () {
      * Profile
      */
     Route::get('/profile', 'OwnerController@getUserProfile');
+    Route::get('/profile/edit', 'OwnerController@editUserProfile');
+    Route::put('/profile/update', 'OwnerController@updateUserProfile');
 });
 /**
  * ====================================================================
