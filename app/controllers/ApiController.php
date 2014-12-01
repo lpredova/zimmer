@@ -41,7 +41,7 @@ class ApiController extends \BaseController
 
             //1 degree is 111 Km !!!
             $bounds = $this->findApartmentsNearLocation(null, $lat, $lng, $range);
-            $apartments = Apartment::with('user', 'city', 'type')
+            $apartments = Apartment::with('user', 'city', 'type','picture','room')
                 ->whereBetween('lat', array($bounds[0], $bounds[1]))
                 ->whereBetween('lng', array($bounds[2], $bounds[3]))
                 ->get();
@@ -75,7 +75,8 @@ class ApiController extends \BaseController
                 ->where('city_id', '=', $city)
                 ->get();
 
-            return Response::json(['status' => 200, 'response' => ApiController::createResponse($apartments)]);
+            //return Response::json(['status' => 200, 'response' => ApiController::createResponse($apartments)]);
+            return Response::json(['response' => ApiController::createResponse($apartments)]);
         }
     }
 
@@ -119,6 +120,8 @@ class ApiController extends \BaseController
                 'rating' => $apartment->rating,
                 'lat' => $apartment->lat,
                 'lng' => $apartment->lng,
+                'price' => $apartment->price,
+                'picture' => $apartment->cover_photo,
                 'city' => $apartment->city->name,
                 'type' => $apartment->type->name,
                 'user_nickname' => $apartment->user->username,

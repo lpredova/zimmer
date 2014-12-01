@@ -27,6 +27,8 @@ class CreateApartmentsTable extends Migration {
             $table->integer('rating');
             $table->float('lat');
             $table->float('lng');
+            $table->float('price');
+            $table->text('cover_photo');
 
 
             //owners foreign key

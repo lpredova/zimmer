@@ -6,7 +6,7 @@ class PicturesSeeder extends DatabaseSeeder
     {
         $faker = Faker\Factory::create();
 
-        for ($i = 0; $i < 20; $i++)
+        for ($i = 0; $i < 200; $i++)
         {
             Picture::create(array(
                 "title" => $faker->text(5),

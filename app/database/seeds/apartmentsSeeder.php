@@ -27,6 +27,8 @@ class ApartmentsSeeder extends DatabaseSeeder
                 "rating"    => $faker->numberBetween($min = 0, $max = 5),
                 "lat"    => $faker->randomFloat($nbMaxDecimals = NULL, $min = 46.2, $max = 46.5) ,
                 "lng"    => $faker->randomFloat($nbMaxDecimals = NULL, $min = 16.0, $max = 16.5) ,
+                "price"    => $faker->randomFloat($nbMaxDecimals = 2, $min = 10.0, $max = 90.0) ,
+                "cover_photo" => "http://www.crobooking.com/slike/objekti/140/profilna.jpg",
             ));
         }
     }
