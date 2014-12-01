@@ -218,4 +218,5 @@ Route::group(array('prefix' => 'api/v1'), function()
     Route::get('/', 'ApiController@index');
     Route::get('/locations', 'ApiController@getLocationsLatLng');
     Route::get('/place', 'ApiController@getLocationsPlace');
+    Route::get('/apartmentDetails', 'ApiController@getApartmentDetails');
 });

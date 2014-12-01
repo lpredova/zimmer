@@ -59,7 +59,7 @@ class UsersSeeder extends DatabaseSeeder
                 "password"    => Hash::make("user123"),
                 "phone"    => $faker->phoneNumber,
                 "email"    => $faker->email,
-                "avatar"    => $faker->imageUrl($width = 200, $height = 200),
+                "avatar"    => "http://i-cdn.phonearena.com/images/article/26035-image/Woohoo-Verizon-4G-LTE-is-coming-to-5-new-markets-and-expanding-in-others-starting-tomorrow.jpg",
                 "activated"    => "0",
                 "role_id"    => "3",
                 "activation_token"    => Hash::make("user")
