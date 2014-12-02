@@ -4,7 +4,6 @@
 <hr>
 <h1>Apartments</h1>
 <a href="/zimmer-frei/public/owner/apartments/new">New apartment</a>
- <ul>
      <table>
      <thead>
         <tr>
@@ -24,7 +23,6 @@
          </tr>
      @endforeach
      </table>
- </ul>
 
 
 @stop

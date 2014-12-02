@@ -16,7 +16,8 @@ class OwnerController extends \BaseController {
 
 	public function indexOwner()
 	{
-        return View::make('owner.index');
+        $user = Auth::user();
+        return View::make('owner.start',compact('user'));
     }
 
 
@@ -26,19 +27,21 @@ class OwnerController extends \BaseController {
      */
 	public function indexApartments()
 	{
+        $user = Auth::user();
         $apartments = Apartment::with('user','city')
             ->where('owner_id','=',Auth::user()->id)
             ->orderBy('id', 'asc')
             ->get();
 
-        return View::make('owner.apartment.index',compact('apartments'));
+        return View::make('owner.apartment.index',compact('apartments','user'));
     }
 
     public function createApartment()
     {
+        $user = Auth::user();
         $types = ApartmentType::lists('name', 'id');
         $cities = City::lists('name', 'id');
-        return View::make('owner.apartment.create', compact('types','cities'));
+        return View::make('owner.apartment.create', compact('types','cities','user'));
     }
 
     public function storeApartment()
@@ -85,17 +88,19 @@ class OwnerController extends \BaseController {
 
     public function showApartment($id)
     {
+        $user = Auth::user();
         $apartment = Apartment::with('type','city')->where('id', '=', $id)->get();
-        return View::make('owner.apartment.show', compact('apartment'));
+        return View::make('owner.apartment.show', compact('apartment','user'));
     }
 
     public function editApartment($id)
     {
+        $user = Auth::user();
         $owners = User::lists('username', 'id');
         $cities = City::lists('name', 'id');
         $types = ApartmentType::lists('name', 'id');
         $apartment = Apartment::find($id);
-        return View::make('owner.apartment.edit', compact('apartment', 'owners', 'cities', 'types'));
+        return View::make('owner.apartment.edit', compact('apartment', 'owners', 'cities', 'types','user'));
     }
 
     public function updateApartment($id)
@@ -154,6 +159,7 @@ class OwnerController extends \BaseController {
      */
 	public function indexRooms()
 	{
+        $user = Auth::user();
         $rooms = DB::table('rooms')
             ->join('apartments','rooms.apartment_id','=','apartments.id')
             ->join('users','users.id','=','apartments.owner_id')
@@ -161,13 +167,14 @@ class OwnerController extends \BaseController {
             ->select('rooms.id', 'rooms.name as room_name','rooms.stars','rooms.capacity',
                 'rooms.description','rooms.price','apartments.name as apartment_name')
             ->get();
-        return View::make('owner.room.index',compact('rooms'));
+        return View::make('owner.room.index',compact('rooms','user'));
     }
 
     public function createRoom()
     {
+        $user = Auth::user();
         $apartments = Apartment::where('owner_id','=',Auth::user()->id)->lists('name', 'id');
-        return View::make('owner.room.create', compact('apartments'));
+        return View::make('owner.room.create', compact('apartments','user'));
     }
 
     public function storeRoom()
@@ -204,15 +211,17 @@ class OwnerController extends \BaseController {
 
     public function showRoom($id)
     {
+        $user = Auth::user();
         $room = Room::where('id', '=', $id)->with('apartment')->get();
-        return View::make('owner.room.show', compact('room'));
+        return View::make('owner.room.show', compact('room','user'));
     }
 
     public function editRoom($id)
     {
+        $user = Auth::user();
         $apartments = Apartment::lists('name', 'id');
         $room = Room::where('id', '=', $id)->with('apartment')->get();
-        return View::make('owner.room.edit', compact('apartments', 'room'));
+        return View::make('owner.room.edit', compact('apartments', 'room','user'));
     }
 
     public function updateRoom($id)
@@ -259,12 +268,13 @@ class OwnerController extends \BaseController {
 
 
     /**
-     * Rooms CRUD
+     * Stats and favorites and user profile
      * ====================================================================
      */
 	public function getStatistics()
 	{
-        return View::make('owner.stats.index');
+        $user = Auth::user();
+        return View::make('owner.stats.index',compact('user'));
     }
 
     /**
@@ -273,7 +283,8 @@ class OwnerController extends \BaseController {
      */
 	public function getFavorites()
 	{
-        return View::make('owner.favorites.index');
+        $user = Auth::user();
+        return View::make('owner.favorites.index',compact('user'));
     }
 
     /**
