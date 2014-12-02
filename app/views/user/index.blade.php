@@ -1,9 +1,19 @@
 @include('user.include.header')
-<h2>Welcome "{{ Auth::user()->username }}" to USER the protected page!</h2>
 
-@section('content')
+  <aside class="right-side">
+                <section class="content-header">
+                    <h1>
+                        <small>Control panel</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </section>
 
-
-
-
-@stop
+                <section class="content">
+                    @yield('userContent')
+                </section>
+            </aside>
+        </div>
+@include('user.include.footer')

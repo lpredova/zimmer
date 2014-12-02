@@ -1,4 +1,4 @@
-<title>Hello Admin | Explore the world.</title>
+<title>Hello {{$admin->name}} | Explore the world.</title>
         {{ HTML::style('css/bootstrap.min.css') }}
         {{ HTML::style('font-awesome-4.1.0/css/font-awesome.min.css') }}
         {{ HTML::style('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic') }}
