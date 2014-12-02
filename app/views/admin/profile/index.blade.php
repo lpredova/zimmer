@@ -2,11 +2,18 @@
 @section('adminContent')
 
 
-<hr>
-<h1>User profile owerview</h1>
-  <a href="/zimmer-frei/public/admin/profile/edit">Edit</a>
+<div class="content">
+    <div class="col-lg-12">
+        <h1>Profile owerview</h1>
+        <hr>
+
+        <a href="/zimmer-frei/public/admin/profile/edit">Edit</a>
+                <h4><img class="img-circle" src="{{$admin->avatar}}"></h4>
                <h4>Name    :{{($admin->name)}}</h4>
                <h4>Surname    :{{($admin->surname)}}</h4>
                <h4>Username    :{{($admin->username)}}</h4>
                <h4>Email    :{{($admin->email)}}</h4>
+    </div>
+</div>
+
 @stop

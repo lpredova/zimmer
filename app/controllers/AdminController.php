@@ -839,6 +839,41 @@ class AdminController extends \BaseController
         return View::make('admin.profile.index',compact('admin'));
     }
 
+    public function editUserProfile()
+    {
+        $admin= Auth::user();
+        return View::make('admin.profile.edit',compact('admin'));
+    }
+
+    public function updateUserProfile()
+    {
+        $rules = array(
+            'name' => 'required|alpha',
+            'surname' => 'required|alpha',
+            'email' => 'required|email',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/profile/edit')->withErrors($validator);
+        } else {
+
+            $user = User::find(Auth::user()->id);
+            $user->name = Input::get('name');
+            $user->surname = Input::get('surname');
+            $user->username = Input::get('username');
+            $user->email = Input::get('email');
+            $user->phone = Input::get('phone');
+
+
+            $user->save();
+
+            Session::flash('message', 'Successfully updated role!');
+            return Redirect::to('/admin/profile');
+        }
+    }
+
     public function getStatistics()
     {
         $admin= Auth::user();
