@@ -1,6 +1,7 @@
 @extends('admin.index')
 @section('adminContent')
 
+<div class="col-lg-12">
     <h2>Adding new apartment</h2>
     {{Form::open(array('url'=>'admin/apartments/store','method'=>'POST'))}}
     
@@ -53,4 +54,5 @@
 
                     {{Form::submit('Create apartment')}}
             {{ Form::close() }}
+  </div>
   @stop

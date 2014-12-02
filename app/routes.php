@@ -120,6 +120,16 @@ Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
     Route::put('/rooms/update/{id}', 'AdminController@updateRoom');
     Route::delete('/rooms/destroy/{id}', 'AdminController@destroyRoom');
 
+    /**
+     * Fittings
+     */
+    Route::get('/fitting', 'AdminController@indexFitting');
+    Route::get('/fitting/new', 'AdminController@createFitting');
+    Route::post('/fitting/store', 'AdminController@storeFitting');
+    Route::get('/fitting/show/{id}', 'AdminController@showFitting');
+    Route::get('/fitting/edit/{id}', 'AdminController@editFitting');
+    Route::put('/fitting/update/{id}', 'AdminController@updateFitting');
+    Route::delete('/fitting/destroy/{id}', 'AdminController@destroyFitting');
 
     /**
      * ====================================================================
@@ -134,6 +144,8 @@ Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
      * User personal profile managment
      */
     Route::get('/profile', 'AdminController@getUserProfile');
+    Route::get('/profile/edit', 'AdminController@editUserProfile');
+    Route::put('/profile/update', 'AdminController@updateUserProfile');
 
     /**
      * System stats owerview
