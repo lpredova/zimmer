@@ -21,7 +21,7 @@ class AdminController extends \BaseController
         $users =  User::all()->count();
         $bookings = Booking::all()->count();
         $apartments = Apartment::all()->count();
-        $admin= Auth::user();
+        
         return View::make('admin.start',compact('admin','users','apartments','bookings'));
     }
     /**
@@ -43,16 +43,16 @@ class AdminController extends \BaseController
 
     public function indexUser()
     {
-        $admin= Auth::user();
+        
         $users = User::with('role')->get();
-        return View::make('admin.users.index', compact('users','admin'));
+        return View::make('admin.users.index', compact('users'));
     }
 
     public function createUser()
     {
-        $admin= Auth::user();
+        
         $roles = Role::lists('name', 'id');
-        return View::make('admin.users.create', compact('roles','admin'));
+        return View::make('admin.users.create', compact('roles'));
     }
 
     public function storeUser()
@@ -91,17 +91,17 @@ class AdminController extends \BaseController
 
     public function showUser($id)
     {
-        $admin= Auth::user();
+        
         $user = User::where('id', '=', $id)->with('role')->get();
-        return View::make('admin.users.show', compact('user','admin'));
+        return View::make('admin.users.show', compact('user'));
     }
 
     public function editUser($id)
     {
-        $admin= Auth::user();
+        
         $user = User::find($id);
         $roles = Role::lists('name', 'id');
-        return View::make('admin.users.edit', compact('user','roles','admin'));
+        return View::make('admin.users.edit', compact('user','roles'));
     }
 
     public function updateUser($id)
@@ -154,15 +154,14 @@ class AdminController extends \BaseController
 
     public function indexRole()
     {
-        $admin= Auth::user();
         $roles = Role::all();
-        return View::make('admin.roles.index', compact('roles','admin'));
+        return View::make('admin.roles.index', compact('roles'));
     }
+
 
     public function createRole()
     {
-        $admin= Auth::user();
-        return View::make('admin.roles.create','admin');
+        return View::make('admin.roles.create');
     }
 
     public function storeRole()
@@ -183,14 +182,14 @@ class AdminController extends \BaseController
 
     public function showRole($id)
     {
-        $admin= Auth::user();
+        
         $role = Role::find($id);
         return View::make('admin.roles.show', compact('role'));
     }
 
     public function editRole($id)
     {
-        $admin= Auth::user();
+        
         $role = Role::find($id);
         return View::make('admin.roles.edit', compact('role'));
     }
@@ -228,14 +227,14 @@ class AdminController extends \BaseController
 
     public function indexCountry()
     {
-        $admin= Auth::user();
+        
         $countries = Country::all();
-        return View::make('admin.country.index', compact('countries','admin'));
+        return View::make('admin.country.index', compact('countries'));
     }
 
     public function createCountry()
     {
-        $admin= Auth::user();
+        
         return View::make('admin.country.create',compact('admin'));
 
     }
@@ -259,16 +258,16 @@ class AdminController extends \BaseController
 
     public function showCountry($id)
     {
-        $admin= Auth::user();
+        
         $country = Country::find($id);
-        return View::make('admin.country.show', compact('country','admin'));
+        return View::make('admin.country.show', compact('country'));
 
     }
 
     public function editCountry($id)
     {
         $country = Country::find($id);
-        return View::make('admin.country.edit', compact('country','admin'));
+        return View::make('admin.country.edit', compact('country'));
     }
 
     public function updateCountry($id)
@@ -304,16 +303,16 @@ class AdminController extends \BaseController
 
     public function indexCity()
     {
-        $admin= Auth::user();
+        
         $city = City::with('country')->get();
-        return View::make('admin.city.index', compact('city','admin'));
+        return View::make('admin.city.index', compact('city'));
     }
 
     public function createCity()
     {
-        $admin= Auth::user();
+        
         $country = Country::lists('name', 'id');
-        return View::make('admin.city.create', compact('country','admin'));
+        return View::make('admin.city.create', compact('country'));
     }
 
     public function storeCity()
@@ -346,17 +345,17 @@ class AdminController extends \BaseController
 
     public function showCity($id)
     {
-        $admin= Auth::user();
+        
         $city = City::with('country')->where('id', '=', $id)->get();
-        return View::make('admin.city.show', compact('city','admin'));
+        return View::make('admin.city.show', compact('city'));
     }
 
     public function editCity($id)
     {
-        $admin= Auth::user();
+        
         $country = Country::lists('name', 'id');
         $city = City::with('country')->where('id', '=', $id)->get();
-        return View::make('admin.city.edit', compact('city', 'country','admin'));
+        return View::make('admin.city.edit', compact('city', 'country'));
     }
 
     public function updateCity($id)
@@ -403,14 +402,14 @@ class AdminController extends \BaseController
 
     public function indexApType()
     {
-        $admin= Auth::user();
+        
         $apartment_types = ApartmentType::all();
-        return View::make('admin.apartmentType.index', compact('apartment_types','admin'));
+        return View::make('admin.apartmentType.index', compact('apartment_types'));
     }
 
     public function createApType()
     {
-        $admin= Auth::user();
+        
         return View::make('admin.apartmentType.create',compact('admin'));
     }
 
@@ -433,16 +432,16 @@ class AdminController extends \BaseController
 
     public function showApType($id)
     {
-        $admin= Auth::user();
+        
         $apartment_types = ApartmentType::find($id);
-        return View::make('admin.apartmentType.show', compact('apartment_types','admin'));
+        return View::make('admin.apartmentType.show', compact('apartment_types'));
     }
 
     public function editApType($id)
     {
-        $admin= Auth::user();
+        
         $apartment_types = ApartmentType::find($id);
-        return View::make('admin.apartmentType.edit', compact('apartment_types','admin'));
+        return View::make('admin.apartmentType.edit', compact('apartment_types'));
     }
 
     public function updateApType($id)
@@ -489,19 +488,19 @@ class AdminController extends \BaseController
 
     public function indexApartment()
     {
-        $admin= Auth::user();
+        
         $apartments = Apartment::with('user')->get();
-        return View::make('admin.apartment.index', compact('apartments','admin'));
+        return View::make('admin.apartment.index', compact('apartments'));
     }
 
     public function createApartment()
     {
-        $admin= Auth::user();
+        
         $owners = User::lists('username', 'id');
         $cities = City::lists('name', 'id');
         $types = ApartmentType::lists('name', 'id');
 
-        return View::make('admin.apartment.create', compact('owners', 'cities', 'types','admin'));
+        return View::make('admin.apartment.create', compact('owners', 'cities', 'types'));
     }
 
     public function storeApartment()
@@ -548,19 +547,19 @@ class AdminController extends \BaseController
 
     public function showApartment($id)
     {
-        $admin= Auth::user();
+        
         $apartment = Apartment::with('user', 'city')->where('id', '=', $id)->get();
-        return View::make('admin.apartment.show', compact('apartment','admin'));
+        return View::make('admin.apartment.show', compact('apartment'));
     }
 
     public function editApartment($id)
     {
-        $admin= Auth::user();
+        
         $owners = User::lists('username', 'id');
         $countries = Country::lists('name', 'id');
         $types = ApartmentType::lists('name', 'id');
         $apartment = Apartment::find($id);
-        return View::make('admin.apartment.edit', compact('apartment', 'owners', 'countries', 'types','admin'));
+        return View::make('admin.apartment.edit', compact('apartment', 'owners', 'countries', 'types'));
     }
 
     public function updateApartment($id)
@@ -619,14 +618,14 @@ class AdminController extends \BaseController
      */
     public function indexFitting()
     {
-        $admin= Auth::user();
+        
         $fittings = Fitting::all();
-        return View::make('admin.fitting.index', compact('fittings','admin'));
+        return View::make('admin.fitting.index', compact('fittings'));
     }
 
     public function createFitting()
     {
-        $admin= Auth::user();
+        
         return View::make('admin.fitting.create',compact('admin'));
     }
 
@@ -653,16 +652,16 @@ class AdminController extends \BaseController
 
     public function showFitting($id)
     {
-        $admin= Auth::user();
+        
         $fitting = Fitting::where('id', '=', $id)->get();
-        return View::make('admin.fitting.show', compact('fitting','admin'));
+        return View::make('admin.fitting.show', compact('fitting'));
     }
 
     public function editFitting($id)
     {
-        $admin= Auth::user();
+        
         $fitting = Fitting::find($id);
-        return View::make('admin.fitting.edit', compact('fitting','admin'));
+        return View::make('admin.fitting.edit', compact('fitting'));
     }
 
     public function updateFitting($id)
@@ -741,18 +740,32 @@ class AdminController extends \BaseController
      * Rooms CRUD
      * ====================================================================
      */
+
+    public function getRoomsData(){
+        $result = DB::table('rooms')
+            ->join('apartments','apartments.id','=','rooms.apartment_id')
+            ->join('users','users.id','=','apartments.owner_id')
+            ->select('rooms.name', 'rooms.capacity', 'rooms.stars','rooms.price','users.username','rooms.id as roomid');
+
+        return Datatables::of($result)
+            ->add_column('roomid', '<a href="/admin/rooms/edit/{{ $roomid }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
+    
+    
+    
     public function indexRoom()
     {
-        $admin= Auth::user();
+        
         $rooms = Room::with('apartment')->get();
-        return View::make('admin.room.index', compact('rooms','admin'));
+        return View::make('admin.room.index', compact('rooms'));
     }
 
     public function createRoom()
     {
-        $admin= Auth::user();
+        
         $apartments = Apartment::lists('name', 'id');
-        return View::make('admin.room.create', compact('apartments','admin'));
+        return View::make('admin.room.create', compact('apartments'));
     }
 
     public function storeRoom()
@@ -789,17 +802,17 @@ class AdminController extends \BaseController
 
     public function showRoom($id)
     {
-        $admin= Auth::user();
+        
         $room = Room::where('id', '=', $id)->with('apartment')->get();
-        return View::make('admin.room.show', compact('room','admin'));
+        return View::make('admin.room.show', compact('room'));
     }
 
     public function editRoom($id)
     {
-        $admin= Auth::user();
+        
         $apartments = Apartment::lists('name', 'id');
         $room = Room::where('id', '=', $id)->with('apartment')->get();
-        return View::make('admin.room.edit', compact('apartments', 'room','admin'));
+        return View::make('admin.room.edit', compact('apartments', 'room'));
     }
 
     public function updateRoom($id)
@@ -851,19 +864,19 @@ class AdminController extends \BaseController
 
     public function pushNotification()
     {
-        $admin= Auth::user();
+        
         return View::make('admin.pushNotifications.show',compact('admin'));
     }
 
     public function getUserProfile()
     {
-        $admin= Auth::user();
+        
         return View::make('admin.profile.index',compact('admin'));
     }
 
     public function editUserProfile()
     {
-        $admin= Auth::user();
+        
         return View::make('admin.profile.edit',compact('admin'));
     }
 
@@ -898,7 +911,7 @@ class AdminController extends \BaseController
 
     public function getStatistics()
     {
-        $admin= Auth::user();
+        
         return View::make('admin.statistics.index',compact('admin'));
     }
 

@@ -76,7 +76,7 @@
 
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="main">
+                            <a href="/admin/main">
                                 <i class="fa fa-dashboard"></i> <span>Main</span>
                             </a>
                         </li>
@@ -88,9 +88,9 @@
                             <i class="fa fa-angle-left pull-right"></i>
                           </a>
                             <ul class="treeview-menu">
-                                 <li><a href="users"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                 <li><a href="users/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
-                                 <li><a href="roles"><i class="fa fa-angle-double-right"></i>User Roles</a></li>
+                                 <li><a href="/admin/users"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                 <li><a href="/admin/users/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                 <li><a href="/admin/roles"><i class="fa fa-angle-double-right"></i>User Roles</a></li>
                             </ul>
                         </li>
 
@@ -101,10 +101,10 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="apartments"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="apartments/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
-                                <li><a href="pictures"><i class="fa fa-angle-double-right"></i>Pictures</a></li>
-                                <li><a href="apartment_types"><i class="fa fa-angle-double-right"></i>Apartment Types</a></li>
+                                <li><a href="/admin/apartments"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="/admin/apartments/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="/admin/pictures"><i class="fa fa-angle-double-right"></i>Pictures</a></li>
+                                <li><a href="/admin/apartment_types"><i class="fa fa-angle-double-right"></i>Apartment Types</a></li>
                             </ul>
                         </li>
 
@@ -114,8 +114,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="rooms"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="rooms/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="/admin/rooms"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="/admin/rooms/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
                             </ul>
                         </li>
 
@@ -125,31 +125,31 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="fitting"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="fitting/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="/admin/fitting"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="/admin/fitting/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="push">
+                            <a href="/admin/push">
                                 <i class="fa fa-envelope"></i> <span>Push notifications</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="countries">
+                            <a href="/admin/countries">
                                 <i class="fa fa-flag"></i> <span>Countries</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="city">
+                            <a href="/admin/city">
                                 <i class="fa fa-flag"></i> <span>Cities</span>
                             </a>
                         </li>
 
                         <li>
-                           <a href="stats">
+                           <a href=/admin/"stats">
                                <i class="fa fa-bar-chart-o"></i>
                                <span>Stats</span>
                            </a>

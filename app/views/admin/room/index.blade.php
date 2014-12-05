@@ -1,32 +1,33 @@
 @extends('admin.index')
 @section('adminContent')
-
+<div class="row">
+    <div class="col-lg-10"><h1>Rooms</h1></div>
+    <div class="col-lg-2">
+        <div class="btn btn-success "><a class="btn-white" href="/admin/rooms/new">Add new</a></div>
+    </div>
+</div>
 
 <hr>
-<h1>Rooms</h1>
-<a href="admin/rooms/new">Add room</a>
-     <table>
-     <thead>
-        <tr>
-            <th>Title</th>
-            <th>Capacity</th>
-            <th>Stars</th>
-            <th>Email</th>
-            <th>Price (Ojra)</th>
-            <th>Owner</th>
-        </tr>
-     </thead>
-     @foreach($rooms as $room)
-         <tr>
-            <td>{{$room->name}}</td>
-            <td>{{$room->capacity}}</td>
-            <td>{{$room->stars}}</td>
-            <td>{{$room->description}}</td>
-            <td>{{$room->price}}</td>
-            <td>{{$room->apartment->name}}</td>
-            <td><a href="admin/rooms/show/{{$room->id}}">Edit</a></td>
-         </tr>
-     @endforeach
-     </table>
+<table class="datatables table">
+            <thead>
+                <tr>
+                    <th>{{{ Lang::get('Admin/Rooms/table.name') }}}</th>
+                    <th>{{{ Lang::get('Admin/Rooms/table.capacity') }}}</th>
+                    <th>{{{ Lang::get('Admin/Rooms/table.stars') }}}</th>
+                    <th>{{{ Lang::get('Admin/Rooms/table.price') }}}</th>
+                    <th>{{{ Lang::get('Admin/Rooms/table.owner') }}}</th>
+                    <th>{{{ Lang::get('Admin/Rooms/table.edit') }}}</th>
+                </tr>
+            </thead>
+        </table>
 
+@stop
+
+@extends('admin.includes.footer')
+    @section('runnableScript')
+        <script>
+        console.log('calling inti datatabless')
+            var oTable = initDatatables($('.datatables'), "{{ URL::to('admin/rooms/data') }}");
+        </script>
+	@overwrite
 @stop

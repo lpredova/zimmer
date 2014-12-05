@@ -125,13 +125,17 @@ Route::group(array('before' => 'auth|admin', 'prefix' => 'admin/'), function () 
     /**
      * Rooms CRUD
      */
-    Route::get('/rooms', 'AdminController@indexRoom');
-    Route::get('/rooms/new', 'AdminController@createRoom');
-    Route::post('/rooms/store', 'AdminController@storeRoom');
-    Route::get('/rooms/show/{id}', 'AdminController@showRoom');
-    Route::get('/rooms/edit/{id}', 'AdminController@editRoom');
-    Route::put('/rooms/update/{id}', 'AdminController@updateRoom');
-    Route::delete('/rooms/destroy/{id}', 'AdminController@destroyRoom');
+    Route::group(array('prefix' => 'rooms/'), function () {
+        Route::get('', 'AdminController@indexRoom');
+        Route::get('/new', 'AdminController@createRoom');
+        Route::post('/store', 'AdminController@storeRoom');
+        Route::get('/show/{id}', 'AdminController@showRoom');
+        Route::get('/edit/{id}', 'AdminController@editRoom');
+        Route::put('/update/{id}', 'AdminController@updateRoom');
+        Route::delete('/destroy/{id}', 'AdminController@destroyRoom');
+        Route::get('data', 'AdminController@getRoomsData');
+
+    });
 
     /**
      * Fittings

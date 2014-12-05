@@ -3,7 +3,9 @@
 <div class="row">
     <div class="col-lg-10"><h1>Users</h1></div>
     <div class="col-lg-2">
-        <div class="btn btn-success "><a class="btn-white" href="/admin/users/new">Add new</a></div>
+        <div class="btn btn-success ">
+            <a class="btn-white" href="/admin/users/new">Add new</a>
+        </div>
     </div>
 </div>
 
