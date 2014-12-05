@@ -14,7 +14,7 @@
                                 <div class="icon">
                                     <i class="ion ion-pie-graph"></i>
                                 </div>
-                                <a href="/zimmer-frei/public/admin/apartments" class="small-box-footer">
+                                <a href="admin/apartments" class="small-box-footer">
                                     More info <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>

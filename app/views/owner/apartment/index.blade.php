@@ -3,7 +3,7 @@
 
 <hr>
 <h1>Apartments</h1>
-<a href="/zimmer-frei/public/owner/apartments/new">New apartment</a>
+<a href="owner/apartments/new">New apartment</a>
      <table>
      <thead>
         <tr>
@@ -19,7 +19,7 @@
             <td>{{$apartment->address}}</td>
             <td>{{$apartment->phone}}</td>
             <td>{{$apartment->email}}</td>
-            <td><a href="/zimmer-frei/public/owner/apartments/show/{{$apartment->id}}">Edit</a></td>
+            <td><a href="owner/apartments/show/{{$apartment->id}}">Edit</a></td>
          </tr>
      @endforeach
      </table>

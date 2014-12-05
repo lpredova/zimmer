@@ -7,7 +7,7 @@
         <h1>Profile owerview</h1>
         <hr>
 
-        <a href="/zimmer-frei/public/admin/profile/edit">Edit</a>
+        <a href="admin/profile/edit">Edit</a>
                 <h4><img class="img-circle" src="{{$admin->avatar}}"></h4>
                <h4>Name    :{{($admin->name)}}</h4>
                <h4>Surname    :{{($admin->surname)}}</h4>

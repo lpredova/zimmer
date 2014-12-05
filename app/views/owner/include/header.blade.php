@@ -9,7 +9,7 @@
 
 <body class="skin-blue">
         <header class="header">
-            <a href="/zimmer-frei/public/owner" class="logo">
+            <a href="owner" class="logo">
             Zimmer Frei
             </a>
 
@@ -39,10 +39,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/zimmer-frei/public/owner/profile" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="owner/profile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="/zimmer-frei/public/logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -67,7 +67,7 @@
 
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="/zimmer-frei/public/owner">
+                            <a href="owner">
                                 <i class="fa fa-dashboard"></i> <span>Main</span>
                             </a>
                         </li>
@@ -85,9 +85,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/zimmer-frei/public/owner/apartments"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="/zimmer-frei/public/owner/apartments/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
-                                <li><a href="/zimmer-frei/public/owner/pictures"><i class="fa fa-angle-double-right"></i>Pictures</a></li>
+                                <li><a href="owner/apartments"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="owner/apartments/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="owner/pictures"><i class="fa fa-angle-double-right"></i>Pictures</a></li>
                             </ul>
                         </li>
 
@@ -97,20 +97,20 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/zimmer-frei/public/owner/room"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="/zimmer-frei/public/owner/room/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="owner/room"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="owner/room/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
                             </ul>
                         </li>
 
                         <li>
-                           <a href="/zimmer-frei/public/owner/favorites">
+                           <a href="owner/favorites">
                                <i class="fa fa-star"></i>
                                <span>Favorites</span>
                            </a>
                         </li>
 
                         <li>
-                           <a href="/zimmer-frei/public/owner/stats">
+                           <a href="owner/stats">
                                <i class="fa fa-bar-chart-o"></i>
                                <span>Stats</span>
                            </a>

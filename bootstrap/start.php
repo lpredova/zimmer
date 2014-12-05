@@ -26,7 +26,8 @@ $app = new Illuminate\Foundation\Application;
 
 $env = $app->detectEnvironment(array(
 
-	'local' => array('miljenko'),
+	//'local' => array('miljenko'),
+    'local' => array('Lovros-Air.mshome.net'),
 
 ));
 

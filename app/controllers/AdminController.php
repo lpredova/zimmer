@@ -30,6 +30,17 @@ class AdminController extends \BaseController
     /**
      * Users CRUD
      */
+    public function getUserData(){
+
+        $result = DB::table('users')
+            ->select('users.id','users.name', 'users.surname', 'users.username','users.email');
+
+        return Datatables::of($result)
+            ->add_column('edit', '<a href="users/edit/{{ $id }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
+
+
     public function indexUser()
     {
         $admin= Auth::user();
@@ -464,6 +475,17 @@ class AdminController extends \BaseController
      * Apartments CRUD
      * ====================================================================
      */
+
+    public function getApartmentsData(){
+
+        $result = DB::table('apartments')
+            ->join('users','users.id','=','apartments.owner_id')
+            ->select('apartments.id','apartments.name','apartments.phone', 'users.username','users.email');
+
+        return Datatables::of($result)
+            ->add_column('edit', '<a href="apartments/edit/{{ $id }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
 
     public function indexApartment()
     {

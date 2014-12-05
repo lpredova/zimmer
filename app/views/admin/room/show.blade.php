@@ -6,8 +6,8 @@ Show details about room
 
         @foreach($room as $r)
             <h2>Details {{$r->name}}</h2>
-               <a href="/zimmer-frei/public/admin/rooms/edit/{{$r->id}}">Edit</a>
-               <a href="/zimmer-frei/public/admin/rooms/new/">Add pictures</a>
+               <a href="admin/rooms/edit/{{$r->id}}">Edit</a>
+               <a href="admin/rooms/new/">Add pictures</a>
         
                <h4>Name of the room :{{($r->name)}}</h4>
                <h4>Description :{{($r->description)}}</h4>

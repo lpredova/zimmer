@@ -248,7 +248,7 @@ jQuery(document).ready(function ($) {
     map.setStyle("map_style");
 
     /*Testing adding some pins*/
-    var url = "http://188.226.150.65/zimmer-frei/public/api/v1/place";
+    var url = "http://188.226.150.65api/v1/place";
 
     $.ajax({
 
@@ -332,18 +332,3 @@ jQuery(document).ready(function ($) {
     });
 });
 
-function initDatatables(element, source_url) {
-    var oTable;
-    oTable = element.dataTable({
-        "oLanguage": {
-            "sLengthMenu": "_MENU_ records per page"
-        },
-        "bProcessing": true,
-        "bServerSide": true,
-        "sAjaxSource": source_url,
-        "fnDrawCallback": function (oSettings) {
-            setIframeListener();
-        }
-    });
-    return oTable;
-}

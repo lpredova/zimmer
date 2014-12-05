@@ -4,7 +4,7 @@
 
 <hr>
 <h1>My Rooms</h1>
-<a href="/zimmer-frei/public/owner/room/new">New room</a>
+<a href="owner/room/new">New room</a>
  <ul>
      <table>
      <thead>
@@ -21,7 +21,7 @@
             <td>{{$room->capacity}}</td>
             <td>{{$room->stars}}</td>
             <td>{{$room->price}}</td>
-            <td><a href="/zimmer-frei/public/owner/room/show/{{$room->id}}">Edit</a></td>
+            <td><a href="owner/room/show/{{$room->id}}">Edit</a></td>
          </tr>
      @endforeach
      </table>

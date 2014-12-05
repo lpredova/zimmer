@@ -7,7 +7,7 @@
      <table>
      @foreach($city as $c)
      <h1>City {{$c->name}}</h1>
-     <a href="/zimmer-frei/public/admin/city/edit/{{$c->id}}">Edit city</a>
+     <a href="admin/city/edit/{{$c->id}}">Edit city</a>
 
             Name : {{$c->name}}
             <br>

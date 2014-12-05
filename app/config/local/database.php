@@ -20,7 +20,7 @@ return array(
 
 	'connections' => array(
 
-        'mysql' => array(
+        /*'mysql' => array(
             'driver'    => 'mysql',
             'host'      => 'localhost',
             'database'  => 'ZimmerFrei',
@@ -29,18 +29,18 @@ return array(
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
+        ),*/
+        'mysql' => array(
+            'driver'    => 'mysql',
+            'host'      => 'localhost',
+            'database'  => 'ZimmerFrei',
+            'username'  => 'root',
+            'password'  => 'mysql',
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+            'unix_socket' => '/Applications/AMPPS/var/mysql.sock'
         ),
-
-		'pgsql' => array(
-			'driver'   => 'pgsql',
-			'host'     => 'localhost',
-			'database' => 'homestead',
-			'username' => 'homestead',
-			'password' => 'secret',
-			'charset'  => 'utf8',
-			'prefix'   => '',
-			'schema'   => 'public',
-		),
 
 	),
 

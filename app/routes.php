@@ -33,32 +33,42 @@ Route::get('/logout', 'RegistrationController@logoutUser');
 /**
  * Admin routes
  */
-Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
+Route::group(array('before' => 'auth|admin', 'prefix' => 'admin/'), function () {
 
     Route::get('/main', 'AdminController@indexAdmin');
+
     /**
      * Users CRUD
      */
-    Route::get('/users',array('as' =>'admin.users.index','uses'=>'AdminController@indexUser') );
-    Route::get('/users/new', 'AdminController@createUser');
-    Route::post('/users/store', 'AdminController@storeUser');
-    Route::get('/users/show/{id}', 'AdminController@showUser');
-    Route::get('/users/edit/{id}', 'AdminController@editUser');
-    Route::put('/users/update/{id}', 'AdminController@updateUser');
-    Route::delete('/users/destroy/{id}', 'AdminController@destroyUser');
 
+    Route::group(array('prefix' => 'users/'), function () {
+        Route::get('', 'AdminController@indexUser');
+        Route::get('new', 'AdminController@createUser');
+        Route::post('store', 'AdminController@storeUser');
+        Route::get('show/{id}', 'AdminController@showUser');
+        Route::get('edit/{id}', 'AdminController@editUser');
+        Route::put('update/{id}', 'AdminController@updateUser');
+        Route::delete('destroy/{id}', 'AdminController@destroyUser');
+        Route::get('data', 'AdminController@getUserData');
+    });
 
 
     /**
      * Apartments CRUD
      */
-    Route::get('/apartments', 'AdminController@indexApartment');
-    Route::get('/apartments/new', 'AdminController@createApartment');
-    Route::post('/apartments/store', 'AdminController@storeApartment');
-    Route::get('/apartments/show/{id}', 'AdminController@showApartment');
-    Route::get('/apartments/edit/{id}', 'AdminController@editApartment');
-    Route::put('/apartments/update/{id}', 'AdminController@updateApartment');
-    Route::delete('/apartments/destroy/{id}', 'AdminController@destroyApartment');
+    Route::group(array('prefix' => 'apartments/'), function () {
+        Route::get('', 'AdminController@indexApartment');
+        Route::get('new', 'AdminController@createApartment');
+        Route::post('store', 'AdminController@storeApartment');
+        Route::get('show/{id}', 'AdminController@showApartment');
+        Route::get('edit/{id}', 'AdminController@editApartment');
+        Route::put('update/{id}', 'AdminController@updateApartment');
+        Route::delete('destroy/{id}', 'AdminController@destroyApartment');
+        Route::get('data', 'AdminController@getApartmentsData');
+
+    });
+
+
     /**
      * Apartment types CRUD
      */
@@ -161,7 +171,7 @@ Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
 /**
  * Owner routes
  */
-Route::group(array('before' => 'auth|owner','prefix' => 'owner/'), function () {
+Route::group(array('before' => 'auth|owner', 'prefix' => 'owner/'), function () {
 
     Route::get('/', 'OwnerController@indexOwner');
 
@@ -212,7 +222,7 @@ Route::group(array('before' => 'auth|owner','prefix' => 'owner/'), function () {
 /**
  * User routes
  */
-Route::group(array('before' => 'auth|user','prefix' => 'user/'), function () {
+Route::group(array('before' => 'auth|user', 'prefix' => 'user/'), function () {
 
     Route::get('/', 'UserController@indexUser');
 
@@ -225,8 +235,7 @@ Route::group(array('before' => 'auth|user','prefix' => 'user/'), function () {
 /**
  * API routes
  */
-Route::group(array('prefix' => 'api/v1'), function()
-{
+Route::group(array('prefix' => 'api/v1'), function () {
     /**
      * API route for apartments in specific range
      */
@@ -244,8 +253,6 @@ Route::group(array('prefix' => 'api/v1'), function()
     /**
      * Api route for CURD of user favorites
      */
-
-
 
 
 });

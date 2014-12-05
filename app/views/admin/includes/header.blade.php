@@ -12,6 +12,8 @@
         {{ HTML::style("//cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2.min.css") }}
         {{ HTML::style("//cdnjs.cloudflare.com/ajax/libs/select2/3.5.0/select2-bootstrap.min.css") }}
 
+
+
 <body class="skin-blue">
         <header class="header">
             <a href="#" class="logo">
@@ -44,10 +46,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/zimmer-frei/public/admin/profile" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="profile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="/zimmer-frei/public/logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -74,7 +76,7 @@
 
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="/zimmer-frei/public/admin/main">
+                            <a href="main">
                                 <i class="fa fa-dashboard"></i> <span>Main</span>
                             </a>
                         </li>
@@ -86,9 +88,9 @@
                             <i class="fa fa-angle-left pull-right"></i>
                           </a>
                             <ul class="treeview-menu">
-                                 <li><a href="/zimmer-frei/public/admin/users"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                 <li><a href="/zimmer-frei/public/admin/users/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
-                                 <li><a href="/zimmer-frei/public/admin/roles"><i class="fa fa-angle-double-right"></i>User Roles</a></li>
+                                 <li><a href="users"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                 <li><a href="users/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                 <li><a href="roles"><i class="fa fa-angle-double-right"></i>User Roles</a></li>
                             </ul>
                         </li>
 
@@ -99,10 +101,10 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/zimmer-frei/public/admin/apartments"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="/zimmer-frei/public/admin/apartments/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
-                                <li><a href="/zimmer-frei/public/admin/pictures"><i class="fa fa-angle-double-right"></i>Pictures</a></li>
-                                <li><a href="/zimmer-frei/public/admin/apartment_types"><i class="fa fa-angle-double-right"></i>Apartment Types</a></li>
+                                <li><a href="apartments"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="apartments/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="pictures"><i class="fa fa-angle-double-right"></i>Pictures</a></li>
+                                <li><a href="apartment_types"><i class="fa fa-angle-double-right"></i>Apartment Types</a></li>
                             </ul>
                         </li>
 
@@ -112,8 +114,8 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/zimmer-frei/public/admin/rooms"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="/zimmer-frei/public/admin/rooms/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="rooms"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="rooms/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
                             </ul>
                         </li>
 
@@ -123,31 +125,31 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="/zimmer-frei/public/admin/fitting"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="/zimmer-frei/public/admin/fitting/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="fitting"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="fitting/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="/zimmer-frei/public/admin/push">
+                            <a href="push">
                                 <i class="fa fa-envelope"></i> <span>Push notifications</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/zimmer-frei/public/admin/countries">
+                            <a href="countries">
                                 <i class="fa fa-flag"></i> <span>Countries</span>
                             </a>
                         </li>
 
                         <li>
-                            <a href="/zimmer-frei/public/admin/city">
+                            <a href="city">
                                 <i class="fa fa-flag"></i> <span>Cities</span>
                             </a>
                         </li>
 
                         <li>
-                           <a href="/zimmer-frei/public/admin/stats">
+                           <a href="stats">
                                <i class="fa fa-bar-chart-o"></i>
                                <span>Stats</span>
                            </a>

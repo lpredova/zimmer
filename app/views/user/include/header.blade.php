@@ -9,7 +9,7 @@
 
 <body class="skin-blue">
         <header class="header">
-            <a href="/zimmer-frei/public/owner" class="logo">
+            <a href="owner" class="logo">
             Zimmer Frei
             </a>
 
@@ -39,10 +39,10 @@
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="/zimmer-frei/public/owner/profile" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="owner/profile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="/zimmer-frei/public/logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -67,7 +67,7 @@
 
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="/zimmer-frei/public/user">
+                            <a href="user">
                                 <i class="fa fa-home"></i> <span>Main</span>
                             </a>
                         </li>
