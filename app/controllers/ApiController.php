@@ -4,6 +4,44 @@ class ApiController extends \BaseController
 {
 
     /**
+     * Function for logging user in
+     */
+    public function loginUser()
+    {
+        $rules = array(
+            'username' => 'required',
+            'password' => 'required'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+
+        } else {
+
+            $userdata = array(
+                'username' => Input::get('username'),
+                'password' => Input::get('password')
+            );
+
+            if (Auth::attempt($userdata)) {
+                $user = Auth::user();
+
+                $authToken = AuthToken::create(Auth::user());
+                $publicToken = AuthToken::publicToken($authToken);
+
+                return Response::json(['status'=>200,'response' => $user,'token'=>$publicToken]);
+
+            } else {
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+
+            }
+        }
+    }
+
+
+    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -41,7 +79,7 @@ class ApiController extends \BaseController
 
             //1 degree is 111 Km !!!
             $bounds = $this->findApartmentsNearLocation(null, $lat, $lng, $range);
-            $apartments = Apartment::with('user', 'city', 'type','picture','room')
+            $apartments = Apartment::with('user', 'city', 'type', 'picture', 'room')
                 ->whereBetween('lat', array($bounds[0], $bounds[1]))
                 ->whereBetween('lng', array($bounds[2], $bounds[3]))
                 ->get();
@@ -52,6 +90,11 @@ class ApiController extends \BaseController
         }
     }
 
+
+    public function getApartmentSpecialOffers()
+    {
+
+    }
 
     /**
      * @return mixed
@@ -80,7 +123,8 @@ class ApiController extends \BaseController
         }
     }
 
-    public function getApartmentDetails(){
+    public function getApartmentDetails()
+    {
         $rules = array(
             'apartment_id' => 'required|numeric',
         );
@@ -92,15 +136,13 @@ class ApiController extends \BaseController
 
         } else {
             $apartment_id = Input::get('apartment_id');
-            $apartments = Apartment::with('user', 'city', 'type','picture','room')
+            $apartments = Apartment::with('user', 'city', 'type', 'picture', 'room')
                 ->where('id', '=', $apartment_id)
                 ->get();
 
             return Response::json(['response' => ApiController::createDetailResponse($apartments)]);
         }
     }
-
-
 
 
     private static function createResponse($apartments)

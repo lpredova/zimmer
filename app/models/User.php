@@ -10,8 +10,9 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
 	use UserTrait, RemindableTrait;
 	protected $table = 'users';
 
-    //columns which we don't want to show
-	protected $hidden = array('password', 'token');
+    //columns which we don't want to show on user API call
+	protected $hidden = array('password', 'token','created_at','updated_at','role_id',
+                                'remember_token','activation_token','activated',);
 
     //columns that can be updated
     protected $fillable = array('name','surname','password','username','email','phone','avatar');

@@ -6,7 +6,7 @@ class RoomsSeeder extends DatabaseSeeder
     {
         $faker = Faker\Factory::create();
 
-        for ($i = 0; $i < 40; $i++)
+        for ($i = 0; $i < 400; $i++)
         {
             Room::create(array(
                 "description" => $faker->numberBetween($min = 1, $max = 4),

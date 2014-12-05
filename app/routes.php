@@ -39,13 +39,16 @@ Route::group(array('before' => 'auth|admin','prefix' => 'admin/'), function () {
     /**
      * Users CRUD
      */
-    Route::get('/users', 'AdminController@indexUser');
+    Route::get('/users',array('as' =>'admin.users.index','uses'=>'AdminController@indexUser') );
     Route::get('/users/new', 'AdminController@createUser');
     Route::post('/users/store', 'AdminController@storeUser');
     Route::get('/users/show/{id}', 'AdminController@showUser');
     Route::get('/users/edit/{id}', 'AdminController@editUser');
     Route::put('/users/update/{id}', 'AdminController@updateUser');
     Route::delete('/users/destroy/{id}', 'AdminController@destroyUser');
+
+
+
     /**
      * Apartments CRUD
      */
@@ -231,4 +234,18 @@ Route::group(array('prefix' => 'api/v1'), function()
     Route::get('/locations', 'ApiController@getLocationsLatLng');
     Route::get('/place', 'ApiController@getLocationsPlace');
     Route::get('/apartmentDetails', 'ApiController@getApartmentDetails');
+    Route::get('/apartmentSpecialOffers', 'ApiController@getApartmentSpecialOffers');
+
+    /**
+     * Api mobile user login
+     */
+    Route::post('/login', 'ApiController@loginUser');
+
+    /**
+     * Api route for CURD of user favorites
+     */
+
+
+
+
 });

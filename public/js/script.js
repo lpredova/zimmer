@@ -201,8 +201,8 @@ jQuery(document).ready(function ($) {
         div: '#map',
         lat: 46.305168,
         lng: 16.333088,
-        zoom: 11,
-        disableDefaultUI: true
+        zoom: 11
+        //disableDefaultUI: true
     });
 
     /*Giving some style to the map*/
@@ -331,3 +331,19 @@ jQuery(document).ready(function ($) {
         }
     });
 });
+
+function initDatatables(element, source_url) {
+    var oTable;
+    oTable = element.dataTable({
+        "oLanguage": {
+            "sLengthMenu": "_MENU_ records per page"
+        },
+        "bProcessing": true,
+        "bServerSide": true,
+        "sAjaxSource": source_url,
+        "fnDrawCallback": function (oSettings) {
+            setIframeListener();
+        }
+    });
+    return oTable;
+}

@@ -1,6 +1,5 @@
 @extends('admin.index')
 @section('adminContent')
-
 <h1>Users</h1>
 <a href="/zimmer-frei/public/admin/users/new">New user</a>
  <ul>
@@ -24,4 +23,5 @@
     </div>
 @endif
 
-@stop
+    @stop
+
