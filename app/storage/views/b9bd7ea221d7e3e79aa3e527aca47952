@@ -1,0 +1,9 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+    <h2>Details of <?php echo $country->name; ?></h2>
+       <a href="admin/countries/edit/<?php echo $country->id; ?>">Edit</a>
+       <h4>Name : <?php echo $country->name; ?></h4>
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

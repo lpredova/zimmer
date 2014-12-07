@@ -1,0 +1,42 @@
+<?php $__env->startSection('adminContent'); ?>
+
+    <h2>Editing <?php echo $fitting->name; ?></h2>
+
+    <?php echo Form::open(array('url'=>'admin/fitting/update/'.($fitting->id),'method'=>'PUT')); ?>
+
+
+                    <?php echo Form::label('name', 'Name'); ?>
+
+                    <?php echo Form::text('name',($fitting->name)); ?>
+
+                    <?php echo $errors->first('name'); ?>
+
+
+                    <?php echo Form::label('description', 'Description'); ?>
+
+                    <?php echo Form::text('description',($fitting->description)); ?>
+
+                    <?php echo $errors->first('lat'); ?>
+
+
+                    <?php echo Form::label('icon', 'Icon'); ?>
+
+                    <?php echo Form::text('icon',($fitting->icon)); ?>
+
+                    <?php echo $errors->first('icon'); ?>
+
+
+                    <?php echo Form::submit('Update fitting'); ?>
+
+    <?php echo Form::close(); ?>
+
+
+ <?php echo Form::open(array('url'=>'admin/fitting/destroy/'.($fitting->id),'method'=>'DELETE')); ?>
+
+                    <?php echo Form::submit('Delete'); ?>
+
+    <?php echo Form::close(); ?>
+
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

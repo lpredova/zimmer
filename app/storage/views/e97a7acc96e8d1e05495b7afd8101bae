@@ -1,0 +1,18 @@
+<?php echo $__env->make('owner.include.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+  <aside class="right-side">
+                <section class="content-header">
+                    <h1>
+                        <small>Control panel</small>
+                    </h1>
+                    <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-dashboard"></i></a></li>
+                        <li class="active">Dashboard</li>
+                    </ol>
+                </section>
+
+                <section class="content">
+                    <?php echo $__env->yieldContent('ownerContent'); ?>
+                </section>
+            </aside>
+        </div>
+<?php echo $__env->make('owner.include.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

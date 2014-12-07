@@ -1,0 +1,24 @@
+<?php $__env->startSection('adminContent'); ?>
+
+<h1>Pictures</h1>
+<a href="admin/pictures/new">New picture</a>
+ <ul>
+     <table>
+     <?php foreach($pictures as $picture): ?>
+         <tr>
+            <td><?php echo $picture->title; ?></td>
+            <td><img src='<?php echo $picture->url; ?>' alt="apartment_picture"></td>
+            <td><a href="admin/pictures/show/<?php echo $picture->id; ?>">Edit</a></td>
+         </tr>
+     <?php endforeach; ?>
+     </table>
+ </ul>
+
+<?php if(Session::has('success')): ?>
+    <div class="alert-box success">
+        <h2><?php echo Session::get('success'); ?></h2>
+    </div>
+<?php endif; ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

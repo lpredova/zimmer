@@ -1,4 +1,4 @@
-<title>Hello {{$user->name}} | Explore the world.</title>
+<title>Hello {{Auth::user()->name}} | Explore the world.</title>
         {{ HTML::style('css/bootstrap.min.css') }}
         {{ HTML::style('font-awesome-4.1.0/css/font-awesome.min.css') }}
         {{ HTML::style('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic') }}
@@ -25,24 +25,24 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>{{$user->name}} <i class="caret"></i></span>
+                                <span>{{Auth::user()->name}} <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="{{$user->avatar}}" class="img-circle" alt="User Image" />
+                                    <img src="{{Auth::user()->avatar}}" class="img-circle" alt="User Image" />
                                     <p>
-                                        {{$user->name}}{{$user->surname}}
-                                        <small>Member since Nov. {{$user->created_at}}</small>
+                                        {{Auth::user()->name}}{{Auth::user()->surname}}
+                                        <small>Member since Nov. {{Auth::user()->created_at}}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
                                 <li class="user-footer">
                                     <div class="pull-left">
-                                        <a href="owner/profile" class="btn btn-default btn-flat">Profile</a>
+                                        <a href="/owner/profile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -57,17 +57,17 @@
                 <section class="sidebar">
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="{{$user->avatar}}" class="img-circle" alt="User Image" />
+                            <img src="{{Auth::user()->avatar}}" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, {{$user->username}}</p>
+                            <p>Hello, {{Auth::user()->username}}</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>
 
                     <ul class="sidebar-menu">
                         <li class="active">
-                            <a href="owner">
+                            <a href="/owner">
                                 <i class="fa fa-dashboard"></i> <span>Main</span>
                             </a>
                         </li>
@@ -85,9 +85,9 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="owner/apartments"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="owner/apartments/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
-                                <li><a href="owner/pictures"><i class="fa fa-angle-double-right"></i>Pictures</a></li>
+                                <li><a href="/owner/apartments"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="/owner/apartments/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="/owner/pictures"><i class="fa fa-angle-double-right"></i>Pictures</a></li>
                             </ul>
                         </li>
 
@@ -97,20 +97,20 @@
                                 <i class="fa fa-angle-left pull-right"></i>
                             </a>
                             <ul class="treeview-menu">
-                                <li><a href="owner/room"><i class="fa fa-angle-double-right"></i>Index</a></li>
-                                <li><a href="owner/room/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
+                                <li><a href="/owner/room"><i class="fa fa-angle-double-right"></i>Index</a></li>
+                                <li><a href="/owner/room/new"><i class="fa fa-angle-double-right"></i>Add</a></li>
                             </ul>
                         </li>
 
                         <li>
-                           <a href="owner/favorites">
+                           <a href="/owner/favorites">
                                <i class="fa fa-star"></i>
                                <span>Favorites</span>
                            </a>
                         </li>
 
                         <li>
-                           <a href="owner/stats">
+                           <a href="/owner/stats">
                                <i class="fa fa-bar-chart-o"></i>
                                <span>Stats</span>
                            </a>

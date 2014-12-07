@@ -1,0 +1,24 @@
+<?php $__env->startSection('adminContent'); ?>
+
+<h1>Countries avaliable</h1>
+<a href="admin/countries/new">Add country</a>
+<a href="admin/city">Cities</a>
+
+ <ul>
+     <table>
+     <?php foreach($countries as $country): ?>
+         <tr>
+            <td><?php echo $country->name; ?></td>
+            <td><a href="admin/countries/show/<?php echo $country->id; ?>">Edit</a></td>
+         </tr>
+     <?php endforeach; ?>
+     </table>
+ </ul>
+<?php if(Session::has('success')): ?>
+    <div class="alert-box success">
+        <h2><?php echo Session::get('success'); ?></h2>
+    </div>
+<?php endif; ?>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

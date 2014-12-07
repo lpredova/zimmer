@@ -16,7 +16,7 @@
 
 <body class="skin-blue">
         <header class="header">
-            <a href="#" class="logo">
+            <a href="/owner" class="logo">
             Zimmer Frei
             </a>
 
@@ -49,7 +49,7 @@
                                         <a href="profile" class="btn btn-default btn-flat">Profile</a>
                                     </div>
                                     <div class="pull-right">
-                                        <a href="logout" class="btn btn-default btn-flat">Sign out</a>
+                                        <a href="/logout" class="btn btn-default btn-flat">Sign out</a>
                                     </div>
                                 </li>
                             </ul>
@@ -149,7 +149,7 @@
                         </li>
 
                         <li>
-                           <a href=/admin/"stats">
+                           <a href=/admin/stats>
                                <i class="fa fa-bar-chart-o"></i>
                                <span>Stats</span>
                            </a>

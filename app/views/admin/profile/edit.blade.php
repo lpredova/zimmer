@@ -6,27 +6,27 @@
 
 
                     {{ Form::label('name', 'Name') }}
-                    {{Form::text('name',($admin->name))}}
+                    {{Form::text('name',(Auth::user()->name))}}
                     {{$errors->first('name')}}
 
                     {{Form::label('surname', 'Surname') }}
-                    {{Form::text('surname',($admin->surname))}}
+                    {{Form::text('surname',(Auth::user()->surname))}}
                     {{ $errors->first('surname') }}
 
                     {{Form::label('username', 'Username') }}
-                    {{Form::text('username',($admin->username))}}
+                    {{Form::text('username',(Auth::user()->username))}}
                     {{ $errors->first('username') }}
 
                     {{Form::label('password', 'Password') }}
-                    {{Form::text('password',($admin->password))}}
+                    {{Form::text('password',(Auth::user()->password))}}
                     {{ $errors->first('password') }}
 
                     {{ Form::label('email', 'Email') }}
-                    {{Form::text('email',($admin->email))}}
+                    {{Form::text('email',(Auth::user()->email))}}
                     {{$errors->first('email') }}
 
                     {{ Form::label('phone', 'Phone') }}
-                    {{Form::text('phone',($admin->phone))}}
+                    {{Form::text('phone',(Auth::user()->phone))}}
                     {{ $errors->first('phone')}}
 
                     {{Form::submit('Save')}}

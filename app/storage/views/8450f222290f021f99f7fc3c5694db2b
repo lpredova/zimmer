@@ -1,0 +1,26 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+Show details
+
+        <?php foreach($apartment as $a): ?>
+            <h2>Details <?php echo $a->name; ?></h2>
+               <a href="admin/apartments/edit/<?php echo $a->id; ?>">Edit</a>
+               <a href="admin/pictures/new">Add pictures</a>
+               <a href="admin/rooms/new">Add rooms</a>
+
+               <h4>Name    :<?php echo ($a->name); ?></h4>
+               <h4>Description :<?php echo ($a->description); ?></h4>
+               <h4>Capacity :<?php echo ($a->capacity); ?></h4>
+               <h4>Address   :<?php echo ($a->address); ?></h4>
+               <h4>Email   :<?php echo ($a->email); ?></h4>
+               <h4>Phone   :<?php echo ($a->phone); ?></h4>
+               <h4>Phone no2   :<?php echo ($a->phone_2); ?></h4>
+               <h4>Rating   :<?php echo ($a->rating); ?></h4>
+               <h4>Lat   :<?php echo ($a->lat); ?></h4>
+               <h4>Lng   :<?php echo ($a->lng); ?></h4>
+               <h4>Owner   :<?php echo ($a->user->username); ?></h4>
+               <h4>City   :<?php echo ($a->city->name); ?></h4>
+       <?php endforeach; ?>
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

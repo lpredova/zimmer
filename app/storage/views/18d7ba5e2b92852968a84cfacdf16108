@@ -1,0 +1,19 @@
+<?php $__env->startSection('adminContent'); ?>
+
+    <?php foreach($user as $u): ?>
+
+       <h2>Details <?php echo $u->name; ?> <?php echo $u->surname; ?></h2>
+                  <a href="admin/users/edit/<?php echo $u->id; ?>">Edit</a>
+
+                  <h4>Name    :<?php echo $u->name; ?></h4>
+                  <h4>Surname :<?php echo ($u->surname); ?></h4>
+                  <h4>Username :<?php echo ($u->username); ?></h4>
+                  <h4>Email   :<?php echo ($u->email); ?></h4>
+                  <h4>Phone   :<?php echo ($u->phone); ?></h4>
+                  <h4>Role   :<?php echo $u->role->name; ?></h4>
+    <?php endforeach; ?>
+
+
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

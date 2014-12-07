@@ -1,0 +1,19 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+<div class="content">
+    <div class="col-lg-12">
+        <h1>Profile owerview</h1>
+        <hr>
+
+        <a href="profile/edit">Edit</a>
+                <h4><img class="img-circle" src="<?php echo Auth::user()->avatar; ?>"></h4>
+               <h4>Name    :<?php echo (Auth::user()->name); ?></h4>
+               <h4>Surname    :<?php echo (Auth::user()->surname); ?></h4>
+               <h4>Username    :<?php echo (Auth::user()->username); ?></h4>
+               <h4>Email    :<?php echo (Auth::user()->email); ?></h4>
+    </div>
+</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,32 @@
+<?php $__env->startSection('adminContent'); ?>
+<div class="row">
+    <div class="col-lg-10"><h1>City</h1></div>
+    <div class="col-lg-2">
+        <div class="btn btn-success"><a  class="btn-white" href="city/new">Add new</a></div>
+    </div>
+</div>
+<hr>
+<table class="datatables table">
+            <thead>
+                <tr>
+                    <th><?php echo e(Lang::get('Admin/Cities/table.name')); ?></th>
+                    <th><?php echo e(Lang::get('Admin/Cities/table.country')); ?></th>
+                    <th><?php echo e(Lang::get('Admin/Cities/table.lat')); ?></th>
+                    <th><?php echo e(Lang::get('Admin/Cities/table.lng')); ?></th>
+                    <th><?php echo e(Lang::get('Admin/Cities/table.edit')); ?></th>
+                </tr>
+            </thead>
+        </table>
+
+<?php $__env->stopSection(); ?>
+
+
+    <?php $__env->startSection('runnableScript'); ?>
+        <script>
+        console.log('calling inti datatabless')
+            var oTable = initDatatables($('.datatables'), "<?php echo URL::to('admin/city/data'); ?>");
+        </script>
+	<?php $__env->stopSection(true); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.includes.footer', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

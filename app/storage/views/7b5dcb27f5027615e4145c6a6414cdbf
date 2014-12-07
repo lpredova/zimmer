@@ -1,0 +1,33 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+    <h2>New fitting</h2>
+    <?php echo Form::open(array('url'=>'admin/fitting/store','method'=>'POST')); ?>
+
+                    <?php echo Form::label('name', 'Name'); ?>
+
+                    <?php echo Form::text('name'); ?>
+
+                    <?php echo $errors->first('name'); ?>
+
+
+                    <?php echo Form::label('description', 'Description'); ?>
+
+                    <?php echo Form::text('description'); ?>
+
+                    <?php echo $errors->first('description'); ?>
+
+
+                    <?php echo Form::label('icon', 'Icon'); ?>
+
+                    <?php echo Form::text('icon'); ?>
+
+                    <?php echo $errors->first('icon'); ?>
+
+
+                    <?php echo Form::submit('Add fitting'); ?>
+
+            <?php echo Form::close(); ?>
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

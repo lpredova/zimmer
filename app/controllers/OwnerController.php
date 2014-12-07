@@ -25,23 +25,43 @@ class OwnerController extends \BaseController {
      * Apartments CRUD
      * ====================================================================
      */
+
+    public function getApartmentData(){
+        $result = DB::table('apartments')
+            ->join('users','users.id','=','apartments.owner_id')
+            ->where('users.id','=',Auth::user()->id)
+            ->select( 'apartments.name as name',
+                'apartments.address as address','users.username as owner',
+                'apartments.price as price','apartments.id as edit');
+
+
+
+        /*$result=Apartment::with('user','city')
+            ->where('owner_id','=',Auth::user()->id)
+            ->orderBy('id', 'asc')
+            ->get();*/
+
+        return Datatables::of($result)
+            ->add_column('edit', '<a href="/owner/apartments/edit/{{ $edit }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
+
+
 	public function indexApartments()
 	{
-        $user = Auth::user();
         $apartments = Apartment::with('user','city')
             ->where('owner_id','=',Auth::user()->id)
             ->orderBy('id', 'asc')
             ->get();
 
-        return View::make('owner.apartment.index',compact('apartments','user'));
+        return View::make('owner.apartment.index',compact('apartments'));
     }
 
     public function createApartment()
     {
-        $user = Auth::user();
         $types = ApartmentType::lists('name', 'id');
         $cities = City::lists('name', 'id');
-        return View::make('owner.apartment.create', compact('types','cities','user'));
+        return View::make('owner.apartment.create', compact('types','cities'));
     }
 
     public function storeApartment()
@@ -88,19 +108,17 @@ class OwnerController extends \BaseController {
 
     public function showApartment($id)
     {
-        $user = Auth::user();
         $apartment = Apartment::with('type','city')->where('id', '=', $id)->get();
-        return View::make('owner.apartment.show', compact('apartment','user'));
+        return View::make('owner.apartment.show', compact('apartment'));
     }
 
     public function editApartment($id)
     {
-        $user = Auth::user();
         $owners = User::lists('username', 'id');
         $cities = City::lists('name', 'id');
         $types = ApartmentType::lists('name', 'id');
         $apartment = Apartment::find($id);
-        return View::make('owner.apartment.edit', compact('apartment', 'owners', 'cities', 'types','user'));
+        return View::make('owner.apartment.edit', compact('apartment', 'owners', 'cities', 'types'));
     }
 
     public function updateApartment($id)
@@ -157,9 +175,23 @@ class OwnerController extends \BaseController {
      * Rooms CRUD
      * ====================================================================
      */
+    public function getRoomData(){
+        $result = DB::table('rooms')
+            ->join('apartments','rooms.apartment_id','=','apartments.id')
+            ->join('users','users.id','=','apartments.owner_id')
+            ->where('users.id','=',Auth::user()->id)
+            ->select( 'rooms.name as name',
+                    'rooms.stars as stars','rooms.capacity as capacity',
+                    'rooms.price as price','apartments.name as apartment_name','rooms.id as edit');
+
+        return Datatables::of($result)
+            ->add_column('edit', '<a href="/owner/rooms/edit/{{ $edit }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
+    
+
 	public function indexRooms()
 	{
-        $user = Auth::user();
         $rooms = DB::table('rooms')
             ->join('apartments','rooms.apartment_id','=','apartments.id')
             ->join('users','users.id','=','apartments.owner_id')
@@ -167,14 +199,13 @@ class OwnerController extends \BaseController {
             ->select('rooms.id', 'rooms.name as room_name','rooms.stars','rooms.capacity',
                 'rooms.description','rooms.price','apartments.name as apartment_name')
             ->get();
-        return View::make('owner.room.index',compact('rooms','user'));
+        return View::make('owner.room.index',compact('rooms'));
     }
 
     public function createRoom()
     {
-        $user = Auth::user();
         $apartments = Apartment::where('owner_id','=',Auth::user()->id)->lists('name', 'id');
-        return View::make('owner.room.create', compact('apartments','user'));
+        return View::make('owner.room.create', compact('apartments'));
     }
 
     public function storeRoom()
@@ -211,17 +242,15 @@ class OwnerController extends \BaseController {
 
     public function showRoom($id)
     {
-        $user = Auth::user();
         $room = Room::where('id', '=', $id)->with('apartment')->get();
-        return View::make('owner.room.show', compact('room','user'));
+        return View::make('owner.room.show', compact('room'));
     }
 
     public function editRoom($id)
     {
-        $user = Auth::user();
         $apartments = Apartment::lists('name', 'id');
         $room = Room::where('id', '=', $id)->with('apartment')->get();
-        return View::make('owner.room.edit', compact('apartments', 'room','user'));
+        return View::make('owner.room.edit', compact('apartments', 'room'));
     }
 
     public function updateRoom($id)
@@ -273,8 +302,7 @@ class OwnerController extends \BaseController {
      */
 	public function getStatistics()
 	{
-        $user = Auth::user();
-        return View::make('owner.stats.index',compact('user'));
+        return View::make('owner.stats.index');
     }
 
     /**
@@ -283,8 +311,7 @@ class OwnerController extends \BaseController {
      */
 	public function getFavorites()
 	{
-        $user = Auth::user();
-        return View::make('owner.favorites.index',compact('user'));
+        return View::make('owner.favorites.index');
     }
 
     /**
@@ -294,14 +321,12 @@ class OwnerController extends \BaseController {
 
 	public function getUserProfile()
 	{
-        $user = User::find(Auth::user()->id);
-        return View::make('owner.profile.show',compact('user'));
+        return View::make('owner.profile.show');
     }
 
 	public function editUserProfile()
 	{
-        $user = User::find(Auth::user()->id);
-        return View::make('owner.profile.edit',compact('user'));
+        return View::make('owner.profile.edit');
     }
 
 	public function updateUserProfile()

@@ -1,0 +1,38 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+    <h2>New city</h2>
+    <?php echo Form::open(array('url'=>'admin/city/store','method'=>'POST')); ?>
+
+                    <?php echo Form::label('name', 'Name'); ?>
+
+                    <?php echo Form::text('name'); ?>
+
+                    <?php echo $errors->first('name'); ?>
+
+
+                    <?php echo Form::label('lat', 'Latitude'); ?>
+
+                    <?php echo Form::text('lat'); ?>
+
+                    <?php echo $errors->first('lat'); ?>
+
+
+                    <?php echo Form::label('lng', 'Longitude'); ?>
+
+                    <?php echo Form::text('lng'); ?>
+
+                    <?php echo $errors->first('lng'); ?>
+
+
+                    <?php echo Form::label('country', 'Country'); ?>
+
+                    <?php echo Form::select('country',$country, 'key', array('class' => 'name'));; ?>
+
+
+                    <?php echo Form::submit('Add city'); ?>
+
+            <?php echo Form::close(); ?>
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

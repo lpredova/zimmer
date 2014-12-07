@@ -1,0 +1,24 @@
+<?php $__env->startSection('adminContent'); ?>
+
+<div class="col-lg-12">
+<h1>Apartment types</h1>
+        <a href="admin/apartment_types/new">New type</a>
+        <hr>
+         <ul>
+             <table>
+             <?php foreach($apartment_types as $type): ?>
+                 <tr>
+                    <td><?php echo $type->name; ?></td>
+                    <td><a href="admin/apartment_types/show/<?php echo $type->id; ?>">Edit</a></td>
+                 </tr>
+             <?php endforeach; ?>
+             </table>
+         </ul>
+            <?php if(Session::has('success')): ?>
+                <div class="alert-box success">
+                    <h2><?php echo Session::get('success'); ?></h2>
+                </div>
+            <?php endif; ?>
+</div>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

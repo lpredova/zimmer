@@ -152,6 +152,15 @@ class AdminController extends \BaseController
      * Roles CRUD
      */
 
+    public function getRolesData(){
+        $result = DB::table('roles')
+            ->select('roles.name','roles.id as id');
+
+        return Datatables::of($result)
+            ->add_column('id', '<a href="/admin/roles/edit/{{ $id }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
+
     public function indexRole()
     {
         $roles = Role::all();
@@ -300,6 +309,17 @@ class AdminController extends \BaseController
      * Cities CRUD
      * ====================================================================
      */
+
+    public function getCityData(){
+
+        $result = DB::table('city')
+            ->join('country','country.id','=','city.country_id')
+            ->select('city.name as name','country.name as country','city.lat as lat','city.lng as lng','city.id as id');
+
+        return Datatables::of($result)
+            ->add_column('id', '<a href="city/edit/{{ $id }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
 
     public function indexCity()
     {
@@ -616,9 +636,21 @@ class AdminController extends \BaseController
      * Fitting CRUD
      * ====================================================================
      */
+
+    public function getFittingsData(){
+
+        $result = DB::table('fittings')
+            ->select('fittings.name', 'fittings.icon as icon','fittings.id as id');
+
+        return Datatables::of($result)
+            ->add_column('id', '<a href="apartments/edit/{{ $id }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->add_column('icon', '<img src="{{$icon}}"/>')
+            ->make();
+    }
+
+
     public function indexFitting()
     {
-        
         $fittings = Fitting::all();
         return View::make('admin.fitting.index', compact('fittings'));
     }
@@ -756,7 +788,6 @@ class AdminController extends \BaseController
     
     public function indexRoom()
     {
-        
         $rooms = Room::with('apartment')->get();
         return View::make('admin.room.index', compact('rooms'));
     }
@@ -782,7 +813,7 @@ class AdminController extends \BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('/admin/rooms/new')->withErrors($validator);
+            return Redirect::to('/rooms/new')->withErrors($validator);
         } else {
             $room = new Room();
 
@@ -796,7 +827,7 @@ class AdminController extends \BaseController
             $room->save();
 
             Session::flash('message', 'Successfully added room !');
-            return Redirect::to('/admin/rooms');
+            return Redirect::to('/rooms');
         }
     }
 
@@ -829,7 +860,7 @@ class AdminController extends \BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('/admin/rooms/new')->withErrors($validator);
+            return Redirect::to('/rooms/new')->withErrors($validator);
         } else {
             $room = Room::find($id);
 
@@ -843,7 +874,7 @@ class AdminController extends \BaseController
             $room->save();
 
             Session::flash('message', 'Successfully added room !');
-            return Redirect::to('/admin/rooms');
+            return Redirect::to('/rooms');
         }
     }
 
@@ -864,20 +895,17 @@ class AdminController extends \BaseController
 
     public function pushNotification()
     {
-        
-        return View::make('admin.pushNotifications.show',compact('admin'));
+        return View::make('admin.pushNotifications.show');
     }
 
     public function getUserProfile()
     {
-        
-        return View::make('admin.profile.index',compact('admin'));
+        return View::make('admin.profile.index');
     }
 
     public function editUserProfile()
     {
-        
-        return View::make('admin.profile.edit',compact('admin'));
+        return View::make('admin.profile.edit');
     }
 
     public function updateUserProfile()
@@ -891,7 +919,7 @@ class AdminController extends \BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('/admin/profile/edit')->withErrors($validator);
+            return Redirect::to('/profile/edit')->withErrors($validator);
         } else {
 
             $user = User::find(Auth::user()->id);
@@ -905,7 +933,7 @@ class AdminController extends \BaseController
             $user->save();
 
             Session::flash('message', 'Successfully updated role!');
-            return Redirect::to('/admin/profile');
+            return Redirect::to('/profile');
         }
     }
 

@@ -93,13 +93,17 @@ Route::group(array('before' => 'auth|admin', 'prefix' => 'admin/'), function () 
     /**
      * Cities CRUD
      */
-    Route::get('/city', 'AdminController@indexCity');
-    Route::get('/city/new', 'AdminController@createCity');
-    Route::post('/city/store', 'AdminController@storeCity');
-    Route::get('/city/show/{id}', 'AdminController@showCity');
-    Route::get('/city/edit/{id}', 'AdminController@editCity');
-    Route::put('/city/update/{id}', 'AdminController@updateCity');
-    Route::delete('/city/destroy/{id}', 'AdminController@destroyCity');
+    Route::group(array('prefix' => 'city/'), function () {
+        Route::get('', 'AdminController@indexCity');
+        Route::get('/new', 'AdminController@createCity');
+        Route::post('/store', 'AdminController@storeCity');
+        Route::get('/show/{id}', 'AdminController@showCity');
+        Route::get('/edit/{id}', 'AdminController@editCity');
+        Route::put('/update/{id}', 'AdminController@updateCity');
+        Route::delete('/destroy/{id}', 'AdminController@destroyCity');
+        Route::get('data', 'AdminController@getCityData');
+    });
+
     /**
      * Pictures CRUD
      */
@@ -114,13 +118,17 @@ Route::group(array('before' => 'auth|admin', 'prefix' => 'admin/'), function () 
     /**
      * Roles CRUD
      */
-    Route::get('/roles', 'AdminController@indexRole');
-    Route::get('/roles/new', 'AdminController@createRole');
-    Route::post('/roles/store', 'AdminController@storeRole');
-    Route::get('/roles/show/{id}', 'AdminController@showRole');
-    Route::get('/roles/edit/{id}', 'AdminController@editRole');
-    Route::put('/roles/update/{id}', 'AdminController@updateRole');
-    Route::delete('/roles/destroy/{id}', 'AdminController@destroyRole');
+    Route::group(array('prefix' => 'roles/'), function () {
+        Route::get('', 'AdminController@indexRole');
+        Route::get('/new', 'AdminController@createRole');
+        Route::post('/store', 'AdminController@storeRole');
+        Route::get('/show/{id}', 'AdminController@showRole');
+        Route::get('/edit/{id}', 'AdminController@editRole');
+        Route::put('/update/{id}', 'AdminController@updateRole');
+        Route::delete('/destroy/{id}', 'AdminController@destroyRole');
+        Route::get('data', 'AdminController@getRolesData');
+    });
+
 
     /**
      * Rooms CRUD
@@ -134,19 +142,22 @@ Route::group(array('before' => 'auth|admin', 'prefix' => 'admin/'), function () 
         Route::put('/update/{id}', 'AdminController@updateRoom');
         Route::delete('/destroy/{id}', 'AdminController@destroyRoom');
         Route::get('data', 'AdminController@getRoomsData');
-
     });
 
     /**
      * Fittings
      */
-    Route::get('/fitting', 'AdminController@indexFitting');
-    Route::get('/fitting/new', 'AdminController@createFitting');
-    Route::post('/fitting/store', 'AdminController@storeFitting');
-    Route::get('/fitting/show/{id}', 'AdminController@showFitting');
-    Route::get('/fitting/edit/{id}', 'AdminController@editFitting');
-    Route::put('/fitting/update/{id}', 'AdminController@updateFitting');
-    Route::delete('/fitting/destroy/{id}', 'AdminController@destroyFitting');
+    Route::group(array('prefix' => 'fitting/'), function () {
+        Route::get('', 'AdminController@indexFitting');
+        Route::get('/new', 'AdminController@createFitting');
+        Route::post('/store', 'AdminController@storeFitting');
+        Route::get('/show/{id}', 'AdminController@showFitting');
+        Route::get('/edit/{id}', 'AdminController@editFitting');
+        Route::put('/update/{id}', 'AdminController@updateFitting');
+        Route::delete('/destroy/{id}', 'AdminController@destroyFitting');
+        Route::get('data', 'AdminController@getFittingsData');
+    });
+
 
     /**
      * ====================================================================
@@ -182,24 +193,33 @@ Route::group(array('before' => 'auth|owner', 'prefix' => 'owner/'), function () 
     /**
      * Apartments
      */
-    Route::get('/apartments', 'OwnerController@indexApartments');
-    Route::get('/apartments/new', 'OwnerController@createApartment');
-    Route::post('/apartments/store', 'OwnerController@storeApartment');
-    Route::get('/apartments/show/{id}', 'OwnerController@showApartment');
-    Route::get('/apartments/edit/{id}', 'OwnerController@editApartment');
-    Route::put('/apartments/update/{id}', 'OwnerController@updateApartment');
-    Route::delete('/apartments/destroy/{id}', 'OwnerController@destroyApartment');
+    Route::group(array('prefix' => '/apartments'), function () {
+        Route::get('', 'OwnerController@indexApartments');
+        Route::get('/new', 'OwnerController@createApartment');
+        Route::post('/store', 'OwnerController@storeApartment');
+        Route::get('/show/{id}', 'OwnerController@showApartment');
+        Route::get('/edit/{id}', 'OwnerController@editApartment');
+        Route::put('/update/{id}', 'OwnerController@updateApartment');
+        Route::delete('/destroy/{id}', 'OwnerController@destroyApartment');
+        Route::get('data', 'OwnerController@getApartmentData');
+    });
+
 
     /**
      * Rooms
      */
-    Route::get('/room', 'OwnerController@indexRooms');
-    Route::get('/room/new', 'OwnerController@createRoom');
-    Route::post('/room/store', 'OwnerController@storeRoom');
-    Route::get('/room/show/{id}', 'OwnerController@showRoom');
-    Route::get('/room/edit/{id}', 'OwnerController@editRoom');
-    Route::put('/room/update/{id}', 'OwnerController@updateRoom');
-    Route::delete('/room/destroy/{id}', 'OwnerController@destroyRoom');
+    Route::group(array('prefix' => 'room/'), function () {
+        Route::get('', 'OwnerController@indexRooms');
+        Route::get('/new', 'OwnerController@createRoom');
+        Route::post('/store', 'OwnerController@storeRoom');
+        Route::get('/show/{id}', 'OwnerController@showRoom');
+        Route::get('/edit/{id}', 'OwnerController@editRoom');
+        Route::put('/update/{id}', 'OwnerController@updateRoom');
+        Route::delete('/destroy/{id}', 'OwnerController@destroyRoom');
+        Route::get('data', 'OwnerController@getRoomData');
+
+
+    });
 
     /**
      * Stats
@@ -214,9 +234,12 @@ Route::group(array('before' => 'auth|owner', 'prefix' => 'owner/'), function () 
     /**
      * Profile
      */
-    Route::get('/profile', 'OwnerController@getUserProfile');
-    Route::get('/profile/edit', 'OwnerController@editUserProfile');
-    Route::put('/profile/update', 'OwnerController@updateUserProfile');
+    Route::group(array('prefix' => 'profile/'), function () {
+        Route::get('', 'OwnerController@getUserProfile');
+        Route::get('/edit', 'OwnerController@editUserProfile');
+        Route::put('/update', 'OwnerController@updateUserProfile');
+    });
+
 });
 /**
  * ====================================================================

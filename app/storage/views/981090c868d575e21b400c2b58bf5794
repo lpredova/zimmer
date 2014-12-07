@@ -1,0 +1,27 @@
+<?php $__env->startSection('adminContent'); ?>
+    <h2>Editing <?php echo $country->name; ?></h2>
+
+    <?php echo Form::open(array('url'=>'admin/countries/update/'.($country->id),'method'=>'PUT')); ?>
+
+
+                    <?php echo Form::label('name', 'Name'); ?>
+
+                    <?php echo Form::text('name',($country->name)); ?>
+
+                    <?php echo $errors->first('name'); ?>
+
+
+                    <?php echo Form::submit('Update country'); ?>
+
+    <?php echo Form::close(); ?>
+
+
+ <?php echo Form::open(array('url'=>'admin/countries/destroy/'.($country->id),'method'=>'DELETE')); ?>
+
+                    <?php echo Form::submit('Delete'); ?>
+
+    <?php echo Form::close(); ?>
+
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,25 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+ <ul>
+     <table>
+     <?php foreach($fitting as $f): ?>
+     <h1><?php echo $f->name; ?></h1>
+     <a href="admin/fitting/edit/<?php echo $f->id; ?>">Edit Fitting</a>
+
+            <br>
+            Name : <?php echo $f->name; ?>
+
+            <br>
+            Description :<?php echo $f->description; ?>
+
+                        <br>
+           Icon : <?php echo $f->icon; ?>
+
+     </table>
+     <?php endforeach; ?>
+ </ul>
+
+<?php $__env->stopSection(); ?>
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,10 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+    <h2>This is showing <?php echo $role->name; ?> role</h2>
+    <a href="admin/roles/edit/<?php echo $role->id; ?>">Edit</a>
+
+    <h4>Role :<?php echo ($role->name); ?></h4>
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

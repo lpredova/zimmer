@@ -1,0 +1,50 @@
+<?php $__env->startSection('adminContent'); ?>
+
+     <?php foreach($city as $c): ?>
+
+    <h2>Editing <?php echo $c->name; ?><?php echo $c->surname; ?> </h2>
+
+    <?php echo Form::open(array('url'=>'admin/city/update/'.($c->id),'method'=>'PUT')); ?>
+
+
+                    <?php echo Form::label('name', 'Name'); ?>
+
+                    <?php echo Form::text('name',($c->name)); ?>
+
+                    <?php echo $errors->first('name'); ?>
+
+
+                    <?php echo Form::label('lat', 'Latitude'); ?>
+
+                    <?php echo Form::text('lat',($c->lat)); ?>
+
+                    <?php echo $errors->first('lat'); ?>
+
+
+                    <?php echo Form::label('lng', 'Longitude'); ?>
+
+                    <?php echo Form::text('lng',($c->lng)); ?>
+
+                    <?php echo $errors->first('lng'); ?>
+
+
+                    <?php echo Form::label('country', 'County'); ?>
+
+                    <?php echo Form::select('country',$country,($c->county_id), array('class' => 'name'));; ?>
+
+
+                    <?php echo Form::submit('Update city'); ?>
+
+    <?php echo Form::close(); ?>
+
+
+ <?php echo Form::open(array('url'=>'admin/city/destroy/'.($c->id),'method'=>'DELETE')); ?>
+
+                    <?php echo Form::submit('Delete'); ?>
+
+    <?php echo Form::close(); ?>
+
+    <?php endforeach; ?>
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

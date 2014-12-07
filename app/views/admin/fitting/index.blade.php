@@ -1,18 +1,29 @@
 @extends('admin.index')
 @section('adminContent')
+<div class="row">
+    <div class="col-lg-10"><h1>Fittings</h1></div>
+    <div class="col-lg-2">
+        <div class="btn btn-success"><a  class="btn-white" href="fitting/new">Add new</a></div>
+    </div>
+</div>
+<hr>
+<table class="datatables table">
+            <thead>
+                <tr>
+                    <th>{{{ Lang::get('Admin/Fittings/table.name') }}}</th>
+                    <th>{{{ Lang::get('Admin/Fittings/table.icon') }}}</th>
+                    <th>{{{ Lang::get('Admin/Fittings/table.edit') }}}</th>
+                </tr>
+            </thead>
+        </table>
 
-<h1>Fitting</h1>
-<a href="admin/fitting/new">New fitting</a>
- <ul>
-     <table>
-     @foreach($fittings as $fitting)
-         <tr>
-            <td>{{$fitting->name}}</td>
-            <td>{{$fitting->icon}}</td>
-            <td><a href="admin/fitting/show/{{$fitting->id}}">Edit fitting</a></td>
-         </tr>
-     @endforeach
-     </table>
- </ul>
+@stop
 
+@extends('admin.includes.footer')
+    @section('runnableScript')
+        <script>
+        console.log('calling inti datatabless')
+            var oTable = initDatatables($('.datatables'), "{{ URL::to('admin/fitting/data') }}");
+        </script>
+	@overwrite
 @stop

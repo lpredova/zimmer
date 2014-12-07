@@ -1,20 +1,31 @@
 @extends('admin.index')
 @section('adminContent')
+<div class="row">
+    <div class="col-lg-10"><h1>City</h1></div>
+    <div class="col-lg-2">
+        <div class="btn btn-success"><a  class="btn-white" href="city/new">Add new</a></div>
+    </div>
+</div>
+<hr>
+<table class="datatables table">
+            <thead>
+                <tr>
+                    <th>{{{ Lang::get('Admin/Cities/table.name') }}}</th>
+                    <th>{{{ Lang::get('Admin/Cities/table.country') }}}</th>
+                    <th>{{{ Lang::get('Admin/Cities/table.lat') }}}</th>
+                    <th>{{{ Lang::get('Admin/Cities/table.lng') }}}</th>
+                    <th>{{{ Lang::get('Admin/Cities/table.edit') }}}</th>
+                </tr>
+            </thead>
+        </table>
 
-<h1>Users</h1>
-<a href="admin/city/new">New city</a>
- <ul>
-     <table>
-     @foreach($city as $c)
-         <tr>
-            <td>{{$c->name}}</td>
-            <td>{{$c->lat}}</td>
-            <td>{{$c->lng}}</td>
-            <td>{{$c->country->name}}</td>
-            <td><a href="admin/city/show/{{$c->id}}">Edit city</a></td>
-         </tr>
-     @endforeach
-     </table>
- </ul>
+@stop
 
+@extends('admin.includes.footer')
+    @section('runnableScript')
+        <script>
+        console.log('calling inti datatabless')
+            var oTable = initDatatables($('.datatables'), "{{ URL::to('admin/city/data') }}");
+        </script>
+	@overwrite
 @stop

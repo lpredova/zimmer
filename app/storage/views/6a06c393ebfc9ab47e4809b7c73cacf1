@@ -1,0 +1,29 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+ <ul>
+     <table>
+     <?php foreach($city as $c): ?>
+     <h1>City <?php echo $c->name; ?></h1>
+     <a href="admin/city/edit/<?php echo $c->id; ?>">Edit city</a>
+
+            Name : <?php echo $c->name; ?>
+
+            <br>
+            Lat :<?php echo $c->lat; ?>
+
+                        <br>
+
+            Lng : <?php echo $c->lng; ?>
+
+                        <br>
+
+            Country : <?php echo $c->country->name; ?>
+
+     <?php endforeach; ?>
+     </table>
+ </ul>
+
+<?php $__env->stopSection(); ?>
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

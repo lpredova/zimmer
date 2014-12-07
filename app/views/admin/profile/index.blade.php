@@ -7,12 +7,12 @@
         <h1>Profile owerview</h1>
         <hr>
 
-        <a href="admin/profile/edit">Edit</a>
-                <h4><img class="img-circle" src="{{$admin->avatar}}"></h4>
-               <h4>Name    :{{($admin->name)}}</h4>
-               <h4>Surname    :{{($admin->surname)}}</h4>
-               <h4>Username    :{{($admin->username)}}</h4>
-               <h4>Email    :{{($admin->email)}}</h4>
+        <a href="profile/edit">Edit</a>
+                <h4><img class="img-circle" src="{{Auth::user()->avatar}}"></h4>
+               <h4>Name    :{{(Auth::user()->name)}}</h4>
+               <h4>Surname    :{{(Auth::user()->surname)}}</h4>
+               <h4>Username    :{{(Auth::user()->username)}}</h4>
+               <h4>Email    :{{(Auth::user()->email)}}</h4>
     </div>
 </div>
 

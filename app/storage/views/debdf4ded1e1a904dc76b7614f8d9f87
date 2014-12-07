@@ -1,0 +1,67 @@
+<?php $__env->startSection('adminContent'); ?>
+
+
+
+
+    <h2>This is creating new user</h2>
+    <?php echo Form::open(array('url'=>'/admin/users/store','method'=>'POST')); ?>
+
+                     <?php echo Form::label('name', 'Name'); ?>
+
+                     <?php echo Form::text('name'); ?>
+
+                      <?php echo $errors->first('name'); ?>
+
+
+                     <?php echo Form::label('surname', 'Surname'); ?>
+
+                     <?php echo Form::text('surname'); ?>
+
+                      <?php echo $errors->first('surname'); ?>
+
+
+                     <?php echo Form::label('email', 'Email'); ?>
+
+                     <?php echo Form::text('email'); ?>
+
+                      <?php echo $errors->first('email'); ?>
+
+
+                     <?php echo Form::label('username', 'Username'); ?>
+
+                     <?php echo Form::text('username'); ?>
+
+                      <?php echo $errors->first('username'); ?>
+
+
+                    <?php echo Form::label('password', 'Password'); ?>
+
+                    <?php echo Form::password('password'); ?>
+
+                     <?php echo $errors->first('password'); ?>
+
+
+                    <?php echo Form::label('confirm_password', 'Confirm Password'); ?>
+
+                    <?php echo Form::password('confirm_password'); ?>
+
+
+                    <?php echo Form::label('phone', 'Phone'); ?>
+
+                    <?php echo Form::text('phone'); ?>
+
+                    <?php echo $errors->first('phone'); ?>
+
+
+
+                    <?php echo Form::label('role', 'Role'); ?>
+
+                    <?php echo Form::select('role',$roles, 'key', array('class' => 'name'));; ?>
+
+
+                    <?php echo Form::submit('Create new user'); ?>
+
+            <?php echo Form::close(); ?>
+
+  <?php $__env->stopSection(); ?>
+<?php echo $__env->make('admin.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

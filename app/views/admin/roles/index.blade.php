@@ -1,19 +1,31 @@
 @extends('admin.index')
 @section('adminContent')
+<div class="row">
+    <div class="col-lg-10"><h1>Roles</h1></div>
+    <div class="col-lg-2">
+        <a class="btn-white btn btn-success" href="roles/new">Add new role</a>
+    </div>
+</div>
+<a href="apartment_types">Apartment categories</a>
+<a href="apartments/new">New apartment</a>
 
-<h1>Roles</h1>
-<a href="admin/roles/new">New role</a>
- <ul>
-     <table>
-     @foreach($roles as $role)
-         <tr>
-            <td>{{$role->id}}</td>
-            <td>{{$role->name}}</td>
-            <td><a href="admin/roles/show/{{$role->id}}">Edit</a></td>
-         </tr>
-     @endforeach
-     </table>
- </ul>
+<hr>
+<table class="datatables table">
+            <thead>
+                <tr>
+                    <th>{{{ Lang::get('Admin/Roles/table.id') }}}</th>
+                    <th>{{{ Lang::get('Admin/Roles/table.name') }}}</th>
+                </tr>
+            </thead>
+        </table>
 
+@stop
 
+@extends('admin.includes.footer')
+    @section('runnableScript')
+        <script>
+        console.log('calling inti datatabless')
+            var oTable = initDatatables($('.datatables'), "{{ URL::to('admin/roles/data') }}");
+        </script>
+	@overwrite
 @stop
