@@ -1,11 +1,11 @@
-<title>Hello {{$user->name}} | Explore the world.</title>
-        {{ HTML::style('css/bootstrap.min.css') }}
-        {{ HTML::style('font-awesome-4.1.0/css/font-awesome.min.css') }}
+<title>Hello {{Auth::user()->name}} | Explore the world.</title>
+        {{ HTML::style('assets/css/bootstrap.min.css') }}
+        {{ HTML::style('assets/font-awesome-4.1.0/css/font-awesome.min.css') }}
         {{ HTML::style('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic') }}
         <!-- Ionicons -->
         {{ HTML::style("//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css") }}
         <!-- Theme style -->
-        {{ HTML::style("admin/css/AdminLTE.css") }}
+        {{ HTML::style("assets/admin/css/AdminLTE.css") }}
 
 <body class="skin-blue">
         <header class="header">
@@ -25,15 +25,15 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span>{{$user->name}} <i class="caret"></i></span>
+                                <span>{{Auth::user()->name}} <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="{{$user->avatar}}" class="img-circle" alt="User Image" />
+                                    <img src="{{Auth::user()->avatar}}" class="img-circle" alt="User Image" />
                                     <p>
-                                        {{$user->name}}{{$user->surname}}
-                                        <small>Member since Nov. {{$user->created_at}}</small>
+                                        {{Auth::user()->name}}{{Auth::user()->surname}}
+                                        <small>Member since Nov. {{Auth::user()->created_at}}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
@@ -57,10 +57,10 @@
                 <section class="sidebar">
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="{{$user->avatar}}" class="img-circle" alt="User Image" />
+                            <img src="{{Auth::user()->avatar}}" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, {{$user->username}}</p>
+                            <p>Hello, {{Auth::user()->username}}</p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>

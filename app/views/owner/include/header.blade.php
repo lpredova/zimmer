@@ -1,11 +1,11 @@
 <title>Hello {{Auth::user()->name}} | Explore the world.</title>
-        {{ HTML::style('css/bootstrap.min.css') }}
-        {{ HTML::style('font-awesome-4.1.0/css/font-awesome.min.css') }}
+        {{ HTML::style('assets/css/bootstrap.min.css') }}
+        {{ HTML::style('assets/font-awesome-4.1.0/css/font-awesome.min.css') }}
         {{ HTML::style('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic') }}
         <!-- Ionicons -->
         {{ HTML::style("//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css") }}
         <!-- Theme style -->
-        {{ HTML::style("admin/css/AdminLTE.css") }}
+        {{ HTML::style("assets/admin/css/AdminLTE.css") }}
 
 <body class="skin-blue">
         <header class="header">
