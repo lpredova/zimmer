@@ -13,7 +13,7 @@
                 <div ng-view class="view-frame"></div>
             </div>
 
-    
+
             @include('includes.footer')
      </body>
  </html>

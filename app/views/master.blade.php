@@ -1,5 +1,5 @@
- <html>
- <head lang="en" ng-app="zimmerApp">
+ <html ng-app="zimmerApp">
+ <head lang="en">
  	@include('includes.head')
  </head>
  <body>
