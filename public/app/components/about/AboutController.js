@@ -4,9 +4,7 @@
 
 
 
-var zimmerControllers = angular.module('zimmerControllers', []);
-
-zimmerControllers.controller('AboutCtrl', ['$scope',
+zimmerApp.controller('aboutCtrl', ['$scope',
     function($scope) {
         console.log('about controller here')
     }]);

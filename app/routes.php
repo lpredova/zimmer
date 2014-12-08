@@ -6,13 +6,20 @@
 /**
  * Routes for public pages
  */
-Route::get('/', 'PublicController@getMainPage');
+//Route::get('/', 'PublicController@getMainPage');
+Route::get('/', function(){return View::make('index');});
 Route::get('/discover', 'PublicController@getDiscoverPage');
 Route::get('/near', 'PublicController@getNearMe');
 Route::get('/about', 'PublicController@getAbout');
 Route::get('/login', 'PublicController@getLogin');
 Route::get('/signup', 'PublicController@getRegister');
 Route::get('/restricted', 'PublicController@indexRestricted');
+App::missing(function($exception)
+{
+    return View::make('pages.homepage');
+});
+
+
 /**
  * ====================================================================
  */
@@ -280,6 +287,4 @@ Route::group(array('prefix' => 'api/v1'), function () {
     /**
      * Api route for CURD of user favorites
      */
-
-
 });

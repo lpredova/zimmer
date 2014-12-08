@@ -3,9 +3,8 @@
  */
 
 
-var zimmerControllers = angular.module('zimmerControllers', []);
 
-zimmerControllers.controller('SignupOwnerCtrl', ['$scope',
+zimmerApp.controller('signupOwnerCtrl', ['$scope',
     function($scope) {
         console.log('discover controller here')
     }]);

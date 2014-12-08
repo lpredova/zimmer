@@ -4,9 +4,8 @@
 
 
 
-var zimmerControllers = angular.module('zimmerControllers', []);
 
-zimmerControllers.controller('SignupUserCtrl', ['$scope',
+zimmerApp.controller('signupUserCtrl', ['$scope',
     function($scope) {
         console.log('signup user controller here')
     }]);

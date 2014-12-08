@@ -5,9 +5,8 @@
 
 
 
-var zimmerControllers = angular.module('zimmerControllers', []);
 
-zimmerControllers.controller('NearCtrl', ['$scope',
+zimmerApp.controller('nearCtrl', ['$scope',
     function($scope) {
         console.log('near controller here')
     }]);
