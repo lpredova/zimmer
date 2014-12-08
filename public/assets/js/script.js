@@ -248,7 +248,7 @@ jQuery(document).ready(function ($) {
     map.setStyle("map_style");
 
     /*Testing adding some pins*/
-    var url = "http://188.226.150.65api/v1/place";
+    var url = "/api/v1/place";
 
     $.ajax({
 
