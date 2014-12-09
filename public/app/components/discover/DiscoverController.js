@@ -5,5 +5,5 @@
 
 zimmerApp.controller('discoverCtrl', ['$scope',
     function($scope) {
-        console.log('discover controller here')
+
     }]);

@@ -8,5 +8,4 @@
 
 zimmerApp.controller('nearCtrl', ['$scope',
     function($scope) {
-        console.log('near controller here')
     }]);

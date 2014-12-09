@@ -34,18 +34,26 @@ class RegistrationController extends \BaseController
 
                 switch(Auth::user()->role_id){
                     case 1:
-                        return Redirect::to('/admin/main');
+                        //return Redirect::to('/admin/main');
+                        return Response::json(array('code'=>200,'status'=>'success','role' => 'admin', 'url' => '/admin/main'));
+
                         break;
                     case 2:
-                        return Redirect::to('/owner');
+                        //return Redirect::to('/owner');
+                        return Response::json(array('code'=>200,'status'=>'success','role' => 'owner', 'url' => '/owner'));
+
                         break;
                     case 3:
-                        return Redirect::to('/user');
+                        //return Redirect::to('/user');
+                        return Response::json(array('code'=>200,'status'=>'success','role' => 'user', 'url' => '/user'));
+
                         break;
                 }
 
             } else {
-                return Redirect::to('/login');
+                return Response::json(array('code'=>401,'status'=>'fail'));
+                //return Redirect::to('/login');
+
             }
         }
     }
@@ -56,7 +64,8 @@ class RegistrationController extends \BaseController
      */
     public function logoutUser(){
         Auth::logout();
-        return Redirect::to('/login')->with('message', 'Your are now logged out!');
+        //return Redirect::to('/login')->with('message', 'Your are now logged out!');
+        return View::make('index');
     }
 
 

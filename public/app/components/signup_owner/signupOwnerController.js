@@ -6,5 +6,4 @@
 
 zimmerApp.controller('signupOwnerCtrl', ['$scope',
     function($scope) {
-        console.log('discover controller here')
     }]);

@@ -1,11 +1,17 @@
 /**
  * Created by lovro on 08/12/14.
  */
-zimmerApp.config(['$routeProvider',
-    function($routeProvider) {
+zimmerApp.config(['$routeProvider','$locationProvider',
+    function($routeProvider,$locationProvider) {
+
+        $locationProvider.html5Mode({
+            enabled: true,
+            requireBase: false
+        });
+
         $routeProvider.
             when('/', {
-                templateUrl: 'app/components/home/index/html',
+                templateUrl: 'app/components/home/index.html',
                 controller: 'homeCtrl'
             }).
             when('/about', {
@@ -25,9 +31,9 @@ zimmerApp.config(['$routeProvider',
                 templateUrl: 'app/components/login/index.html',
                 controller: 'loginCtrl'
             }).
-            when('/signup_user', {
+            when('/signup', {
                 templateUrl: 'app/components/signup_user/index.html',
-                controller: 'SignupUserCtrl'
+                controller: 'signupUserCtrl'
             }).
             when('/signup_owner', {
                 templateUrl: 'app/components/signup_owner/index.html',
@@ -37,4 +43,5 @@ zimmerApp.config(['$routeProvider',
                 redirectTo: '/'
             });
     }]
+
 );
