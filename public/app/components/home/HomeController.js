@@ -7,6 +7,6 @@ zimmerApp.controller('homeCtrl', ['$scope',
     function($scope) {
         $scope.first = "Heureka !"
 
-        
+
 
     }]);

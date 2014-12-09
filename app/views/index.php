@@ -58,7 +58,4 @@
 <!--Angular factory-->
 <script src='app/services/authentication/services.js'></script>
 
-
-
-
 </html>
