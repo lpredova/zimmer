@@ -64,7 +64,7 @@ class RegistrationController extends \BaseController
      */
     public function logoutUser(){
         Auth::logout();
-        //return Redirect::to('/login')->with('message', 'Your are now logged out!');
+        //return Redirect::to('/');
         return View::make('index');
     }
 

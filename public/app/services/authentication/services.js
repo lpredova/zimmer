@@ -10,7 +10,7 @@ zimmerApp.factory('AuthService',function ($http, $sanitize) {
 
     return {
         login: function (credentials) {
-            var login = $http.post("/login", sanitizeCredentials(credentials));
+            var login = $http.post("/Login", sanitizeCredentials(credentials));
             return login;
         }
     };

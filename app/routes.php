@@ -1,29 +1,5 @@
 <?php
 
-/**
- * ====================================================================
- */
-/**
- * Routes for frontend
- */
-//Route::get('/', 'PublicController@getMainPage');
-Route::get('/', function(){return View::make('index');});
-/*
-Route::get('/discover', 'PublicController@getDiscoverPage');
-Route::get('/near', 'PublicController@getNearMe');
-Route::get('/about', 'PublicController@getAbout');
-Route::get('/login', 'PublicController@getLogin');
-Route::get('/signup', 'PublicController@getRegister');
-*/
-Route::get('/restricted', 'PublicController@indexRestricted');
-
-App::missing(function($exception)
-{
-    return View::make('index');
-});
-Route::get('/auth/token', 'AuthController@token');
-
-
 
 /**
  * ====================================================================
@@ -36,7 +12,7 @@ Route::get('/signup', 'RegistrationController@createUser');
 Route::get('/signup/owner', 'RegistrationController@createOwner');
 Route::post('/register/user', 'RegistrationController@storeUser');
 Route::post('/register/owner', 'RegistrationController@storeOwner');
-Route::post('/login', 'RegistrationController@loginUser');
+Route::post('/Login', 'RegistrationController@loginUser');
 Route::get('/logout', 'RegistrationController@logoutUser');
 /**
  * ====================================================================
@@ -293,3 +269,23 @@ Route::group(array('prefix' => 'api/v1'), function () {
      * Api route for CURD of user favorites
      */
 });
+
+
+/**
+ * Routes for frontend
+ */
+//Route::get('/', 'PublicController@getMainPage');
+Route::get('/', function(){return View::make('index');});
+
+Route::get('/discover',function(){return View::make('index');});
+Route::get('/near', function(){return View::make('index');});
+Route::get('/about', function(){return View::make('index');});
+//Route::get('/login', function(){return View::make('index');});
+Route::get('/signup', function(){return View::make('index');});
+Route::get('/restricted', 'PublicController@indexRestricted');
+
+App::missing(function($exception)
+{
+    return View::make('index');
+});
+Route::get('/auth/token', 'AuthController@token');

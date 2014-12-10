@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html ng-app="zimmerApp">
 
 <head>
     <link rel="stylesheet" href="assets/css/style.css">
@@ -7,9 +6,6 @@
     <link rel='stylesheet' href='assets/fancybox/jquery.fancybox-v=2.1.5.css'>
     <link rel='stylesheet' href='assets/css/font-awesome.min.css'>
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300,200&subset=latin,latin-ext'>
-    
-    
-    
 </head>
 <div class="navbar navbar-fixed-top">
     <div class="container">
@@ -24,12 +20,10 @@
     </div>
 </div>
 
-<body>
-
-<hr>
-    <div ng-view>
-    </div>
-
+<body ng-app="zimmerApp">
+    <hr>
+    <!--Container-->
+    <div ng-view></div>
 </body>
 
 <!--AngularJS resources-->
@@ -57,5 +51,9 @@
 
 <!--Angular factory-->
 <script src='app/services/authentication/services.js'></script>
+
+<!--Angular directives-->
+<script src='app/shared/directives.js'></script>
+
 
 </html>
