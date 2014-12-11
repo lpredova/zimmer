@@ -82,6 +82,8 @@ class ApiController extends \BaseController
             $apartments = Apartment::with('user', 'city', 'type', 'picture', 'room')
                 ->whereBetween('lat', array($bounds[0], $bounds[1]))
                 ->whereBetween('lng', array($bounds[2], $bounds[3]))
+                ->take(30)
+                ->skip(30)
                 ->get();
 
             //with status response

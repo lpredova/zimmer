@@ -483,7 +483,6 @@ i {
     font-size: 20px;
 }
 
-
 .with-hover-text span {
     display: none;
 }
@@ -492,20 +491,8 @@ i {
     cursor: pointer;
 }
 
-#video {
-    width: 100%;
-    z-index: 0;
-    background: rgba(0, 0, 0, 0.6);
-    opacity: 0.9;
-}
-
 #start-container {
     margin-bottom: 150px;
-}
-
-#map {
-    height: 100%;
-    width: 100%;
 }
 
 #video {
@@ -515,6 +502,8 @@ i {
     bottom: 0;
     min-width: 100%;
     min-height: 100%;
+    opacity: 0.9;
+
     width: auto;
     height: auto;
     background: url(assets/images/video_poster.jpg) no-repeat;
@@ -579,28 +568,128 @@ i {
     z-index: 7;
 }
 
-.main-line{
+.main-line {
     width: 100%;
     border: 2px solid #fff;
 }
 
-.main-moto{
+.main-moto {
     margin: 0 7%;
 }
 
-.main-message-center{
-    color:#ffffff;
+.main-message-center {
+    color: #ffffff;
     margin: 8% 24%;
     font-size: 6rem;
     opacity: 1;
     font-weight: 900;
 }
 
-.logo-video-main{
-    font-family: "Kaushan Script" ;
+.logo-video-main {
+    font-family: "Kaushan Script";
     font-size: 7rem;
     margin-top: 5%;
-    margin-left:20% ;
+    margin-left: 20%;
+}
+
+.side-apartments {
+    height: 800px;
+}
+
+.apartment-img {
+    width: 100%;
+}
+
+.animate-enter {
+    -webkit-transition: 1s linear all; /* Chrome */
+    transition: 1s linear all;
+    opacity: 0;
+}
+
+.animate-enter.animate-enter-active {
+    opacity: 1;
+}
+
+/*Preloader*/
+.preloader {
+    padding: 25% 0;
+    background: url('../images/preloader.gif') no-repeat 50% 50% transparent;
+}
+
+/*Custom search form*/
+
+.search-panel {
+    margin-top: 3%;
+}
+
+.search-form .form-group {
+    color: #e74c3c;
+    float: left !important;
+    transition: all 0.35s, border-radius 0s;
+    width: 32px;
+    height: 32px;
+    background-color: #fff;
+    box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;
+    border-radius: 25px;
+    border: 1px solid #ccc;
+}
+
+.search-form .form-group input.form-control {
+    padding-right: 20px;
+    border: 0 none;
+    background: transparent;
+    box-shadow: none;
+    display: block;
+}
+
+.search-form .form-group input.form-control::-webkit-input-placeholder {
+    display: none;
+}
+
+.search-form .form-group input.form-control:-moz-placeholder {
+    /* Firefox 18- */
+    display: none;
+}
+
+.search-form .form-group input.form-control::-moz-placeholder {
+    /* Firefox 19+ */
+    display: none;
+}
+
+.search-form .form-group input.form-control:-ms-input-placeholder {
+    display: none;
+}
+
+.search-form .form-group:hover,
+.search-form .form-group.hover {
+    width: 40%;
+    border-radius: 25px 25px 25px 25px;
+}
+
+.search-form .form-group span.form-control-feedback {
+    position: absolute;
+    top: -1px;
+    right: -2px;
+    z-index: 2;
+    display: block;
+    width: 34px;
+    height: 34px;
+    line-height: 34px;
+    text-align: center;
+    font-size: 14px;
+}
+
+#search {
+    color: #e74c3c;
+}
+
+#apartments-list {
+    margin-right: 10%;
 }
 
 
+.phone-em{
+    font-size: 3 rem;
+    font-weight: 800;
+}
+/*End of search form*/

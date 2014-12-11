@@ -36,6 +36,8 @@
 <!--Angular maps-->
 <script src='bower_components/lodash/dist/lodash.min.js'></script>
 <script src='bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
+<script src='bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js'></script>
+
 
 <script src='app/app.module.js'></script>
 <script src='app/app.routes.js'></script>
@@ -49,11 +51,12 @@
 <script src='app/components/signup_user/signupUserController.js'></script>
 <script src='app/components/login/loginController.js'></script>
 
-<!--Angular factory-->
+<!--Angular factory/services-->
 <script src='app/services/authentication/services.js'></script>
+<script type="text/javascript" src='app/services/apartments/nearApartments.js'></script>
 
 <!--Angular directives-->
-<script src='app/shared/directives.js'></script>
+<script type="text/javascript" src='app/shared/directives.js'></script>
 
 
 </html>

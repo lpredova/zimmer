@@ -8,6 +8,7 @@ var zimmerApp = angular.module('zimmerApp', [
         'uiGmapgoogle-maps',
         'ngCookies',
         'ngSanitize',
+        'geolocation'
         ])
         .constant('AUTH_EVENTS', {
             loginSuccess: 'auth-login-success',
