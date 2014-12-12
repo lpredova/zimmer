@@ -57,6 +57,7 @@
 <script src='app/components/signup_owner/signupOwnerController.js'></script>
 <script src='app/components/signup_user/signupUserController.js'></script>
 <script src='app/components/login/loginController.js'></script>
+<script src='app/components/apartment/apartmentController.js'></script>
 
 <!--Angular factory/services-->
 <script src='app/services/authentication/services.js'></script>

@@ -39,6 +39,11 @@ zimmerApp.config(['$routeProvider','$locationProvider',
                 templateUrl: 'app/components/signup_owner/index.html',
                 controller: 'signupOwnerCtrl'
             }).
+            when('/apartment/:id', {
+            //when('/apartment', {
+                templateUrl: '/app/components/apartment/index.html',
+                controller: 'apartmentCtrl'
+            }).
             otherwise({
                 redirectTo: '/'
             });

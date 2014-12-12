@@ -1,3 +1,11 @@
 /**
- * Created by lovro on 12/12/14.
+ * Created by lovro on 08/12/14.
  */
+
+
+zimmerApp.controller('apartmentCtrl',
+    function($scope,$routeParams) {
+
+        $scope.id = $routeParams.id
+    });
+
