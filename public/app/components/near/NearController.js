@@ -17,7 +17,7 @@ zimmerApp.controller('nearCtrl',
                 center: {
                     latitude: data.coords.latitude,
                     longitude: data.coords.longitude
-                }, zoom: 11
+                }, zoom: 8
             };
             $scope.options = {
                 scrollwheel: false
