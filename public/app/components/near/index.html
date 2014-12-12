@@ -13,8 +13,11 @@
                 <form action="" class="search-form">
                     <div class="form-group has-feedback">
                         <label for="search" class="sr-only">Search for apartments near me</label>
-                        <input type="text" class="form-control" name="search" id="search"
-                               placeholder="Search for apartment">
+                        <input type="text" class="form-control"
+                               name="search" id="search"
+                               placeholder="Search for apartment"
+                               ng-model="search.$">
+
                         <span class="glyphicon glyphicon-search form-control-feedback"></span>
                     </div>
                 </form>
@@ -23,46 +26,68 @@
 
         <!--List of the apartments-->
         <div class="nav pre-scrollable side-apartments">
+            <div class="apartment-results">
 
-            <div ng-repeat="apartment in apartments">
-                <div class="media panel">
-                    <a class="pull-left" href="#" target="_parent">
-                        <img alt="image" class="img-responsive apartment-img" src="{{apartment.picture}}"></a>
+                <span ng-show="(apartments | filter:search).length == 0" class="no-results">No results !</span>
 
-                    <div class="clearfix visible-sm"></div>
+                <div class="results">
+                    <div ng-repeat="apartment in apartments | filter:search" class="my-repeat-animation">
+                        <div class="media panel">
+                            <a class="pull-left" href="#" target="_parent">
+                                <img alt="image" class="img-responsive apartment-img" src="{{apartment.picture}}"></a>
+                            <div class="clearfix visible-sm"></div>
 
-                    <div class="media-body">
-                        <a href="#" target="_parent"></a>
-
-                        <h4 class="media-heading">
-                            <a href="#" target="_parent">{{apartment.name}}
-                                <small class="pull-right">{{apartment.address}}</small>
-                            </a>
-                        </h4>
-
-                        <ul class="list-inline">
-                            <li style="list-style: none"></li>
-
-                            <li><div class="phone-em">{{apartment.phone}}</div><br></li>
-
-                            <li style="list-style: none"></li>
-
-                            <li>{{apartment.email}}<br></li>
-                        </ul>
-
-                        <p class="hidden-xs">{{apartment.description}}
+                            <div class="media-body">
+                                <a href="#" target="_parent"></a>
+                                <h4 class="media-heading">
+                                    <a href="#" target="_parent">
+                                        <h3>{{apartment.name}}</h3>
+                                        <small class="pull-right">{{apartment.address}}</small>
+                                    </a>
+                                </h4>
+                                <ul class="list-inline">
+                                    <li style="list-style: none"></li>
+                                    <li>
+                                        <div class="phone-em">{{apartment.phone}}</div>
+                                    </li>
+                                    <li style="list-style: none"></li>
+                                    <li>
+                                        {{apartment.email}}
+                                    </li>
+                                    <li>
+                                        <a href="/apartment/{{apartment.id}}">See more...</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-
-
             </div>
         </div>
     </div>
 
-    <ui-gmap-google-map ng-show="dataLoaded" class="col-lg-8" center="map.center" zoom="map.zoom" draggable="true"
+    <ui-gmap-google-map ng-if="showMap"
+                        ng-show="dataLoaded" class="col-lg-8"
+                        center="map.center" zoom="map.zoom" draggable="true"
                         options="options"
                         bounds="map.bounds">
-        <ui-gmap-markers models="mapMarkers" coords="'self'" icon="'icon'">
+        <ui-gmap-markers
+                models="mapMarkers"
+                coords="'self'"
+                icon="'icon'"
+                title="'title'"
+                >
+
+            <!--Map info-->
+            <ui-gmap-windows show="show">
+                <div ng-non-bindable>
+                    <h1>{{title | split:';':0}}</h1>
+                    <p>{{title | split:';':2}}</p>
+                    <img src="{{title | split:';':1}} "> </div>
+            </ui-gmap-windows>
+
+
+
         </ui-gmap-markers>
     </ui-gmap-google-map>
 </div>

@@ -511,7 +511,10 @@ i {
 }
 
 .angular-google-map-container {
+    position: relative;
     height: 800px;
+    z-index: 9;
+
 }
 
 /*Footer social icons*/
@@ -662,7 +665,7 @@ i {
 
 .search-form .form-group:hover,
 .search-form .form-group.hover {
-    width: 40%;
+    width: 35%;
     border-radius: 25px 25px 25px 25px;
 }
 
@@ -689,7 +692,76 @@ i {
 
 
 .phone-em{
-    font-size: 3 rem;
+    font-size: 3rem;
     font-weight: 800;
 }
 /*End of search form*/
+
+/*No results*/
+.no-results{
+    color:#aaaaaa;
+    width: 100%;
+    height: 636px;
+    background: #eee;
+    font-size: 4rem;
+}
+
+.no-results p{
+    padding:30%
+}
+
+/*ng-Animate on changing screens*/
+.view-animate-container {
+    position:relative;
+    height:100%!important;
+    background:white;
+    overflow:hidden;
+}
+
+.view-animate {
+    padding:10px;
+}
+
+.view-animate.ng-enter, .view-animate.ng-leave {
+    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+
+    display:block;
+    width:100%;
+
+    position:absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
+    padding:10px;
+}
+
+.view-animate.ng-enter {
+    left:100%;
+}
+.view-animate.ng-enter.ng-enter-active {
+    left:0;
+}
+.view-animate.ng-leave.ng-leave-active {
+    left:-100%;
+}
+
+/*team members slis*/
+
+.app-page{
+    magin-top:2%;
+}
+
+.team-photo{
+    transition: .2s all;
+    -webkit-filter: grayscale(90%);
+
+}
+
+.team-photo:hover{
+    transition: .2s all;
+    -webkit-filter: grayscale(0%);
+
+}
+

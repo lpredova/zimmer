@@ -5,6 +5,8 @@
     <link rel='stylesheet' href='assets/css/bootstrap.min.css'>
     <link rel='stylesheet' href='assets/fancybox/jquery.fancybox-v=2.1.5.css'>
     <link rel='stylesheet' href='assets/css/font-awesome.min.css'>
+    <link rel='stylesheet' href='assets/css/transitions.css'>
+    <link rel='stylesheet' href='assets/css/animate.css'>
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300,200&subset=latin,latin-ext'>
 </head>
 <div class="navbar navbar-fixed-top">
@@ -23,7 +25,12 @@
 <body ng-app="zimmerApp">
     <hr>
     <!--Container-->
-    <div ng-view></div>
+    <!--<div ng-view></div>-->
+
+
+    <div class="view-animate-container">
+        <div ng-view class="view-animate"></div>
+    </div>
 </body>
 
 <!--AngularJS resources-->
@@ -57,6 +64,7 @@
 
 <!--Angular directives-->
 <script type="text/javascript" src='app/shared/directives.js'></script>
+<script type="text/javascript" src='app/shared/filters.js'></script>
 
 
 </html>
