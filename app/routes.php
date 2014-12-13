@@ -284,9 +284,4 @@ Route::get('/about', function(){return View::make('index');});
 Route::get('/apartments/{id}', function(){return View::make('index');});
 Route::get('/signup', function(){return View::make('index');});
 Route::get('/restricted', 'PublicController@indexRestricted');
-
-App::missing(function($exception)
-{
-    return View::make('index');
-});
 Route::get('/auth/token', 'AuthController@token');
