@@ -37,39 +37,39 @@
 <script src='https://code.angularjs.org/1.3.5/angular.min.js'></script>
 <script src="//code.angularjs.org/1.2.13/angular-cookies.js"></script>
 <script src="https://code.angularjs.org/1.3.5/angular-sanitize.min.js"></script>
-<script src='bower_components/angular/angular-animate.min.js'></script>
-<script src='bower_components/angular-bootstrap/ui-bootstrap.min.js'></script>
-<script src='bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
-<script src='bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js'></script>
+<script src='/bower_components/angular/angular-animate.min.js'></script>
+<script src='/bower_components/angular-bootstrap/ui-bootstrap.min.js'></script>
+<script src='/bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js'></script>
+<script src='/bower_components/ngInfiniteScroll/build/ng-infinite-scroll.min.js'></script>
 
-<script src='bower_components/angular/angular-route.js'></script>
+<script src='/bower_components/angular/angular-route.js'></script>
 
 <!--Angular maps-->
-<script src='bower_components/lodash/dist/lodash.min.js'></script>
-<script src='bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
-<script src='bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js'></script>
+<script src='/bower_components/lodash/dist/lodash.min.js'></script>
+<script src='/bower_components/angular-google-maps/dist/angular-google-maps.js'></script>
+<script src='/bower_components/angularjs-geolocation/dist/angularjs-geolocation.min.js'></script>
 
 
-<script src='app/app.module.js'></script>
-<script src='app/app.routes.js'></script>
+<script src='/app/app.module.js'></script>
+<script src='/app/app.routes.js'></script>
 
 <!--Angular controllers-->
-<script src='app/components/about/aboutController.js'></script>
-<script src='app/components/home/homeController.js'></script>
-<script src='app/components/discover/discoverController.js'></script>
-<script src='app/components/near/nearController.js'></script>
-<script src='app/components/signup_owner/signupOwnerController.js'></script>
-<script src='app/components/signup_user/signupUserController.js'></script>
-<script src='app/components/login/loginController.js'></script>
-<script src='app/components/apartment/apartmentController.js'></script>
+<script src='/app/components/about/aboutController.js'></script>
+<script src='/app/components/home/homeController.js'></script>
+<script src='/app/components/discover/discoverController.js'></script>
+<script src='/app/components/near/nearController.js'></script>
+<script src='/app/components/signup_owner/signupOwnerController.js'></script>
+<script src='/app/components/signup_user/signupUserController.js'></script>
+<script src='/app/components/login/loginController.js'></script>
+<script src='/app/components/apartment/apartmentController.js'></script>
 
 <!--Angular factory/services-->
-<script src='app/services/authentication/services.js'></script>
-<script src='app/services/apartments/nearApartments.js'></script>
-<script src='app/services/apartments/detailApartments.js'></script>
+<script src='/app/services/authentication/services.js'></script>
+<script src='/app/services/apartments/nearApartments.js'></script>
+<script src='/app/services/apartments/detailApartments.js'></script>
 
 <!--Angular directives-->
-<script type="text/javascript" src='app/shared/directives.js'></script>
-<script type="text/javascript" src='app/shared/filters.js'></script>
+<script type="text/javascript" src='/app/shared/directives.js'></script>
+<script type="text/javascript" src='/app/shared/filters.js'></script>
 
 </html>
