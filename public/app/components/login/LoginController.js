@@ -1,4 +1,4 @@
-zimmerApp.controller('loginCtrl',
+zimmerApp.controller('loginCtrl', ['$scope', '$location', '$window', 'AuthService',
     function ($scope, $location, $window, AuthService) {
 
         var xhReq = new XMLHttpRequest();
@@ -16,9 +16,9 @@ zimmerApp.controller('loginCtrl',
 
             AuthService.login($scope.credentials)
                 .success(function (data) {
-                    if (data.code==200) {
-                        var url = 'http://'+window.location.hostname + ':8000' + data.url
-                        $window.location.href=url
+                    if (data.code == 200) {
+                        var url = 'http://' + window.location.hostname + ':8000' + data.url
+                        $window.location.href = url
                     }
                     else {
                         $location.path('/login');
@@ -30,4 +30,4 @@ zimmerApp.controller('loginCtrl',
                     console.log('error')
                 });
         }
-    });
+    }]);

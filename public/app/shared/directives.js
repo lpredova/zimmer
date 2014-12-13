@@ -2,8 +2,8 @@
  * Created by lovro on 10/12/14.
  */
 
-zimmerApp.directive('stickyFooter',
-    function ($timeout,$window) {
+zimmerApp.directive('stickyFooter', ['$timeout', '$window',
+    function ($timeout, $window) {
         return {
             restrict: 'A',
             link: function (scope, iElement, iAttrs) {
@@ -37,4 +37,4 @@ zimmerApp.directive('stickyFooter',
             }
         };
     }
-);
+]);

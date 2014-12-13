@@ -1,4 +1,4 @@
-zimmerApp.factory('nearApartments', function ($http, $sanitize) {
+zimmerApp.factory('nearApartments',['$http','$sanitize' ,function ($http, $sanitize) {
     var sanitizeCoordinates = function (geoCoordinates) {
         return {
             lat: $sanitize(geoCoordinates.lat),
@@ -13,4 +13,4 @@ zimmerApp.factory('nearApartments', function ($http, $sanitize) {
             return apartments;
         }
     };
-});
+}]);

@@ -3,7 +3,7 @@
  */
 
 
-zimmerApp.controller('discoverCtrl',
+zimmerApp.controller('discoverCtrl',['$scope','uiGmapGoogleMapApi',
     function ($scope, uiGmapGoogleMapApi) {
         $scope.dataLoaded = false
 
@@ -15,4 +15,4 @@ zimmerApp.controller('discoverCtrl',
 
         })
 
-    });
+    }]);

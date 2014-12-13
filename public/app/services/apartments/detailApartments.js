@@ -1,4 +1,4 @@
-zimmerApp.factory('detailApartments', function ($http, $sanitize) {
+zimmerApp.factory('detailApartments', ['$http', '$sanitize', function ($http, $sanitize) {
 
     return {
         getApartmentDetails: function (apartment_id) {
@@ -10,8 +10,8 @@ zimmerApp.factory('detailApartments', function ($http, $sanitize) {
 
             };
 
-            var apartment  = $http.get("/api/v1/apartmentDetails", params);
+            var apartment = $http.get("/api/v1/apartmentDetails", params);
             return apartment;
         }
     };
-});
+}]);

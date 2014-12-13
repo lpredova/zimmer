@@ -1,4 +1,4 @@
-zimmerApp.controller('apartmentCtrl',
+zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', 'detailApartments',
     function ($scope, $routeParams, detailApartments) {
         $scope.dataLoaded = false
 
@@ -52,5 +52,5 @@ zimmerApp.controller('apartmentCtrl',
 
                 $scope.dataLoaded = true
             })
-    });
+    }]);
 
