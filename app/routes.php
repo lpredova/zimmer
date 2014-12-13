@@ -281,6 +281,7 @@ Route::get('/discover',function(){return View::make('index');});
 Route::get('/near', function(){return View::make('index');});
 Route::get('/about', function(){return View::make('index');});
 //Route::get('/login', function(){return View::make('index');});
+Route::get('/apartments/{id}', function(){return View::make('index');});
 Route::get('/signup', function(){return View::make('index');});
 Route::get('/restricted', 'PublicController@indexRestricted');
 

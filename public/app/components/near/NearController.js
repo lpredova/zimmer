@@ -2,7 +2,7 @@
  * Created by lovro on 08/12/14.
  */
 zimmerApp.controller('nearCtrl',
-    function ($scope, geolocation,  nearApartments, uiGmapGoogleMapApi) {
+    function ($scope, geolocation, nearApartments, uiGmapGoogleMapApi) {
 
         $scope.dataLoaded = false
         $scope.showMap = false
@@ -17,7 +17,7 @@ zimmerApp.controller('nearCtrl',
                 center: {
                     latitude: data.coords.latitude,
                     longitude: data.coords.longitude
-                }, zoom: 8
+                }, zoom: 10
             };
             $scope.options = {
                 scrollwheel: false
@@ -38,13 +38,13 @@ zimmerApp.controller('nearCtrl',
                             var ret = {
                                 latitude: value.lat,
                                 longitude: value.lng,
-                                title: value.name +";"+value.picture +";"+ value.phone,
+                                title: value.name + ";" + value.picture + ";" + value.phone + ";" + value.id,
                                 icon: '/assets/images/marker-red.png',
                                 show: false
                             };
                             ret["id"] = i;
 
-                            ret.onClick = function() {
+                            ret.onClick = function () {
                                 console.log("Clicked!");
                                 ret.show = !ret.show;
                             };
@@ -52,12 +52,33 @@ zimmerApp.controller('nearCtrl',
                         };
 
 
+                        /*var createUserLocation = function (i) {
+                            var ret = {
+                                latitude: $scope.map.center.latitude,
+                                longitude: $scope.map.center.longitude,
+                                icon: '/assets/images/marker-yellow.png',
+                                title: "Your location;http://static.weltsport.net/bilder/shared/base/dummy_user.png;none;" + 0,
+                                show: true
+                            };
+                            ret.onClick = function () {
+                                console.log("Clicked!");
+                                ret.show = !ret.show;
+                            };
+                            ret["id"] = i;
+                            return ret;
+                        }*/
+
                         angular.forEach(data.response, function (value, key) {
                             var marker = createMarker(n, value)
                             this.push(marker);
+                            /*if(n==(Object.keys(data.response).length)-1){
+                                var marker = createUserLocation(n+1)
+                                this.push(marker);
+                            }*/
                             n++
                         }, markers);
 
+                        console.log(markers)
                         $scope.mapMarkers = markers;
                         $scope.showMap = true
                         $scope.dataLoaded = true
@@ -67,9 +88,9 @@ zimmerApp.controller('nearCtrl',
                     console.log('error')
                 });
         })
-    }).filter('split', function() {
+    }).filter('split', function () {
 
-        return function(input, splitChar, splitIndex) {
+        return function (input, splitChar, splitIndex) {
             return input.split(splitChar)[splitIndex];
         }
     });
