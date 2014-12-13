@@ -7,7 +7,6 @@
     <link rel='stylesheet' href='assets/css/font-awesome.min.css'>
     <link rel='stylesheet' href='assets/css/transitions.css'>
     <link rel='stylesheet' href='assets/css/animate.css'>
-    <link rel='stylesheet' href='assets/css/scrolling-nav.css'>
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300,200&subset=latin,latin-ext'>
 </head>
 <div class="navbar navbar-fixed-top">

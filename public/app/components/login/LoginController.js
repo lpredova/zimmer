@@ -17,7 +17,7 @@ zimmerApp.controller('loginCtrl', ['$scope', '$location', '$window', 'AuthServic
             AuthService.login($scope.credentials)
                 .success(function (data) {
                     if (data.code == 200) {
-                        var url = 'http://' + window.location.hostname + ':8000' + data.url
+                        var url = 'http://' + window.location.hostname +  data.url
                         $window.location.href = url
                     }
                     else {
