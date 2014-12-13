@@ -54,13 +54,13 @@
 <script src='/app/app.routes.js'></script>
 
 <!--Angular controllers-->
-<script src='/app/components/about/aboutController.js'></script>
-<script src='/app/components/home/homeController.js'></script>
-<script src='/app/components/discover/discoverController.js'></script>
-<script src='/app/components/near/nearController.js'></script>
+<script src='/app/components/about/AboutController.js'></script>
+<script src='/app/components/home/HomeController.js'></script>
+<script src='/app/components/discover/DiscoverController.js'></script>
+<script src='/app/components/near/NearController.js'></script>
 <script src='/app/components/signup_owner/signupOwnerController.js'></script>
 <script src='/app/components/signup_user/signupUserController.js'></script>
-<script src='/app/components/login/loginController.js'></script>
+<script src='/app/components/login/LoginController.js'></script>
 <script src='/app/components/apartment/apartmentController.js'></script>
 
 <!--Angular factory/services-->
