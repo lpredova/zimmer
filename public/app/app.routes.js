@@ -33,11 +33,11 @@ zimmerApp.config(['$routeProvider','$locationProvider',
             }).
             when('/signup', {
                 templateUrl: 'app/components/signup_user/index.html',
-                controller: 'signupUserCtrl'
+                controller: 'SignUpUserCtrl'
             }).
             when('/signup_owner', {
                 templateUrl: 'app/components/signup_owner/index.html',
-                controller: 'signupOwnerCtrl'
+                controller: 'SignUpOwnerCtrl'
             }).
             when('/apartment/:id', {
                 templateUrl: '/app/components/apartment/index.html',

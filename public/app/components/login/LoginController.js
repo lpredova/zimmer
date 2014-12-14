@@ -2,7 +2,7 @@ zimmerApp.controller('loginCtrl', ['$scope', '$location', '$window', 'AuthServic
     function ($scope, $location, $window, AuthService) {
 
         var xhReq = new XMLHttpRequest();
-        xhReq.open("GET", "http://" + window.location.hostname + "/auth/token", false);
+        xhReq.open("GET", "http://" + window.location.hostname + ":" + window.location.port + "/auth/token", false);
         xhReq.send(null);
 
         $scope.error = false
@@ -17,7 +17,7 @@ zimmerApp.controller('loginCtrl', ['$scope', '$location', '$window', 'AuthServic
             AuthService.login($scope.credentials)
                 .success(function (data) {
                     if (data.code == 200) {
-                        var url = 'http://' + window.location.hostname + data.url
+                        var url = 'http://' + window.location.hostname + ":" + window.location.port + data.url
                         $window.location.href = url
                     }
                     else {

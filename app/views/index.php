@@ -66,6 +66,8 @@
 <script src='/app/services/authentication/services.js'></script>
 <script src='/app/services/apartments/nearApartments.js'></script>
 <script src='/app/services/apartments/detailApartments.js'></script>
+<script src='/app/services/registration/SignupUser.js'></script>
+<script src='/app/services/registration/SignupOwner.js'></script>
 
 <!--Angular directives-->
 <script type="text/javascript" src='/app/shared/directives.js'></script>

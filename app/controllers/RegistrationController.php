@@ -101,7 +101,9 @@ class RegistrationController extends \BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('/signup')->withErrors($validator);
+            return Response::json(array('code'=>400,'status'=>'fail','message'=>$validator));
+
+            //return Redirect::to('/signup')->withErrors($validator);
         } else {
             $user = new User();
             $user->name = Input::get('name');
@@ -116,8 +118,11 @@ class RegistrationController extends \BaseController
             $user->role_id = 3;
             $user->save();
 
-            Session::flash('message', 'Successfully updated role!');
-            return Redirect::to('/login');
+
+            return Response::json(array('code'=>200,'status'=>'success'));
+
+            //Session::flash('message', 'Successfully updated role!');
+            //return Redirect::to('/login');
         }
     }
 
@@ -139,7 +144,9 @@ class RegistrationController extends \BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Redirect::to('/signup')->withErrors($validator);
+            return Response::json(array('code'=>400,'status'=>'fail','message'=>$validator));
+
+            //return Redirect::to('/signup')->withErrors($validator);
         } else {
             $user = new User();
             $user->name = Input::get('name');
@@ -154,8 +161,10 @@ class RegistrationController extends \BaseController
             $user->role_id = 2;
             $user->save();
 
-            Session::flash('message', 'Successfully updated role!');
-            return Redirect::to('/login');
+            return Response::json(array('code'=>200,'status'=>'success'));
+
+            //Session::flash('message', 'Successfully updated role!');
+            //return Redirect::to('/login');
         }
     }
 
