@@ -28,7 +28,6 @@
 @extends('admin.includes.footer')
     @section('runnableScript')
         <script>
-        console.log('calling inti datatabless')
             var oTable = initDatatables($('.datatables'), "{{ URL::to('admin/apartments/data') }}");
         </script>
 	@overwrite

@@ -1,7 +1,7 @@
-<title>Hello <?php echo $user->name; ?> | Explore the world.</title>
-        <?php echo HTML::style('css/bootstrap.min.css'); ?>
+<title>Hello <?php echo Auth::user()->name; ?> | Explore the world.</title>
+        <?php echo HTML::style('assets/css/bootstrap.min.css'); ?>
 
-        <?php echo HTML::style('font-awesome-4.1.0/css/font-awesome.min.css'); ?>
+        <?php echo HTML::style('assets/font-awesome-4.1.0/css/font-awesome.min.css'); ?>
 
         <?php echo HTML::style('http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,300italic,400italic,700italic'); ?>
 
@@ -9,7 +9,7 @@
         <?php echo HTML::style("//code.ionicframework.com/ionicons/1.5.2/css/ionicons.min.css"); ?>
 
         <!-- Theme style -->
-        <?php echo HTML::style("admin/css/AdminLTE.css"); ?>
+        <?php echo HTML::style("assets/admin/css/AdminLTE.css"); ?>
 
 
 <body class="skin-blue">
@@ -30,16 +30,16 @@
                         <li class="dropdown user user-menu">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                                 <i class="glyphicon glyphicon-user"></i>
-                                <span><?php echo $user->name; ?> <i class="caret"></i></span>
+                                <span><?php echo Auth::user()->name; ?> <i class="caret"></i></span>
                             </a>
                             <ul class="dropdown-menu">
                                 <!-- User image -->
                                 <li class="user-header bg-light-blue">
-                                    <img src="<?php echo $user->avatar; ?>" class="img-circle" alt="User Image" />
+                                    <img src="<?php echo Auth::user()->avatar; ?>" class="img-circle" alt="User Image" />
                                     <p>
-                                        <?php echo $user->name; ?><?php echo $user->surname; ?>
+                                        <?php echo Auth::user()->name; ?><?php echo Auth::user()->surname; ?>
 
-                                        <small>Member since Nov. <?php echo $user->created_at; ?></small>
+                                        <small>Member since Nov. <?php echo Auth::user()->created_at; ?></small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
@@ -63,10 +63,10 @@
                 <section class="sidebar">
                     <div class="user-panel">
                         <div class="pull-left image">
-                            <img src="<?php echo $user->avatar; ?>" class="img-circle" alt="User Image" />
+                            <img src="<?php echo Auth::user()->avatar; ?>" class="img-circle" alt="User Image" />
                         </div>
                         <div class="pull-left info">
-                            <p>Hello, <?php echo $user->username; ?></p>
+                            <p>Hello, <?php echo Auth::user()->username; ?></p>
                             <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
                         </div>
                     </div>

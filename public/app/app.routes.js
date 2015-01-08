@@ -18,9 +18,9 @@ zimmerApp.config(['$routeProvider','$locationProvider',
                 templateUrl: 'app/components/about/index.html',
                 controller: 'aboutCtrl'
             }).
-            when('/discover', {
-                templateUrl: 'app/components/discover/index.html',
-                controller: 'discoverCtrl'
+            when('/special', {
+                templateUrl: 'app/components/special/index.html',
+                controller: 'specialCtrl'
             }).
             when('/near', {
                 templateUrl: 'app/components/near/index.html',

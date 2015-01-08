@@ -31,7 +31,7 @@ class ApiController extends \BaseController
                 $authToken = AuthToken::create(Auth::user());
                 $publicToken = AuthToken::publicToken($authToken);
 
-                return Response::json(['status'=>200,'response' => $user,'token'=>$publicToken]);
+                return Response::json(['status' => 200, 'response' => $user, 'token' => $publicToken]);
 
             } else {
                 return Response::json(['status' => 401, 'response' => 'Unauthorized']);
@@ -84,10 +84,10 @@ class ApiController extends \BaseController
                 ->whereBetween('lng', array($bounds[2], $bounds[3]))
                 ->take(30)
                 ->skip(30)
+                ->where('active', '=', '1')
+                ->remember(10)
                 ->get();
 
-            //with status response
-            //return Response::json(['status' => 200, 'response' => ApiController::createResponse($apartments)]);
             return Response::json(['response' => ApiController::createResponse($apartments)]);
         }
     }
@@ -95,6 +95,18 @@ class ApiController extends \BaseController
 
     public function getApartmentSpecialOffers()
     {
+        try{
+            $apartments = Apartment::with('user', 'city', 'type')
+                ->where('special', '=', '1')
+                ->where('active', '=', '1')
+                ->remember(10)
+                ->get();
+
+            return Response::json(['response' => ApiController::createDetailResponse($apartments)]);
+        }
+        catch(Exception $e){
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+        }
 
     }
 
@@ -120,7 +132,6 @@ class ApiController extends \BaseController
                 ->where('city_id', '=', $city)
                 ->get();
 
-            //return Response::json(['status' => 200, 'response' => ApiController::createResponse($apartments)]);
             return Response::json(['response' => ApiController::createResponse($apartments)]);
         }
     }
@@ -140,6 +151,7 @@ class ApiController extends \BaseController
             $apartment_id = Input::get('apartment_id');
             $apartments = Apartment::with('user', 'city', 'type', 'picture', 'room')
                 ->where('id', '=', $apartment_id)
+                ->where('active', '=', '1')
                 ->get();
 
             return Response::json(['response' => ApiController::createDetailResponse($apartments)]);

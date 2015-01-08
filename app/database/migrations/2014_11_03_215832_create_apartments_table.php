@@ -28,6 +28,8 @@ class CreateApartmentsTable extends Migration {
             $table->float('lat');
             $table->float('lng');
             $table->float('price');
+            $table->boolean('special');
+            $table->boolean('active');
             $table->text('cover_photo');
 
 

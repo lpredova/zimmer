@@ -13,7 +13,6 @@ zimmerApp.controller('nearCtrl',
                     lat: data.coords.latitude,
                     lng: data.coords.longitude
                 }
-
                 $scope.map = {
                     center: {
                         latitude: data.coords.latitude,
@@ -23,13 +22,9 @@ zimmerApp.controller('nearCtrl',
                 $scope.options = {
                     scrollwheel: false
                 };
-
                 nearApartments.getApartments($scope.geoCoordinates)
                     .success(function (data) {
-
                         $scope.apartments = data.response
-
-
                         uiGmapGoogleMapApi.then(function (maps) {
                             $scope.mapMarkers = []
                             var markers = []
@@ -40,7 +35,7 @@ zimmerApp.controller('nearCtrl',
                                     latitude: value.lat,
                                     longitude: value.lng,
                                     title: value.name + ";" + value.picture + ";" + value.phone + ";" + value.id,
-                                    icon: '/assets/images/marker-red.png',
+                                    icon: '/assets/images/marker-green.png',
                                     show: false
                                 };
                                 ret["id"] = i;
@@ -50,31 +45,9 @@ zimmerApp.controller('nearCtrl',
                                 };
                                 return ret;
                             };
-
-
-                            /*var createUserLocation = function (i) {
-                             var ret = {
-                             latitude: $scope.map.center.latitude,
-                             longitude: $scope.map.center.longitude,
-                             icon: '/assets/images/marker-yellow.png',
-                             title: "Your location;http://static.weltsport.net/bilder/shared/base/dummy_user.png;none;" + 0,
-                             show: true
-                             };
-                             ret.onClick = function () {
-                             console.log("Clicked!");
-                             ret.show = !ret.show;
-                             };
-                             ret["id"] = i;
-                             return ret;
-                             }*/
-
                             angular.forEach(data.response, function (value, key) {
                                 var marker = createMarker(n, value)
                                 this.push(marker);
-                                /*if(n==(Object.keys(data.response).length)-1){
-                                 var marker = createUserLocation(n+1)
-                                 this.push(marker);
-                                 }*/
                                 n++
                             }, markers);
 
@@ -83,7 +56,7 @@ zimmerApp.controller('nearCtrl',
                             $scope.dataLoaded = true
                         });
                     })
-                    .error(function (err) {
+                    .error(function () {
                         console.log('error')
                     });
             })

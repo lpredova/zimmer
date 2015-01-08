@@ -13,7 +13,7 @@
     <div class="container">
         <ul class="nav row">
             <li  class="col-12 col-sm-2"><a href="/"><span class="text">Home</span></a></li>
-            <li  class="col-12 col-sm-2"><a href="/discover"><span class="text">Discover</span></a></li>
+            <li  class="col-12 col-sm-2"><a href="/special"><span class="text">Best offers</span></a></li>
             <li  class="col-12 col-sm-2"><a href="/near"> <span class="text">Near</span></a></li>
             <li  class="col-12 col-sm-2"><a href="/about"> <span class="text">About</span></a></li>
             <li  class="col-12 col-sm-2"><a href="/login"> <span class="text">Login</span></a></li>
@@ -55,7 +55,7 @@
 <!--Angular controllers-->
 <script src='/app/components/about/AboutController.js'></script>
 <script src='/app/components/home/HomeController.js'></script>
-<script src='/app/components/discover/DiscoverController.js'></script>
+<script src='/app/components/special/SpecialController.js'></script>
 <script src='/app/components/near/NearController.js'></script>
 <script src='/app/components/signup_owner/signupOwnerController.js'></script>
 <script src='/app/components/signup_user/signupUserController.js'></script>
@@ -66,8 +66,10 @@
 <script src='/app/services/authentication/services.js'></script>
 <script src='/app/services/apartments/nearApartments.js'></script>
 <script src='/app/services/apartments/detailApartments.js'></script>
-<script src='/app/services/registration/SignupUser.js'></script>
-<script src='/app/services/registration/SignupOwner.js'></script>
+<script src='/app/services/specials/specialOffers.js'></script>
+
+<script src='/app/services/registration/signupUser.js'></script>
+<script src='/app/services/registration/signupOwner.js'></script>
 
 <!--Angular directives-->
 <script type="text/javascript" src='/app/shared/directives.js'></script>

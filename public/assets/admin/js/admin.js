@@ -2,9 +2,6 @@
  * Created by lovro on 05/12/14.
  */
 function initDatatables(element, source_url) {
-    console.log('datatableee')
-
-
     var oTable;
     oTable = element.dataTable({
 

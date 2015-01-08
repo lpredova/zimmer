@@ -5,6 +5,6 @@
         <?php echo HTML::script("//code.jquery.com/ui/1.11.1/jquery-ui.min.js"); ?>
 
         <!-- AdminLTE App -->
-        <?php echo HTML::script("admin/js/AdminLTE/app.js"); ?>
+        <?php echo HTML::script("assets/admin/js/AdminLTE/app.js"); ?>
 
 

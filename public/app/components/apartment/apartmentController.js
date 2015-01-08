@@ -23,7 +23,7 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', 'detailApartmen
                         latitude: data.response[0].lat,
                         longitude: data.response[0].lng
                     },
-                    icon: '/assets/images/marker-red.png'
+                    icon: '/assets/images/marker-green.png'
                 };
 
                 $scope.circles = [

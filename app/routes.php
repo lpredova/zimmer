@@ -205,8 +205,6 @@ Route::group(array('before' => 'auth|owner', 'prefix' => 'owner/'), function () 
         Route::put('/update/{id}', 'OwnerController@updateRoom');
         Route::delete('/destroy/{id}', 'OwnerController@destroyRoom');
         Route::get('data', 'OwnerController@getRoomData');
-
-
     });
 
     /**
