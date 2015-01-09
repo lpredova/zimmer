@@ -146,6 +146,34 @@ Route::group(array('before' => 'auth|admin', 'prefix' => 'admin/'), function () 
         Route::get('data', 'AdminController@getFittingsData');
     });
 
+    /**
+     * Favorites
+     */
+    Route::group(array('prefix' => 'favorites/'), function () {
+        Route::get('', 'AdminController@indexFavorites');
+        Route::get('/new', 'AdminController@createFavorites');
+        Route::post('/store', 'AdminController@storeFavorites');
+        Route::get('/show/{id}', 'AdminController@showFavorites');
+        Route::get('/edit/{id}', 'AdminController@editFavorites');
+        Route::put('/update/{id}', 'AdminController@updateFavorites');
+        Route::delete('/destroy/{id}', 'AdminController@destroyFavorites');
+        Route::get('data', 'AdminController@getFavoritesData');
+    });
+
+    /**
+     * Ratings
+     */
+    Route::group(array('prefix' => 'ratings/'), function () {
+        Route::get('', 'AdminController@indexRatings');
+        Route::get('/new', 'AdminController@createRatings');
+        Route::post('/store', 'AdminController@storeRatings');
+        Route::get('/show/{id}', 'AdminController@showRatings');
+        Route::get('/edit/{id}', 'AdminController@editRatings');
+        Route::put('/update/{id}', 'AdminController@updateRatings');
+        Route::delete('/destroy/{id}', 'AdminController@destroyRatings');
+        Route::get('data', 'AdminController@getRatingsData');
+    });
+
 
     /**
      * ====================================================================
@@ -266,20 +294,15 @@ Route::group(array('prefix' => 'api/v1'), function () {
     /**
      * Api route for CURD of user favorites
      */
-});
+    Route::post('/getUserFavorites', 'ApiController@getUserFavorites');
+    Route::post('/setUserFavorites', 'ApiController@setUserFavorites');
 
+});
 
 /**
  * Routes for frontend
  */
 //Route::get('/', 'PublicController@getMainPage');
 Route::get('/', function(){return View::make('index');});
-
-Route::get('/discover',function(){return View::make('index');});
-Route::get('/near', function(){return View::make('index');});
-Route::get('/about', function(){return View::make('index');});
-//Route::get('/login', function(){return View::make('index');});
-Route::get('/apartments/{id}', function(){return View::make('index');});
-Route::get('/signup', function(){return View::make('index');});
 Route::get('/restricted', 'PublicController@indexRestricted');
 Route::get('/auth/token', 'AuthController@token');

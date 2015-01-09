@@ -9,21 +9,43 @@
     <link rel='stylesheet' href='assets/css/animate.css'>
     <link rel='stylesheet' href='http://fonts.googleapis.com/css?family=Titillium+Web:400,600,300,200&subset=latin,latin-ext'>
 </head>
-<div class="navbar navbar-fixed-top">
+
+
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
     <div class="container">
-        <ul class="nav row">
-            <li  class="col-12 col-sm-2"><a href="/"><span class="text">Home</span></a></li>
-            <li  class="col-12 col-sm-2"><a href="/special"><span class="text">Best offers</span></a></li>
-            <li  class="col-12 col-sm-2"><a href="/near"> <span class="text">Near</span></a></li>
-            <li  class="col-12 col-sm-2"><a href="/about"> <span class="text">About</span></a></li>
-            <li  class="col-12 col-sm-2"><a href="/login"> <span class="text">Login</span></a></li>
-            <li  class="col-12 col-sm-2"><a href="/signup"> <span class="text">Sign up</span></a></li>
-        </ul>
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="fa fa-bars fa-lg"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="/assets/images/logo_mini.png" alt="" id="logo">
+                <img src="/assets/images/zimmer-letters.png" alt="" id="logo-letters">
+            </a>
+        </div>
+
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="/">Home</a>
+                </li>
+                <li><a href="/special">Special offers</a>
+                </li>
+                <li><a href="/near">Near</a>
+                </li>
+                <li><a href="/about">About</a>
+                </li>
+                <li><a class="getApp" href="/login">Login</a>
+                </li>
+                <li><a href="/signup">Signup</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>
+</nav>
+
+
 
 <body ng-app="zimmerApp">
-    <hr>
     <!--Container-->
     <div class="view-animate-container">
         <div ng-view class="view-animate"></div>

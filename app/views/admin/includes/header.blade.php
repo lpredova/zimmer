@@ -99,6 +99,18 @@
 
                 <li class="treeview">
                     <a href="#">
+                        <i class="fa fa-wechat"></i>
+                        <span>Social</span>
+                        <i class="fa fa-angle-left pull-right"></i>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="/admin/favorites"><i class="fa fa-star"></i>Favorites</a></li>
+                        <li><a href="/admin/ratings"><i class="fa fa-comment"></i>Rating</a></li>
+                    </ul>
+                </li>
+
+                <li class="treeview">
+                    <a href="#">
                         <i class="fa fa-home"></i>
                         <span>Apartments</span>
                         <i class="fa fa-angle-left pull-right"></i>

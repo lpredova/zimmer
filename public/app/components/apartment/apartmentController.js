@@ -2,10 +2,22 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', 'detailApartmen
     function ($scope, $routeParams, detailApartments) {
         $scope.dataLoaded = false
 
+
+        //Todo these two functions
+        $scope.submitRating = function () {
+            console.log('submitting rating')
+        }
+
+        $scope.submitFavs = function () {
+            console.log('submitting favs')
+        }
+
         detailApartments.getApartmentDetails($routeParams.id)
             .success(function (data) {
+
                 $scope.dataLoaded = true
                 $scope.apartments_detail = data.response
+
 
                 $scope.map = {
                     center: {
@@ -49,6 +61,20 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', 'detailApartmen
                         editable: true, // optional: defaults to false
                         visible: true // optional: defaults to true
                     }]
+
+                $scope.rate = data.response.stars;
+                $scope.max = 5;
+                $scope.isReadonly = false;
+
+                $scope.hoveringOver = function (value) {
+                    $scope.overStar = value;
+                    $scope.percent = 100 * (value / $scope.max);
+                };
+
+                $scope.ratingStates = [
+                    {stateOn: 'glyphicon-star', stateOff: 'glyphicon-star-empty'},
+                ];
+
 
                 $scope.dataLoaded = true
             })

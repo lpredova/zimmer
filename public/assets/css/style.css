@@ -195,14 +195,20 @@ body {
 /*End footer social icons*/
 
 #video {
-    position: relative;
+    display: block;
     top: 0;
+    right: 0;
+    bottom: 0;
     left: 0;
-    width: 100%;
-    opacity: 0.9;
+    opacity: .5;
+    position: relative;
+    width: 100% !important;
+    height: 450px;
+}
 
-    height: auto;
-    background: url(assets/images/video_poster.jpg) no-repeat center cover;
+#video-new{
+    opacity: .5;
+
 }
 
 
@@ -253,6 +259,14 @@ body {
 .main-section{
     z-index: 4;
     background: #ffffff;
+}
+
+#logo{
+    margin: -10px;
+}
+
+#logo-letters{
+    margin-left: 10px;
 }
 
 
@@ -373,10 +387,6 @@ body {
     /*overflow:hidden;*/
 }
 
-.view-animate {
-    padding:10px;
-}
-
 .view-animate.ng-enter, .view-animate.ng-leave {
     -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
     transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
@@ -405,7 +415,7 @@ body {
 /*team members slis*/
 
 .app-page{
-    margin-top:1%;
+    margin-top:4%;
 }
 
 .team-photo{
@@ -564,4 +574,63 @@ body {
 .card .card-action a:hover {
     color: #ffd8a6;
     text-decoration: none;
+}
+
+.col-centered{
+    float: none;
+    margin: 0 auto;
+}
+
+
+  /*-------------------------------*/
+/*      Code snippet by          */
+/*      @maridlcrmn              */
+/*-------------------------------*/
+
+#carousel{
+    background: #23ae97;
+    color: #ffffff;
+}
+
+.quote {
+    color: rgba(0,0,0,.1);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/*-------------------------------*/
+/*    Carousel Fade Transition   */
+/*-------------------------------*/
+
+#fade-quote-carousel.carousel {
+    padding-bottom: 60px;
+}
+#fade-quote-carousel.carousel .carousel-inner .item {
+    opacity: 0;
+    -webkit-transition-property: opacity;
+    -ms-transition-property: opacity;
+    transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-inner .active {
+    opacity: 1;
+    -webkit-transition-property: opacity;
+    -ms-transition-property: opacity;
+    transition-property: opacity;
+}
+#fade-quote-carousel.carousel .carousel-indicators {
+    bottom: 10px;
+}
+#fade-quote-carousel.carousel .carousel-indicators > li {
+    background-color: #fff;
+    border: none;
+}
+#fade-quote-carousel blockquote {
+    text-align: center;
+    border: none;
+}
+#fade-quote-carousel .profile-circle {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 100px;
 }

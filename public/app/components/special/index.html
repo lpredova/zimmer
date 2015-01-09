@@ -5,7 +5,7 @@
     </div>
 
     <!--Content--->
-    <div class="container">
+    <div class="container" ng-show="dataLoaded">
         <div class="row">
             <div class="col-md-12">
                 <h1 class="text-center">Special offers</h1>
@@ -18,7 +18,7 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-image">
-                                <img class="img-responsive" src="http://material-design.storage.googleapis.com/publish/v_2/material_ext_publish/0Bx4BSt6jniD7TDlCYzRROE84YWM/materialdesign_introduction.png">
+                                <img alt="image" class="img-responsive"src="{{apartment.picture}}">
                                 <span class="card-title text-bold">{{apartment.name}}</span>
                             </div>
 

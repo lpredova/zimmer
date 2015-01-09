@@ -890,7 +890,6 @@ class AdminController extends \BaseController
         }
     }
 
-
     public function destroyRoom($id)
     {
         $room = Room::find($id);
@@ -899,6 +898,136 @@ class AdminController extends \BaseController
         Session::flash('message', 'Successfully deleted room!');
         return Redirect::to('/admin/rooms');
     }
+
+    /**
+     * Favorites CRUD
+     * ====================================================================
+     */
+
+    public function getFavoritesData()
+    {
+        $result = DB::table('user_favorites as uf')
+            ->join('apartments', 'apartments.id', '=', 'uf.apartment_id')
+            ->join('users', 'users.id', '=', 'uf.user_id')
+            ->select('users.username', 'apartments.name', 'uf.title', 'uf.id as ufid');
+
+        return Datatables::of($result)
+            ->add_column('ufid',
+                '<a href="/admin/favorites/edit/{{ $ufid }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
+
+    public function indexFavorites()
+    {
+        return View::make('admin.favorites.index');
+    }
+
+
+    public function editFavorites($id)
+    {
+        $favorites = DB::table('user_favorites as uf')
+            ->join('apartments', 'apartments.id', '=', 'uf.apartment_id')
+            ->join('users', 'users.id', '=', 'uf.user_id')
+            ->where('uf.id', '=', $id)
+            ->first();
+        return View::make('admin.favorites.edit', compact('favorites', 'id'));
+    }
+
+    public function updateFavorites($id)
+    {
+        $rules = array(
+            'title' => 'required',
+            'description' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/favorites')->withErrors($validator);
+        } else {
+
+
+            $favorite = UserFavorite::find($id);
+            $favorite->title = Input::get('title');
+            $favorite->description = Input::get('description');
+
+            $favorite->save();
+
+            return Redirect::to('/admin/favorites/edit/' . $id);
+        }
+    }
+
+    public function destroyFavorites($id)
+    {
+        $favorite = UserFavorite::find($id);
+        $favorite->delete();
+
+        return Redirect::to('/admin/favorites');
+    }
+
+    /**
+     * Ratings CRUD
+     * ====================================================================
+     */
+
+    public function getRatingsData()
+    {
+        $result = DB::table('user_ratings as ur')
+            ->join('apartments', 'apartments.id', '=', 'ur.apartment_id')
+            ->join('users', 'users.id', '=', 'ur.user_id')
+            ->select('users.username', 'apartments.name', 'ur.rating', 'ur.id as urid');
+
+        return Datatables::of($result)
+            ->add_column('urid',
+                '<a href="/admin/ratings/edit/{{ $urid }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
+            ->make();
+    }
+
+
+    public function indexRatings()
+    {
+        $rooms = Room::with('apartment')->get();
+        return View::make('admin.ratings.index', compact('rooms'));
+    }
+
+    public function editRatings($id)
+    {
+        $rating = DB::table('user_ratings as us')
+            ->join('apartments', 'apartments.id', '=', 'us.apartment_id')
+            ->join('users', 'users.id', '=', 'us.user_id')
+            ->where('us.id', '=', $id)
+            ->first();
+
+        return View::make('admin.ratings.edit', compact('rating', 'id'));
+    }
+
+    public function updateRatings($id)
+    {
+        $rules = array(
+            'rating' => 'required|numeric|between:1,5',
+            'comment' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/ratings/edit/' . $id)->withErrors($validator);
+        } else {
+            $rating = UserRating::find($id);
+            $rating->rating = Input::get('rating');
+            $rating->comment = Input::get('comment');
+            $rating->save();
+            return Redirect::to('/admin/ratings/');
+        }
+    }
+
+    public function destroyRatings($id)
+    {
+        $rating = UserRating::find($id);
+        $rating->delete();
+        return Redirect::to('/admin/ratings');
+    }
+
 
     /**
      * Other functionalities ToDo
@@ -954,5 +1083,6 @@ class AdminController extends \BaseController
 
         return View::make('admin.statistics.index', compact('admin'));
     }
+
 
 }

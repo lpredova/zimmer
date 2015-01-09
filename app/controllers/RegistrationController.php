@@ -3,8 +3,9 @@
 class RegistrationController extends \BaseController
 {
 
-    public function __construct() {
-        $this->beforeFilter('csrf', array('on'=>'post'));
+    public function __construct()
+    {
+        $this->beforeFilter('csrf', array('on' => 'post'));
     }
 
     /**
@@ -14,7 +15,7 @@ class RegistrationController extends \BaseController
     public function loginUser()
     {
         $rules = array(
-            'username'    => 'required',
+            'username' => 'required',
             'password' => 'required|min:5'
         );
 
@@ -23,37 +24,46 @@ class RegistrationController extends \BaseController
         if ($validator->fails()) {
             return Redirect::to('/login')
                 ->withErrors($validator)
-                ->withInput(Input::except('password'));}
-        else{
-            $userdata = array(
-                'username' 	=> Input::get('username'),
-                'password' 	=> Input::get('password')
-            );
+                ->withInput(Input::except('password'));
+        } else {
+            $username = Input::get('username');
+            $pass = Input::get('password');
 
-            if (Auth::attempt($userdata)) {
+            if (Auth::attempt(array('username' => $username, 'password' => $pass), true)) {
 
-                switch(Auth::user()->role_id){
+
+                switch (Auth::user()->role_id) {
                     case 1:
-                        //return Redirect::to('/admin/main');
-                        return Response::json(array('code'=>200,'status'=>'success','role' => 'admin', 'url' => '/admin/main'));
+                        return Response::json(array(
+                            'code' => 200,
+                            'status' => 'success',
+                            'role' => 'admin',
+                            'url' => '/admin/main'
+                        ));
 
                         break;
                     case 2:
-                        //return Redirect::to('/owner');
-                        return Response::json(array('code'=>200,'status'=>'success','role' => 'owner', 'url' => '/owner'));
+                        return Response::json(array(
+                            'code' => 200,
+                            'status' => 'success',
+                            'role' => 'owner',
+                            'url' => '/owner'
+                        ));
 
                         break;
                     case 3:
-                        //return Redirect::to('/user');
-                        return Response::json(array('code'=>200,'status'=>'success','role' => 'user', 'url' => '/user'));
+                        return Response::json(array(
+                            'code' => 200,
+                            'status' => 'success',
+                            'role' => 'user',
+                            'url' => '/user'
+                        ));
 
                         break;
                 }
 
             } else {
-                return Response::json(array('code'=>401,'status'=>'fail'));
-                //return Redirect::to('/login');
-
+                return Response::json(array('code' => 401, 'status' => 'fail'));
             }
         }
     }
@@ -62,9 +72,9 @@ class RegistrationController extends \BaseController
      * Basic logout for all types of users
      * @return mixed
      */
-    public function logoutUser(){
+    public function logoutUser()
+    {
         Auth::logout();
-        //return Redirect::to('/');
         return View::make('index');
     }
 
@@ -101,9 +111,7 @@ class RegistrationController extends \BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Response::json(array('code'=>400,'status'=>'fail','message'=>$validator));
-
-            //return Redirect::to('/signup')->withErrors($validator);
+            return Response::json(array('code' => 400, 'status' => 'fail', 'message' => $validator));
         } else {
             $user = new User();
             $user->name = Input::get('name');
@@ -118,11 +126,7 @@ class RegistrationController extends \BaseController
             $user->role_id = 3;
             $user->save();
 
-
-            return Response::json(array('code'=>200,'status'=>'success'));
-
-            //Session::flash('message', 'Successfully updated role!');
-            //return Redirect::to('/login');
+            return Response::json(array('code' => 200, 'status' => 'success'));
         }
     }
 
@@ -144,9 +148,7 @@ class RegistrationController extends \BaseController
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Response::json(array('code'=>400,'status'=>'fail','message'=>$validator));
-
-            //return Redirect::to('/signup')->withErrors($validator);
+            return Response::json(array('code' => 400, 'status' => 'fail', 'message' => $validator));
         } else {
             $user = new User();
             $user->name = Input::get('name');
@@ -161,10 +163,7 @@ class RegistrationController extends \BaseController
             $user->role_id = 2;
             $user->save();
 
-            return Response::json(array('code'=>200,'status'=>'success'));
-
-            //Session::flash('message', 'Successfully updated role!');
-            //return Redirect::to('/login');
+            return Response::json(array('code' => 200, 'status' => 'success'));
         }
     }
 

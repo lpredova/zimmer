@@ -1,4 +1,9 @@
 <div class="container-fluid">
+
+
+    <div ng-hide="dataLoaded" class="preloader">
+    </div>
+
     <style>
         .angular-google-map-container {
             position: relative;
@@ -7,17 +12,13 @@
         }
     </style>
 
-
     <div class="app-page ">
-        <div ng-hide="dataLoaded" class="preloader">
-        </div>
-
         <div class="nav pre-scrollable">
             <div ng-repeat="apartments in apartments_detail" class="my-repeat-animation">
                 <div class="row">
                     <div>
                         <img class="header-apartment"
-                             src="http://jerusalempropertyrentals.com/wp-content/uploads/2012/07/apartment-panorama-9.jpg">
+                             src="" alt="header">
                     </div>
                 </div>
 
@@ -35,7 +36,18 @@
                                 in {{apartments.city}}
                                 {{apartments.city}}
                             </div>
-                            {{apartments.stars}}
+                            <div class="pull-right">
+                                <i class="fa fa-star fa-3x" ng-click="submitFavs()"></i>
+                                <p ng-click="submitFavs()">Save to favs</p>
+                            </div>
+
+                            <span>Rate</span>
+                            <rating ng-model="rate" max="max"
+                                    readonly="isReadonly"
+                                    on-hover="hoveringOver(value)"
+                                    on-leave="overStar = null"
+                                    ng-click="submitRating()">
+                            </rating>
 
                         </div>
                         <div class="col-lg-4 right-panel">
@@ -46,32 +58,34 @@
                     <div class="row">
                         <div class="col-lg-12 apartment-description">
                             <h2 class="text-center">About apartment</h2>
+
                             <p>{{apartments.description}}</p>
                             <hr>
                         </div>
 
                     </div>
                     <div class="row">
-                        <div class="col-lg-4">
-                            <h3 class="text-center apartment-room-title">Room</h3>
+                        <h3 class="text-center apartment-room-title">Rooms</h3>
 
-                            <p>{{apartments.description}}</p>
-                        </div>
-                        <div class="col-lg-4">
-                            <h3 class="text-center apartment-room-title">Room</h3>
+                        <div ng-repeat="room in apartments.rooms" class="my-repeat-animation">
+                            <div class="col-lg-6">
+                                <h3>{{room.name}}</h3>
+                                <p>{{room.capacity}}</p>
+                                <p>{{room.price}}</p>
+                                <p>{{room.description}}</p>
+                            </div>
 
-                            <p>{{apartments.description}}</p>
-                        </div>
-                        <div class="col-lg-4">
-                            <h3 class="text-center apartment-room-title">Room</h3>
-
-                            <p>{{apartments.description}}</p>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <h3>Pictures</h3>
-                            <img src="{{apartments.cover}}">
+
+                            <div ng-repeat="picture in apartments.pictures" class="my-repeat-animation">
+                                <div class="col-md-3">
+                                    <img src="{{picture.url}}">
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -81,7 +95,7 @@
             <div class="detail-map-container">
                 <ui-gmap-google-map
                         class="angular-google-map-container-min"
-                        id = "detail-map"
+                        id="detail-map"
                         center='map.center'
                         zoom='map.zoom'
                         draggable='false'

@@ -4,44 +4,6 @@ class ApiController extends \BaseController
 {
 
     /**
-     * Function for logging user in
-     */
-    public function loginUser()
-    {
-        $rules = array(
-            'username' => 'required',
-            'password' => 'required'
-        );
-
-        $validator = Validator::make(Input::all(), $rules);
-
-        if ($validator->fails()) {
-            return Response::json(['status' => 400, 'response' => 'Bad Request']);
-
-        } else {
-
-            $userdata = array(
-                'username' => Input::get('username'),
-                'password' => Input::get('password')
-            );
-
-            if (Auth::attempt($userdata)) {
-                $user = Auth::user();
-
-                $authToken = AuthToken::create(Auth::user());
-                $publicToken = AuthToken::publicToken($authToken);
-
-                return Response::json(['status' => 200, 'response' => $user, 'token' => $publicToken]);
-
-            } else {
-                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
-
-            }
-        }
-    }
-
-
-    /**
      * Display a listing of the resource.
      *
      * @return Response
@@ -51,6 +13,115 @@ class ApiController extends \BaseController
         $apartments = Apartment::all();
         return compact('apartments');
     }
+
+    /**
+     *
+     * @return json resonse with user data and token or error code
+     */
+    public function loginUser()
+    {
+        $rules = array(
+            'username' => 'required',
+            'password' => 'required',
+            '_token' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+
+        } else {
+            $username = Input::get('username');
+            $password = Input::get('password');
+
+            if (Auth::attempt(array('username' => $username, 'password' => $password), true)) {
+
+                $user = Auth::user();
+                return Response::json([
+                    'status' => 200,
+                    'response' => $user,
+                    'remember_token' => Auth::user()->remember_token
+                ]);
+            } else {
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+            }
+        }
+    }
+
+
+    /**
+     * Method that returns list of users favorited apartments
+     * @return JSON
+     */
+    public function getUserFavorites()
+    {
+        $rules = array(
+            'username' => 'required',
+            '_token' => 'required'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+        } else {
+
+            if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
+            ) {
+                $userFavorites = DB::table('user_favorites as uf')
+                    ->join('apartments', 'apartments.id', '=', 'uf.apartment_id')
+                    ->join('users', 'users.id', '=', 'uf.user_id')
+                    ->where('users.id', '=', $user->id)
+                    ->get();
+
+                return Response::json(['status' => 200, 'response' => $userFavorites]);
+
+            } else {
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+            }
+        }
+    }
+
+
+    /**
+     * Method that adds new apartment on users favorite list
+     * @return JSON
+     */
+    public function setUserFavorites()
+    {
+        $rules = array(
+            'username' => 'required',
+            '_token' => 'required',
+            'title' => 'required',
+            'description' => 'required',
+            'apartment' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+        } else {
+
+            if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
+            ) {
+
+                $favorite = new UserFavorite();
+                $favorite->user_id = $user->id;
+                $favorite->apartment_id = Input::get('apartment');
+                $favorite->title = Input::get('title');
+                $favorite->description = Input::get('description');
+                $favorite->save();
+
+                return Response::json(['status' => 200, 'response' => 'OK']);
+
+            } else {
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+            }
+        }
+    }
+
 
     /**
      * @return mixed
@@ -95,16 +166,14 @@ class ApiController extends \BaseController
 
     public function getApartmentSpecialOffers()
     {
-        try{
+        try {
             $apartments = Apartment::with('user', 'city', 'type')
                 ->where('special', '=', '1')
                 ->where('active', '=', '1')
-                ->remember(10)
                 ->get();
 
             return Response::json(['response' => ApiController::createDetailResponse($apartments)]);
-        }
-        catch(Exception $e){
+        } catch (Exception $e) {
             return Response::json(['status' => 400, 'response' => 'Bad Request']);
         }
 
@@ -252,6 +321,4 @@ class ApiController extends \BaseController
 
         return $filter;
     }
-
-
 }

@@ -4208,7 +4208,7 @@ textarea.input-group-sm > .form-control, textarea.input-group-sm > .input-group-
 }
 
 .navbar-brand > img {
-    display: block
+    /*display: block*/
 }
 
 @media (min-width: 768px) {

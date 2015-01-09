@@ -5,10 +5,7 @@ class Apartment extends Eloquent {
 
     protected $table = 'apartments';
 
-
-    //columns that can't be updated after assignment
     protected $guarded = array('id','owner_id');
-
 
     public function picture()
     {
@@ -38,11 +35,14 @@ class Apartment extends Eloquent {
         return $this->belongsTo('ApartmentType');
     }
 
+    public function ratings()
+    {
+        return $this->hasMany('UserRating');
+    }
 
-
-    /**
-     * Methods for getting specific parameters
-     */
-
+    public function favorites()
+    {
+        return $this->hasMany('UserFavorite');
+    }
 
 }
