@@ -47,5 +47,17 @@ zimmerApp.config(['$routeProvider','$locationProvider',
                 redirectTo: '/'
             });
     }]
-
 );
+
+zimmerApp.run(function($cookieStore, $rootScope) {
+    $rootScope.checkLogin = function () {
+
+        if($cookieStore.get("username")!=null){
+            $rootScope.saved_username = $cookieStore.get("username")
+            return true
+        }
+        else{
+            return false
+        }
+    }
+})

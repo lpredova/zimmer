@@ -23,7 +23,6 @@ class MakeTableUserRatings extends Migration {
             $table->foreign('apartment_id')->references('id')->on('apartments')->onDelete('cascade');
 
             $table->integer('rating');
-            $table->text('comment');
             $table->timestamps();
 
         });

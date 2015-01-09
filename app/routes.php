@@ -292,10 +292,16 @@ Route::group(array('prefix' => 'api/v1'), function () {
     Route::post('/login', 'ApiController@loginUser');
 
     /**
-     * Api route for CURD of user favorites
+     * Routes for CURD of user favorites
      */
     Route::post('/getUserFavorites', 'ApiController@getUserFavorites');
     Route::post('/setUserFavorites', 'ApiController@setUserFavorites');
+
+    /**
+     * Routes for CRUD of user ratings
+     */
+    Route::post('/getUserRatings', 'ApiController@getUserRatings');
+    Route::post('/setUserRatings', 'ApiController@setUserRatings');
 
 });
 

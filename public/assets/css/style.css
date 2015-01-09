@@ -262,10 +262,12 @@ body {
 }
 
 #logo{
+    z-index: 10;
     margin: -10px;
 }
 
 #logo-letters{
+    z-index: 10;
     margin-left: 10px;
 }
 
@@ -415,7 +417,7 @@ body {
 /*team members slis*/
 
 .app-page{
-    margin-top:4%;
+    margin-top:5%;
 }
 
 .team-photo{
@@ -423,7 +425,6 @@ body {
     height: 120px;
     width: 120px;
     transition: .2s all;
-    -webkit-filter: grayscale(90%);
 
 }
 
@@ -431,7 +432,6 @@ body {
     height: 150px;
     width: 150px;
     transition: .2s all;
-    -webkit-filter: grayscale(0%);
 
 }
 /*==============================*/
@@ -480,7 +480,7 @@ body {
     color: #ffffff;
     font-size: 8rem;
     height: 207px;
-    background: #00ca6d;
+    background: #23ae97;
     margin-top: -3%;
     padding-top: 3% ;
 }

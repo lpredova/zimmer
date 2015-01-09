@@ -1,6 +1,3 @@
-/**
- * Created by lovro on 08/12/14.
- */
 'use strict';
 var zimmerApp = angular.module('zimmerApp', [
         'ngRoute',
@@ -10,7 +7,7 @@ var zimmerApp = angular.module('zimmerApp', [
         'ngSanitize',
         'geolocation',
         'ui.bootstrap',
-        'infinite-scroll'
+        'infinite-scroll',
         ])
         .constant('AUTH_EVENTS', {
             loginSuccess: 'auth-login-success',
@@ -20,4 +17,3 @@ var zimmerApp = angular.module('zimmerApp', [
             notAuthenticated: 'auth-not-authenticated',
             notAuthorized: 'auth-not-authorized'
         })
-    ;

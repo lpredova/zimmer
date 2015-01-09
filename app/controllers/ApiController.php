@@ -93,9 +93,9 @@ class ApiController extends \BaseController
         $rules = array(
             'username' => 'required',
             '_token' => 'required',
-            'title' => 'required',
-            'description' => 'required',
             'apartment' => 'required',
+            'title' => '',
+            'description' => '',
         );
 
         $validator = Validator::make(Input::all(), $rules);
@@ -110,8 +110,8 @@ class ApiController extends \BaseController
                 $favorite = new UserFavorite();
                 $favorite->user_id = $user->id;
                 $favorite->apartment_id = Input::get('apartment');
-                $favorite->title = Input::get('title');
-                $favorite->description = Input::get('description');
+                $favorite->title = 'none';
+                $favorite->description = 'none';
                 $favorite->save();
 
                 return Response::json(['status' => 200, 'response' => 'OK']);
@@ -121,6 +121,70 @@ class ApiController extends \BaseController
             }
         }
     }
+
+    public function getUserRatings()
+    {
+        $rules = array(
+            'username' => 'required',
+            '_token' => 'required'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+        } else {
+
+            if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
+            ) {
+                $userFavorites = DB::table('user_ratings as ur')
+                    ->join('apartments', 'apartments.id', '=', 'ur.apartment_id')
+                    ->join('users', 'users.id', '=', 'ur.user_id')
+                    ->where('users.id', '=', $user->id)
+                    ->select('ur.id','ur.rating','ur.comment','ur.created_at','ur.updated_at')
+                    ->get();
+
+                return Response::json(['status' => 200, 'response' => $userFavorites]);
+
+            } else {
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+            }
+        }
+    }
+
+
+    public function setUserRatings()
+    {
+        $rules = array(
+            'username' => 'required',
+            '_token' => 'required',
+            'rating' => 'required',
+            'apartment' => 'required',
+            'comment' => ''
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+        } else {
+
+            if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
+            ) {
+                $rating = new UserRating();
+                $rating->user_id = $user->id;
+                $rating->apartment_id = Input::get('apartment');
+                $rating->rating= Input::get('rating');
+                $rating->save();
+                return Response::json(['status' => 200, 'response' => 'OK']);
+
+            } else {
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+            }
+        }
+    }
+
+
 
 
     /**

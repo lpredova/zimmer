@@ -37,6 +37,8 @@ class RegistrationController extends \BaseController
                         return Response::json(array(
                             'code' => 200,
                             'status' => 'success',
+                            'username' => Auth::user()->username,
+                            'token' => Auth::user()->remember_token,
                             'role' => 'admin',
                             'url' => '/admin/main'
                         ));
@@ -46,6 +48,8 @@ class RegistrationController extends \BaseController
                         return Response::json(array(
                             'code' => 200,
                             'status' => 'success',
+                            'username' => Auth::user()->username,
+                            'token' => Auth::user()->remember_token,
                             'role' => 'owner',
                             'url' => '/owner'
                         ));
@@ -55,6 +59,8 @@ class RegistrationController extends \BaseController
                         return Response::json(array(
                             'code' => 200,
                             'status' => 'success',
+                            'username' => Auth::user()->username,
+                            'token' => Auth::user()->remember_token,
                             'role' => 'user',
                             'url' => '/user'
                         ));
@@ -75,7 +81,7 @@ class RegistrationController extends \BaseController
     public function logoutUser()
     {
         Auth::logout();
-        return View::make('index');
+        return Reditect::to('/');
     }
 
 

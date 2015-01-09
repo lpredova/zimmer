@@ -1,7 +1,3 @@
-/**
- * Created by lovro on 10/12/14.
- */
-
 zimmerApp.directive('stickyFooter', ['$timeout', '$window',
     function ($timeout, $window) {
         return {

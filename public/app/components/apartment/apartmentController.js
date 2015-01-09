@@ -1,15 +1,70 @@
-zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', 'detailApartments',
-    function ($scope, $routeParams, detailApartments) {
+zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', '$cookieStore', 'detailApartments'
+    , 'rateFactory', 'favoriteFactory',
+    function ($scope, $routeParams, $cookieStore, detailApartments, rateFactory, favoriteFactory) {
         $scope.dataLoaded = false
 
 
-        //Todo these two functions
         $scope.submitRating = function () {
-            console.log('submitting rating')
+            if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
+                alert('It seems like youre not logged in')
+            }
+            else {
+                var rating = {
+                    //todo edit this later
+                    rating: 4,
+                    apartment: $scope.apartments_detail[0].id,
+                    username: $cookieStore.get("username"),
+                    _token: $cookieStore.get("token")
+                };
+
+                rateFactory.rate(rating)
+                    .success(
+                    function (data) {
+                        if (data.response == 'OK') {
+                            $scope.ratedRating={color:'#f1c40f',pointer:'none'}
+                            swal("TNX!", "Sucessufully rated", "success");
+                        }
+                    }
+                )
+                    .error(
+                    function (data) {
+                        swal("Oops...", "Something went wrong!", "error");                    }
+                )
+            }
         }
 
         $scope.submitFavs = function () {
-            console.log('submitting favs')
+
+            if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
+                sweetAlert("OOPS!", "Looks like you're not logged in!", "warning");
+            }
+
+            var favorite = {
+                //todo edit this
+                apartment: $scope.apartments_detail[0].id,
+                username: $cookieStore.get("username"),
+                token: $cookieStore.get("token")
+            };
+
+            favoriteFactory.favorite(favorite)
+                .success(
+                function (data) {
+                    console.log(data)
+                    console.log(data.response)
+                    if (data.response == 'OK') {
+                        $scope.ratedFavorite={color:'#f1c40f',pointer:'none'}
+                        swal("Good job!", "Favorite added", "success");
+                    }
+                    else {
+                        swal("OOPS!", "Something went wrong!", "warning");
+                    }
+                }
+            )
+                .error(
+                function (data) {
+                    console.log(data)
+                    swal("OOPS!", "Something went wrong!", "warning");
+                })
         }
 
         detailApartments.getApartmentDetails($routeParams.id)
@@ -79,4 +134,3 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', 'detailApartmen
                 $scope.dataLoaded = true
             })
     }]);
-

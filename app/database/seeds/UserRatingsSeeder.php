@@ -12,9 +12,7 @@ class UserRatingsSeeder extends DatabaseSeeder
 
                 "apartment_id"    => $faker->numberBetween($min = 1, $max = 20),
                 "user_id"    => $faker->numberBetween($min = 1, $max = 99),
-
                 "rating" => $faker->numberBetween($min = 1, $max = 5),
-                "comment" => $faker->text(400),
             ));
         }
     }
