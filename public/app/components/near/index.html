@@ -37,29 +37,35 @@
                     <!--Apartment element-->
                     <div ng-repeat="apartment in apartments | filter:search" class="my-repeat-animation">
 
-                        <div class="col-lg-10">
-                            <a href="/apartment/{{apartment.id}}">
-                                <img alt="image" class="img-responsive apartment-img" src="{{apartment.picture}}">
-                            </a>
-                        </div>
-                        <div class="col-lg-10 text-center">
-                            <a href="/apartment/{{apartment.id}}"><h2><small>Apartment </small>{{apartment.name}}</h2></a>
-                        </div>
-                        <div class="col-lg-10">
-                            <span class="icon-small fa fa-home"></span>
-                            {{apartment.city}}
-                        </div>
-                        <div class="col-lg-10">
-                            <span class="icon-small fa fa-envelope fa-text-height"></span>
-                            <a href="mailto:{{apartment.email}}">{{apartment.email}}</a>
-                        </div>
-                        <div class="col-lg-10">
-                            <span class="icon-small fa fa-phone"></span>
-                            <a href="tel:{{apartment.phone}}"><em><b>{{apartment.phone}}</b></em></a>
-                        </div>
-                        <div class="col-lg-10">
-                            <a href="/apartment/{{apartment.id}}">More</a>
-                            <hr>
+
+
+                        <div class="col-md-12">
+                            <div class="card">
+                                <div class="card-image">
+                                    <img alt="image" class="img-responsive card-image"
+                                         src="https://media-cdn.tripadvisor.com/media/photo-s/02/56/d3/27/stunning-views-from-villa.jpg">
+                                    <span class="card-title text-bold">{{apartment.name}}</span>
+                                    <span class="card-title text-bold card-title-right">{{apartment.price}}&euro;</span>
+                                </div>
+
+                                <div class="card-content">
+                                    <div class="col-md-4">
+                                        <span class="icon-small fa fa-home"></span>{{apartment.city}}
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="icon-small fa fa-phone"></span>{{apartment.phone}}
+                                    </div>
+                                    <div class="col-md-4">
+                                        <span class="icon-small fa fa-envelope"></span><small class="small-email">{{apartment.email}}</small>
+                                    </div>
+                                    <hr>
+                                    <p>{{apartment.description}}</p>
+                                </div>
+
+                                <div class="card-action">
+                                    <a href="/apartment/{{apartment.id}}">More</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>

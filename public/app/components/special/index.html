@@ -12,17 +12,47 @@
             </div>
         </div>
         <div class="row">
+            <div>
+                <form name="input-name-form" ng-submit="submitForm(input-name-form)">
+                    <div id="input-container">
+                        <div id="input-area">
+                            <input class="input-fld" name="input-name"
+                                   id="input-id"
+                                   type="text"
+                                   placeholder="SEARCH"
+                                   ng-model="search.$"
+                                   ng-click="beginWriting()"
+                                   ng-blur="stopWriting()"
+                                   capitalize>
+
+                            <div id="search-icon-x" ng-click="clearInput()" ng-show="showX" class="fadeIn">
+                                <img src="assets/images/x.png" ng-click="clearInput()">
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
             <div class="col-md-12">
                 <div ng-repeat="apartment in specials | filter:search" class="my-repeat-animation">
 
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-image">
-                                <img alt="image" class="img-responsive"src="{{apartment.picture}}">
+                                <img alt="image" class="img-responsive card-image"
+                                     src="https://media-cdn.tripadvisor.com/media/photo-s/02/56/d3/27/stunning-views-from-villa.jpg">
                                 <span class="card-title text-bold">{{apartment.name}}</span>
+                                <span class="card-title text-bold card-title-right">{{apartment.price}}&euro;</span>
                             </div>
 
                             <div class="card-content">
+                                <div class="col-md-6">
+                                    {{apartment.city}}
+                                </div>
+                                <div class="col-md-6">
+                                    {{apartment.phone}}
+                                </div>
+                                <hr>
                                 <p>{{apartment.description}}</p>
                             </div>
 

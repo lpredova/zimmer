@@ -310,5 +310,8 @@ Route::group(array('prefix' => 'api/v1'), function () {
  */
 //Route::get('/', 'PublicController@getMainPage');
 Route::get('/', function(){return View::make('index');});
+Route::get('/special', function(){return View::make('index');});
+Route::get('/near', function(){return View::make('index');});
+Route::get('/about', function(){return View::make('index');});
 Route::get('/restricted', 'PublicController@indexRestricted');
 Route::get('/auth/token', 'AuthController@token');
