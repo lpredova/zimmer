@@ -81,7 +81,7 @@ class RegistrationController extends \BaseController
     public function logoutUser()
     {
         Auth::logout();
-        return Reditect::to('/');
+        return View::make('index');
     }
 
 

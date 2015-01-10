@@ -45,7 +45,7 @@
                 </li>
 
                 <li ng-if="checkLogin()">
-                    <a href='/logout'>Logout</a>
+                    <a href='/logout' ng-click="Logout()">Logout</a>
                 </li>
             </ul>
         </div>

@@ -313,5 +313,7 @@ Route::get('/', function(){return View::make('index');});
 Route::get('/special', function(){return View::make('index');});
 Route::get('/near', function(){return View::make('index');});
 Route::get('/about', function(){return View::make('index');});
+Route::get('/apartment/{id}', function(){return View::make('index');});
+
 Route::get('/restricted', 'PublicController@indexRestricted');
 Route::get('/auth/token', 'AuthController@token');

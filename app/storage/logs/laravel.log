@@ -19656,3 +19656,472 @@ Stack trace:
 #10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
 #11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
 #12 {main} [] []
+[2015-01-10 03:44:11] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 03:44:21] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 12:45:38] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 12:45:41] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 12:46:16] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 12:46:19] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 12:46:44] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 12:46:45] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:22:17] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:22:57] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:23:06] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:25:15] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:26:10] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:32:53] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:32:56] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:33:06] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:42:08] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:44:45] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:44:45] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:44:46] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:45:21] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:45:21] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:45:21] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:45:21] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:45:22] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:45:22] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 13:45:22] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 14:05:47] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 14:05:57] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 14:17:59] production.ERROR: exception 'Symfony\Component\Debug\Exception\FatalErrorException' with message 'Class 'Reditect' not found' in /Users/lovro/coding/Laravel/Zimmer-Frei/app/controllers/RegistrationController.php:84
+Stack trace:
+#0 [internal function]: Illuminate\Exception\Handler->handleShutdown()
+#1 {main} [] []
+[2015-01-10 14:21:53] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []
+[2015-01-10 14:22:03] production.ERROR: exception 'Symfony\Component\HttpKernel\Exception\NotFoundHttpException' in /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php:5680
+Stack trace:
+#0 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(5004): Illuminate\Routing\RouteCollection->match(Object(Illuminate\Http\Request))
+#1 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4992): Illuminate\Routing\Router->findRoute(Object(Illuminate\Http\Request))
+#2 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(4984): Illuminate\Routing\Router->dispatchToRoute(Object(Illuminate\Http\Request))
+#3 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(715): Illuminate\Routing\Router->dispatch(Object(Illuminate\Http\Request))
+#4 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(696): Illuminate\Foundation\Application->dispatch(Object(Illuminate\Http\Request))
+#5 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(7744): Illuminate\Foundation\Application->handle(Object(Illuminate\Http\Request), 1, true)
+#6 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8351): Illuminate\Session\Middleware->handle(Object(Illuminate\Http\Request), 1, true)
+#7 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(8298): Illuminate\Cookie\Queue->handle(Object(Illuminate\Http\Request), 1, true)
+#8 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(10961): Illuminate\Cookie\Guard->handle(Object(Illuminate\Http\Request), 1, true)
+#9 /Users/lovro/coding/Laravel/Zimmer-Frei/bootstrap/compiled.php(657): Stack\StackedHttpKernel->handle(Object(Illuminate\Http\Request))
+#10 /Users/lovro/coding/Laravel/Zimmer-Frei/public/index.php(51): Illuminate\Foundation\Application->run()
+#11 /Users/lovro/coding/Laravel/Zimmer-Frei/server.php(19): require_once('/Users/lovro/co...')
+#12 {main} [] []

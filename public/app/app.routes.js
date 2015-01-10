@@ -14,6 +14,10 @@ zimmerApp.config(['$routeProvider','$locationProvider',
                 templateUrl: 'app/components/home/index.html',
                 controller: 'homeCtrl'
             }).
+            when('/logout', {
+                templateUrl: 'app/components/home/index.html',
+                controller: 'homeCtrl'
+            }).
             when('/about', {
                 templateUrl: 'app/components/about/index.html',
                 controller: 'aboutCtrl'
@@ -49,9 +53,8 @@ zimmerApp.config(['$routeProvider','$locationProvider',
     }]
 );
 
-zimmerApp.run(function($cookieStore, $rootScope) {
+zimmerApp.run(function($cookieStore, $rootScope,$window) {
     $rootScope.checkLogin = function () {
-
         if($cookieStore.get("username")!=null){
             $rootScope.saved_username = $cookieStore.get("username")
             return true
@@ -59,5 +62,18 @@ zimmerApp.run(function($cookieStore, $rootScope) {
         else{
             return false
         }
+    }
+    $rootScope.Logout = function () {
+
+        /**
+         * Clearing cookie information
+         */
+        $cookieStore.remove('username');
+        $cookieStore.remove('token');
+
+        var url = 'http://' + window.location.hostname + ":" + window.location.port + '/logout'
+
+        $window.location.href = url
+
     }
 })

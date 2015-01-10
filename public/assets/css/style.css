@@ -870,3 +870,19 @@ footer{
     -o-background-size: cover;
     background-size: cover;
 }
+
+/*Phones screens carousel*/
+.mockup{
+    opacity: 0.8;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+.mockup:hover{
+    opacity: 1;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
