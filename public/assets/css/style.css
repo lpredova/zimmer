@@ -203,10 +203,11 @@ body {
     opacity: .5;
     position: relative;
     width: 100% !important;
-    height: 450px;
+    height: 100%;
 }
 
 #video-new{
+    width: 100%;
     opacity: .5;
 }
 
@@ -241,9 +242,23 @@ body {
 
 }
 .main-moto-right {
+    font-size: 2.7em;
     margin-top: 20%;
-    margin-left: 70%;
+    display: inline;
+    font-family: 'Roboto Condensed', sans-serif;
+}
+.main-parole-us{
+    display: inline;
+    color: #122533;
+}
+.moto-container{
+    margin-top: 25%;
+}
 
+
+.get-image{
+    display: inline;
+    width: 25%;
 }
 
 .main-mobile-image{
@@ -261,7 +276,7 @@ body {
     top: 0;
     left: 0;
     width:100%;
-    height: 40%;
+    height: 30%;
 
 }
 
@@ -276,6 +291,26 @@ body {
     font-family: "Kaushan Script", serif;
     font-size: 7rem;
 }
+
+.main-page-icon-large{
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+
+.main-page-icon-large:hover{
+    color:#2C3E50;
+    -webkit-transition: all 1s ease-in-out;
+    -moz-transition: all 1s ease-in-out;
+    -ms-transition: all 1s ease-in-out;
+    -o-transition: all 1s ease-in-out;
+}
+
+
+
+
+/*Near me apartments*/
 
 .side-apartments {
     overflow: auto;
@@ -304,7 +339,7 @@ body {
 
 
 
-
+/*Angular entering animatios*/
 .animate-enter {
     -webkit-transition: 1s linear all; /* Chrome */
     transition: 1s linear all;
@@ -450,6 +485,7 @@ body {
 .app-page{
     margin-top:5%;
 }
+
 
 .team-photo{
     margin: 0 25%;
@@ -814,10 +850,10 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
 }
 
 .margin-top{
-    margin-top: 8%
+    margin-top: 6%
 }
 .margin-bottom{
-    margin-bottom: 8%
+    margin-bottom: 6%
 }
 
 #about{
@@ -825,3 +861,12 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     color:#ffffff;
 }
 
+
+footer{
+    color: #ffffff;
+    background: #2C3E50  center center no-repeat fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
