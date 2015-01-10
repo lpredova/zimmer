@@ -67,19 +67,24 @@ class ApiController extends \BaseController
             return Response::json(['status' => 400, 'response' => 'Bad Request']);
         } else {
 
-            if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
-            ) {
-                $userFavorites = DB::table('user_favorites as uf')
-                    ->join('apartments', 'apartments.id', '=', 'uf.apartment_id')
-                    ->join('users', 'users.id', '=', 'uf.user_id')
-                    ->where('users.id', '=', $user->id)
-                    ->get();
+            try {
+                if ($user = User::where('remember_token', '=', Input::get('_token'))->first()
+                ) {
+                    $userFavorites = DB::table('user_favorites as uf')
+                        ->join('apartments', 'apartments.id', '=', 'uf.apartment_id')
+                        ->join('users', 'users.id', '=', 'uf.user_id')
+                        ->where('users.id', '=', $user->id)
+                        ->get();
 
-                return Response::json(['status' => 200, 'response' => $userFavorites]);
+                    return Response::json(['status' => 200, 'response' => $userFavorites]);
 
-            } else {
-                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                } else {
+                    return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                }
+            } catch (Exception $e) {
+                return Response::json(['status' => 400, 'response' => 'Bad Request']);
             }
+
         }
     }
 
@@ -135,19 +140,23 @@ class ApiController extends \BaseController
             return Response::json(['status' => 400, 'response' => 'Bad Request']);
         } else {
 
-            if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
-            ) {
-                $userFavorites = DB::table('user_ratings as ur')
-                    ->join('apartments', 'apartments.id', '=', 'ur.apartment_id')
-                    ->join('users', 'users.id', '=', 'ur.user_id')
-                    ->where('users.id', '=', $user->id)
-                    ->select('ur.id','ur.rating','ur.comment','ur.created_at','ur.updated_at')
-                    ->get();
+            try {
+                if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
+                ) {
+                    $userFavorites = DB::table('user_ratings as ur')
+                        ->join('apartments', 'apartments.id', '=', 'ur.apartment_id')
+                        ->join('users', 'users.id', '=', 'ur.user_id')
+                        ->where('users.id', '=', $user->id)
+                        ->select('ur.id', 'ur.rating', 'ur.comment', 'ur.created_at', 'ur.updated_at')
+                        ->get();
 
-                return Response::json(['status' => 200, 'response' => $userFavorites]);
+                    return Response::json(['status' => 200, 'response' => $userFavorites]);
 
-            } else {
-                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                } else {
+                    return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                }
+            } catch (Exception $e) {
+                return Response::json(['status' => 400, 'response' => 'Bad Request']);
             }
         }
     }
@@ -158,7 +167,7 @@ class ApiController extends \BaseController
         $rules = array(
             'username' => 'required',
             '_token' => 'required',
-            'rating' => 'required',
+            'rating' => 'required|integer|between:1,5',
             'apartment' => 'required',
             'comment' => ''
         );
@@ -168,23 +177,24 @@ class ApiController extends \BaseController
         if ($validator->fails()) {
             return Response::json(['status' => 400, 'response' => 'Bad Request']);
         } else {
+            try {
+                if ($user = User::where('remember_token', '=', Input::get('_token'))->first()
+                ) {
+                    $rating = new UserRating();
+                    $rating->user_id = $user->id;
+                    $rating->apartment_id = Input::get('apartment');
+                    $rating->rating = Input::get('rating');
+                    $rating->save();
+                    return Response::json(['status' => 200, 'response' => 'OK']);
 
-            if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
-            ) {
-                $rating = new UserRating();
-                $rating->user_id = $user->id;
-                $rating->apartment_id = Input::get('apartment');
-                $rating->rating= Input::get('rating');
-                $rating->save();
-                return Response::json(['status' => 200, 'response' => 'OK']);
-
-            } else {
-                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                } else {
+                    return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                }
+            } catch (Exception $e) {
+                return Response::json(['status' => 400, 'response' => 'Bad Request']);
             }
         }
     }
-
-
 
 
     /**

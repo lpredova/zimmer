@@ -304,6 +304,11 @@ Route::group(array('prefix' => 'api/v1'), function () {
     Route::post('/setUserRatings', 'ApiController@setUserRatings');
 
 });
+/**
+ * Laravel session token
+ */
+Route::get('/auth/token', 'AuthController@token');
+
 
 /**
  * Routes for frontend
@@ -316,4 +321,3 @@ Route::get('/about', function(){return View::make('index');});
 Route::get('/apartment/{id}', function(){return View::make('index');});
 
 Route::get('/restricted', 'PublicController@indexRestricted');
-Route::get('/auth/token', 'AuthController@token');

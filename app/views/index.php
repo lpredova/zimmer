@@ -1,6 +1,9 @@
 <!DOCTYPE html>
-
 <head>
+
+    <link rel="shortcut icon" type="image/png" href="/assets/images/favicon.ico"/>
+    <title>Zimmer Frei! | Travel with us</title>
+
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel='stylesheet' href='assets/css/bootstrap.min.css'>
     <link rel='stylesheet' href='assets/fancybox/jquery.fancybox-v=2.1.5.css'>
