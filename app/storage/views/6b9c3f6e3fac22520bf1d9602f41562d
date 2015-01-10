@@ -1,8 +1,0 @@
-<?php $__env->startSection('ownerContent'); ?>
-
-
-<hr>
-<h1>Statistics about system</h1>
-
-<?php $__env->stopSection(); ?>
-<?php echo $__env->make('owner.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

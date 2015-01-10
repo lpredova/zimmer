@@ -35,7 +35,7 @@
 
                 <div class="results">
                     <!--Apartment element-->
-                    <div ng-repeat="apartment in apartments | filter:search" class="my-repeat-animation">
+                    <div ng-repeat="apartment in apartments track by $index | filter:search" class="my-repeat-animation">
 
 
 

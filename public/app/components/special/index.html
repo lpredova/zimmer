@@ -34,7 +34,7 @@
             </div>
 
             <div class="col-md-12">
-                <div ng-repeat="apartment in specials | filter:search" class="my-repeat-animation">
+                <div ng-repeat="apartment in specials track by $index | filter:search" class="my-repeat-animation">
 
                     <div class="col-md-4">
                         <div class="card">
