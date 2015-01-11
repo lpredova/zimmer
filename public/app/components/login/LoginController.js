@@ -1,15 +1,21 @@
 zimmerApp.controller('loginCtrl', ['$cookieStore', '$scope', '$location', '$window', 'AuthService',
     function ($cookieStore, $scope, $location, $window, AuthService) {
 
+        /**
+         * Getting laravel session token for login request
+         * @type {XMLHttpRequest}
+         */
         var xhReq = new XMLHttpRequest();
         xhReq.open("GET", "http://" + window.location.hostname + ":" + window.location.port + "/auth/token", false);
         xhReq.send(null);
+
+        var json = xhReq.responseText, obj = JSON.parse(json);
 
         $scope.error = false
         $scope.credentials = {
             username: '',
             password: '',
-            csrf_token: xhReq.responseText
+            csrf_token: obj.session_token
         };
 
         $scope.login = function (credentials) {

@@ -6,7 +6,7 @@ class AuthController extends \BaseController
 
     public function token()
     {
-        return csrf_token();
+        return Response::json(['session_token'=>csrf_token()]);
     }
 
 
