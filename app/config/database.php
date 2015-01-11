@@ -48,19 +48,19 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
+			'host'      => '127.0.0.1',
 			'database'  => 'ZimmerFrei',
 			'username'  => 'zimmer',
 			'password'  => 'fRbKeTFScNhhYSsw',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
-		),
+		)
 
 
         /*'mysql' => array(
             'driver'    => 'mysql',
-            'host'      => 'localhost',
+            'host'      => '127.0.0.1',
             'database'  => 'ZimmerFrei',
             'username'  => 'root',
             'password'  => 'mysql',

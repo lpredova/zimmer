@@ -2,7 +2,7 @@ zimmerApp.factory('SignUpUser',function ($http, $sanitize) {
 
     var sanitizeCredentials = function (credentials) {
         return {
-
+            ///
             name: $sanitize(credentials.name),
             surname: $sanitize(credentials.surname),
             email: $sanitize(credentials.email),
