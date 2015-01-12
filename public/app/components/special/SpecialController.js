@@ -1,9 +1,43 @@
-zimmerApp.controller('specialCtrl',['$scope','specialOffers',
-    function ($scope,specialOffers) {
+zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory', '$cookieStore',
+    function ($scope, specialOffers, favoriteFactory, $cookieStore) {
         $scope.dataLoaded = false
 
+        $scope.submitFavs = function (id,$index) {
+            if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
+                swal("OOPS!", "Looks like you're not logged in!", "warning");
+            }
+
+            var favorite = {
+                //todo edit this
+                apartment: id,
+                username: $cookieStore.get("username"),
+                token: $cookieStore.get("token")
+            };
+
+            favoriteFactory.favorite(favorite)
+                .success(
+                function (data) {
+                    console.log(data)
+                    console.log(data.response)
+                    if (data.response == 'OK') {
+                        $scope.selectedIndex = $index;
+                        swal("Good job!", "Favorite added", "success");
+                    }
+                    else {
+                        swal("OOPS!", "Something went wrong!", "warning");
+                    }
+                }
+            )
+                .error(
+                function (data) {
+                    console.log(data)
+                    swal("OOPS!", "Looks like you're not logged in!", "warning");
+                })
+        }
+
+
         specialOffers.getSpecialOffers()
-            .success(function(data){
+            .success(function (data) {
                 $scope.specials = data.response
 
                 /**
@@ -47,16 +81,12 @@ zimmerApp.controller('specialCtrl',['$scope','specialOffers',
                 }
 
 
-
-
                 $scope.dataLoaded = true
 
             })
             .error(function () {
                 console.log('error')
             });
-
-
 
 
     }]);

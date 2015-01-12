@@ -2,11 +2,44 @@
  * Created by lovro on 08/12/14.
  */
 zimmerApp.controller('nearCtrl',
-    ['$scope', 'geolocation', 'nearApartments', 'uiGmapGoogleMapApi',
-        function ($scope, geolocation, nearApartments, uiGmapGoogleMapApi) {
+    ['$scope', 'geolocation', 'nearApartments', 'uiGmapGoogleMapApi', 'favoriteFactory', '$cookieStore',
+        function ($scope, geolocation, nearApartments, uiGmapGoogleMapApi, favoriteFactory, $cookieStore) {
 
             $scope.dataLoaded = false
             $scope.showMap = false
+
+            $scope.submitFavs = function (id,$index) {
+                if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
+                    swal("OOPS!", "Looks like you're not logged in!", "warning");
+                }
+
+                var favorite = {
+                    //todo edit this
+                    apartment: id,
+                    username: $cookieStore.get("username"),
+                    token: $cookieStore.get("token")
+                };
+
+                favoriteFactory.favorite(favorite)
+                    .success(
+                    function (data) {
+                        console.log(data)
+                        console.log(data.response)
+                        if (data.response == 'OK') {
+                            $scope.selectedIndex = $index;
+                            swal("Good job!", "Favorite added", "success");
+                        }
+                        else {
+                            swal("OOPS!", "Something went wrong!", "warning");
+                        }
+                    }
+                )
+                    .error(
+                    function (data) {
+                        console.log(data)
+                        swal("OOPS!", "Looks like you're not logged in!", "warning");
+                    })
+            }
 
             geolocation.getLocation().then(function (data) {
                 $scope.geoCoordinates = {

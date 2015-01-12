@@ -19,7 +19,6 @@
     position: relative;
 }
 
-
 html, body {
     width: 100%;
     height: 100%;
@@ -57,7 +56,6 @@ body {
     color: #e4e6e5;
 }
 
-
 .nav li {
     text-align: center;
     white-space: nowrap;
@@ -68,7 +66,6 @@ body {
     background-color: inherit;
     outline: none;
 }
-
 
 @media (max-width: 767px) {
 
@@ -139,7 +136,6 @@ body {
     border: 0;
 }
 
-
 .with-hover-text span {
     display: none;
 }
@@ -151,8 +147,6 @@ body {
 #start-container {
     margin-bottom: 150px;
 }
-
-
 
 /*Footer social icons*/
 #social:hover {
@@ -206,25 +200,22 @@ body {
     height: 100%;
 }
 
-#video-new{
+#video-new {
     width: 100%;
     opacity: .5;
 }
 
-.video-overlay{
+.video-overlay {
     z-index: 2;
     font-family: "Kaushan Script", serif;
     font-size: 3em;
 }
-
 
 .angular-google-map-container {
     position: relative;
     height: 900px;
     z-index: 9;
 }
-
-
 
 .main-message {
     background: none repeat scroll 0 0 #FFFFFF;
@@ -241,39 +232,39 @@ body {
     margin-right: 70%;
 
 }
+
 .main-moto-right {
     font-size: 2.7em;
     margin-top: 20%;
     display: inline;
     font-family: 'Roboto Condensed', sans-serif;
 }
-.main-parole-us{
+
+.main-parole-us {
     display: inline;
     color: #ffffff;
 }
-.main-parole-travel{
+
+.main-parole-travel {
     display: inline;
     color: #122533;
 }
 
-
-.moto-container{
+.moto-container {
     margin-top: 25%;
 }
 
-
-.get-image{
+.get-image {
     display: inline;
     /*width: 25%;*/
 }
 
-.main-mobile-image{
+.main-mobile-image {
     height: 600px;
-    margin-right:10%;
+    margin-right: 10%;
 }
 
-
-.main-overlay{
+.main-overlay {
     font-family: "Titillium Web", "Lucida Sans Unicode", "Lucida Grande", sans-serif;
     font-size: 4em;
     color: #fff;
@@ -281,7 +272,7 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width:100%;
+    width: 100%;
     height: 30%;
 
 }
@@ -298,23 +289,20 @@ body {
     font-size: 7rem;
 }
 
-.main-page-icon-large{
+.main-page-icon-large {
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
 }
 
-.main-page-icon-large:hover{
-    color:#2C3E50;
+.main-page-icon-large:hover {
+    color: #2C3E50;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
 }
-
-
-
 
 /*Near me apartments*/
 
@@ -328,22 +316,20 @@ body {
     max-height: 250px;
 }
 
-.main-section{
+.main-section {
     z-index: 4;
     background: #ffffff;
 }
 
-#logo{
+#logo {
     z-index: 10;
     margin: -10px;
 }
 
-#logo-letters{
+#logo-letters {
     z-index: 10;
     margin-left: 10px;
 }
-
-
 
 /*Angular entering animatios*/
 .animate-enter {
@@ -433,67 +419,68 @@ body {
     margin-right: 10%;
 }
 
-
-.phone-em{
+.phone-em {
     font-size: 3rem;
     font-weight: 800;
 }
+
 /*End of search form*/
 
 /*No results*/
-.no-results{
-    color:#aaaaaa;
+.no-results {
+    color: #aaaaaa;
     width: 100%;
     height: 636px;
     background: #eee;
     font-size: 4rem;
 }
 
-.no-results p{
-    padding:30%
+.no-results p {
+    padding: 30%
 }
 
 /*ng-Animate on changing screens*/
 .view-animate-container {
-    position:relative;
-    height:100%!important;
-    background:white;
+    position: relative;
+    height: 100% !important;
+    background: white;
     /*overflow:hidden;*/
 }
 
 .view-animate.ng-enter, .view-animate.ng-leave {
-    -webkit-transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
-    transition:all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
+    transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
 
-    display:block;
-    width:100%;
+    display: block;
+    width: 100%;
 
-    position:absolute;
-    top:0;
-    left:0;
-    right:0;
-    bottom:0;
-    padding:10px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 10px;
 }
 
 .view-animate.ng-enter {
-    left:100%;
+    left: 100%;
 }
+
 .view-animate.ng-enter.ng-enter-active {
-    left:0;
+    left: 0;
 }
+
 .view-animate.ng-leave.ng-leave-active {
-    left:-100%;
+    left: -100%;
 }
 
 /*team members slis*/
 
-.app-page{
-    margin-top:5%;
+.app-page {
+    margin-top: 5%;
 }
 
-
-.team-photo{
+.team-photo {
     margin: 0 25%;
     height: 120px;
     width: 120px;
@@ -501,92 +488,93 @@ body {
 
 }
 
-.team-photo:hover{
+.team-photo:hover {
     height: 150px;
     width: 150px;
     transition: .2s all;
 
 }
+
 /*==============================*/
 /*Pin style*/
 
-.icon-small{
-    color:#ccc;
+.icon-small {
+    color: #ccc;
     margin: 2%;
 }
 
-.image-pin{
+.image-pin {
     height: 100px;
-    width:100px;
+    width: 100px;
     margin: 2%;
 }
 
-.side-header{
-    color:#18bc9c;
+.side-header {
+    color: #18bc9c;
 }
 
-.text-pin{
+.text-pin {
     text-decoration: none;
 }
 
 /*==============================*/
 /*Apartment deails*/
-.header-apartment{
+.header-apartment {
     width: 100%;
     height: 250px;
 }
 
-.details-user-image{
+.details-user-image {
     margin: 4% 0;
     width: 150px;
-    height: 150px ;
+    height: 150px;
 }
 
-.details-title{
+.details-title {
     height: 100%;
     margin: 2%;
     font-size: 4rem;
     font-weight: 900;
 }
 
-.right-panel{
+.right-panel {
     color: #ffffff;
     font-size: 8rem;
     height: 207px;
     background: #23ae97;
     margin-top: -3%;
-    padding-top: 3% ;
+    padding-top: 3%;
 }
 
-.apartment-description{
+.apartment-description {
     margin: 4% 0;
     font-size: 1.3em;
-    color:#989898;
+    color: #989898;
 }
 
-.apartment-room-title{
+.apartment-room-title {
     font-size: 1.3em;
-    color:#989898;
+    color: #989898;
 }
-
 
 /*Registration form*/
-.owner-text{
+.owner-text {
     margin: 10% 0;
 }
 
-.check-prim{
+.check-prim {
     opacity: 1 !important;
     position: relative !important;
 }
 
-.submit-btn{
+.submit-btn {
     margin-top: 5%;
 }
+
 /*General bootstrap elements*/
 
 /*Material cards css*/
-#price-right{
+#price-right {
     margin-left: 10%;
 }
 
@@ -600,6 +588,7 @@ body {
     border-radius: 2px;
     background-clip: padding-box;
 }
+
 .card span.card-title {
     color: #fff;
     font-size: 24px;
@@ -608,7 +597,7 @@ body {
     z-index: 4;
 }
 
-.card span.card-title-right{
+.card span.card-title-right {
     font-size: 2.5em;
     margin-left: 75%;
 }
@@ -625,54 +614,60 @@ body {
     position: relative;
     z-index: 1;
 }
+
 .card .card-image span.card-title {
     position: absolute;
     bottom: 0;
     left: 0;
     padding: 16px;
 }
+
 .card .card-content {
     padding: 16px;
     border-radius: 0 0 2px 2px;
     background-clip: padding-box;
     box-sizing: border-box;
 }
+
 .card .card-content p {
     margin: 0;
     color: inherit;
 }
+
 .card .card-content span.card-title {
     line-height: 48px;
     z-index: 2;
 }
+
 .card .card-action {
     border-top: 1px solid rgba(160, 160, 160, 0.2);
     padding: 16px;
 }
+
 .card .card-action a {
     color: #008d4c;
     margin-right: 16px;
     transition: color 0.3s ease;
     text-transform: uppercase;
 }
+
 .card .card-action a:hover {
     color: #2C3E50;
     text-decoration: none;
 }
 
-.col-centered{
+.col-centered {
     float: none;
     margin: 0 auto;
 }
 
-
-  /*-------------------------------*/
+/*-------------------------------*/
 /*      Code snippet by          */
 /*      @maridlcrmn              */
 /*-------------------------------*/
 
-#carousel{
-    background: url('../images/transpareng-back.png')  center center no-repeat fixed;
+#carousel {
+    background: url('../images/transpareng-back.png') center center no-repeat fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -681,7 +676,7 @@ body {
 }
 
 .quote {
-    color: rgba(0,0,0,.1);
+    color: rgba(0, 0, 0, .1);
     text-align: center;
     margin-bottom: 30px;
 }
@@ -693,29 +688,35 @@ body {
 #fade-quote-carousel.carousel {
     padding-bottom: 60px;
 }
+
 #fade-quote-carousel.carousel .carousel-inner .item {
     opacity: 0;
     -webkit-transition-property: opacity;
     -ms-transition-property: opacity;
     transition-property: opacity;
 }
+
 #fade-quote-carousel.carousel .carousel-inner .active {
     opacity: 1;
     -webkit-transition-property: opacity;
     -ms-transition-property: opacity;
     transition-property: opacity;
 }
+
 #fade-quote-carousel.carousel .carousel-indicators {
     bottom: 10px;
 }
+
 #fade-quote-carousel.carousel .carousel-indicators > li {
     background-color: #fff;
     border: none;
 }
+
 #fade-quote-carousel blockquote {
     text-align: center;
     border: none;
 }
+
 #fade-quote-carousel .profile-circle {
     width: 100px;
     height: 100px;
@@ -726,7 +727,7 @@ body {
 /*Sexy form*/
 /*================================*/
 /*Upper text*/
-#upper-txt{
+#upper-txt {
     width: 100%;
     color: #aaaaaa;
     display: inline;
@@ -734,29 +735,29 @@ body {
     text-align: center;
 }
 
-.name-bold{
+.name-bold {
     color: black;
     display: inline;
-    font-weight:900;
+    font-weight: 900;
 }
 
 /*================================*/
 /*Input field*/
-#input-container{
+#input-container {
     position: relative;
     width: 100%;
     margin: 5% 0;
     clear: both;
 }
 
-#input-area{
+#input-area {
     margin: 0 auto;
     width: 100%;
 }
 
-.input-fld{
+.input-fld, .input-fld-near {
     max-width: 1200px;
-    padding:10px 30px;
+    padding: 10px 30px;
     margin: 0 auto;
     display: block;
     width: 80%;
@@ -765,50 +766,54 @@ body {
     text-align: center;
     border: none;
     background: #eaeaea;
+    -webkit-transition: all 0.4s ease-in-out;
+    -moz-transition: all 0.4s ease-in-out;
+    -ms-transition: all 0.4s ease-in-out;
+    -o-transition: all 0.4s ease-in-out;
 }
 
-#search-icon-x{
-    position: absolute;
-    bottom: 0%;
-    right: 9%;
-    width: 12%;
-    height: 129px;
-    border: none;
-    cursor: pointer;
-    overflow: visible;
-    background: #eaeaea;
-
+.input-fld-near {
+    height: 80px;
+    margin: 0 3%;
+    width: 30%;
 }
 
-#search-icon-x img{
-    z-index: 1;
-    cursor: pointer;
-    position: relative;
-    top: 40%;
-    height: 20px;
-    width: 20px;
-}
-
-.input-fld:focus{
+.input-fld:focus, .input-fld-near:focus {
     width: 80%;
-}
 
-/*Cheap trick to hide placeholder*/
-input:focus::-webkit-input-placeholder { color:transparent; }
-input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
-input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
-input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
-
-
-.input-fld:focus{
     box-shadow: 0 0 rgba(81, 203, 238, 1);
-    border:  solid rgba(81, 203, 238, 1);
+    border: solid rgba(81, 203, 238, 1);
 
     -webkit-transition: all 0.4s ease-in-out;
     -moz-transition: all 0.4s ease-in-out;
     -ms-transition: all 0.4s ease-in-out;
     -o-transition: all 0.4s ease-in-out;
 }
+
+.input-fld-near:focus {
+    width: 35%;
+}
+
+/*Cheap trick to hide placeholder*/
+input:focus::-webkit-input-placeholder {
+    color: transparent;
+}
+
+input:focus:-moz-placeholder {
+    color: transparent;
+}
+
+/* FF 4-18 */
+input:focus::-moz-placeholder {
+    color: transparent;
+}
+
+/* FF 19+ */
+input:focus:-ms-input-placeholder {
+    color: transparent;
+}
+
+/* IE 10+ */
 
 /*Placeholders */
 ::-webkit-input-placeholder {
@@ -835,15 +840,14 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     text-align: center;
 }
 
-
 /*================================*/
 /*Notice text below input form*/
-.notice-container{
+.notice-container {
     height: 30px;
     margin-bottom: 8%;
 }
 
-.small-notice{
+.small-notice {
     position: relative;
     margin-bottom: 10%;
     font-weight: 900;
@@ -851,26 +855,26 @@ input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
     color: #2ecc71;
 }
 
-.small-email{
+.small-email {
     font-size: 0.75em;
 }
 
-.margin-top{
-    margin-top: 6%
-}
-.margin-bottom{
-    margin-bottom: 6%
+.margin-top {
+    margin-top: 5%
 }
 
-#about{
+.margin-bottom {
+    margin-bottom: 5%
+}
+
+#about {
     background: #2DA084;
-    color:#ffffff;
+    color: #ffffff;
 }
 
-
-footer{
+footer {
     color: #ffffff;
-    background: #2C3E50  center center no-repeat fixed;
+    background: #2C3E50 center center no-repeat fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -878,17 +882,29 @@ footer{
 }
 
 /*Phones screens carousel*/
-.mockup{
+.mockup {
     opacity: 0.8;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
 }
-.mockup:hover{
+
+.mockup:hover {
     opacity: 1;
     -webkit-transition: all 1s ease-in-out;
     -moz-transition: all 1s ease-in-out;
     -ms-transition: all 1s ease-in-out;
     -o-transition: all 1s ease-in-out;
+}
+
+.mobile-show {
+    margin: 0 8%;
+}
+
+/*Search animation*/
+
+.voted {
+    color: #f1c40f;
+    pointer : 'none';
 }

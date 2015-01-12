@@ -24,17 +24,13 @@
                                    ng-click="beginWriting()"
                                    ng-blur="stopWriting()"
                                    capitalize>
-
-                            <div id="search-icon-x" ng-click="clearInput()" ng-show="showX" class="fadeIn">
-                                <img src="assets/images/x.png" ng-click="clearInput()">
-                            </div>
                         </div>
                     </div>
                 </form>
             </div>
 
             <div class="col-md-12">
-                <div ng-repeat="apartment in specials track by $index | filter:search" class="my-repeat-animation">
+                <div class="animate-repeat" ng-repeat="apartment in specials | filter:search track by $index" >
 
                     <div class="col-md-4">
                         <div class="card">
@@ -46,11 +42,11 @@
                             </div>
 
                             <div class="card-content">
-                                <div class="col-md-6">
-                                    {{apartment.city}}
+                                <div class="col-md-4 text-center">
+                                    <span class="icon-small fa fa-home"></span>{{apartment.city}}
                                 </div>
-                                <div class="col-md-6">
-                                    {{apartment.phone}}
+                                <div class="col-md-8 text-center">
+                                    <span class="icon-small fa fa-phone"></span>{{apartment.phone}}
                                 </div>
                                 <hr>
                                 <p>{{apartment.description}}</p>
@@ -58,6 +54,12 @@
 
                             <div class="card-action">
                                 <a href="/apartment/{{apartment.id}}">More</a>
+
+                                <div class="pull-right" ng-click="submitFavs(apartment.id,$index)">
+                                    <i class="fa fa-star fa-2x" ng-click="submitFavs(apartment.id,$index)"
+                                       ng-style="ratedFavorite"
+                                       ng-class="{ 'voted': $index == selectedIndex }"></i>
+                                </div>
                             </div>
                         </div>
                     </div>

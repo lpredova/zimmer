@@ -6,7 +6,7 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', '$cookieStore',
 
         $scope.submitRating = function () {
             if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
-                alert('It seems like youre not logged in')
+                swal("OOPS!", "Looks like you're not logged in!", "warning");
             }
             else {
                 var rating = {
@@ -36,7 +36,7 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', '$cookieStore',
         $scope.submitFavs = function () {
 
             if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
-                sweetAlert("OOPS!", "Looks like you're not logged in!", "warning");
+                swal("OOPS!", "Looks like you're not logged in!", "warning");
             }
 
             var favorite = {
