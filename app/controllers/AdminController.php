@@ -85,7 +85,6 @@ class AdminController extends \BaseController
             $user->role_id = Input::get('role');
             $user->save();
 
-            Session::flash('message', 'Successfully updated role!');
             return Redirect::to('/admin/users/');
         }
     }

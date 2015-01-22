@@ -303,6 +303,11 @@ Route::group(array('prefix' => 'api/v1'), function () {
     Route::post('/getUserRatings', 'ApiController@getUserRatings');
     Route::post('/setUserRatings', 'ApiController@setUserRatings');
 
+    /**
+     * Route for new user mobile registration
+     */
+    Route::post('/signup', 'ApiController@signupUser');
+
 });
 /**
  * Laravel session token

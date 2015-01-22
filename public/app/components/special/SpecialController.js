@@ -5,6 +5,7 @@ zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory
         $scope.submitFavs = function (id,$index) {
             if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
                 swal("OOPS!", "Looks like you're not logged in!", "warning");
+                return 0
             }
 
             var favorite = {

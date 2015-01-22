@@ -7,6 +7,7 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', '$cookieStore',
         $scope.submitRating = function () {
             if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
                 swal("OOPS!", "Looks like you're not logged in!", "warning");
+                return 0
             }
             else {
                 var rating = {

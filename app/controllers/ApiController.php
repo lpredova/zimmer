@@ -15,7 +15,68 @@ class ApiController extends \BaseController
     }
 
     /**
+     * Method that registrates new user to online database and saves phone id
+     * for recieving gcm messages
+     * params for new user registraion are
+     * session token, username,email,password,gcm_phone_id
      *
+     * returns succes message with auth token
+     */
+    public function signupUser()
+    {
+        $rules = array(
+            'email' => 'required|email|unique:users',
+            'username' => 'required|unique:users',
+            'password' => 'required',
+            'gcm_phone_id' => 'required',
+            '_token' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+
+        } else {
+            $user = new User();
+
+            $user->username = Input::get('username');
+            $user->email = Input::get('email');
+            $user->gcm_phone_id = Input::get('gcm_phone_id');
+            $user->password = Hash::make(Input::get('password'));
+            $user->role_id = "3";
+
+            $user->save();
+
+            /**
+             * After registration we can  try to authenticate user
+             * */
+            try{
+                if (Auth::attempt(array('username' => $user->username, 'password' => Input::get('password')), true)) {
+
+                    $registrated_user = Auth::user();
+                    return Response::json([
+                        'status' => 200,
+                        'succes' => 'user registated',
+                        'response' => $registrated_user,
+                        'remember_token' => Auth::user()->remember_token
+                    ]);
+                } else {
+                    return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                }
+
+            }
+            catch(Exception $e){
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+
+            }
+        }
+
+    }
+
+
+    /**
+     * Method that authenticates user
      * @return json resonse with user data and token or error code
      */
     public function loginUser()

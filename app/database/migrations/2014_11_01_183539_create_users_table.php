@@ -25,6 +25,7 @@ class CreateUsersTable extends Migration {
             $table->text('avatar')->nullable();
             $table->boolean('activated');
             $table->text('activation_token');
+            $table->text('gcm_phone_id')->nullable();
             $table->rememberToken();
 
 
