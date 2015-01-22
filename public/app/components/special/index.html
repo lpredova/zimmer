@@ -30,7 +30,7 @@
             </div>
 
             <div class="col-md-12">
-                <div class="animate-repeat" ng-repeat="apartment in specials | filter:search track by $index" >
+                <div class="animate-repeat" ng-repeat="apartment in specials | filter:search track by $index">
 
                     <div class="col-md-4">
                         <div class="card">
@@ -40,12 +40,14 @@
                                 <span class="card-title text-bold">{{apartment.name}}</span>
                                 <span class="card-title text-bold card-title-right">{{apartment.price}}&euro;</span>
                             </div>
-
                             <div class="card-content">
+                                <div class="col-md-2 text-center">
+                                    {{apartment.distance_to}}km &nbsp;
+                                </div>
                                 <div class="col-md-4 text-center">
                                     <span class="icon-small fa fa-home"></span>{{apartment.city}}
                                 </div>
-                                <div class="col-md-8 text-center">
+                                <div class="col-md-6 text-center">
                                     <span class="icon-small fa fa-phone"></span>{{apartment.phone}}
                                 </div>
                                 <hr>

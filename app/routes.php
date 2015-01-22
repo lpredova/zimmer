@@ -271,10 +271,6 @@ Route::group(array('before' => 'auth|user', 'prefix' => 'user/'), function () {
 });
 /**
  * ====================================================================
- */
-
-
-/**
  * API routes
  */
 Route::group(array('prefix' => 'api/v1'), function () {
@@ -311,6 +307,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
 
 });
 /**
+ * ====================================================================
  * Laravel session token
  */
 Route::get('/auth/token', 'AuthController@token');

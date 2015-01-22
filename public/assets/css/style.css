@@ -868,6 +868,7 @@ input:focus:-ms-input-placeholder {
 }
 
 #about {
+    margin-top: -10%;
     background: #2DA084;
     color: #ffffff;
 }

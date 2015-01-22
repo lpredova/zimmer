@@ -1,8 +1,13 @@
-console.log('test')
-zimmerApp.factory('specialOffers', ['$http',  function ($http) {
+zimmerApp.factory('specialOffers', ['$http', function ($http) {
     return {
-        getSpecialOffers: function () {
-            return  $http.get("/api/v1/apartmentSpecialOffers");
+        getSpecialOffers: function (geoCoordinates) {
+            var params = {
+                params: {
+                    lat: geoCoordinates.lat,
+                    lng: geoCoordinates.lng
+                }
+            };
+            return $http.get("/api/v1/apartmentSpecialOffers", params);
         }
     };
 }]);

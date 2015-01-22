@@ -2,8 +2,6 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', '$cookieStore',
     , 'rateFactory', 'favoriteFactory',
     function ($scope, $routeParams, $cookieStore, detailApartments, rateFactory, favoriteFactory) {
         $scope.dataLoaded = false
-
-
         $scope.submitRating = function () {
             if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
                 swal("OOPS!", "Looks like you're not logged in!", "warning");
@@ -22,14 +20,15 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', '$cookieStore',
                     .success(
                     function (data) {
                         if (data.response == 'OK') {
-                            $scope.ratedRating={color:'#f1c40f',pointer:'none'}
+                            $scope.ratedRating = {color: '#f1c40f', pointer: 'none'}
                             swal("TNX!", "Sucessufully rated", "success");
                         }
                     }
                 )
                     .error(
                     function (data) {
-                        swal("Oops...", "Something went wrong!", "error");                    }
+                        swal("Oops...", "Something went wrong!", "error");
+                    }
                 )
             }
         }
@@ -38,6 +37,7 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', '$cookieStore',
 
             if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
                 swal("OOPS!", "Looks like you're not logged in!", "warning");
+                return 0
             }
 
             var favorite = {
@@ -53,7 +53,7 @@ zimmerApp.controller('apartmentCtrl', ['$scope', '$routeParams', '$cookieStore',
                     console.log(data)
                     console.log(data.response)
                     if (data.response == 'OK') {
-                        $scope.ratedFavorite={color:'#f1c40f',pointer:'none'}
+                        $scope.ratedFavorite = {color: '#f1c40f', pointer: 'none'}
                         swal("Good job!", "Favorite added", "success");
                     }
                     else {

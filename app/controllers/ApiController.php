@@ -51,7 +51,7 @@ class ApiController extends \BaseController
             /**
              * After registration we can  try to authenticate user
              * */
-            try{
+            try {
                 if (Auth::attempt(array('username' => $user->username, 'password' => Input::get('password')), true)) {
 
                     $registrated_user = Auth::user();
@@ -71,8 +71,7 @@ class ApiController extends \BaseController
                 } else {
                     return Response::json(['status' => 401, 'response' => 'Unauthorized']);
                 }
-            }
-            catch(Exception $e){
+            } catch (Exception $e) {
                 return Response::json(['status' => 401, 'response' => 'Unauthorized']);
             }
         }
@@ -192,6 +191,10 @@ class ApiController extends \BaseController
         }
     }
 
+    /**
+     * Method that retuns users rating of some apartment
+     * @return mixed
+     */
     public function getUserRatings()
     {
         $rules = array(
@@ -227,6 +230,10 @@ class ApiController extends \BaseController
     }
 
 
+    /**
+     * Method that sets users rating for specific user
+     * @return mixed
+     */
     public function setUserRatings()
     {
         $rules = array(
@@ -263,8 +270,8 @@ class ApiController extends \BaseController
 
 
     /**
+     *  Method for getting apartments based on their latitude and longitude
      * @return mixed
-     * Method for getting apartments based on their latitude and longitude
      */
 
     public function getLocationsLatLng()
@@ -282,46 +289,61 @@ class ApiController extends \BaseController
 
         } else {
 
-            //range can be 1Km,5Km or 10Km
             $lat = Input::get('lat');
             $lng = Input::get('lng');
             $range = Input::get('range');
 
-            //1 degree is 111 Km !!!
             $bounds = $this->findApartmentsNearLocation(null, $lat, $lng, $range);
             $apartments = Apartment::with('user', 'city', 'type', 'picture', 'room')
                 ->whereBetween('lat', array($bounds[0], $bounds[1]))
                 ->whereBetween('lng', array($bounds[2], $bounds[3]))
                 ->take(30)
-                ->skip(30)
+                ->skip(20)
                 ->where('active', '=', '1')
                 ->remember(10)
                 ->get();
 
-            return Response::json(['response' => ApiController::createResponse($apartments)]);
+            return Response::json(['response' => $this->createResponseWithDistance($apartments, $lat, $lng)]);
         }
     }
 
 
+    /**
+     * Method that returns list of apartments which are listed as special offers
+     * Gets user's location as parametar
+     * @return mixed
+     */
     public function getApartmentSpecialOffers()
     {
-        try {
-            $apartments = Apartment::with('user', 'city', 'type')
-                ->where('special', '=', '1')
-                ->where('active', '=', '1')
-                ->get();
-
-            return Response::json(['response' => ApiController::createDetailResponse($apartments)]);
-        } catch (Exception $e) {
+        $rules = array(
+            'lat' => 'required|regex:/^[+-]?\d+\.\d+$/',
+            'lng' => 'required|regex:/^[+-]?\d+\.\d+$/',
+        );
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails()) {
             return Response::json(['status' => 400, 'response' => 'Bad Request']);
-        }
 
+        } else {
+            $lat = Input::get('lat');
+            $lng = Input::get('lng');
+            try {
+                $apartments = Apartment::with('user', 'city', 'type')
+                    ->where('special', '=', '1')
+                    ->where('active', '=', '1')
+                    ->get();
+
+                return Response::json(['response' => $this->createDetailResponseWithDistance($apartments, $lat, $lng)]);
+            } catch (Exception $e) {
+                return Response::json(['status' => 400, 'response' => 'Bad Request']);
+            }
+
+        }
     }
 
     /**
-     * @return mixed
-     * Method that returns apartments based on city where they are located
+     *  * Method that returns apartments based on city where they are located
      * It takes our predefined city number as parameter
+     * @return mixed
      */
     public function getLocationsPlace()
     {
@@ -340,34 +362,53 @@ class ApiController extends \BaseController
                 ->where('city_id', '=', $city)
                 ->get();
 
-            return Response::json(['response' => ApiController::createResponse($apartments)]);
+            return Response::json(['response' => $this->createResponse($apartments)]);
         }
     }
 
+
+    /**
+     * Method that returns rooms,pictures and city of specified apartment
+     * @return mixed
+     */
     public function getApartmentDetails()
     {
         $rules = array(
             'apartment_id' => 'required|numeric',
+            'lat' => 'required|regex:/^[+-]?\d+\.\d+$/',
+            'lng' => 'required|regex:/^[+-]?\d+\.\d+$/',
         );
 
         $validator = Validator::make(Input::all(), $rules);
 
         if ($validator->fails()) {
-            return Response::json(['response' => 'Bad Request']);
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
 
         } else {
-            $apartment_id = Input::get('apartment_id');
-            $apartments = Apartment::with('user', 'city', 'type', 'picture', 'room')
-                ->where('id', '=', $apartment_id)
-                ->where('active', '=', '1')
-                ->get();
+            $lat = Input::get('lat');
+            $lng = Input::get('lng');
+            try {
 
-            return Response::json(['response' => ApiController::createDetailResponse($apartments)]);
+                $apartment_id = Input::get('apartment_id');
+                $apartments = Apartment::with('user', 'city', 'type', 'picture', 'room')
+                    ->where('id', '=', $apartment_id)
+                    ->where('active', '=', '1')
+                    ->get();
+
+                return Response::json(['response' => $this->createDetailResponseWithDistance($apartments,$lat,$lng)]);
+            } catch (Exception $e) {
+                return Response::json(['status' => 400, 'response' => 'Bad Request']);
+            }
         }
     }
 
 
-    private static function createResponse($apartments)
+    /**
+     * Method that creates custom response with hand picked params
+     * @param $apartments
+     * @return array
+     */
+    private function createResponse($apartments)
     {
         $response = array();
         foreach ($apartments as $apartment) {
@@ -396,7 +437,49 @@ class ApiController extends \BaseController
         return $response;
     }
 
-    private static function createDetailResponse($apartments)
+    /**
+     * Method that creates custom response with hand picked params and calculating distance from geocoordinate A to B
+     * @param $apartments
+     * @param $lat_user
+     * @param $lng_user
+     * @return array
+     */
+    private function createResponseWithDistance($apartments, $lat_user, $lng_user)
+    {
+        $response = array();
+        foreach ($apartments as $apartment) {
+            $response[] = [
+                'id' => $apartment->id,
+                'name' => $apartment->name,
+                'description' => $apartment->description,
+                'capacity' => $apartment->capacity,
+                'stars' => $apartment->stars,
+                'address' => $apartment->address,
+                'email' => $apartment->email,
+                'phone' => $apartment->phone,
+                'phone_2' => $apartment->phone_2,
+                'rating' => $apartment->rating,
+                'lat' => $apartment->lat,
+                'lng' => $apartment->lng,
+                'price' => $apartment->price,
+                'cover_photo' => $apartment->cover_photo,
+                'city' => $apartment->city->name,
+                'type' => $apartment->type->name,
+                'user_nickname' => $apartment->user->username,
+                'user_email' => $apartment->user->email,
+                'user_phone' => $apartment->user->phone,
+                'distance_to' => $this->distanceTo($lat_user, $lng_user, $apartment->lat, $apartment->lng)
+            ];
+        }
+        return $response;
+    }
+
+    /**
+     * Method that creates detailed response for apartment with custom picked params
+     * @param $apartments
+     * @return array
+     */
+    private function createDetailResponseWithDistance($apartments, $lat_user, $lng_user)
     {
         $response = array();
         foreach ($apartments as $apartment) {
@@ -423,6 +506,7 @@ class ApiController extends \BaseController
                 'user_avatar' => $apartment->user->avatar,
                 'user_email' => $apartment->user->email,
                 'user_phone' => $apartment->user->phone,
+                'distance_to' => $this->distanceTo($lat_user, $lng_user, $apartment->lat, $apartment->lng)
             ];
         }
         return $response;
@@ -440,10 +524,6 @@ class ApiController extends \BaseController
 
     private function findApartmentsNearLocation($filter = array(), $lat, $lng, $range)
     {
-
-        //this function needs calibration
-        // set radius
-        //$difference = 0.07;
         $difference = 0.0007;
         $distance = $range != 0 ? ceil($range / 111) : 0;
 
@@ -460,4 +540,42 @@ class ApiController extends \BaseController
 
         return $filter;
     }
+
+    /**
+     * Method that calculates distance in km between user and apartment
+     * @param $lat_user
+     * @param $lng_user
+     * @param $lat_ap
+     * @param $lng_ap
+     * @return float
+     */
+    private function distanceTo($lat_user, $lng_user, $lat_ap, $lng_ap)
+    {
+
+        $lat1 = $lat_user;
+        $lng1 = $lng_user;
+        $lat2 = $lat_ap;
+        $lng2 = $lat_ap;
+        $PI = 3.14159;
+        $rad = doubleval($PI / 180.0);
+
+        $lon1 = doubleval($lng1) * $rad;
+        $lat1 = doubleval($lat1) * $rad;
+        $lon2 = doubleval($lng2) * $rad;
+        $lat2 = doubleval($lat2) * $rad;
+        $theta = $lng2 - $lng1;
+
+        $dist = acos(sin($lat1) * sin($lat2) + cos($lat1) * cos($lat2) * cos($theta));
+
+        if ($dist < 0) {
+            $dist += $PI;
+        }
+
+        $km = doubleval($dist * 115.1666667);
+        return number_format($km, 1);
+
+
+    }
+
+
 }

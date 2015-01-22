@@ -1,6 +1,3 @@
-/**
- * Created by lovro on 08/12/14.
- */
 zimmerApp.controller('nearCtrl',
     ['$scope', 'geolocation', 'nearApartments', 'uiGmapGoogleMapApi', 'favoriteFactory', '$cookieStore',
         function ($scope, geolocation, nearApartments, uiGmapGoogleMapApi, favoriteFactory, $cookieStore) {
@@ -8,7 +5,7 @@ zimmerApp.controller('nearCtrl',
             $scope.dataLoaded = false
             $scope.showMap = false
 
-            $scope.submitFavs = function (id,$index) {
+            $scope.submitFavs = function (id, $index) {
                 if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
                     swal("OOPS!", "Looks like you're not logged in!", "warning");
                     return 0
@@ -37,7 +34,6 @@ zimmerApp.controller('nearCtrl',
                 )
                     .error(
                     function (data) {
-                        console.log(data)
                         swal("OOPS!", "Looks like you're not logged in!", "warning");
                     })
             }
@@ -46,6 +42,10 @@ zimmerApp.controller('nearCtrl',
                 $scope.geoCoordinates = {
                     lat: data.coords.latitude,
                     lng: data.coords.longitude
+                }
+                if($cookieStore.get("lat")==null || $cookieStore.get("lng")==null ){
+                    $cookieStore.put("lat", data.coords.latitude);
+                    $cookieStore.put("lng", data.coords.longitude);
                 }
                 $scope.map = {
                     center: {

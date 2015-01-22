@@ -1,8 +1,9 @@
-zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory', '$cookieStore',
-    function ($scope, specialOffers, favoriteFactory, $cookieStore) {
+zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory', '$cookieStore', 'geolocation',
+    function ($scope, specialOffers, favoriteFactory, $cookieStore, geolocation) {
         $scope.dataLoaded = false
 
-        $scope.submitFavs = function (id,$index) {
+
+        $scope.submitFavs = function (id, $index) {
             if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
                 swal("OOPS!", "Looks like you're not logged in!", "warning");
                 return 0
@@ -37,57 +38,61 @@ zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory
         }
 
 
-        specialOffers.getSpecialOffers()
-            .success(function (data) {
-                $scope.specials = data.response
+        geolocation.getLocation().then(function (data) {
+            $scope.geoCoordinates = {
+                lat: data.coords.latitude,
+                lng: data.coords.longitude
+            }
 
-                /**
-                 * Showing initial notice below the form
-                 */
-                $scope.beginWriting = function () {
-                    $scope.showNotice = true;
-                    $scope.showContinueNotice = false;
+            if($cookieStore.get("lat")==null || $cookieStore.get("lng")==null ){
+                $cookieStore.put("lat", data.coords.latitude);
+                $cookieStore.put("lng", data.coords.longitude);
+            }
 
-                    var x = document.getElementById("search-icon-x");
-                    x.style.height = 128 + "px";
-                    x.style.bottom = 0;
-                    x.style.top = 2 + "%";
-                }
+            specialOffers.getSpecialOffers($scope.geoCoordinates)
+                .success(function (data) {
+                    $scope.specials = data.response
 
-                /**
-                 * after input filed loses focus then kill em all
-                 */
-                $scope.stopWriting = function () {
+                    /**
+                     * Showing initial notice below the form
+                     */
+                    $scope.beginWriting = function () {
+                        $scope.showNotice = true;
+                        $scope.showContinueNotice = false;
 
-                    var x = document.getElementById("search-icon-x");
-                    x.style.height = 130 + "px";
-                    x.style.bottom = 0 + "%";
-                    x.style.top = 0;
+                        var x = document.getElementById("search-icon-x");
+                        x.style.height = 128 + "px";
+                        x.style.bottom = 0;
+                        x.style.top = 2 + "%";
+                    }
 
+                    /**
+                     * after input filed loses focus then kill em all
+                     */
+                    $scope.stopWriting = function () {
 
-                    $scope.showNotice = false;
-                    $scope.showContinueNotice = false;
+                        var x = document.getElementById("search-icon-x");
+                        x.style.height = 130 + "px";
+                        x.style.bottom = 0 + "%";
+                        x.style.top = 0;
+                        $scope.showNotice = false;
+                        $scope.showContinueNotice = false;
 
-                }
+                    }
 
-                $scope.clearInput = function () {
-                    $scope.new_name = "";
-                    $scope.name = "LOVRO";
-                    $scope.showContinueNotice = false;
-                    $scope.showX = false
-
-
-                    var x = document.getElementById("input-id");
-                    x.style.fontSize = 4 + "em";
-                }
-
-
-                $scope.dataLoaded = true
-
-            })
-            .error(function () {
-                console.log('error')
-            });
+                    $scope.clearInput = function () {
+                        $scope.new_name = "";
+                        $scope.name = "LOVRO";
+                        $scope.showContinueNotice = false;
+                        $scope.showX = false
 
 
-    }]);
+                        var x = document.getElementById("input-id");
+                        x.style.fontSize = 4 + "em";
+                    }
+                    $scope.dataLoaded = true
+
+                })
+                .error(function () {
+                    console.log('error')
+                });})}]);

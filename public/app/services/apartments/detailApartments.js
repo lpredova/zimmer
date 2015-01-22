@@ -1,14 +1,14 @@
-zimmerApp.factory('detailApartments', ['$http', '$sanitize', function ($http, $sanitize) {
+zimmerApp.factory('detailApartments', ['$http', '$sanitize', '$cookieStore', function ($http, $sanitize, $cookieStore) {
     return {
-        getApartmentDetails: function (apartment_id) {
-
+        getApartmentDetails: function (id) {
             var params = {
                 params: {
-                    apartment_id: $sanitize(apartment_id)
+                    lat: $cookieStore.get("lat"),
+                    lng: $cookieStore.get("lng"),
+                    apartment_id: $sanitize(id)
                 }
             };
-            var apartment = $http.get("/api/v1/apartmentDetails", params);
-            return apartment;
+            return $http.get("/api/v1/apartmentDetails", params);
         }
     };
 }]);
