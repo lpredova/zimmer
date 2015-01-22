@@ -1038,6 +1038,68 @@ class AdminController extends \BaseController
         return View::make('admin.pushNotifications.show');
     }
 
+    public function sendPushNotification()
+    {
+
+        $message=json_encode(['title'=>'FIRST BLOOD','message'=>'Killing spree']);
+        PushNotification::app('appNameAndroid')
+            //->to('APA91bG7adyRCI3UF9q5ge3RSQmHnzfLB6XBpZAGg1Yvr9qYPCuiC8J4N4OQMS6qcPr5zTwJqQlEOi-cFioMqIwLVganOyREIoFeGg1CmYBd2Qp1Ii_vUAPPH6GXLxigISeOMiP6fiaRxRAQ1TPwFqg7ivaxvbUSJw')
+            ->to('APA91bFvusb_U_7b-nEd8GkIGHbylPRMH_Qdjur1IPK--HY_irIXsu1-dnEHAI6cA7ou5lJ7D5kjA1m0gLkWVt9QG0CxYlrT3FDz3B8Sny-olYcOtaJ8cxFRnafPqzejUjfih-CWw1ySn8cG1fEvu7iDsE7SOJAqwms2T--mkMvnB7lPWU6rCm0')
+            ->send($message);
+        dd('sent');
+
+        /*$devices =
+            PushNotification::DeviceCollection(array(
+                PushNotification::Device('token', array('badge' => 5)),
+                PushNotification::Device('token1', array('badge' => 1)),
+                PushNotification::Device('token2')
+            ));*/
+
+        /*$users = DB::table('users')->get();
+
+        $device = array();
+        foreach ($users as $user) {
+            array_push($device, PushNotification::Device($user->gcm_phone_id, array('badge' => 5)));
+        }
+        $devices = PushNotification::DeviceCollection(array($device));
+
+
+        /*$devices =
+            PushNotification::DeviceCollection(array(
+                PushNotification::Device('token', array('badge' => 5)),
+                PushNotification::Device('token1', array('badge' => 1)),
+                PushNotification::Device('token2')
+            ));*/
+
+
+        /*$message = PushNotification::Message(
+            'Message Text', array(
+            'badge' => 1,
+            'sound' => 'example.aiff',
+            'actionLocKey' => 'Action button title!',
+            'locKey' => 'localized key',
+            'locArgs' => array(
+                'localized args',
+                'localized args',
+                'localized args'
+            ),
+            'launchImage' => 'image.jpg',
+            'custom' => array(
+                'custom data' => array(
+                    'we' => 'want',
+                    'send to app'
+                )
+            )
+        ));
+        PushNotification::app('appNameAndroid')
+            ->to($devices)
+            ->send($message);*/
+
+        return View::make('admin.pushNotifications.show');
+
+    }
+
+
     public function getUserProfile()
     {
         return View::make('admin.profile.index');

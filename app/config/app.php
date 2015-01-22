@@ -125,6 +125,7 @@ return array(
         'Tappleby\AuthToken\AuthTokenServiceProvider',
         'Bllim\Datatables\DatatablesServiceProvider',
         'Intervention\Image\ImageServiceProvider',
+		'Davibennun\LaravelPushNotification\LaravelPushNotificationServiceProvider'
 
     ),
 
@@ -193,13 +194,11 @@ return array(
 		'Validator'       => 'Illuminate\Support\Facades\Validator',
 		'View'            => 'Illuminate\Support\Facades\View',
 
-
         'AuthToken' => 'Tappleby\Support\Facades\AuthToken',
         'AuthTokenNotAuthorizedException' => 'Tappleby\AuthToken\Exceptions\NotAuthorizedException',
         'Datatables'      => 'Bllim\Datatables\Facade\Datatables',
-        'Image' => 'Intervention\Image\Facades\Image'
-
-
+        'Image' => 'Intervention\Image\Facades\Image',
+		'PushNotification' => 'Davibennun\LaravelPushNotification\Facades\PushNotification'
 
     ),
 
