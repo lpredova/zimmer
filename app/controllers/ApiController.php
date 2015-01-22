@@ -55,6 +55,13 @@ class ApiController extends \BaseController
                 if (Auth::attempt(array('username' => $user->username, 'password' => Input::get('password')), true)) {
 
                     $registrated_user = Auth::user();
+
+                    /**
+                     * Sending GCM message
+                     */
+                    $push_message = new PushController();
+                    $push_message->sendThanks($registrated_user->id);
+
                     return Response::json([
                         'status' => 200,
                         'succes' => 'user registated',
@@ -64,14 +71,11 @@ class ApiController extends \BaseController
                 } else {
                     return Response::json(['status' => 401, 'response' => 'Unauthorized']);
                 }
-
             }
             catch(Exception $e){
                 return Response::json(['status' => 401, 'response' => 'Unauthorized']);
-
             }
         }
-
     }
 
 

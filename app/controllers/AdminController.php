@@ -1041,12 +1041,40 @@ class AdminController extends \BaseController
     public function sendPushNotification()
     {
 
-        $message=json_encode(['title'=>'FIRST BLOOD','message'=>'Killing spree']);
-        PushNotification::app('appNameAndroid')
-            //->to('APA91bG7adyRCI3UF9q5ge3RSQmHnzfLB6XBpZAGg1Yvr9qYPCuiC8J4N4OQMS6qcPr5zTwJqQlEOi-cFioMqIwLVganOyREIoFeGg1CmYBd2Qp1Ii_vUAPPH6GXLxigISeOMiP6fiaRxRAQ1TPwFqg7ivaxvbUSJw')
-            ->to('APA91bFvusb_U_7b-nEd8GkIGHbylPRMH_Qdjur1IPK--HY_irIXsu1-dnEHAI6cA7ou5lJ7D5kjA1m0gLkWVt9QG0CxYlrT3FDz3B8Sny-olYcOtaJ8cxFRnafPqzejUjfih-CWw1ySn8cG1fEvu7iDsE7SOJAqwms2T--mkMvnB7lPWU6rCm0')
-            ->send($message);
-        dd('sent');
+        $rules = array(
+            'gcm-message' => 'required',
+            'gcm-title' => 'required'
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Redirect::to('/admin/push')->withErrors($validator);
+        } else {
+
+            $title = Input::get('gcm-title');
+            $text = Input::get('gcm-message');
+            $message=json_encode(['title'=>$title,'message'=>$text]);
+
+            /*$device = array();
+            $users = DB::table('users')->get();
+            foreach ($users as $user) {
+                array_push($device, PushNotification::Device($user->gcm_phone_id, array('badge' => 5)));
+            }
+            $devices = PushNotification::DeviceCollection(array($device));
+            */
+
+            PushNotification::app('appNameAndroid')
+                ->to('APA91bFvusb_U_7b-nEd8GkIGHbylPRMH_Qdjur1IPK--HY_irIXsu1-dnEHAI6cA7ou5lJ7D5kjA1m0gLkWVt9QG0CxYlrT3FDz3B8Sny-olYcOtaJ8cxFRnafPqzejUjfih-CWw1ySn8cG1fEvu7iDsE7SOJAqwms2T--mkMvnB7lPWU6rCm0')
+                //->to($devices)
+                ->send($message);
+
+            Session::flash('success','Notification sent');
+        }
+
+
+
+
 
         /*$devices =
             PushNotification::DeviceCollection(array(

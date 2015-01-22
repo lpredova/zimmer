@@ -183,7 +183,7 @@ Route::group(array('before' => 'auth|admin', 'prefix' => 'admin/'), function () 
      * Push notifications managment
      */
     Route::get('/push', 'AdminController@pushNotification');
-    Route::get('/sendPush', 'AdminController@sendPushNotification');
+    Route::post('/sendPush', 'AdminController@sendPushNotification');
 
     /**
      * User personal profile managment
