@@ -293,6 +293,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
      */
     Route::post('/getUserFavorites', 'ApiController@getUserFavorites');
     Route::post('/setUserFavorites', 'ApiController@setUserFavorites');
+    Route::post('/deleteUserFavorites', 'ApiController@DeleteUserFavorites');
 
     /**
      * Routes for CRUD of user ratings
@@ -304,6 +305,12 @@ Route::group(array('prefix' => 'api/v1'), function () {
      * Route for new user mobile registration
      */
     Route::post('/signup', 'ApiController@signupUser');
+
+    /**
+     * Route for update user profile
+     */
+    Route::post('/update/user', 'ApiController@signupUser');
+
 
 });
 /**
@@ -324,3 +331,9 @@ Route::get('/about', function(){return View::make('index');});
 Route::get('/apartment/{id}', function(){return View::make('index');});
 
 Route::get('/restricted', 'PublicController@indexRestricted');
+
+/**
+ * Routes for mobile webview
+ */
+Route::get('/mobile/help', function(){return View::make('mobile.help');});
+Route::get('/mobile/about', function(){return View::make('mobile.about');});

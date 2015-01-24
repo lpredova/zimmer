@@ -68,7 +68,7 @@ zimmerApp.controller('nearCtrl',
                                 var ret = {
                                     latitude: value.lat,
                                     longitude: value.lng,
-                                    title: value.name + ";" + value.picture + ";" + value.phone + ";" + value.id,
+                                    title: value.name + ";" + value.cover_photo + ";" + value.phone + ";" + value.id,
                                     icon: '/assets/images/marker-green.png',
                                     show: false
                                 };

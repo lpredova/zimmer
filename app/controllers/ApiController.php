@@ -192,6 +192,38 @@ class ApiController extends \BaseController
     }
 
     /**
+     * Method that adds new apartment on users favorite list
+     * @return JSON
+     */
+    public function deleteUserFavorites()
+    {
+        $rules = array(
+            'username' => 'required',
+            '_token' => 'required',
+            'apartment' => 'required',
+        );
+        $validator = Validator::make(Input::all(), $rules);
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+        } else {
+            try {
+                if ($user = User::where('remember_token', '=', Input::get('_token'))->firstOrFail()
+                ) {
+                    $favorite = UserFavorite::where('apartment_id', '=', Input::get('apartment'))->where('user_id', '=',
+                        $user->id);
+                    $favorite->delete();
+                    return Response::json(['status' => 200, 'response' => 'Favorite deleted']);
+                } else {
+                    return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                }
+            } catch (Exception $e) {
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+
+            }
+        }
+    }
+
+    /**
      * Method that retuns users rating of some apartment
      * @return mixed
      */
@@ -395,7 +427,7 @@ class ApiController extends \BaseController
                     ->where('active', '=', '1')
                     ->get();
 
-                return Response::json(['response' => $this->createDetailResponseWithDistance($apartments,$lat,$lng)]);
+                return Response::json(['response' => $this->createDetailResponseWithDistance($apartments, $lat, $lng)]);
             } catch (Exception $e) {
                 return Response::json(['status' => 400, 'response' => 'Bad Request']);
             }
@@ -552,29 +584,20 @@ class ApiController extends \BaseController
     private function distanceTo($lat_user, $lng_user, $lat_ap, $lng_ap)
     {
 
-        $lat1 = $lat_user;
-        $lng1 = $lng_user;
-        $lat2 = $lat_ap;
-        $lng2 = $lat_ap;
-        $PI = 3.14159;
-        $rad = doubleval($PI / 180.0);
+        $pi80 = M_PI / 180;
+        $lat_user *= $pi80;
+        $lng_user *= $pi80;
+        $lat_ap*= $pi80;
+        $lng_ap *= $pi80;
 
-        $lon1 = doubleval($lng1) * $rad;
-        $lat1 = doubleval($lat1) * $rad;
-        $lon2 = doubleval($lng2) * $rad;
-        $lat2 = doubleval($lat2) * $rad;
-        $theta = $lng2 - $lng1;
+        $r = 6372.797; // mean radius of Earth in km
+        $dlat = $lat_ap - $lat_user;
+        $dlng = $lng_ap - $lng_user;
+        $a = sin($dlat / 2) * sin($dlat / 2) + cos($lat_user) * cos($lat_ap) * sin($dlng / 2) * sin($dlng / 2);
+        $c = 2 * atan2(sqrt($a), sqrt(1 - $a));
+        $km = $r * $c;
 
-        $dist = acos(sin($lat1) * sin($lat2) + cos($lat1) * cos($lat2) * cos($theta));
-
-        if ($dist < 0) {
-            $dist += $PI;
-        }
-
-        $km = doubleval($dist * 115.1666667);
         return number_format($km, 1);
-
-
     }
 
 

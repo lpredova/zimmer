@@ -481,16 +481,15 @@ body {
 }
 
 .team-photo {
-    margin: 0 25%;
-    height: 120px;
-    width: 120px;
+    margin: 0 33%;
+    height: 80px;
     transition: .2s all;
 
 }
 
 .team-photo:hover {
-    height: 150px;
-    width: 150px;
+    height: 100px;
+    width: 100px;
     transition: .2s all;
 
 }
@@ -868,7 +867,7 @@ input:focus:-ms-input-placeholder {
 }
 
 #about {
-    margin-top: -10%;
+    margin-top: -5px;
     background: #2DA084;
     color: #ffffff;
 }
@@ -909,3 +908,25 @@ footer {
     color: #f1c40f;
     pointer : 'none';
 }
+
+/*Mobile website*/
+@media only screen and (min-device-width: 768px){
+    .mobile-body{
+        width: 100% !important;
+    }
+
+    .team-photo-mobile{
+        margin: 3px 44%;
+    }
+}
+
+@media only screen and (min-device-width: 480px){
+    .mobile-body{
+        width: 100% !important;
+    }
+    .team-photo-mobile{
+        margin: 5px 44%;
+    }
+}
+
+

@@ -7,11 +7,8 @@
 
 
 
- 		{{--@yield('content')--}}
+ 		@yield('content')
 
- 		<div class="view-container">
-            <div ng-view class="view-frame"></div>
-        </div>
 
 
  		@include('includes.footer')
