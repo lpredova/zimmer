@@ -115,6 +115,47 @@ class ApiController extends \BaseController
 
 
     /**
+     * Method that updates basic user info
+     * @return mixed
+     */
+    public function updateUser()
+    {
+        $rules = array(
+            'name' => 'required',
+            'surname' => 'required',
+            'email' => 'required|email',
+            'phone' => 'required',
+            '_token' => 'required',
+        );
+
+        $validator = Validator::make(Input::all(), $rules);
+
+        if ($validator->fails()) {
+            return Response::json(['status' => 400, 'response' => 'Bad Request']);
+
+        } else {
+            try {
+                if ($user = User::where('remember_token', '=', Input::get('_token'))->first()) {
+                    $user->name = Input::get('name');
+                    $user->surname = Input::get('surname');
+                    $user->email = Input::get('email');
+                    $user->phone = Input::get('phone');
+                    $user->save();
+                    return Response::json(['status' => 200, 'response' =>$user]);
+
+                } else {
+                    return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+                }
+            } catch (Exception $e) {
+                return Response::json(['status' => 401, 'response' => 'Unauthorized']);
+
+            }
+
+        }
+    }
+
+
+    /**
      * Method that returns list of users favorited apartments
      * @return JSON
      */

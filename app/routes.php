@@ -309,7 +309,7 @@ Route::group(array('prefix' => 'api/v1'), function () {
     /**
      * Route for update user profile
      */
-    Route::post('/update/user', 'ApiController@signupUser');
+    Route::post('/update/user', 'ApiController@updateUser');
 
 
 });
