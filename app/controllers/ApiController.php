@@ -135,11 +135,13 @@ class ApiController extends \BaseController
                 if ($user = User::where('remember_token', '=', Input::get('_token'))->first()
                 ) {
                     $userFavorites = DB::table('user_favorites as uf')
-                        ->join('apartments', 'apartments.id', '=', 'uf.apartment_id')
+                        ->join('apartments as ap', 'ap.id', '=', 'uf.apartment_id')
                         ->join('users', 'users.id', '=', 'uf.user_id')
                         ->where('users.id', '=', $user->id)
+                        ->select('uf.user_id', 'ap.id as apartment_id',
+                            'ap.description', 'ap.name', 'ap.stars', 'ap.address', 'ap.email', 'ap.price', 'ap.special',
+                            'ap.cover_photo', 'ap.lat', 'ap.lng')
                         ->get();
-
                     return Response::json(['status' => 200, 'response' => $userFavorites]);
 
                 } else {
@@ -587,7 +589,7 @@ class ApiController extends \BaseController
         $pi80 = M_PI / 180;
         $lat_user *= $pi80;
         $lng_user *= $pi80;
-        $lat_ap*= $pi80;
+        $lat_ap *= $pi80;
         $lng_ap *= $pi80;
 
         $r = 6372.797; // mean radius of Earth in km
