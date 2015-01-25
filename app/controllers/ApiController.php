@@ -140,8 +140,9 @@ class ApiController extends \BaseController
                         ->where('users.id', '=', $user->id)
                         ->select('uf.user_id', 'ap.id as apartment_id',
                             'ap.description', 'ap.name', 'ap.stars', 'ap.address', 'ap.email', 'ap.price', 'ap.special',
-                            'ap.cover_photo', 'ap.lat', 'ap.lng')
+                            'ap.cover_photo', 'ap.lat', 'ap.lng', 'ap.rating')
                         ->get();
+
                     return Response::json(['status' => 200, 'response' => $userFavorites]);
 
                 } else {
@@ -183,6 +184,7 @@ class ApiController extends \BaseController
                 $favorite->apartment_id = Input::get('apartment');
                 $favorite->title = 'none';
                 $favorite->description = 'none';
+
                 $favorite->save();
 
                 return Response::json(['status' => 200, 'response' => 'OK']);
