@@ -56,6 +56,8 @@ return array(
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
 		)
+
+
         /*'mysql' => array(
             'driver'    => 'mysql',
             'host'      => '127.0.0.1',
@@ -67,6 +69,8 @@ return array(
             'prefix'    => '',
             'unix_socket' => '/Applications/AMPPS/var/mysql.sock'
         ),*/
+
+
 	),
 
 	/*
