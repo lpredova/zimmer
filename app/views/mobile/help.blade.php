@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container">
-        <div class="row">
+        <div class="row help">
             <div class="col-md-12 col-sm-12 col-xs-12">
                 <h1 class="text-center">Help <i class="fa fa-exclamation"></i></h1>
 
@@ -12,9 +12,11 @@
                     which serves the same purpose but with extend fucntionalites for accomodation providers to list
                     their apartments and rooms on the whole service.</p>
                 <img class="text-center img-responsive mobile-photo"
-                     src="/assets/images/mobile_screenshots/Home.png">
+                     src="/assets/images/mobile_screenshots/Home.jpg">
 
                 <h2 class="text-center">How to use ZimmerFrei<i class="fa fa-question"></i></h2>
+                <img class="text-center img-responsive mobile-photo"
+                     src="/assets/images/mobile_screenshots/splash.jpg">
 
                 <p class="text-center">Zimmer Frei is mobile app for explorers, accomodation seekers and new generation
                     of tourists.</p>
@@ -24,44 +26,53 @@
 
                 <p class="text-center">
                     With Zimmer Frei you can browse list of apartments,search trough map and find <b>best</b>
-                    acoomodation !
+                    acoomodation presented by list or you can explore map.
 
                 <p>
                     <img class="text-center img-responsive mobile-photo"
-                         src="/assets/images/mobile_screenshots/NearMeList.png">
+                         src="/assets/images/mobile_screenshots/NearMeList.jpg">
 
                 <h3 class="text-center">Explore<i class="fa fa-exclamation"></i></h3>
                 <img class="text-center img-responsive mobile-photo"
-                     src="/assets/images/mobile_screenshots/Map.png">
+                     src="/assets/images/mobile_screenshots/Map.jpg">
 
-                <p class="text-center">You can browse trough map freely, and search for new places.</p>
+                <p class="text-center">You can browse trough map freely, and search for new places jus by swiping the map and longpress</p>
+                <img class="text-center img-responsive mobile-photo"
+                     src="/assets/images/mobile_screenshots/ApartmentDetails.jpg">
+                <p class="text-center">Also you can see apartment details and swipe photos to check out rooms
+                You can add apartments you like to favorites</p>
+
 
 
                 <h3 class="text-center">Save favorites <i class="fa fa-exclamation"></i></h3>
 
-                <p class="text-center">You found a great place to stay ? Bookmark it !</p>
+                <p class="text-center">You found a great place to stay ? You can bookmark it so you can it save for
+                    later and show it to your friends</p>
                 <img class="text-center img-responsive mobile-photo"
-                     src="/assets/images/mobile_screenshots/MyPlaces.png">
+                     src="/assets/images/mobile_screenshots/MyPlaces.jpg">
 
 
-                <h3 class="text-center"> Sign up
-                    <i class="fa fa-user"></i></h3>
+                <h3 class="text-center"> Sign up</h3>
 
-                <p class="text-center">Register and edit your profile</p>
-
-                <img class="text-center img-responsive mobile-photo"
-                     src="/assets/images/mobile_screenshots/Signin.png">
-
+                <p class="text-center">You can register and edit your profile, after you registrate you will recieve message via GCM</p>
 
                 <img class="text-center img-responsive mobile-photo"
-                     src="/assets/images/mobile_screenshots/Registration.png">
+                     src="/assets/images/mobile_screenshots/LoginOrRegister.jpg">
+
+                <img class="text-center img-responsive mobile-photo"
+                     src="/assets/images/mobile_screenshots/Signin.jpg">
 
 
                 <img class="text-center img-responsive mobile-photo"
-                     src="/assets/images/mobile_screenshots/Profile.png">
+                     src="/assets/images/mobile_screenshots/Registration.jpg">
+
+
+                <img class="text-center img-responsive mobile-photo"
+                     src="/assets/images/mobile_screenshots/Profile.jpg">
 
 
                 <h3 class="text-center">Report problem</h3>
+                <p class="text-center">If you encountered any error please report it to authors</p>
 
                 <div class="col-lg-3">
                     <h4 class="text-center">
@@ -98,7 +109,7 @@
                     <ul class="list-inline">
                         <li>
                             <a href="#">
-                                <img src="/assets/images/logo_mini.png" alt="" id="logo">
+                                <img src="/assets/images/logo_mini.jpg" alt="" id="logo">
                             </a>
                         </li>
                     </ul>

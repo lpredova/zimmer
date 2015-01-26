@@ -941,6 +941,17 @@ footer {
     width: 40%;
     margin-left: 30%;
     margin-top: 30px;
+    margin-bottom: 30px;
 }
 
+.help{
+    font-weight: 800;
+    font-size: 1.5em;
+}
+
+.help h3{
+    font-size: 2em;
+
+
+}
 
