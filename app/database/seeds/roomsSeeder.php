@@ -6,7 +6,7 @@ class RoomsSeeder extends DatabaseSeeder
     {
         $faker = Faker\Factory::create();
 
-        for ($i = 0; $i < 400; $i++)
+        for ($i = 0; $i < 800; $i++)
         {
             Room::create(array(
                 "description" => $faker->numberBetween($min = 1, $max = 4),
@@ -16,7 +16,7 @@ class RoomsSeeder extends DatabaseSeeder
 
                 "description" => $faker->text(400),
                 "price"    => $faker->numberBetween($min = 1, $max = 90),
-                "apartment_id"    => $faker->numberBetween($min = 1, $max = 20),
+                "apartment_id"    => $faker->numberBetween($min = 1, $max = 999),
             ));
         }
     }
