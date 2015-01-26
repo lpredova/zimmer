@@ -6,7 +6,8 @@
             <div class="col-md-12">
                 <h1 class="text-center">About</h1>
 
-                <p>Zimmer Frei is web aplication that provides tourists with data like where they can find best and nearest
+                <p>Zimmer Frei is web aplication that provides tourists with data like where they can find best and
+                    nearest
                     place to stay.
                     It's suited for tourists,explorers and anyone that feels like it.</p>
 
@@ -44,6 +45,29 @@
                         Backend and frontend web developer &amp; database designer
                     </h4>
                 </div>
+
+                <div class="col-lg-3">
+                    <h2 class="text-center">Supervisors</h2>
+                    <h4 class="text-center">
+                        <ul class="list-no-decoration">
+                            <li> Zlatko Stapić, M.A.
+                            </li>
+                            <li> Ivan Švogor, M.A.
+                            </li>
+                        </ul>
+                        <h2 class="text-center col-centered">Contact info </h2>
+                        <ul class="text-center list-no-decoration">
+                            <li><a href="mailto:krezic@foi.hr"> akrezic@foi.hr</a>
+                            </li>
+                            <li><a href="mailto:lpredova@foi.hr"> lpredova@foi.hr</a>
+                            </li>
+                            <li><a href="mailto:pvrbek@foi.hr"> pvrbek@foi.hr</a>
+                            </li>
+                            <li><a href="mailto:lklancir@foi.hr"> lklancir@foi.hr</a>
+                            </li>
+                        </ul>
+                    </h4>
+                </div>
             </div>
         </div>
     </div>
@@ -56,7 +80,7 @@
                     <p>Contact:<br><a href="#">zimmerfrei.co/contact</a></p>
                     <ul class="list-unstyled margin-bottom">
                         <li><i class="fa fa-phone fa-fw"></i> 01/3013-058</li>
-                        <li><i class="fa fa-envelope-o fa-fw"></i>  <a href="mailto:vcz@vcz.hr">zimmer@frei.co</a>
+                        <li><i class="fa fa-envelope-o fa-fw"></i> <a href="mailto:vcz@vcz.hr">zimmer@frei.co</a>
                         </li>
                     </ul>
                     <br>
@@ -70,6 +94,7 @@
                     <p class="text-muted margin-bottom">
                         <a href="#">zimmerfrei.co</a>
                     </p>
+
                     <p>LP 2015</p>
                 </div>
             </div>

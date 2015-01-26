@@ -933,4 +933,14 @@ footer {
     width: 260px;
 }
 
+.list-no-decoration{
+    list-style: none;
+}
+
+.mobile-photo{
+    width: 40%;
+    margin-left: 30%;
+    margin-top: 30px;
+}
+
 
