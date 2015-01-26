@@ -29,7 +29,6 @@ class ApartmentsSeeder extends DatabaseSeeder
                 "cover_photo" => $faker->randomElement($array = array(
                     'http://www.croatianvillas.com/upload/images/big/IS105-luxury-croatia-01big.jpg',
                     'http://croatiaaa.me/wp-content/plugins/widgetkit_full/cache/gallery/2167/141_brac_vacation_holiday_accommodation_apartments_suites_rooms_privacy_direct_sea_view_dalmatia_island_croatia_split_beach_entertainment_supetar_villa_luxury_family_wedding_summer_winter_spring_romantic_01-14cf6e7a67.png',
-                    'http://www.travel-tourist.com/pictures/objekti/3831/0.jpg',
                     'http://www.croatianvillaholidays.com/images/liberty2/main.jpg',
                     'https://static.squarespace.com/static/53bd00aae4b04ee6a0986e13/5423b907e4b03f0c482aa4d5/5423b907e4b03f0c482aa4da/1407837501382/01.jpg',
                     'http://www.croatianvillaholidays.com/images/natasha/mainM.jpg',
