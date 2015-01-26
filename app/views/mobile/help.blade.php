@@ -60,7 +60,7 @@
                      src="/assets/images/mobile_screenshots/LoginOrRegister.jpg">
 
                 <img class="text-center img-responsive mobile-photo"
-                     src="/assets/images/mobile_screenshots/Signin.jpg">
+                     src="/assets/images/mobile_screenshots/SignIn.jpg">
 
 
                 <img class="text-center img-responsive mobile-photo"
