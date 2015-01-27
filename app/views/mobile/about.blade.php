@@ -50,7 +50,7 @@
                     <h2 class="text-center">Supervisors</h2>
                     <h4 class="text-center">
                         <ul class="list-no-decoration">
-                            <li> Zlatko Stapić, M.A.
+                            <li> Zlatko Stapić, Ph.D.
                             </li>
                             <li> Ivan Švogor, M.A.
                             </li>
