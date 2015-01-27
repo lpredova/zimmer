@@ -31,7 +31,7 @@ angular.module("angular-google-maps-example", ['uiGmapgoogle-maps'])
         latitude: 51.229053,
         longitude: 4.404418,
         show:true
-      }]
+      }];
 
     GoogleMapApi.then(function(maps) {
 

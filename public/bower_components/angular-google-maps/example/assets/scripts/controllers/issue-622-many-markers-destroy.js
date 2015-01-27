@@ -112,7 +112,7 @@ function ($scope, clearMarkersChannel,genMarkersChannel) {
       $scope.map.markers = []
     });
 
-    $log.doLog = true
+    $log.doLog = true;
 
     GoogleMapApi.then(function(maps) {
 

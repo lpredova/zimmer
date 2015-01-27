@@ -32,7 +32,7 @@ app.controller('TrackingCtrl', ['$rootScope', '$scope', '$timeout', '$log', 'uiG
           var id = model.idKey || model.id;
           alert("Marker double clicked! Model: " + id);
         }
-      }
+      };
       $timeout(function () {
         $scope.map.markers[0].latitude = 53.416754;
         $scope.map.markers[0].longitude = -2.148843;

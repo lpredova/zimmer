@@ -2,7 +2,7 @@ angular.module("angular-google-maps-example", ['uiGmapgoogle-maps']).value("rndA
   return Math.floor(((Math.random() < 0.5 ? -1 : 1) * 2) + 1)
 }).controller("controller",
     function ($scope, $timeout, $log, $http, rndAddToLatLon, uiGmapLogger) {
-      uiGmapLogger.doLog = true
+      uiGmapLogger.doLog = true;
       // Enable the new Google Maps visuals until it gets enabled by default.
       // See http://googlegeodevelopers.blogspot.ca/2013/05/a-fresh-new-look-for-maps-api-for-all.html
       google.maps.visualRefresh = true;
@@ -202,12 +202,12 @@ angular.module("angular-google-maps-example", ['uiGmapgoogle-maps']).value("rndA
         //optional param if you want to refresh you can pass null undefined or false or empty arg
         $scope.map.control.refresh({latitude: 32.779680, longitude: -79.935493});
         $scope.map.control.getGMap().setZoom(11);
-        return;
+
       };
       $scope.getMapInstance = function () {
         alert("You have Map Instance of" + $scope.map.control.getGMap().toString());
-        return;
-      }
+
+      };
 
       $timeout(function () {
 

@@ -2,8 +2,8 @@ zimmerApp.controller('nearCtrl',
     ['$scope', 'geolocation', 'nearApartments', 'uiGmapGoogleMapApi', 'favoriteFactory', '$cookieStore',
         function ($scope, geolocation, nearApartments, uiGmapGoogleMapApi, favoriteFactory, $cookieStore) {
 
-            $scope.dataLoaded = false
-            $scope.showMap = false
+            $scope.dataLoaded = false;
+            $scope.showMap = false;
 
             $scope.submitFavs = function (id, $index) {
                 if ($cookieStore.get("username") == null || $cookieStore.get("token") == null) {
@@ -21,8 +21,8 @@ zimmerApp.controller('nearCtrl',
                 favoriteFactory.favorite(favorite)
                     .success(
                     function (data) {
-                        console.log(data)
-                        console.log(data.response)
+                        console.log(data);
+                        console.log(data.response);
                         if (data.response == 'OK') {
                             $scope.selectedIndex = $index;
                             swal("Good job!", "Favorite added", "success");
@@ -36,13 +36,13 @@ zimmerApp.controller('nearCtrl',
                     function (data) {
                         swal("OOPS!", "Looks like you're not logged in!", "warning");
                     })
-            }
+            };
 
             geolocation.getLocation().then(function (data) {
                 $scope.geoCoordinates = {
                     lat: data.coords.latitude,
                     lng: data.coords.longitude
-                }
+                };
                 if($cookieStore.get("lat")==null || $cookieStore.get("lng")==null ){
                     $cookieStore.put("lat", data.coords.latitude);
                     $cookieStore.put("lng", data.coords.longitude);
@@ -58,11 +58,11 @@ zimmerApp.controller('nearCtrl',
                 };
                 nearApartments.getApartments($scope.geoCoordinates)
                     .success(function (data) {
-                        $scope.apartments = data.response
+                        $scope.apartments = data.response;
                         uiGmapGoogleMapApi.then(function (maps) {
-                            $scope.mapMarkers = []
-                            var markers = []
-                            var n = 0
+                            $scope.mapMarkers = [];
+                            var markers = [];
+                            var n = 0;
 
                             var createMarker = function (i, value, idKey) {
                                 var ret = {
@@ -80,13 +80,13 @@ zimmerApp.controller('nearCtrl',
                                 return ret;
                             };
                             angular.forEach(data.response, function (value, key) {
-                                var marker = createMarker(n, value)
+                                var marker = createMarker(n, value);
                                 this.push(marker);
                                 n++
                             }, markers);
 
                             $scope.mapMarkers = markers;
-                            $scope.showMap = true
+                            $scope.showMap = true;
                             $scope.dataLoaded = true
                         });
                     })

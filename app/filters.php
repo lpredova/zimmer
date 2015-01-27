@@ -90,6 +90,9 @@ Route::filter('csrf', function()
 });
 
 
+/**
+ * Custom filters for logging in as specific type of user
+ */
 Route::filter('admin', function()
 {
     if (Auth::user()->role_id != 1)

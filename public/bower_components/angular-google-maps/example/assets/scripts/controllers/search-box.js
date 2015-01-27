@@ -22,7 +22,7 @@ angular.module("search-box-example", ['uiGmapgoogle-maps'])
 
 .controller("SearchBoxController",['$scope', '$timeout', 'uiGmapLogger', '$http','uiGmapGoogleMapApi'
     , function ($scope, $timeout, $log, $http, GoogleMapApi) {
-  $log.doLog = true
+  $log.doLog = true;
 
 
 
@@ -44,7 +44,7 @@ angular.module("search-box-example", ['uiGmapgoogle-maps'])
         longitude:-$scope.defaultBounds.getSouthWest().lng()
 
       }
-    }
+    };
     $scope.searchbox.options.bounds = new google.maps.LatLngBounds($scope.defaultBounds.getNorthEast(), $scope.defaultBounds.getSouthWest());
   });
 
@@ -87,7 +87,7 @@ angular.module("search-box-example", ['uiGmapgoogle-maps'])
       //parentdiv:'searchBoxParent',
       events: {
         places_changed: function (searchBox) {
-          places = searchBox.getPlaces()
+          places = searchBox.getPlaces();
           if (places.length == 0) {
             return;
           }
@@ -122,11 +122,11 @@ angular.module("search-box-example", ['uiGmapgoogle-maps'])
               latitude: bounds.getSouthWest().lat(),
               longitude: bounds.getSouthWest().lng()
             }
-          }
+          };
 
           _.each(newMarkers, function(marker) {
             marker.closeClick = function() {
-              $scope.selected.options.visible = false
+              $scope.selected.options.visible = false;
               marker.options.visble = false;
               return $scope.$apply();
             };

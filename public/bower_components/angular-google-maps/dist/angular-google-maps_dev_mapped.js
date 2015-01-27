@@ -82,8 +82,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.providers').factory('uiGmapMapScriptLoader', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.providers').factory('uiGmapMapScriptLoader', [
     '$q', 'uiGmapuuid', function($q, uuid) {
       var getScriptUrl, scriptId;
       scriptId = void 0;
@@ -146,8 +146,8 @@ Nicholas McCready - https://twitter.com/nmccready
   });
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.extensions').service('uiGmapExtendGWin', function() {
+  (function () {
+    angular.module('uiGmapgoogle-maps.extensions').service('uiGmapExtendGWin', function() {
     return {
       init: _.once(function() {
         if (!(google || (typeof google !== "undefined" && google !== null ? google.maps : void 0) || (google.maps.InfoWindow != null))) {
@@ -257,8 +257,8 @@ Nicholas McCready - https://twitter.com/nmccready
   });
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.extensions').service('uiGmapLodash', function() {
+  (function () {
+    angular.module('uiGmapgoogle-maps.extensions').service('uiGmapLodash', function() {
 
     /*
         Author Nick McCready
@@ -354,8 +354,8 @@ Nicholas McCready - https://twitter.com/nmccready
   });
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.extensions').factory('uiGmapString', function() {
+  (function () {
+    angular.module('uiGmapgoogle-maps.extensions').factory('uiGmapString', function() {
     return function(str) {
       this.contains = function(value, fromIndex) {
         return str.indexOf(value, fromIndex) !== -1;
@@ -365,8 +365,8 @@ Nicholas McCready - https://twitter.com/nmccready
   });
 
 }).call(this);
-;(function() {
-  angular.module("uiGmapgoogle-maps.directives.api.utils").service("uiGmap_sync", [
+  (function () {
+    angular.module("uiGmapgoogle-maps.directives.api.utils").service("uiGmap_sync", [
     function() {
       return {
         fakePromise: function() {
@@ -513,8 +513,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
+  (function () {
+    var __indexOf = [].indexOf || function(item) { for (var i = 0, l = this.length; i < l; i++) { if (i in this && this[i] === item) return i; } return -1; };
 
   angular.module('uiGmapgoogle-maps.directives.api.utils').factory('uiGmapBaseObject', function() {
     var BaseObject, baseObjectKeywords;
@@ -557,8 +557,7 @@ Nicholas McCready - https://twitter.com/nmccready
   });
 
 }).call(this);
-;
-/*
+  /*
     Useful function callbacks that should be defined at later time.
     Mainly to be used for specs to verify creation / linking.
 
@@ -573,8 +572,8 @@ Nicholas McCready - https://twitter.com/nmccready
   });
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapCtrlHandle', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapCtrlHandle', [
     '$q', function($q) {
       var CtrlHandle;
       return CtrlHandle = {
@@ -602,8 +601,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module("uiGmapgoogle-maps.directives.api.utils").service("uiGmapEventsHelper", [
+  (function () {
+    angular.module("uiGmapgoogle-maps.directives.api.utils").service("uiGmapEventsHelper", [
     "uiGmapLogger", function($log) {
       return {
         setEvents: function(gObject, scope, model, ignores) {
@@ -639,8 +638,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module('uiGmapgoogle-maps.directives.api.utils').factory('uiGmapFitHelper', [
@@ -682,8 +681,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapGmapUtil', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapGmapUtil', [
     'uiGmapLogger', '$compile', function(Logger, $compile) {
       var getCoords, getLatitude, getLongitude, validateCoords;
       getLatitude = function(value) {
@@ -957,8 +956,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapIsReady', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapIsReady', [
     '$q', '$timeout', function($q, $timeout) {
       var ctr, promises, proms;
       ctr = 0;
@@ -1008,8 +1007,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module("uiGmapgoogle-maps.directives.api.utils").factory("uiGmapLinked", [
@@ -1033,8 +1032,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module("uiGmapgoogle-maps.directives.api.utils").service("uiGmapLogger", [
+  (function () {
+    angular.module("uiGmapgoogle-maps.directives.api.utils").service("uiGmapLogger", [
     "$log", function($log) {
       var LEVELS, log, logFns, maybeExecLevel;
       this.doLog = true;
@@ -1082,8 +1081,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -1294,8 +1293,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api.utils').factory('uiGmapModelsWatcher', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api.utils').factory('uiGmapModelsWatcher', [
     'uiGmapLogger', 'uiGmap_async', function(Logger, _async) {
       return {
         figureOutState: function(idKey, scope, childObjects, comparison, callBack) {
@@ -1355,8 +1354,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapPromise', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api.utils').service('uiGmapPromise', [
     '$q', function($q) {
       return {
         defer: function() {
@@ -1373,8 +1372,7 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;
-/*
+  /*
     Simple Object Map with a lenght property to make it easy to track length/size
  */
 
@@ -1504,8 +1502,8 @@ Nicholas McCready - https://twitter.com/nmccready
   });
 
 }).call(this);
-;(function() {
-  angular.module("uiGmapgoogle-maps.directives.api.utils").factory("uiGmapPropertyAction", [
+  (function () {
+    angular.module("uiGmapgoogle-maps.directives.api.utils").factory("uiGmapPropertyAction", [
     "uiGmapLogger", function(Logger) {
       var PropertyAction;
       PropertyAction = function(setterFn) {
@@ -1524,8 +1522,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -1683,8 +1681,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -1829,8 +1827,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps').factory('uiGmapadd-events', [
+  (function () {
+    angular.module('uiGmapgoogle-maps').factory('uiGmapadd-events', [
     '$timeout', function($timeout) {
       var addEvent, addEvents;
       addEvent = function(target, eventName, handler) {
@@ -1860,8 +1858,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps').factory('uiGmaparray-sync', [
+  (function () {
+    angular.module('uiGmapgoogle-maps').factory('uiGmaparray-sync', [
     'uiGmapadd-events', function(mapEvents) {
       return function(mapArray, scope, pathEval, pathChangedFn) {
         var geojsonArray, geojsonHandlers, geojsonWatcher, isSetFromScope, legacyHandlers, legacyWatcher, mapArrayListener, scopePath, watchListener;
@@ -2069,8 +2067,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module("uiGmapgoogle-maps.directives.api.utils").factory("uiGmapChromeFixes", [
+  (function () {
+    angular.module("uiGmapgoogle-maps.directives.api.utils").factory("uiGmapChromeFixes", [
     function() {
       return {
         maybeRepaint: function(el) {
@@ -2088,8 +2086,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -2186,8 +2184,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module('uiGmapgoogle-maps.directives.api.options.builders').factory('uiGmapPolylineOptionsBuilder', [
@@ -2301,8 +2299,8 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api.options').service('uiGmapMarkerOptions', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api.options').service('uiGmapMarkerOptions', [
     'uiGmapLogger', 'uiGmapGmapUtil', function($log, GmapUtil) {
       return _.extend(GmapUtil, {
         createOptions: function(coords, icon, defaults, map) {
@@ -2336,8 +2334,7 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicholas McCready - https://twitter.com/nmccready
 Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawing-freehand  , &
@@ -2427,8 +2424,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -2817,8 +2814,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module('uiGmapgoogle-maps.directives.api').factory('uiGmapPolygonChildModel', [
@@ -2959,8 +2956,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -3126,8 +3123,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -3438,8 +3435,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module('uiGmapgoogle-maps.directives.api.models.parent').factory('uiGmapCircleParentModel', [
@@ -3509,8 +3506,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api.models.parent').factory('uiGmapDrawingManagerParentModel', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api.models.parent').factory('uiGmapDrawingManagerParentModel', [
     'uiGmapLogger', '$timeout', function($log, $timeout) {
       var DrawingManagerParentModel;
       return DrawingManagerParentModel = (function() {
@@ -3544,8 +3541,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;
-/*
+  /*
 	- interface for all markers to derrive from
  	- to enforce a minimum set of requirements
  		- attributes
@@ -3579,7 +3575,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
           IMarkerParentModel.__super__.constructor.call(this, this.scope);
           this.$log = Logger;
           if (!this.validateScope(scope)) {
-            throw new String("Unable to construct IMarkerParentModel due to invalid scope");
+            throw String("Unable to construct IMarkerParentModel due to invalid scope");
           }
           this.doClick = angular.isDefined(attrs.click);
           if (scope.options != null) {
@@ -3625,7 +3621,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
         IMarkerParentModel.prototype.onWatch = function(propNameToWatch, scope, newValue, oldValue) {};
 
         IMarkerParentModel.prototype.onDestroy = function(scope) {
-          throw new String("OnDestroy Not Implemented!!");
+          throw String("OnDestroy Not Implemented!!");
         };
 
         return IMarkerParentModel;
@@ -3636,8 +3632,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module("uiGmapgoogle-maps.directives.api.models.parent").factory("uiGmapIWindowParentModel", [
@@ -3669,8 +3665,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -3748,8 +3744,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -3870,8 +3866,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -4150,8 +4146,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -4407,8 +4403,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -4679,8 +4675,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module('uiGmapgoogle-maps.directives.api.models.parent').factory('uiGmapRectangleParentModel', [
@@ -4847,8 +4843,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -4952,8 +4948,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;
-/*
+  /*
 	WindowsChildModel generator where there are many ChildModels to a parent.
  */
 
@@ -5301,8 +5296,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  angular.module("uiGmapgoogle-maps.directives.api").factory("uiGmapCircle", [
+  (function () {
+    angular.module("uiGmapgoogle-maps.directives.api").factory("uiGmapCircle", [
     "uiGmapICircle", "uiGmapCircleParentModel", function(ICircle, CircleParentModel) {
       return _.extend(ICircle, {
         link: function(scope, element, attrs, mapCtrl) {
@@ -5317,8 +5312,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -5384,8 +5379,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api').service('uiGmapDragZoom', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api').service('uiGmapDragZoom', [
     'uiGmapCtrlHandle', 'uiGmapPropertyAction', function(CtrlHandle, PropertyAction) {
       return {
         restrict: 'EMA',
@@ -5437,8 +5432,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  angular.module("uiGmapgoogle-maps.directives.api").factory("uiGmapDrawingManager", [
+  (function () {
+    angular.module("uiGmapgoogle-maps.directives.api").factory("uiGmapDrawingManager", [
     "uiGmapIDrawingManager", "uiGmapDrawingManagerParentModel", function(IDrawingManager, DrawingManagerParentModel) {
       return _.extend(IDrawingManager, {
         link: function(scope, element, attrs, mapCtrl) {
@@ -5451,8 +5446,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;
-/*
+  /*
   - Link up Polygons to be sent back to a controller
   - inject the draw function into a controllers scope so that controller can call the directive to draw on demand
   - draw function creates the DrawFreeHandChildModel which manages itself
@@ -5531,8 +5525,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  angular.module("uiGmapgoogle-maps.directives.api").service("uiGmapICircle", [
+  (function () {
+    angular.module("uiGmapgoogle-maps.directives.api").service("uiGmapICircle", [
     function() {
       var DEFAULTS;
       DEFAULTS = {};
@@ -5558,8 +5552,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;
-/*
+  /*
  - interface for all controls to derive from
  - to enforce a minimum set of requirements
 	- attributes
@@ -5605,8 +5598,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api').service('uiGmapIDrawingManager', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api').service('uiGmapIDrawingManager', [
     function() {
       return {
         restrict: 'EA',
@@ -5622,8 +5615,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;
-/*
+  /*
 	- interface for all markers to derrive from
  	- to enforce a minimum set of requirements
  		- attributes
@@ -5674,8 +5666,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module('uiGmapgoogle-maps.directives.api').factory('uiGmapIPolygon', [
@@ -5724,8 +5716,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module('uiGmapgoogle-maps.directives.api').factory('uiGmapIPolyline', [
@@ -5771,8 +5763,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api').service('uiGmapIRectangle', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api').service('uiGmapIRectangle', [
     function() {
       'use strict';
       var DEFAULTS;
@@ -5796,8 +5788,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __hasProp = {}.hasOwnProperty,
+  (function () {
+    var __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
   angular.module('uiGmapgoogle-maps.directives.api').factory('uiGmapIWindow', [
@@ -5838,8 +5830,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6191,8 +6183,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6252,8 +6244,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6325,8 +6317,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6364,8 +6356,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6406,8 +6398,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6441,8 +6433,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6483,8 +6475,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps.directives.api').factory('uiGmapRectangle', [
+  (function () {
+    angular.module('uiGmapgoogle-maps.directives.api').factory('uiGmapRectangle', [
     'uiGmapLogger', 'uiGmapGmapUtil', 'uiGmapIRectangle', 'uiGmapRectangleParentModel', function($log, GmapUtil, IRectangle, RectangleParentModel) {
       return _.extend(IRectangle, {
         link: function(scope, element, attrs, mapCtrl) {
@@ -6499,8 +6491,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6604,8 +6596,8 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;(function() {
-  var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
+  (function () {
+    var __bind = function(fn, me){ return function(){ return fn.apply(me, arguments); }; },
     __hasProp = {}.hasOwnProperty,
     __extends = function(child, parent) { for (var key in parent) { if (__hasProp.call(parent, key)) child[key] = parent[key]; } function ctor() { this.constructor = child; } ctor.prototype = parent.prototype; child.prototype = new ctor(); child.__super__ = parent.prototype; return child; };
 
@@ -6681,8 +6673,7 @@ Original idea from: http://stackoverflow.com/questions/22758950/google-map-drawi
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6697,8 +6688,7 @@ Nick Baugh - https://github.com/niftylettuce
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6724,8 +6714,7 @@ This directive creates a new scope.
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6751,8 +6740,7 @@ This directive creates a new scope.
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6767,8 +6755,7 @@ Rick Huizinga - https://plus.google.com/+RickHuizinga
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Julian Popescu - https://github.com/jpopesculian
 Rick Huizinga - https://plus.google.com/+RickHuizinga
@@ -6782,8 +6769,7 @@ Rick Huizinga - https://plus.google.com/+RickHuizinga
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6797,8 +6783,7 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6812,8 +6797,7 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6828,8 +6812,7 @@ Chentsu Lin - https://github.com/ChenTsuLin
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6854,8 +6837,7 @@ This directive creates a new scope.
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -6880,8 +6862,7 @@ This directive creates a new scope.
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors:
 - Nicolas Laplante https://plus.google.com/108189012221374960701
 - Nicholas McCready - https://twitter.com/nmccready
@@ -6942,8 +6923,7 @@ This directive creates a new scope.
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Adam Kreitals, kreitals@hotmail.com
  */
@@ -6969,8 +6949,7 @@ This directive creates a new scope.
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicholas McCready - https://twitter.com/nmccready
  */
@@ -6983,16 +6962,15 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;(function() {
-  angular.module('uiGmapgoogle-maps').directive("uiGmapDrawingManager", [
+  (function () {
+    angular.module('uiGmapgoogle-maps').directive("uiGmapDrawingManager", [
     "uiGmapDrawingManager", function(DrawingManager) {
       return DrawingManager;
     }
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicholas McCready - https://twitter.com/nmccready
  * Brunt of the work is in DrawFreeHandChildModel
@@ -7006,8 +6984,7 @@ Nicholas McCready - https://twitter.com/nmccready
   ]);
 
 }).call(this);
-;
-/*
+  /*
 Map Layer directive
 
 This directive is used to create any type of Layer from the google maps sdk.
@@ -7056,8 +7033,7 @@ This directive creates a new scope.
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors
 Nicolas Laplante - https://plus.google.com/108189012221374960701
 Nicholas McCready - https://twitter.com/nmccready
@@ -7072,8 +7048,7 @@ Rick Huizinga - https://plus.google.com/+RickHuizinga
   ]);
 
 }).call(this);
-;
-/*
+  /*
 @authors:
 - Nicolas Laplante https://plus.google.com/108189012221374960701
 - Nicholas McCready - https://twitter.com/nmccready
@@ -7144,8 +7119,8 @@ This directive creates a new scope.
   ]);
 
 }).call(this);
-;angular.module('uiGmapgoogle-maps.wrapped')
-.service('uiGmapuuid', function() {
+  angular.module('uiGmapgoogle-maps.wrapped')
+      .service('uiGmapuuid', function() {
   //BEGIN REPLACE
   /*
  Version: core-1.0
@@ -7156,7 +7131,7 @@ function UUID(){}UUID.generate=function(){var a=UUID._gri,b=UUID._ha;return b(a(
   //END REPLACE
 return UUID;
 });
-;// wrap the utility libraries needed in ./lib
+// wrap the utility libraries needed in ./lib
 // http://google-maps-utility-library-v3.googlecode.com/svn/
 angular.module('uiGmapgoogle-maps.wrapped')
 .service('uiGmapGoogleMapsUtilV3', function () {
@@ -10521,7 +10496,8 @@ MarkerClusterer.IMAGE_SIZES = [53, 56, 66, 78, 90];
  */
 function inherits(childCtor, parentCtor) {
   /** @constructor */
-  function tempCtor() {};
+  function tempCtor() {
+  }
   tempCtor.prototype = parentCtor.prototype;
   childCtor.superClass_ = parentCtor.prototype;
   childCtor.prototype = new tempCtor();
@@ -11067,8 +11043,8 @@ MarkerWithLabel.prototype.setMap = function (theMap) {
     })
   };
 });
-;/**
- * Performance overrides on MarkerClusterer custom to Angular Google Maps
+  /**
+   * Performance overrides on MarkerClusterer custom to Angular Google Maps
  *
  * Created by Petr Bruna ccg1415 and Nick McCready on 7/13/14.
  */

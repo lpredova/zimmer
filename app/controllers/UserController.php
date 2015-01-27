@@ -3,8 +3,7 @@
 class UserController extends \BaseController {
 
 	/**
-	 * Display a listing of the resource.
-	 *
+	 * Display dashboard for user
 	 * @return Response
 	 */
 	public function indexUser()

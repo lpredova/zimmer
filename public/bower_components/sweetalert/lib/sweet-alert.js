@@ -191,7 +191,7 @@
     .done(function(html) {
       jQuery('body').append(html);
     });*/
-  }
+  };
 
   /*
    * Global sweetAlert function

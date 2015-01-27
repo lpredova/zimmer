@@ -5,5 +5,5 @@ function InfoController($scope, $log) {
         $log.info(msg);
         alert(msg);
 	};
-};
+}
 

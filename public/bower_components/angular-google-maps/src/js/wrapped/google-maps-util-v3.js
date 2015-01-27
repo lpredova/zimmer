@@ -5,7 +5,7 @@ angular.module('uiGmapgoogle-maps.wrapped')
   return {
     init: _.once(function () {
       //BEGIN REPLACE
-      @@REPLACE_W_LIBS
+      @@REPLACE_W_LIBS;
       //END REPLACE
       window.InfoBox = InfoBox;
       window.Cluster = Cluster;

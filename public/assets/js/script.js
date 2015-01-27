@@ -68,7 +68,7 @@ jQuery(document).ready(function ($) {
         success: function (data) {
 
             var markers = [];
-            var json = $.parseJSON(data)
+            var json = $.parseJSON(data);
             var i = 0;
 
             $.each(json, function () {

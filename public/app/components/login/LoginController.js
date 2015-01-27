@@ -11,7 +11,7 @@ zimmerApp.controller('loginCtrl', ['$cookieStore', '$scope', '$location', '$wind
 
         var json = xhReq.responseText, obj = JSON.parse(json);
 
-        $scope.error = false
+        $scope.error = false;
         $scope.credentials = {
             username: '',
             password: '',
@@ -22,7 +22,7 @@ zimmerApp.controller('loginCtrl', ['$cookieStore', '$scope', '$location', '$wind
             AuthService.login($scope.credentials)
                 .success(function (data) {
                     if (data.code == 200) {
-                        var url = 'http://' + window.location.hostname + ":" + window.location.port + data.url
+                        var url = 'http://' + window.location.hostname + ":" + window.location.port + data.url;
 
                         $cookieStore.put("username", data.username);
                         $cookieStore.put("token", data.token);

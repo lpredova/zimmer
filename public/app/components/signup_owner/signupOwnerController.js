@@ -11,7 +11,7 @@ zimmerApp.controller('SignUpOwnerCtrl',  ['$scope', 'SignUpOwner', '$timeout', '
         xhReq.open("GET", "http://" + window.location.hostname + ":" + window.location.port + "/auth/token", false);
         xhReq.send(null);
 
-        $scope.error = false
+        $scope.error = false;
         $scope.credentials = {
             name: '',
             surname: '',
@@ -25,31 +25,31 @@ zimmerApp.controller('SignUpOwnerCtrl',  ['$scope', 'SignUpOwner', '$timeout', '
 
         $scope.register = function (credentials) {
 
-            console.log('ajmooo')
+            console.log('ajmooo');
 
 
             if (credentials.password === credentials.confirmPassword) {
 
-                console.log('ideee')
+                console.log('ideee');
                 SignUpOwner.signup(credentials).then(
                     function (data) {
-                        console.log(data.data)
+                        console.log(data.data);
 
                         if (data.data.code == 200) {
-                            $scope.success = true
+                            $scope.success = true;
                             $timeout(function () {
                                 $location.path('/login')
                             }, 5000)
                         }
                         else {
-                            $scope.fail = true
+                            $scope.fail = true;
                             $timeout(function () {
                                 $scope.fail = false
                             }, 5000)
                         }
                     },
                     function (reason) {
-                        $scope.fail = true
+                        $scope.fail = true;
 
                         $timeout(function () {
                             $scope.fail = false
@@ -58,8 +58,8 @@ zimmerApp.controller('SignUpOwnerCtrl',  ['$scope', 'SignUpOwner', '$timeout', '
                     })
             }
             else {
-                console.log('err')
-                $scope.error = "Please check your password and password confirm"
+                console.log('err');
+                $scope.error = "Please check your password and password confirm";
                 $timeout(function () {
                     $scope.error = false
                 }, 5000)

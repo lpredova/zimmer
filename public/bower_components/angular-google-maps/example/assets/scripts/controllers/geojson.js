@@ -4,10 +4,10 @@
 
 var rndAddToLatLon = function () {
   return Math.floor(((Math.random() < 0.5 ? -1 : 1) * 2) + 1)
-}
+};
 
 function ExampleController($scope, $timeout, $log, $http, uiGmapLogger) {
-  uiGmapLogger.doLog = true
+  uiGmapLogger.doLog = true;
   // Enable the new Google Maps visuals until it gets enabled by default.
   // See http://googlegeodevelopers.blogspot.ca/2013/05/a-fresh-new-look-for-maps-api-for-all.html
   google.maps.visualRefresh = true;
@@ -406,12 +406,12 @@ function ExampleController($scope, $timeout, $log, $http, uiGmapLogger) {
     //optional param if you want to refresh you can pass null undefined or false or empty arg
     $scope.map.control.refresh({latitude: 32.779680, longitude: -79.935493});
     $scope.map.control.getGMap().setZoom(11);
-    return;
+
   };
   $scope.getMapInstance = function () {
     alert("You have Map Instance of" + $scope.map.control.getGMap().toString());
-    return;
-  }
+
+  };
   $scope.map.clusterOptionsText = JSON.stringify($scope.map.clusterOptions);
   $scope.$watch('map.clusterOptionsText', function (newValue, oldValue) {
     if (newValue !== oldValue)
@@ -450,7 +450,7 @@ function ExampleController($scope, $timeout, $log, $http, uiGmapLogger) {
         $log.log(marker.getPosition().lng());
       }
     }
-  }
+  };
   $scope.onMarkerClicked = onMarkerClicked;
 
   $timeout(function () {

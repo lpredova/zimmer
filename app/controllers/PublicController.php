@@ -3,6 +3,10 @@
 class PublicController extends \BaseController
 {
 
+    /**
+     * Since we use angular js as frontend framework we DONT! use these methods below
+     */
+
     public function getMainPage()
     {
         return View::make('pages.homepage');

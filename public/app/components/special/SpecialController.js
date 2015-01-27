@@ -1,6 +1,6 @@
 zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory', '$cookieStore', 'geolocation',
     function ($scope, specialOffers, favoriteFactory, $cookieStore, geolocation) {
-        $scope.dataLoaded = false
+        $scope.dataLoaded = false;
 
 
         $scope.submitFavs = function (id, $index) {
@@ -19,8 +19,8 @@ zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory
             favoriteFactory.favorite(favorite)
                 .success(
                 function (data) {
-                    console.log(data)
-                    console.log(data.response)
+                    console.log(data);
+                    console.log(data.response);
                     if (data.response == 'OK') {
                         $scope.selectedIndex = $index;
                         swal("Good job!", "Favorite added", "success");
@@ -32,17 +32,17 @@ zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory
             )
                 .error(
                 function (data) {
-                    console.log(data)
+                    console.log(data);
                     swal("OOPS!", "Looks like you're not logged in!", "warning");
                 })
-        }
+        };
 
 
         geolocation.getLocation().then(function (data) {
             $scope.geoCoordinates = {
                 lat: data.coords.latitude,
                 lng: data.coords.longitude
-            }
+            };
 
             if($cookieStore.get("lat")==null || $cookieStore.get("lng")==null ){
                 $cookieStore.put("lat", data.coords.latitude);
@@ -51,7 +51,7 @@ zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory
 
             specialOffers.getSpecialOffers($scope.geoCoordinates)
                 .success(function (data) {
-                    $scope.specials = data.response
+                    $scope.specials = data.response;
 
                     /**
                      * Showing initial notice below the form
@@ -64,7 +64,7 @@ zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory
                         x.style.height = 128 + "px";
                         x.style.bottom = 0;
                         x.style.top = 2 + "%";
-                    }
+                    };
 
                     /**
                      * after input filed loses focus then kill em all
@@ -78,18 +78,18 @@ zimmerApp.controller('specialCtrl', ['$scope', 'specialOffers', 'favoriteFactory
                         $scope.showNotice = false;
                         $scope.showContinueNotice = false;
 
-                    }
+                    };
 
                     $scope.clearInput = function () {
                         $scope.new_name = "";
                         $scope.name = "LOVRO";
                         $scope.showContinueNotice = false;
-                        $scope.showX = false
+                        $scope.showX = false;
 
 
                         var x = document.getElementById("input-id");
                         x.style.fontSize = 4 + "em";
-                    }
+                    };
                     $scope.dataLoaded = true
 
                 })

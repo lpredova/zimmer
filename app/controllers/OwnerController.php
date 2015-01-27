@@ -4,7 +4,7 @@ class OwnerController extends \BaseController {
 
 
     /**
-     * Protecting admin panel from idiots
+     * Protecting admin panel from idiots for auth and csrf
      */
     public function __construct()
     {
@@ -13,8 +13,11 @@ class OwnerController extends \BaseController {
     }
 
 
-
-	public function indexOwner()
+    /**
+     * Shows main dashoboard for apartment owner
+     * @return mixed
+     */
+    public function indexOwner()
 	{
         $user = Auth::user();
         return View::make('owner.start',compact('user'));
@@ -26,6 +29,10 @@ class OwnerController extends \BaseController {
      * ====================================================================
      */
 
+    /**
+     * Formats owners list of apartments
+     * @return mixed
+     */
     public function getApartmentData(){
         $result = DB::table('apartments')
             ->join('users','users.id','=','apartments.owner_id')
@@ -34,20 +41,17 @@ class OwnerController extends \BaseController {
                 'apartments.address as address','users.username as owner',
                 'apartments.price as price','apartments.id as edit');
 
-
-
-        /*$result=Apartment::with('user','city')
-            ->where('owner_id','=',Auth::user()->id)
-            ->orderBy('id', 'asc')
-            ->get();*/
-
         return Datatables::of($result)
             ->add_column('edit', '<a href="/owner/apartments/edit/{{ $edit }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
             ->make();
     }
 
 
-	public function indexApartments()
+    /**
+     * Shows view with apartments for that user
+     * @return mixed
+     */
+    public function indexApartments()
 	{
         $apartments = Apartment::with('user','city')
             ->where('owner_id','=',Auth::user()->id)
@@ -57,6 +61,10 @@ class OwnerController extends \BaseController {
         return View::make('owner.apartment.index',compact('apartments'));
     }
 
+    /**
+     * Method that shows view for adding new apartment
+     * @return mixed
+     */
     public function createApartment()
     {
         $types = ApartmentType::lists('name', 'id');
@@ -64,6 +72,10 @@ class OwnerController extends \BaseController {
         return View::make('owner.apartment.create', compact('types','cities'));
     }
 
+    /**
+     * method that stores apatments
+     * @return mixed
+     */
     public function storeApartment()
     {
         $rules = array(
@@ -106,12 +118,22 @@ class OwnerController extends \BaseController {
         }
     }
 
+    /**
+     * Method that shows view with details about specific apartment
+     * @param $id
+     * @return mixed
+     */
     public function showApartment($id)
     {
         $apartment = Apartment::with('type','city')->where('id', '=', $id)->get();
         return View::make('owner.apartment.show', compact('apartment'));
     }
 
+    /**
+     * Method that shows view for editing specific apartment
+     * @param $id
+     * @return mixed
+     */
     public function editApartment($id)
     {
         $owners = User::lists('username', 'id');
@@ -121,6 +143,11 @@ class OwnerController extends \BaseController {
         return View::make('owner.apartment.edit', compact('apartment', 'owners', 'cities', 'types'));
     }
 
+    /**
+     * Method that updates specific apartment
+     * @param $id
+     * @return mixed
+     */
     public function updateApartment($id)
     {
         $rules = array(
@@ -162,6 +189,11 @@ class OwnerController extends \BaseController {
         }
     }
 
+    /**
+     * Method that deletes specific apartment
+     * @param $id
+     * @return mixed
+     */
     public function destroyApartment($id)
     {
         $apartment = Apartment::find($id);
@@ -174,6 +206,11 @@ class OwnerController extends \BaseController {
     /**
      * Rooms CRUD
      * ====================================================================
+     */
+
+    /**
+     * Method that formats the data for the datatables
+     * @return mixed
      */
     public function getRoomData(){
         $result = DB::table('rooms')
@@ -188,8 +225,12 @@ class OwnerController extends \BaseController {
             ->add_column('edit', '<a href="/owner/rooms/edit/{{ $edit }}" class="btn btn-default"><i class="icon-list-alt"></i>Edit</a>')
             ->make();
     }
-    
 
+
+    /**
+     * Method that shows view with all rooms
+     * @return mixed
+     */
 	public function indexRooms()
 	{
         $rooms = DB::table('rooms')
@@ -202,12 +243,20 @@ class OwnerController extends \BaseController {
         return View::make('owner.room.index',compact('rooms'));
     }
 
+    /**
+     * Method that shows view for adding new room
+     * @return mixed
+     */
     public function createRoom()
     {
         $apartments = Apartment::where('owner_id','=',Auth::user()->id)->lists('name', 'id');
         return View::make('owner.room.create', compact('apartments'));
     }
 
+    /**
+     * Method that adds new room
+     * @return mixed
+     */
     public function storeRoom()
     {
         $rules = array(
@@ -240,12 +289,22 @@ class OwnerController extends \BaseController {
         }
     }
 
+    /**
+     * Method that shows view with all the rooms
+     * @param $id
+     * @return mixed
+     */
     public function showRoom($id)
     {
         $room = Room::where('id', '=', $id)->with('apartment')->get();
         return View::make('owner.room.show', compact('room'));
     }
 
+    /**
+     * Method that returns view for editing rooms
+     * @param $id
+     * @return mixed
+     */
     public function editRoom($id)
     {
         $apartments = Apartment::lists('name', 'id');
@@ -253,6 +312,11 @@ class OwnerController extends \BaseController {
         return View::make('owner.room.edit', compact('apartments', 'room'));
     }
 
+    /**
+     * Method for updating specific room
+     * @param $id
+     * @return mixed
+     */
     public function updateRoom($id)
     {
         $rules = array(
@@ -286,6 +350,11 @@ class OwnerController extends \BaseController {
     }
 
 
+    /**
+     * Method for deleting specific room
+     * @param $id
+     * @return mixed
+     */
     public function destroyRoom($id)
     {
         $room = Room::find($id);
@@ -300,7 +369,12 @@ class OwnerController extends \BaseController {
      * Stats and favorites and user profile
      * ====================================================================
      */
-	public function getStatistics()
+
+    /**
+     * Method for showing stats, Todo
+     * @return mixed
+     */
+    public function getStatistics()
 	{
         return View::make('owner.stats.index');
     }
@@ -315,20 +389,27 @@ class OwnerController extends \BaseController {
     }
 
     /**
-     * User profile manipulation
+     * Method for retrieving user profile
      * @return mixed
      */
-
 	public function getUserProfile()
 	{
         return View::make('owner.profile.show');
     }
 
+    /**
+     * Method that shows view for editing owner user profile
+     * @return mixed
+     */
 	public function editUserProfile()
 	{
         return View::make('owner.profile.edit');
     }
 
+    /**
+     * Method for updating users profile
+     * @return mixed
+     */
 	public function updateUserProfile()
 	{
         $rules = array(

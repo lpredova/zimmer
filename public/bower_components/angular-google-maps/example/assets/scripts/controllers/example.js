@@ -28,7 +28,7 @@ angular.module("angular-google-maps-example", ['uiGmapgoogle-maps'])
 
 .controller("ExampleController",['$scope', '$timeout', 'uiGmapLogger', '$http', 'rndAddToLatLon','uiGmapGoogleMapApi'
     , function ($scope, $timeout, $log, $http, rndAddToLatLon,GoogleMapApi) {
-  $log.doLog = true
+  $log.doLog = true;
 
   GoogleMapApi.then(function(maps) {
     $scope.googleVersion = maps.version;
@@ -563,21 +563,21 @@ angular.module("angular-google-maps-example", ['uiGmapgoogle-maps'])
     $scope.map.infoWindow.show = false;
     $scope.map.templatedInfoWindow.show = false;
     $scope.map.templatedInfoWindow.coords = null;
-    $scope.map.infoWindowWithCustomClass.show = false
+    $scope.map.infoWindowWithCustomClass.show = false;
     $scope.map.infoWindowWithCustomClass.coords = null;
-    $scope.map.infoWindow.show = false
+    $scope.map.infoWindow.show = false;
     $scope.map.infoWindow.coords = null;
   };
   $scope.refreshMap = function () {
     //optional param if you want to refresh you can pass null undefined or false or empty arg
     $scope.map.control.refresh({latitude: 32.779680, longitude: -79.935493});
     $scope.map.control.getGMap().setZoom(11);
-    return;
+
   };
   $scope.getMapInstance = function () {
     alert("You have Map Instance of" + $scope.map.control.getGMap().toString());
-    return;
-  }
+
+  };
   $scope.map.clusterOptionsText = JSON.stringify($scope.map.clusterOptions);
   $scope.$watch('map.clusterOptionsText', function (newValue, oldValue) {
     if (newValue !== oldValue)
@@ -623,7 +623,7 @@ angular.module("angular-google-maps-example", ['uiGmapgoogle-maps'])
         $log.log(marker.getPosition().lng());
       }
     }
-  }
+  };
   $scope.onMarkerClicked = onMarkerClicked;
 
   $scope.clackMarker = function (gMarker,eventName, model) {

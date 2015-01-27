@@ -56,13 +56,13 @@ zimmerApp.config(['$routeProvider','$locationProvider',
 zimmerApp.run(function($cookieStore, $rootScope,$window) {
     $rootScope.checkLogin = function () {
         if($cookieStore.get("username")!=null){
-            $rootScope.saved_username = $cookieStore.get("username")
+            $rootScope.saved_username = $cookieStore.get("username");
             return true
         }
         else{
             return false
         }
-    }
+    };
     $rootScope.Logout = function () {
 
         /**
@@ -71,9 +71,9 @@ zimmerApp.run(function($cookieStore, $rootScope,$window) {
         $cookieStore.remove('username');
         $cookieStore.remove('token');
 
-        var url = 'http://' + window.location.hostname + ":" + window.location.port + '/logout'
+        var url = 'http://' + window.location.hostname + ":" + window.location.port + '/logout';
 
         $window.location.href = url
 
     }
-})
+});
