@@ -331,16 +331,16 @@ body {
     margin-left: 10px;
 }
 
-/*Angular entering animatios*/
+/*Angular entering animatios
 .animate-enter {
-    -webkit-transition: 1s linear all; /* Chrome */
+    -webkit-transition: 1s linear all;
     transition: 1s linear all;
     opacity: 0;
 }
 
 .animate-enter.animate-enter-active {
     opacity: 1;
-}
+}*/
 
 /*Preloader*/
 .preloader {
@@ -447,6 +447,7 @@ body {
     /*overflow:hidden;*/
 }
 
+/*Angular enter animation
 .view-animate.ng-enter, .view-animate.ng-leave {
     -webkit-transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
     transition: all cubic-bezier(0.250, 0.460, 0.450, 0.940) 1s;
@@ -473,7 +474,7 @@ body {
 .view-animate.ng-leave.ng-leave-active {
     left: -100%;
 }
-
+*/
 /*team members slis*/
 
 .app-page {
